@@ -25,11 +25,11 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{C}\relax\glsresetentrylist
 \glossentry{planck}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{11}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{9}}}\glsgroupskip
 \glsgroupheading{E}\relax\glsresetentrylist
 \glossentry{exists}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{11}}}\glsgroupskip
+\glsXpageXglsnumberformat{}{9}}}\glsgroupskip
 \glsgroupheading{O}\relax\glsresetentrylist
 \glossentry{ohm}{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{11}}}%
+\glsXpageXglsnumberformat{}{9}}}%
 \end{theglossary}\glossarypostamble

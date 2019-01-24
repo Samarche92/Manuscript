@@ -71,14 +71,14 @@
 %
 % Production des pages de couverture et de titre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\maketitle
+\maketitle[nofrontcover=true,frametitle=none]
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Début de la partie liminaire de la thèse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % (Facultatif) Production de la page de clause de non-responsabilité
-\makedisclaimer
+%\makedisclaimer
 %
 % (Facultatif) Production de la page de mots clés
 \makekeywords
@@ -88,34 +88,34 @@
 \makelaboratory
 %
 % (Facultatif) Dédicace(s)
-\input{liminaires/dedicaces}
+%\input{liminaires/dedicaces}
 %
 % (Facultatif) Épigraphe(s)
-\input{liminaires/epigraphes}
+%\input{liminaires/epigraphes}
 %
 % Résumés succincts
 \input{liminaires/resumes}
 %
 % (Facultatif) Chapitre de remerciements
-\include{liminaires/remerciements}
+%\include{liminaires/remerciements}
 %
 % (Facultatif) Chapitre d'avertissement
-\include{liminaires/avertissement}
+%\include{liminaires/avertissement}
 %
 % (Facultatif) Liste des acronymes
 \printacronyms
 %
 % (Facultatif) Liste des symboles
-\printsymbols
+%\printsymbols
 %
 % (Facultatif) Chapitre d'avant-propos
-\include{liminaires/avant-propos}
+%\include{liminaires/avant-propos}
 %
 % Sommaire
-\tableofcontents[depth=chapter,name=Sommaire]
+\tableofcontents[depth=chapter,name=Table of Contents]
 %
 % (Facultatif) Liste des tableaux
-\listoftables
+%\listoftables
 %
 % (Facultatif) Table des figures
 \listoffigures
@@ -137,7 +137,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Première partie éventuelle
-\part{Le chaos du rire}
+%\part{Le chaos du rire}
 %
 % Premier chapitre
 \include{corps/position-problemeI}
