@@ -1,5 +1,5 @@
 % Document de classe yathesis, en 12 points, interligne un et demi, et version finale
-\documentclass[12pt,space=onehalf,version=final,mainlanguage=english]{yathesis}
+\documentclass[12pt,space=onehalf,version=final,mainlanguage=english,localtocs/depth=subsubsection]{yathesis}
 %
 % Chargement manuel de packages (pas déjà chargés par la classe yathesis)
 \usepackage[T1]{fontenc}
@@ -21,7 +21,7 @@
 \usepackage[xindy,acronyms,symbols]{glossaries}
 %
 % Génération de l'index
-\makeindex
+%\makeindex
 %
 % Spécification de la ou des ressources bibliographiques
 \addbibresource{auxiliaires/bibliographie.bib}
@@ -103,7 +103,7 @@
 %\include{liminaires/avertissement}
 %
 % (Facultatif) Liste des acronymes
-\printacronyms
+% \printacronyms
 %
 % (Facultatif) Liste des symboles
 %\printsymbols
@@ -140,7 +140,7 @@
 %\part{Le chaos du rire}
 %
 % Premier chapitre
-\include{corps/chapter2.tex}
+\include{corps/chapter2}
 %
 % Deuxième chapitre
 %\include{corps/developpementI}
@@ -188,7 +188,7 @@
 \printglossary
 %
 % (Facultatif) Index :
-\printindex
+%\printindex
 %
 % Table des matières
 \tableofcontents
