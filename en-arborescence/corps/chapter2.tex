@@ -1,0 +1,1091 @@
+\chapter{Acoustic wedge with mixed boundary conditions}
+\label{chap-developpement}
+\section{Introduction}
+The canonical problem of an acoustic, electromagnetic or elastodynamic plane wave diffraction by a wedge with Neumann or Dirichlet boundary conditions is a complex mathematical problem which has been of great interest to researchers for over a century.
+
+The mathematical theory of wedge diffraction was first introduced by Sommerfeld \cite{Sommerfeld}, who gave an analytical expression of the exact solution of the diffraction problem of a scalar plane wave as a contour integral \cite{SMtechnique}. Macdonald \cite{Macdo} has expressed the scalar solution as a series, using the variables separation technique. 
+
+The most common approximation of diffraction problems is that of far-field asymptotics (i.e. wave behavior when $kr>>1$, $k$ being the wave number and $r$ the observation distance). The Geometrical Theory of Diffraction (GTD)  was first proposed by Keller \cite{GTD} in electromagnetics based on an asymptotic expansion of Sommerfeld's exact solution. Sommerfeld \cite{Sommerfeld} gave an analytical formulae of the GTD diffraction coefficient for an arbitrary-angled wedge (with Neumann or Dirichlet boundary conditions) illuminated by a scalar plane wave. This wedge GTD coefficient can be used for scalar wave diffraction both in electromagnetics \cite{Kouyoumjian} and in acoustics \cite{Bouche,Bo}.
+
+In the more complex case of an elastic wave diffracted by a wedge of angle less than $\pi$, there exist two major approaches : one is based on the Sommerfeld integral (SI) representation of the elastodynamic potentials, it was introduced by Budaev and Bogy \cite{Rayleigh} and clarified by Kamotski et al. \cite{KamotskiFradkin}. The other method is based on the Laplace transform of the displacement field (LT), and was developed by Gautesen and Fradkin \cite{GautesenFradkin}. 
+
+These methods are non-uniform in the sense that they lead to a solution which diverges at shadow boundaries and caustics of the Geometric-Elastic (GE) field \cite{Bouche}. To overcome this difficulty, Ufimtsev \cite{Ufmi} has introduced the Physical Theory of Diffraction (PTD) in electromagnetics. This technique has been extended to elastic waves by Zernov et al. \cite{Zernov}, however it is computationally expensive. 
+Another uniform correction of GTD is the Uniform Asymptotic Theory (UAT), introduced by Lewis \cite{Lewis} in electromagnetics and acoustics and extended to elastodynamics by Achenbach et al. \cite{Achenbach}, which gives a systematic approach for computing a uniform solution but is quite complicated to implement for complex geometries as it requires extension of the reflected field to its shadow zone using fictitious rays \cite{Bouche}, \cite{Molinet}.
+For practical purposes, the most used uniform correction of the GTD method is the Uniform Theory of Diffraction (UTD) as it is computationally efficient and does not require an artificial extension of the reflected field. It was developed in electromagnetics by Kouyoumjian and Pathak \cite{Kouyoumjian}, using the Pauli-Clemmow method \cite{Pauli} and extended to elastodynamics by Kamta Djakou et al. \cite{Audrey}. A comparison of different asymptotic (GTD and uniform) and exact solutions has been carried out in elastodynamics by Aristizabal et al. \cite{Aristizabal} but for the scalar case of the 2D wedge diffraction of a shear horizontally polarized incident wave.
+
+For a certain time, methods of computation have been studied without proof of solvability for the wedge diffraction problem. Castro and Kapanadze \cite{Castro} have proven existence and uniqueness of the solution for acoustic and electromagnetic waves using a detailed Fredholm analysis. Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to the elastic wave diffraction  by a soft wedge (Dirichlet boundary) problem for all angles using the Spectral Functions method in which the diffracted wave is modeled thanks to these spectral functions. This method was at first developed by Croisille and Lebeau \cite{CroisilleLebeau} who proposed a numerical algorithm in order to compute these functions for elastic wedges of angle lower than $\pi$ immersed in a fluid.
+
+The aim of this paper is to develop and implement the methodology of Croisille and Lebeau \cite{CroisilleLebeau} in the two-dimensional (i.e. the incident wave vector lies in the plane normal to the edge) case of an acoustic wave diffracted by a soft wedge immersed in a fluid (Dirichlet boundary condition) and propose a numerical validation of the method for angles both smaller and larger than $\pi$. This will be achieved by comparing the GTD approximation of the diffraction coefficient obtained using the spectral functions method, with the analytical expression given in \cite{Bouche,Bo} of the GTD approximation of the exact solution. 
+
+The outline of the paper is the following: section 2. presents the problem and the diffraction coefficients are expressed in terms of the spectral functions. The resolution of the problem is discussed in section 3. Finally, numerical results are given in section 4. and compared to the analytical Sommerfeld solution. 
+\section{Problem statement}
+\label{Chapter5:problem}
+
+Let us consider a stress-free wedge of angle $2\varphi$ immersed in a fluid $\Omega_f$ constituted of the junction of two faces $F_1$ and $F_2$ (see Fig.~\ref{chapter5:figure1}). The Cartesian coordinate system $(O; \mathbf{e}_{x_1}, \mathbf{e}_{y_1} )$ is linked to the face $F_1$ of the wedge and $(O;  \mathbf{e}_{x_2}, \mathbf{e}_{y_2} )$ is linked to the face $F_2$. These Cartesian coordinate systems  have the same origin located on the wedge edge which coincides with the $z$-axis. Let $\mathbf{x} = (x_1,y_1)_{ (\mathbf{e}_{x_1}, \mathbf{e}_{y_1}) } = (x_2,y_2)_{ (\mathbf{e}_{x_2}, \mathbf{e}_{y_2})}$ be a position vector $\mathbf{x} = (r,0)$ in a local basis of polar coordinates associated to the Cartesian coordinates $(x_1,y_1)$. The time convention used in this chapter is $\exp(i\omega t)$. The wedge is thus irradiated by a velocity potential plane wave in the form
+\begin{align}
+\label{Chapter5:incidence_wave}
+g^{\rm inc}(\mathbf{x},t) = A \, e^{i(\omega t - \mathbf{k}^{\rm inc} \cdot \mathbf{x})}
+\end{align}
+
+where $A$ is the amplitude of the incident velocity potential, $\omega$ is the circular frequency, $t$ is time and 
+\begin{align}
+\mathbf{k}^{\rm inc} = k_0 (-\cos \theta_{\rm inc},-\sin \theta_{\rm inc})_{(\mathbf{e}_{x_1}, \mathbf{e}_{y_1})}
+\end{align}
+
+is the wave vector of the incident wave with $k_0 = \omega/c_0$ being the wave number - $c_0$ is the sound velocity in the fluid.  The velocity potential in the fluid $g$ satisfies the motion equation in the fluid medium $\Omega_f$ surrounding the wedge 
+\begin{equation}
+\label{Chapter5:WaveMotion}
+\partial_t^2 g - c_0^2 \, \triangle g = 0
+\end{equation}
+
+and the Dirichlet boundary condition on the wedges faces
+\begin{equation}
+\label{Chapter5:CL}
+g\mid_{F_j} = 0, \quad j=1,2.
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\resizebox{!}{0.2\textheight}{
+	\begin{tikzpicture}
+	\fill[color=gray!20] (0,0) -- (8,0)  -- (8,6.5778) -- (-2.39,6.5778) -- cycle;  
+	\draw[ thick, ->] (2.5,0) arc (0:110:2.5);
+	
+	\fill[color=gray!60] (0,0) -- (8,0)  -- (8,-0.7) -- (0,-0.7) -- cycle;  
+	
+	\fill[color=gray!60] (0,0) --  (-2.39,6.5778) --(-3.1,6.3) -- (-0.7,-0.3) -- cycle; 
+		
+	\draw[thick, color = black]  (0,0) -- (8,0) node[midway,below] {\LARGE ($F_1$) bottom free surface};
+	
+	\draw[thick, color = black]  (0,0) -- (-2.39,6.5778) node[midway,below,sloped] { \LARGE ($F_2$) top free surface};
+	
+	\draw[very thick, ->] (-2.39,6.5778) -- (-2.69,7.42);
+	
+	\node[scale=1] at (-2.5,7.7){ \huge $\mathbf{e}_{x_2}$};
+	
+	\draw[very thick, ->] (-2.39,6.5778) -- (-1.5,6.9);
+	
+	\node at (-1,7){\huge $\mathbf{e}_{y_2} $};
+	
+	
+	\node at (0.1,2.9){\LARGE $2 \varphi$} ; 
+	
+	\draw[very thick, ->] (0,0) -- (1,0);
+	
+	\node at (1.3,0.4) {\huge $\mathbf{e}_{x_1} $};
+	
+	\draw[very thick, ->] (0,0) -- (0,1);
+	
+	\node at (0,1.4){\huge $\mathbf{e}_{y_1} $};
+	
+	\node at (-2,-0.01) {$\bullet$};
+	
+	\draw[thick] (-2,0) circle (0.2);
+	
+	\node at (-2.7,0){\huge $\mathbf{e}_{z}$};
+	
+	\draw[very thick, ->] (5.5,5.5) -- (4,4);
+	
+	\draw[dashed] (6.5,4) -- (4,4);
+	
+	\draw[thick, ->] (5,4) arc (0:45:1);
+	
+	\node at (5.7,4.4){\LARGE $\theta_{\rm inc}$};
+	
+	\node at (5.3,5.6){\LARGE $\mathbf{k}^{\rm inc}$};
+	
+	\node at (-0.3,-0.4){\huge $O$};
+	
+	\node at (5,1){\LARGE $\Omega_f$ };
+	
+	% point observation
+	
+	\draw[thick, ->] (0,0) -- (2,5); 
+	
+	\draw[thick, ->] (3.5,0) arc (0:68.2:3.5);
+	
+	\node at (3.3,2){\LARGE $\theta$};
+	
+	\node at (1.4,4.3){\LARGE $r$};
+	
+	\node at (2.06,5.2){\LARGE $\mathbf{x}$};
+	
+	\end{tikzpicture}
+    }
+	\caption
+[Geometry of the problem]
+{The wedge of angle $2\varphi$ whose faces are stress-free is illuminated by a plane wave of wave vector $\mathbf{k}^{\rm inc}$.}
+\label{chapter5:figure1}
+\end{figure}
+The dimensionless form of the problem is obtained  by defining the function $h$ by
+\begin{equation}
+\label{Chapter5:dimensionless}
+g(\mathbf{x},t) = 2A \, e^{i \omega t} \, h(k_0 \mathbf{x}).  
+\end{equation}
+
+The dimensionless function $h$ is the sum of the  incident dimensionless  wave $h_{\rm inc}$ and of the scattered dimensionless  wave $v$
+\begin{equation}
+h = h_{\rm inc} + v
+\end{equation}
+
+The system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CL} is equivalent to the following  system of equations for the dimensionless problem
+\begin{equation}
+\label{Chapter5:Adimen_waveMotion}
+\begin{cases}
+(\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
+v =  -h_{\rm inc} \quad \quad \quad \text{on } F_j, \quad j=1,2
+\end{cases}.
+\end{equation}
+In order to obtain a solution to this problem which is physically relevant, the limiting absorption principle is used. It consists in substituting the wave number $k_0$ by a complex one $k_0 e^{-i\epsilon} $ with $\epsilon > 0$. This means that absorption occurs in the medium and thus the scattered waves attenuate with the distance. The system (\ref{Chapter5:Adimen_waveMotion}) then becomes :
+\begin{equation}
+\label{Chapter5:waveMotion_epsilon}
+(S_\epsilon^*) \quad
+\begin{cases}
+(\triangle+ \, e^{-2i\epsilon}) v^\epsilon  =  0 \quad \text{in } \Omega_f, \\
+v^\epsilon  =  -h_{\rm inc}^\epsilon  \quad \text{on } F_j, \quad j=1,2
+\end{cases}
+\end{equation}
+
+The physically relevant solution to (\ref{Chapter5:Adimen_waveMotion}), called the outgoing solution, can now be defined. It is the one obtained when taking $\epsilon \to 0$ in (\ref{Chapter5:waveMotion_epsilon}). This limit is noted $v^0$. Its integral representation is found hereafter.
+
+\subsection*{Outgoing solution: integral representation}
+\label{integral_representation}
+
+First, a special class of distributions is defined.
+\begin{definition}
+The class of distributions $\mathcal{A}$ is defined as follows. The distribution $f\in \mathcal{A}$ if :
+\begin{itemize}
+\item $f \in \mathcal{L}^2(\mathbb{R})$ (f is a tempered distribution)
+\item supp$(f) \subset \lbrack 0,+\infty \lbrack$
+\item $\exists C_0>0$ such that
+$$ \sup_{-\pi<\theta<0} \int_{\rho>C_0}|\hat{f}(\rho e^{i\theta})|^2\,d\rho <\infty$$
+where $\hat{f}$ is the Fourier transform of $f$ defined by $\hat{f}(\xi)=\int_{\mathbb{R}}f(x)e^{-ix\xi}\, dx$.
+\item $\hat{f}(\xi)$ is holomorphic near $\xi=1$
+\end{itemize}
+
+\end{definition}
+The outgoing solution to (\ref{Chapter5:Adimen_waveMotion}) can now be defined properly.
+
+\begin{definition}
+An outgoing solution of the equation (\ref{Chapter5:Adimen_waveMotion}) is a solution v of the form 
+\begin{equation}
+\label{Chapter5:decomposition}
+v=v_1|_{\Omega_f}+v_2|_{\Omega_f}
+\end{equation}
+where, for $j=1,2$ :
+\begin{equation}
+\label{inv_potentiels}
+v_j=-\lim_{\epsilon \to 0} \left(\Delta+e^{-2i\epsilon}\right)^{-1} \left[ \alpha_j \otimes \delta_{F_j} \right]
+\end{equation}
+with $\alpha_j \in \mathcal{A}$ and where $\delta_{F_1}$ and $\delta_{F_2}$ are Dirac delta functions on the faces $F_1$ and $F_2$ of the wedge respectively.
+
+\end{definition}
+The following theorem is proven by Croisille and Lebeau in \cite{CroisilleLebeau} :
+\begin{theorem}
+The equation \eqref{Chapter5:Adimen_waveMotion} admits a unique outgoing solution.
+\end{theorem}
+
+The aim of this paper is to extend and detail the computation of this outgoing solution for the stress-free wedge immersed in a fluid using the spectral functions method.
+
+The double Fourier transform of a tempered distribution and its inverse are defined by :
+\begin{subequations}
+\begin{equation}
+\hat{f}(\xi,\eta)=\int \int_{\mathbb{R}^2}f(x,y)e^{-i(x\xi+y\eta)}\, {\rm d}x {\rm d}y
+\label{fourierdef}
+\end{equation}
+\begin{equation}
+f(x,y)=\frac{1}{4\pi^2}\int\int_{\mathbb{R}^2} \hat{f}(\xi,\eta)e^{i(x\xi+y\eta)}\rm d\xi \rm d\eta
+\label{invfourierdef}
+\end{equation}
+\label{fullfourierdef}
+\end{subequations}
+
+The double Fourier transform of (\ref{inv_potentiels}) gives
+\begin{equation}
+\label{Fourier}
+\hat{v_j^\epsilon} =  \left[ \xi^2 + \eta^2 - e^{-2i\epsilon} \right]^{-1} \hat{\alpha_j}.
+\end{equation}
+
+ The dimensionless velocity potential $v_j^\epsilon$ is then found by applying the inverse Fourier transform in $\xi$ and $\eta$ to \eqref{Fourier}. 
+\begin{equation}
+\label{velocity_inv_fourier2}
+v_j^\epsilon = \dfrac{1}{4\pi^2}  \int_{-\infty}^{+\infty}\left( \int_{-\infty}^{+\infty} \dfrac{e^{iy_j\eta}}{ \xi^2 + \eta^2 - e^{-2i\epsilon}} {\rm d}\eta \right)\,  \hat{\alpha_j}(\xi) \,  e^{i x_j \xi}  {\rm d} \xi.
+\end{equation}
+
+For  $\epsilon \neq 0$, the inner integrand poles are given by
+\begin{equation}
+ \eta = \pm \sqrt{e^{-2i\epsilon} - \xi^2}  = \pm \zeta_0^\epsilon
+\end{equation} 
+and are never crossed by integration along the real axis. Integral \eqref{velocity_inv_fourier2} can be calculated using the residue theorem which leads to the following result
+\begin{equation}
+\label{champ_epsilon}
+v_j^\epsilon(x_j,y_j) = \dfrac{i}{4\pi} \int_{-\infty}^{+\infty}  \dfrac{e^{i|y_j|\zeta_0^\epsilon(\xi)} e^{i x_j \xi}}{\zeta_0^\epsilon(\xi)} \hat{\alpha_j}(\xi) \, {\rm d}\xi.
+\end{equation}
+This integral is well defined if $\text{Im}(\zeta_0^\epsilon) > 0$, so that the exponential in the integral decreases with the distance $y_j$ and the absorption principle is respected. Function $\zeta_0^\epsilon(\xi)$ then satisfies for $\xi$ real
+\begin{subequations}
+\label{zeta_function}
+\begin{align}
+\zeta_0^\epsilon(\xi)&= i\sqrt{\xi^2-e^{-i\epsilon}} \quad \text{if} \quad \vert \xi\vert \geq 1,\\
+\label{zeta_function_inferior1}
+\zeta_0^\epsilon(\xi)&= -\sqrt{e^{-i\epsilon}-\xi^2} \quad  \text{if} \quad \vert \xi\vert \leq 1.
+\end{align}
+\end{subequations}
+The branch points of the function $\zeta_0^\epsilon(\xi)$ are $\pm  \, e^{-i\epsilon}$. For $\epsilon > 0$, integral \eqref{champ_epsilon} is well defined because these complex singular points are never crossed by the integration contour (the real axis). The integration contour of \eqref{champ_epsilon}, is deformed into the contour $\Gamma_0$ illustrated on Fig.~\ref{chapter5:figure2} so that these singular points $\pm  \, e^{-i\epsilon}$ are not crossed by the new contour $\Gamma_0$  when $\epsilon \rightarrow 0$ (for which the physical outgoing solution of (\ref{Chapter5:waveMotion_epsilon}) is obtained). Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ on Fig.~\ref{chapter5:figure2} are described later in section \ref{Chapter5:regular_part}.
+
+Thus, even for $\epsilon=0$, the integral
+\begin{equation}
+\label{champ}
+v_j^0(x_j,y_j) = \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{e^{i|y_j|\zeta_0^0(\xi)} e^{i x_j \xi}}{\zeta_0^0(\xi)} \hat{\alpha_j}(\xi)  \, {\rm d}\xi
+\end{equation}
+converges.
+Using \eqref{Chapter5:decomposition}, our initial solution is then
+\begin{equation}
+\label{initial_sol}
+v(\mathbf{x}) = v_1^0(x_1,y_1) + v_2^0(x_2,y_2)
+\end{equation}
+
+\begin{figure}[ht]%
+	\centering
+    \resizebox{!}{0.1\textheight}{
+	\begin{tikzpicture}
+	\node at (0,0) {\large $\times$};
+	\node at (-0.35,0.35) {\large $0$};
+	\node at (2,0) {\large $\times$}; % Pole
+	\node at (2,-0.35) {\large $1$};
+	\node at (-2,0) {\large $\times$};
+	\node at (-2,0.35) {\large $-1$}; %pole
+	\node at (3.5,-0.38) {\large $(\Gamma_0)$};
+	\draw[ thick, ->] (-2.5,-0.5) arc (180:235:1);
+	\node at (-2.8,-0.9) {\large $\mathcal{F}_1$};
+	\draw[ thick, ->] (2.5,0.5) arc (0:45:1); %ici c'est les fleches 
+	\node at (2.8,0.9) {\large $\mathcal{F}_2$};
+    \node at (4.5,0.3) {\large $\sigma$};
+    \node at (-0.3,1.5) {\large $\tau$};
+	\draw[step=1.5cm,gray,thick,dashed,->,>=stealth'] (-4.5,0) -- (4.5,0);
+	\draw[step=1.5cm,gray,thick,dashed,->,>=stealth'] (0,-1.5) -- (0,1.5);
+	\draw[very thick,black,yshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.1 with {\arrow{latex}},
+		mark=at position 0.6 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}]
+	(-4,0)  -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25)  --  (4,0); % ca c'est l'axe
+	\end{tikzpicture}
+    }
+\caption
+[Contour $\Gamma_0$]
+{Integration contour $\Gamma_0$ in the complex plane $\xi = \sigma + i \tau$. Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ show the deformation of $\Gamma_0$ into the imaginary axis.}
+\label{chapter5:figure2}
+\end{figure}
+
+One of the goals of this paper is to compute the spectral functions $\hat{\alpha}_1(\xi)$ and $\hat{\alpha}_2(\xi)$ in order to find the GTD diffraction coefficient \eqref{GTDCoeff_SF}. The accuracy of the spectral functions method is evaluated in section 4 by comparing results of \eqref{GTDCoeff_SF} with \eqref{GTDCoeff_Som}. Section \ref{Chapter5:resolution} is devoted to the computation of the spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$.
+
+
+\section{Spectral functions computation}
+\label{Chapter5:resolution}
+
+To compute the spectral functions, the functional equations satisfied by spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ first has to be determined.
+\subsection{Functional equations of spectral functions}
+
+The velocity potential in the boundary conditions of the system \eqref{Chapter5:waveMotion_epsilon} is substituted by its expression \eqref{initial_sol}. It then leads to the following system of equations for the boundary conditions on each wedge face:
+\begin{equation}
+\label{CL}
+\begin{cases}
+v_1^0(x_1,0) + v_2^0(x_2 \cos 2\varphi,x_2 \sin 2\varphi)  =  -v^0_{\rm inc} \mid_{F_1}\\
+v_1^0(x_1 \cos 2\varphi,x_1 \sin 2\varphi) + v_2^0(x_2,0)   =  -v^0_{\rm inc} \mid_{F_2}
+\end{cases}.
+\end{equation}
+The Fourier transform is applied to the potential velocity expression on the face of each wedge 
+\begin{align}
+\mathcal{F}(x_j \mapsto v_j^0 (x_j,0))(\xi) & =  \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda)}  \left( \int_0^{\infty} \, e^{-i x_j (\xi-\lambda)} dx_j \right) {\rm d} \lambda,\\
+& =  \dfrac{1}{4\pi} \int_{\Gamma_0} \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) (\xi - \lambda)} {\rm d} \lambda \nonumber
+\end{align}
+and
+\begin{align}
+\mathcal{F} \left( x_j \mapsto v_j^0 \left( x_j \cos 2\varphi,x_j \sin 2\varphi \right) \right)(\xi)  & =  \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda)}  \left( \int_0^{\infty} \, e^{-i x_j \left( \xi - \lambda  \, \cos 2\varphi - |\sin 2\varphi| \, \zeta_0^0(\lambda) \right)} dx_j \right) {\rm d} \lambda,\\
+& = \dfrac{1}{4\pi} \int_{\Gamma_0} \dfrac{ \hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) \left[ \xi - \lambda \, \cos 2\varphi  - |\sin 2\varphi| \, \zeta_0^0(\lambda) \right]} {\rm d} \lambda.  \nonumber
+\end{align}
+
+
+The dimensionless incident wave on the faces $F_1$ and $F_2$ of the wedge which is involved at the right side of \eqref{CL} is respectively:
+\begin{subequations}
+\label{CL2}
+\begin{align}
+v^0_{\rm inc}(x_1,0) & =  \dfrac{1}{2} \, e^{i \, x_1 \cos \theta_{\rm inc}} ,\\
+v^0_{\rm inc}(x_2,0) & =   \dfrac{1}{2} \, e^{i \, x_2 \cos (2\varphi - \theta_{\rm inc} )} .
+\end{align}
+\end{subequations}
+
+Therefore, applying the Fourier transform to \eqref{CL} leads to the following functional system of equations:
+\begin{equation}
+\label{functional_eq}
+\begin{cases}
+DM(\hat{\alpha}_1)(\xi) + TM(\hat{\alpha}_2)(\xi) = \dfrac{1}{\xi - Z_1} \\
+TM(\hat{\alpha}_1)(\xi) + DM(\hat{\alpha}_2)(\xi)  = \dfrac{1}{\xi - Z_2} 
+\end{cases}
+\end{equation}
+where $Z_1 =  \cos \theta_{\rm inc}$, $Z_2 =  \cos (2\varphi - \theta_{\rm inc})$. $DM$ is an integral operator defined as
+\begin{equation}
+\label{DM_operator}
+\begin{split}
+DM(\hat{\alpha}_1)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, {\rm d} \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{m(\lambda)  }{\xi - \lambda} \hat{\alpha}_1(\lambda) \, {\rm d} \lambda
+\end{split}
+\end{equation}
+where $m(\lambda) = \dfrac{1}{\zeta_0^0(\lambda)}$ and $TM$ is also an integral operator defined as
+\begin{equation}
+\label{TM_operator}
+\begin{split}
+TM(\hat{\alpha}_1)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, {\rm d} \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{ m(\lambda)}{ \xi- \lambda \cos 2\varphi  - |\sin 2\varphi| \zeta_0^0(\lambda)} \hat{\alpha}_1(\lambda) \, {\rm d} \lambda 
+\end{split}
+\end{equation}
+
+Note that the function $TM$ can be expressed as
+\begin{equation}
+TM(\xi,\lambda) =  \dfrac{1}{2i\pi} \dfrac{ m(\lambda)}{ \xi- T_0(\lambda)} , 
+\end{equation}
+where, applying the variable change $\lambda=\cos\theta$
+\begin{equation}
+\label{Trans_operator}
+T_0(\lambda=\cos\theta) =  \lambda \cos \widetilde{2\varphi}  + \sin \widetilde{2\varphi} \, \zeta_0^0(\lambda) =  \cos (\theta + \widetilde{2\varphi})
+\end{equation}
+with 
+\begin{equation}
+\widetilde{2\varphi} =
+\begin{cases}
+ 2\varphi \quad \text{if} \quad 0 < 2\varphi < \pi \qquad \\
+ 2\pi - 2\varphi \quad \text{if} \quad \pi < 2\varphi < 2\pi
+\end{cases}
+\end{equation}
+
+
+
+This function $T_0$ in \eqref{Trans_operator} operates in the domain $\Omega_0$ defined as
+\begin{equation}
+\label{Domain_Omega0}
+\Omega_0 =\{\xi\in\mathbb C, \ \xi=\cos \theta, \ 0< {\rm Re } \, \theta < \pi -\widetilde{2\varphi} \}.
+\end{equation}
+Domain $\Omega_0$ is delineated by the hyperbola 
+\begin{equation}
+\partial \Omega_0^+ = \{   \xi \in \mathbb{C},  \xi = \cos \theta, {\rm Re} \, \theta = \pi - \widetilde{2\varphi} \}.
+\end{equation}
+Domain $\Omega_0$ and its upper boundary $\partial \Omega_0^+$ are illustrated on Fig.~\ref{chapter5:figure4}. Domain $\Omega_0$ is the dotted area in Fig.~\ref{chapter5:figure4}. Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ on Fig.~\ref{chapter5:figure4} are described later in section \ref{Chapter5:System_resolution}.
+
+\begin{figure}[h]
+\centering
+\resizebox{0.5\textwidth}{!}{
+\begin{tikzpicture}
+\node at (2,0) {\Large $\mathbf{\times}$}; % Pole
+\node at (2,-0.45) {\LARGE $1$};
+\node at (-2,0) {\Large $\mathbf{\times}$};
+\node at (-2.1,0.45) {\LARGE $-1$}; %pole
+\node at (-5.5,0.35) {\LARGE $\Gamma_0$};
+\draw[dashed,thick, ->]
+      (-5.5,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (5.5,0);
+\draw[dashed,thick,->]
+	  (0,-4) -- (0,4);
+\node at (6,0) {\LARGE $\sigma$};
+\node at (-0.6,4) {\LARGE $\tau$};
+      % axis
+
+% arrows indicating countour deformation
+\draw[ thick, ->] (-3,-0.25) arc (180:235:1);
+\node at (-3.2,-0.9) {\LARGE $\mathcal{F}_1$};
+\draw[ thick, ->] (4.0,0.3) arc (0:45:1); 
+\node at (4.5,0.8) {\LARGE $\mathcal{F}_2$};
+
+% Hyperbola (contour  partial_Omega_0 )
+\draw[black, very thick][domain=-2:2] plot({-cosh(\x)}, {sinh(\x)});
+\node at (-4.0,2.8) {\LARGE $\mathbf{\partial \Omega_0^+}$};
+\draw[thick,->] (0.2,-1.0)--(-0.7,-0.2);
+\node at (1.1,-1.3) {\LARGE $-\cos \widetilde{2\varphi}$};
+
+%  Omega_0
+\draw [thick, ->] (3.5,3)--(2.5,3);
+\node at (4,3) {\LARGE $\mathbf{\Omega_0}$};
+
+% Filling Omega_0
+\fill [pattern=dots]
+(3,0)
+-- plot [domain=0:2] ({-cosh(\x)},{sinh(\x)})
+-- (3,3.62)
+-- cycle;
+\end{tikzpicture}
+}
+\caption
+[Contour $\partial \Omega_0^+$]
+{Domain $\Omega_0$ (the dotted area) and its upper boundary $\partial \Omega_0^+$. The lower boundary of $\Omega_0$ is the semi-axis $[-\cos \widetilde{2\varphi},+\infty[$. Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ show the deformation of $\Gamma_0$ (in thick dashed line) into $\partial \Omega_0^+$.}
+\label{chapter5:figure4}
+\end{figure}
+Having found the system of functional equations, it is now resolved following the methodology of \cite{CroisilleLebeau}.
+
+\subsection{System resolution}
+\label{Chapter5:System_resolution}
+
+The resolution of the system of functional equations \eqref{functional_eq} is necessary in order to find the values of the spectral functions $\hat{\alpha}_1 $ and $\hat{\alpha}_2 $. With these values, the diffraction coefficients can be computed [see Eq.~\eqref{GTDCoeff_SF}]. 
+
+It is shown in \cite{CroisilleLebeau} that $DM$ and $TM$ integral operators are constituted of a "singular term" and of a "regular term". For a singular function 
+\begin{equation}
+\label{Chapter5:arbitrary_function}
+\phi(\xi) = \dfrac{1}{\xi - z},  \quad z \in \mathbb{C}\setminus ]-\infty,-1] \text{ with } {\rm Im} \, z \geqslant 0,
+\end{equation}
+$DM$ and $TM$ integral operators defined respectively in \eqref{DM_operator} and \eqref{TM_operator} can be decomposed using the residue theorem as
+\begin{subequations}
+\label{Int_op_decomp}
+\begin{align}
+\label{Int_op_decomp_DM}
+DM(\phi)(\xi) &= \int_{\Gamma_0} DM(\xi,\lambda) \cdot \dfrac{1}{\lambda - z} \, {\rm d} \lambda = \dfrac{m(z)}{\xi - z}  + D_p(\xi,z) \\
+\label{Int_op_decomp_TM}
+TM(\phi)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \cdot \dfrac{1}{\lambda - z} \, {\rm d} \lambda = \dfrac{m(z) }{\xi - T_0(z)} \mathbf{1} (z \in \Omega_0) + T_p(\xi,z),
+\end{align}
+\end{subequations}
+where the function $T_0$ is defined in \eqref{Trans_operator} and where
+\begin{equation}
+\mathbf{1} (z \in \Omega_0) = 
+\begin{cases}
+1 \quad \text{if } z  \in \Omega_0, \\
+0 \quad \text{else}
+\end{cases}
+\end{equation}
+and integrals $D_p$ and $T_p$ are holomorphic on $\mathbb{C}\setminus ]-\infty,-1]$. Such integrals are expressed as
+\begin{subequations}
+\label{holomorphic_functions}
+\begin{align}
+\label{defDp}
+D_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\Gamma_1} \dfrac{m(\lambda)}{\xi-\lambda} \cdot \dfrac{1}{\lambda - z} {\rm d}\lambda, \\
+\label{defTp}
+T_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\partial \Omega_0^+}  \dfrac{m(\lambda)}{\xi-T_0(\lambda)} \cdot \dfrac{1}{\lambda - z} {\rm d}\lambda.
+\end{align}
+\end{subequations}
+Contours $\Gamma_1$ and $\partial \Omega_0^+$ are illustrated on Figs.~\ref{chapter5:figure5} and \ref{chapter5:figure4} respectively.
+
+\begin{figure}[ht]
+\centering
+\resizebox{0.5\textwidth}{!}{
+\begin{tikzpicture}
+\node at (-0.5,0) {  $\times$};
+\node at (-0.7,-0.35) { $0$};
+\node at (1,0) { $\times$}; % Pole
+\node at (1,-0.36) { $1$};
+
+\node at (-2,0) { $\times$};
+\node at (-2,0.36) {  $-1$}; %pole
+\node at (-3,-0.5) { $\Gamma_1$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{latex}}},
+      postaction={decorate}] (-4.5,0) -- (-2.25,0)  arc (-180:0:0.25) -- (-1.5,0) -- (0.75,0) arc (180:0:0.25)-- (2.5,0);
+\node at (3,0) {$\sigma$};
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{latex}}},
+      postaction={decorate}] (-0.5,-1) -- (-0.5,1.3);
+\node at (-0.8,1.2) {$\tau$};      
+
+\node at (2.5,-0.4) {$(\Gamma_0)$};
+      
+\draw[ thick, ->] (2.0,0.3) arc (0:45:1); 
+\node at (2.4,0.8) {$\mathcal{F}_2$};      
+
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-4,0) -- (-2.25,0)  arc (-180:0:0.25) -- (-1.75,0) arc(-90:90:0.5)  -- (-4,1);
+\end{tikzpicture}
+}
+\caption
+[Contour $\Gamma_1$]
+{Contour $\Gamma_1$. Arrow $\mathcal{F}_2$ shows the deformation of $\Gamma_0$ (in dashed line) into $\Gamma_1$.}
+\label{chapter5:figure5}
+\end{figure}
+
+In the sequel, using the decomposition of the $DM$ and $TM$ operators for a function of the form of \eqref{Chapter5:arbitrary_function}, it will be shown that the unknown spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ in the system \eqref{functional_eq} have a singular part. The first step for the resolution of the system \eqref{functional_eq} is then to determine this singular part.
+
+\subsubsection{Singular part}
+\label{Chapter5:sing_part}
+It is well known that poles of the spectral functions lead to incident and multiply reflected fields on the wedge faces. The singular part of the spectral functions contains these poles. The goal of this subsection is to calculate the poles and the corresponding residues and then to determine the expression of the singular part of the spectral functions. The initial poles correspond to the incident field on the face wedges, and lead to the poles corresponding to the multiply reflected waves on the wedge faces, by employing a recursive algorithm. 
+
+Knowing the incident field on the wedge faces, the spectral function  $\hat{\alpha}_j$ can be written as
+\begin{equation}
+\label{Chapter5:ini_pol_propag}
+\hat{\alpha}_j(\xi) = \dfrac{V_j}{\xi - Z_j} + X_j'(\xi), \quad j=1,2
+\end{equation}
+where $Z_1,Z_2$ are the initial poles, given in (\ref{functional_eq}) with unknown residues $V_1$ and $V_2$ and the functions $X_j'$ are unknown, $j=1,2$. From \eqref{Int_op_decomp_DM}, it is known that
+\begin{equation}
+\label{Chapter5:pole_propag_DM_1}
+DM(\hat{\alpha}_j)(\xi) = \dfrac{m(Z_j) \cdot V_j}{\xi - Z_j} + D_p(\xi,Z_j)\cdot V_j + DM( X_j')(\xi).
+\end{equation}
+By choosing $V_j =  m^{-1}(Z_j)$, the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. The resulting system's unknown functions are $X'_j, \, j=1,2$ :
+\begin{equation}
+DM  (X_j' )(\xi)+ TM (X_{3-j}' )(\xi) = - TM  \left(  \dfrac{V_{3-j}}{\xi - Z_{3-j}} \right) (\xi)  - D_p(V_j,Z_j)(\xi) \qquad j=1,2
+\end{equation}
+Besides, from \eqref{Int_op_decomp_TM}, we know that
+\begin{equation}
+\label{Chapter5:pol_propag_step3}
+TM  \left(  \dfrac{V_j}{\xi - Z_j} \right)(\xi) = \dfrac{m(Z_j) \cdot V_j}{\xi - T_0(Z_j)}  \, \mathbf{1}(Z_j \in \Omega_0) + T_p(\xi,Z_j)\cdot V_j \qquad j=1,2
+\end{equation}
+Thus, $X_j'$ has a pole at $\xi = Z_j^2 = T_0(Z_{3-j})$ if $Z_{3-j} \in \Omega_0$. $T_0$ function defined in \eqref{Trans_operator} is then called translation operator because it translates a pole of the spectral function $\hat{\alpha}_j$, $j=1,2$, to a pole of the spectral function $\hat{\alpha}_{3-j}$. The wave incident on face $F_{3-j}$ is reflected. This reflected wave is incident on face $F_j$, generating a new pole $Z_j^2=T_0(Z_{3-j})$. 
+The unknown function $X_j'$ in \eqref{Chapter5:ini_pol_propag} is then decomposed as
+\begin{equation}
+\label{Chapter5:pol_propag_step2}
+X_j'(\xi) =  \dfrac{V_j^2}{\xi - Z_j^2} + X_j''(\xi), \quad j=1,2
+\end{equation}
+where the function $ X_j''$ is unknown. 
+Once again, the residues $V_j^2$ of these generated poles $Z_j^2$ are chosen so that they cancel the singular term $DM(X_j')(\xi)$, found using the formula \eqref{Int_op_decomp_DM}, compensating the singular term in the $TM$ operator in \eqref{Chapter5:pol_propag_step3}.
+
+This pole propagation process is applied recursively in order to determine all the poles of the spectral functions $\hat{\alpha}_j$. This process stops when the generated poles are no longer in the domain $\Omega_0$ defined in \eqref{Domain_Omega0}. All the generated poles then belong to $\Omega_0 \cup \rbrack-\cos 2\tilde{\varphi}, +\infty \rbrack$. Their imaginary part is then always positive due to the definition of the domain $\Omega_0$ (see Fig.~\ref{chapter5:figure4}).
+
+At the end of this process, spectral functions have the decomposition
+\begin{equation}
+\label{spec_decomp}
+\hat{\alpha}_j=Y_j+X_j, 
+\end{equation}
+where  $Y_j$ is the singular part, $X_j$ is the regular part  and $j=1,2$ is the face index. The singular part is expressed as
+\begin{equation}
+\label{sing_part}
+ Y_j(\xi) = \sum_i {V_j^{i} \over \xi - Z_j^{i}},
+\end{equation}
+where $i \in \mathbb{N}*$, $Z_j^{1} = Z_j$ defined in \eqref{functional_eq} is the initial pole on each face of the wedge,
+\begin{equation}
+\label{Generated_poles}
+Z_j^{i+1} = T_0(Z_k^{i}), \quad j,k \in \{1,2\}, \quad k \not= j 
+\end{equation} 
+are the different generated poles with their respective residue 
+\begin{equation}
+\label{Generated_residues}
+V_j^{i+1}=-m^{-1}(T_0(Z_k^{i})) \,  m(Z_k^{i})) \, V_k^{i} \, \mathbf{1}(Z_k^{i} \in \Omega_0), \quad k \neq j.
+\end{equation}
+\paragraph{}
+Figure \ref{poles} represents the generated poles in the complex plane for two different cases : figure \ref{poles80} for a wedge of angle $\varphi=80^o$ with an incident angle of $\theta_{inc}=55^o$ and figure \ref{poles20} for $\varphi=20^o$ and $\theta_{inc}=15^o$. As the wedge angle decreases, the number of poles increases, some poles being very close to one another, rendering the method less accurate for very small wedge angles.
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.4\textwidth}
+	\begin{tikzpicture}[scale=2]
+	\draw[->,>=stealth'] (-1.25,0) -- (1.25,0);
+	\draw[->,>=stealth'] (0,-0.5) -- (0,0.5);
+	\node at (1.25,0)[right]{Re};
+	\node at (0,0.5)[right]{Im};
+	
+	\node at (-1,0){$\bullet$};
+	\node at (1,0){$\bullet$};
+	\draw (-1,0) node[below] {$-1$};
+	\draw (1,0) node[below] {$1$};
+	
+	\node at ( 0.573576450    ,  0.00000000    ){$\times$};
+	\node at ( 0.906307757    ,  0.00000000    ){$\times$};
+	\node at (-0.258819222    ,  0.00000000    ){$\times$};
+	\node at (-0.707106829    ,  0.00000000    ){$\times$};
+	\end{tikzpicture}
+	\subcaption{$\varphi=80^o, \, \theta_{inc}=55^o$}
+    \label{poles80}
+	\end{subfigure}
+\hspace{1em}
+\begin{subfigure}[b]{0.4\textwidth}
+\begin{tikzpicture}[scale=2]
+\draw[->,>=stealth'] (-1.25,0) -- (1.25,0);
+\draw[->,>=stealth'] (0,-0.5) -- (0,0.5);
+\node at (1.25,0)[right]{Re};
+\node at (0,0.5)[right]{Im};
+
+\node at ( 0.965925813    ,  0.00000000    ){$\times$};
+\node at ( 0.996194720    ,  0.00000000    ){$\times$};
+\node at ( 0.906307876    ,  0.00000000    ){$\times$};
+\node at ( 0.819151998    ,  0.00000000    ){$\times$};
+\node at ( 0.573576331    ,  0.00000000    ){$\times$};
+\node at ( 0.707106948    ,  0.00000000    ){$\times$};
+\node at ( 0.422618449    ,  0.00000000    ){$\times$};
+\node at ( 0.258818895    ,  0.00000000    ){$\times$};
+\node at ( -8.71558934E-02,  0.00000000    ){$\times$};
+\node at (  8.71559381E-02,  0.00000000    ){$\times$};
+
+\node at (-1,0){$\bullet$};
+\node at (1,0){$\bullet$};
+\draw (-1,0) node[below] {$-1$};
+\draw (1,0) node[below] {$1$};
+\end{tikzpicture}
+\subcaption{$\varphi=20^o, \, \theta_{inc}=15^o$}
+\label{poles20}
+\end{subfigure}
+\caption{Generated poles plotted in the complex plane}
+\label{poles}
+\end{figure}
+
+The second step of the system resolution is the determination of the regular part $X_j$ of the spectral function $\hat{\alpha}_j$ [see Eq.~\eqref{spec_decomp}]. The regular part is determined by using the Galerkin collocation method. Section \ref{Chapter5:regular_part} gives the principal steps of this resolution method. 
+
+\subsubsection{Regular part}
+\label{Chapter5:regular_part}
+
+After the determination of the singular part of the solution using the pole propagation process explained in section \ref{Chapter5:sing_part}, the remaining right hand side of \eqref{functional_eq} is composed of $D_p$ and $T_p$ functions. Thus, the system \ref{functional_eq} becomes by construction
+\begin{equation}
+\label{sys_regular}
+\begin{cases}
+DM(X_1)(\xi) + TM(X_2)(\xi) = -\underset{k}{\sum} \Big( D_p(\xi,Z_1^k)\cdot V_1^k+ T_p(\xi,Z_2^k)\cdot V_2^k\Big)\\
+TM(X_1)(\xi) + DM(X_2)(\xi)  =  -\underset{k}{\sum} \Big( T_p(\xi,Z_1^k)\cdot V_1^k+ D_p(\xi,Z_2^k)\cdot V_2^k\Big)
+\end{cases}
+\end{equation}
+where $X_j$, $j=1,2$ are the regular parts of the spectral functions \eqref{spec_decomp}, $D_p$ and $T_p$ functions are defined in \eqref{holomorphic_functions} and $Z_j^k$ are the poles of the spectral function $\hat{\alpha}_j$  with their respective residue $V_j^k$. $D_p$ and $T_p$ are holomorphic functions on $\mathbb{C}\setminus  ]-\infty,-1]$ according to \cite{CroisilleLebeau}, and therefore the functions $X_j$ are also holomorphic on this domain.
+
+The functions $X_j(\xi)$, being holomorphic on $\mathbb{C}\setminus  ]-\infty,-1]$, can be approximated in the basis $\varphi_k, \, 1 \leq k \leq N$ given by
+\begin{equation}
+\label{Gal_basis}
+\varphi_k(\xi) = \dfrac{d_k}{\xi + a_k}, \quad a_k \in [1,\infty[, \quad d_k=\sqrt{\frac{a_k}{\pi}}.
+\end{equation}
+The discretization of the solution $X_j(\xi)$ in this finite basis is called a Galerkin approximation.
+
+In the following, the integration contour $\Gamma_0$ pictured on Fig.~\ref{chapter5:figure2} is deformed into the imaginary axis. If $f(\lambda)$ is a holomorphic function on $\mathbb{C}\setminus  ]-\infty,-1]$, the function $\tilde f (y)=f(iy)$ is introduced so that $\tilde f$ is holomorphic on $\mathbb{C}\setminus i [1,\infty[ $. The variable change $\lambda = iy$ gives a new basis
+\begin{equation}
+\label{Galerkin_basis}
+e_{a_k}(y) = \dfrac{d_k}{y-i{a_k}}=i\tilde \varphi(y), \quad \text{with} \quad d_k=\sqrt{\frac{a_k}{\pi}} \quad \text{and} \quad a_k \in [1,\infty[,
+\end{equation}
+
+Having an approximation basis of the regular part of the spectral functions, $X_j(\xi)$ can be expressed as
+\begin{equation}
+\label{regular_part_decomp}
+X_j(\xi) \approx \sum_{k=1}^N \tilde{X}_j^k \, \varphi_k(\xi), \quad \tilde{X}_j^k \in \mathbb{C}.
+\end{equation}
+The coordinates $\tilde{X}_j^k$ are unknown. The system \eqref{sys_regular} then becomes, for $j=1,2$
+\begin{equation}
+\label{sys_regular_gal}
+\sum_{k=1}^N \left[ \tilde{X}_j^k \, \int_{\Gamma_0} DM(\xi,\lambda) \varphi_k(\lambda) \, {\rm d} \lambda + \tilde{X}_{3-j}^k \, \int_{\Gamma_0} TM(\xi,\lambda) \varphi_k(\lambda) \, {\rm d} \lambda \right] = u_j(\xi), 
+\end{equation}
+where
+\begin{equation}
+\label{second_member}
+u_j(\xi) = -\sum_k \Big( D_p(\xi,Z_j^k)\cdot V_j^k+ T_p(\xi,Z_{3-j}^k)\cdot V_{3-j}^k\Big) \qquad j=1,2
+\end{equation}
+The variable changes $\lambda = iy$ and $\xi = ix$ in \eqref{sys_regular_gal} lead to the following system $(j=1,2)$
+\begin{equation}
+\label{sys_regular_gal_def}
+\sum_{k=1}^N \left[ \tilde{X}_j^k \, \int_{-\infty}^\infty  \widetilde{DM}(x,iy) \, e_{a_k}(y) {\rm d} y + \tilde{X}_{3-j}^k \, \int_{-\infty}^\infty  \widetilde{TM}(x,iy) \, e_{a_k}(y) {\rm d} y \right] = \tilde u_j(x) \\
+\end{equation}
+where $\widetilde{DM}(x,iy) = DM(ix,iy)$ and $\widetilde{TM}(x,iy) = TM(ix,iy)$. Following \cite{CroisilleLebeau}, we introduce another subspace of finite dimension in $L^2(\mathbb{R})$ which is generated by vectors $e_{b_k}$ with
+\begin{equation}
+\label{points_collocation}
+e_{b_k}(y)=\frac{d_k}{y-ib_k}, \quad  \rm Re (b_k) \in [1,\infty[  \quad \text{and}  \quad {\rm Im} (b_k) = 0^-.
+\end{equation}
+
+The $b_k$ are called collocation points.  The system \eqref{sys_regular_gal_def} is projected in this subspace using the following relation :
+\begin{equation}
+\label{dot_product}
+(\tilde \phi\vert e_{b_k})_{L^2(\mathbb R)}= (-2i\pi) \, d_k \,  \phi (b_k)
+\end{equation}
+
+Using \eqref{dot_product}, the projection of the system \eqref{sys_regular_gal_def} leads to the following new systems (for $j=1,2$)
+\begin{equation}
+\label{sys_regular_gal_col}
+\begin{cases}
+\sum_{k=1}^N \left[ \tilde{X}_j^k \, \int_{-\infty}^\infty DM(b_1,iy) e_{a_k}(y) \, {\rm d} y + \tilde{X}_{3-j}^k \, \int_{-\infty}^\infty TM(b_1,iy) e_{a_k}(y) \, {\rm d} y \right] = u_j(b_1) \\
+ \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \vdots \\
+\sum_{k=1}^N \left[ \tilde{X}_j^k \, \int_{-\infty}^\infty DM(b_N,iy) e_{a_k}(y) \, {\rm d} y + \tilde{X}_{3-j}^k \, \int_{-\infty}^\infty TM(b_N,iy) e_{a_k}(y) \, {\rm d} y \right] = u_j(b_N)
+\end{cases}
+\end{equation}
+The obtained system \eqref{sys_regular_gal_col} is a linear system of equations and can be put in a matrix format:
+\begin{equation}
+\label{Syst_lineaire}
+\left[
+\begin{matrix}
+[D] & [T]\\
+[T] & [D]
+\end{matrix}
+\right]
+\;
+\left[
+\begin{matrix}
+\bar{X}_1\\
+\bar{X}_2
+\end{matrix}
+\right] = 
+\left[
+\begin{matrix}
+U_1\\
+U_2
+\end{matrix}
+\right]
+\end{equation}
+where
+\begin{equation}
+\bar{X}_j = 
+\left[
+\begin{matrix}
+\tilde{X}_j^1 \\
+\vdots \\
+\tilde{X}_j^N
+\end{matrix}
+\right], \tilde{X}_j^k \in \mathbb{C}; \quad
+U_j = 
+\left[
+\begin{matrix}
+u_j(b_1)\\
+\vdots\\
+u_j(b_N)\\
+\end{matrix}
+\right], u_j(b_k) \in \mathbb{C}
+\end{equation} 
+and 
+\begin{equation}
+\label{D_matrix}
+[D]_{lk} = \int_{-\infty}^\infty DM(b_l,iy) e_{a_k}(y) \, {\rm d} y
+\end{equation}
+\begin{equation}
+\label{T_matrix}
+[T]_{lk} = \int_{-\infty}^\infty TM(b_l,iy) e_{a_k}(y) \, {\rm d} y
+\end{equation}
+are the matrix elements of $[D]$ and $[T]$ respectively. System \eqref{Syst_lineaire} can be rewritten as
+\begin{equation}
+\label{Syst_lineaire_mod}
+\begin{cases}
+([D] + [T]) \, (\bar{X}_1 + \bar{X}_2) = U_1 +  U_2\\
+([D] - [T]) \, (\bar{X}_1 - \bar{X}_2) = U_1 - U_2
+\end{cases}.
+\end{equation}
+To find the regular part of the spectral functions \eqref{regular_part_decomp}, its coordinates $\tilde{X}_j^k$ in the Galerkin basis $\varphi_k, \, 1 \leq k \leq N$ defined in \eqref{Gal_basis} must be determined. These coordinates are solutions of the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod}. To resolve such a system, the matrices $[D]$ and $[T]$ and its right hand side $U_{1,2}$ must be calculated. 
+
+\subsubsection*{Matrices calculation}
+The first step is to determine $[D]$ and $[T]$ matrices.
+Using \eqref{DM_operator} and \eqref{Galerkin_basis}, the $[D]_{lk}$ elements defined in \eqref{D_matrix} can be expressed as
+\begin{equation}
+\label{matrice_D}
+(-2i\pi) [D]_{lk} =  -i d_k \mathcal{D}(a_k,b_l)
+\end{equation}
+with the function $\mathcal{D}(a,b)$ defined for $a>1$ and $b>1$ as
+\begin{equation}
+\label{ldbis}
+\mathcal{D}(a,b) = \int_{-\infty}^{+\infty} \dfrac{m(iy)}{y + ib} \, \dfrac{1}{y -ia} {\rm d}y = \int_{-\infty}^{+\infty} \dfrac{1}{y + ib} \, \dfrac{1}{y -ia} \, \dfrac{1}{\zeta_0^0(iy)} {\rm d}y. 
+\end{equation}
+Using \eqref{TM_operator} and \eqref{Galerkin_basis} the $[T]_{lk}$ elements defined in \eqref{T_matrix} can be expressed as
+\begin{equation}
+\label{matrice_T}
+(-2i\pi) [T]_{lk} =  - d_k \mathcal{T}(a_k,b_l)
+\end{equation}
+where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
+\begin{equation}
+\label{ltbis}
+\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{1}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, \dfrac{1}{\zeta_0^0(iy)} {\rm d} y . 
+\end{equation}
+According to \eqref{zeta_function}, $\mathcal{D}(a,b)$ and $\mathcal{T}(a,b)$ functions can be simplified using the relation
+\begin{equation}
+\zeta_0^0(iy)= - \sqrt{1+y^2}.
+\end{equation}
+
+The function $\mathcal{T}(a,b)$ is first calculated. The variable change
+\begin{equation}
+\label{variable_change}
+y = \dfrac{2x}{1 - x^2};\qquad
+\dfrac{1+x^2}{1-x^2} = \sqrt{1+y^2}; \qquad
+{\rm d}y = 2\dfrac{x^2+1}{\left( 1 - x^2 \right)^2} \, {\rm d}x
+\end{equation}
+is applied to \eqref{ltbis} :
+\begin{equation}
+\label{T_function_bis}
+\mathcal{T}(a,b) = 2 \int_{-1}^{1} \dfrac{x^2-1}{ b \, (1-x^2) - 2ix \cos 2\varphi  +|\sin 2\varphi| (1+x^2)} \, \dfrac{1}{2x -i a (1-x^2)} \, {\rm d}x
+\end{equation}
+Let us define the polynomial functions $P(x)$ and $Q(x)$ as 
+\begin{align}
+\label{P_pol_function}
+P(x) =& b(1-x^2) - 2ix \cos 2\varphi  + |\sin 2\varphi| (1+x^2),\\
+\label{Q_pol_function}
+Q(x) =& 2x - i a(1-x^2).
+\end{align}
+The integrand of the $\mathcal{T}(a,b)$ function \eqref{T_function_bis} is a rational function which can be decomposed in the partial fraction :
+\begin{equation}
+\label{decomposition_elts_simples}
+\dfrac{-1+ x^2 }{PQ} = \dfrac{\gamma x + \delta}{P} + \dfrac{\alpha x +\beta}{Q}
+\end{equation}
+as long as $\triangle \neq 0$, with
+\begin{equation}
+\triangle =a^2+b^2 +2ab\cos\varphi- (\sin \varphi)^2 \neq 0
+\end{equation}
+
+Using this partial fraction decomposition, $\mathcal{T}(a,b)$ function \eqref{T_function_bis} can be written as
+\begin{equation}
+\label{T_function_bis2}
+\mathcal{T}(a,b) = 2  \int_{-1}^{1} \left(  \dfrac{\gamma x + \delta}{ P(x)} + \dfrac{\alpha x + \beta}{Q(x)} \right) dx, 
+\end{equation} 
+It is shown in appendix \ref{AppendixF} that
+\begin{equation}
+\label{int1}
+\int_{-1}^{1} \dfrac{\alpha x + \beta}{Q(x)} \, dx = \alpha {\rm sog}(a) + i\beta \, {\rm rog}(a) 
+\end{equation}
+
+and that
+\begin{equation}
+\label{int2}
+\int_{-1}^{1} \dfrac{\gamma x + \delta}{P(x)} \, dx = \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi} \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
+\end{equation}
+where rog and sog are defined in appendix \ref{AppendixF}.
+Finally, using \eqref{int1}, \eqref{int2} and \eqref{T_function_bis2},
+\begin{equation}
+\label{lt}
+\mathcal{T}(a,b) = 2 \, [ T_1(a,b) + T_2(a,b) ]
+\end{equation}
+with
+\begin{subequations}
+\label{glt1}
+\begin{align}
+T_1(a,b) &= \alpha \, {\rm sog}(a) + i\beta \, {\rm rog}(a), \\
+T_2(a,b) &= \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi}  \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
+\end{align}
+\end{subequations}
+
+Integral $\mathcal{D}(a,b)$ given in \eqref{ldbis} can then be rewritten, using a partial fraction decomposition, as
+\begin{equation}
+\label{D3}
+ \mathcal{D}(a,b) = \dfrac{i}{b+a} \int_{-\infty}^{+\infty} \left( \dfrac{1}{y - ia} \, \dfrac{1}{\sqrt{1+y^2}} - \dfrac{1}{y + ib}  \, \dfrac{1}{\sqrt{1+y^2}}  \right) {\rm d} y, \quad \text{if } a+b \neq 0.
+\end{equation}
+Using the variable change \eqref{variable_change}, we have for $a \geq 1$,
+\begin{equation}
+\label{D1}
+\int_\mathbb R {1\over y-ia}{1\over \sqrt {1+y^2}}{\rm d} y  =  2i \int_{-1}^{1} \dfrac{1}{a(1-x^2)+2ix} \, dx = 2i \, {\rm rog} (a)
+\end{equation}
+and for $b \geq 1$
+\begin{equation}
+\label{D2}
+\int_\mathbb R {1\over y+ib}{1\over \sqrt {1+y^2}}{\rm d} y= \overline{\int_\mathbb R  {1\over y-ib}{1\over \sqrt {1+y^2}}{\rm d} y}=\overline{2i {\rm rog}(b)}=-2i \, {\rm rog}(b).
+\end{equation}
+From \eqref{D1} and \eqref{D2}, Eq.~\eqref{D3} reduces to
+\begin{equation}
+\label{ld}
+\mathcal{D}(a,b) = \dfrac{-2}{a+b} \left[ {\rm rog}(a) + {\rm rog}(b)\right].
+\end{equation}
+
+The matrices $[D]$ and $[T]$ are now completely determined using \eqref{matrice_D} and \eqref{matrice_T} respectively. Their analytical properties are also known. In order to resolve the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod},  their right hand side constituted of $U_1$ and $U_2$ must also be computed.
+
+\subsubsection*{Determination of the right hand side of the system of equations}
+
+
+Using \eqref{second_member}, the right hand side of the system \eqref{sys_regular_gal_col} which is calculated at the collocation points $b_l$ defined in \eqref{points_collocation}, $l \in \{ 1,2, \ldots, N \}$, is 
+\begin{equation}
+\label{second_member_new}
+u_j(b_l) = -\sum_k \Big( D_p(b_l,Z_j^k)\cdot V_j^k+ T_p(b_l,Z_{3-j}^k)\cdot V_{3-j}^k\Big) \qquad j=1,2
+\end{equation}
+where $D_p$ and $T_p$ functions are defined in \eqref{Int_op_decomp} and $Z_j^k$ is defined in \eqref{Generated_poles}, $k \in \mathbb{N}^*$. 
+
+Taking the definition of the $D_p$ function in \eqref{Int_op_decomp_DM}, and deforming the contour $\Gamma_0$ pictured on Fig.~\ref{chapter5:figure2} into the imaginary axis by applying the variable change $\lambda = iy$, we get
+\begin{equation}
+\label{Dp_final}
+D_p(b_l,z) = {1\over 2\pi}\mathcal D(-z,b_l)-  {m(z)\over b_l-z}.
+\end{equation}
+
+Similarly, using the definition of the $T_p$ function given in \eqref{Int_op_decomp_TM}, and by deforming the integrand contour $\Gamma_0$ pictured on Fig.~\ref{chapter5:figure2} into the imaginary axis by applying the variable change $\lambda = iy$ we have
+\begin{equation}
+\label{Tp_final}
+T_p(b_l,z) = 
+\dfrac{1}{2i\pi} \mathcal T(-z,b_l) - \dfrac{m(z)}{b_l - T_0(z)} \mathbf{1} (z \in \Omega_0) .
+\end{equation}
+
+Expressions \eqref{Dp_final} of $D_p$ and \eqref{Tp_final} of $T_p$ functions are incorporated in the right hand side of the system \eqref{second_member_new} with $z = Z_j^k$ for each $u_j(b_l), \, j=1,2$. In this new expression, with the pole propagation process explained in section \ref{Chapter5:sing_part}, singular terms of $D_p$ and $T_p$ functions cancel each other. The remaining term in the right hand side of the system \eqref{second_member_new} is therefore, for $j=1,2; \quad l \in \{ 1,2, \ldots, N \}$
+\begin{equation}
+(2\pi i) \, u_j(b_l) =  - \sum_k \left( i \mathcal D(-Z_j^k,b_l)\cdot V_j^k  + \mathcal T(-Z_{3-j}^k,b_l) 
+\cdot V_{3-j}^k  \right) +  \dfrac{2\pi i}{b_l - Z_j}
+\end{equation}
+
+Once all matrix terms have been calculated, system \eqref{Syst_lineaire} is resolved numerically. For that, the NAG numeric subroutine library for Fortran is used. With the resolution of this linear system of equations, the coordinates $\tilde{X}_j^k$ of the regular term $X_j$ of the spectral functions are known and therefore the regular term $X_j$ is approximated using \eqref{regular_part_decomp}. The spectral functions $\hat{\alpha}_j$ are then completely determined using \eqref{spec_decomp}, \eqref{sing_part} and \eqref{regular_part_decomp}. 
+
+\subsection{Propagation of the solution}
+\label{propag_sol}
+The regular part approximation described previously is not accurate in the entire complex plane. There exists a procedure, called "propagation of the solution" and explained in \cite{CroisilleLebeau}, which allows to propagate the accuracy of the regular part $X_j(\xi)$ of the spectral functions from $\xi \notin \Omega_0^-$, ${\rm Im} (\xi) <0$ where the approximation is valid to the domain $\Omega_0^-$ where it is not. The space $\Omega_0^-$ defined by
+\begin{equation}
+\label{defomegamoins}
+\Omega_0^- = \{\xi \in \mathbb C, \ {\rm Im}(\xi) <0, \  \xi=\cos(\theta), \ \widetilde{2\varphi} < {\rm Re}(\theta)<\pi\}
+\end{equation}
+is represented in Fig.~\ref{chapter5:figure11}. 
+The procedure consists in deriving new recursive equations by deforming the  contour $\Gamma_0$ in the integrals of the right-hand side of \eqref{sys_regular} into a new contour $\Gamma_2$ and taking into account the poles crossed in the process.
+
+To begin, the contour $\Gamma_0$ in the $DM$ integral operator is deformed into $\Gamma_2$. The half-space $\{ \lambda, {\rm Im} \ \lambda < 0 \}$ is then crossed during this contour deformation as shown by the $F_1$ arrow on Fig.~\ref{chapter5:figure8}.
+
+\begin{figure}[ht]%
+\begin{center}
+  \includegraphics[width=0.65\textwidth]{Figure6.pdf}
+\end{center}
+\caption
+[Contour $\Gamma_2$]
+{Contour $\Gamma_2$. Arrow $\mathcal{F}_1$ shows the deformation of $\Gamma_0$ into $\Gamma_2$.}
+\label{chapter5:figure8}
+\end{figure}
+
+During this contour deformation, only the poles
+\begin{equation}
+\lambda = \xi, \quad \text{with } {\rm Im}(\xi) <0 
+\end{equation}
+of the $DM$ function \eqref{DM_operator} are crossed and therefore, applying the residue theorem, we have for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$, 
+\begin{equation}
+\label{DM_propag_sol}
+DM(X_j)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda  = \int_{\Gamma_2} DM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda + m(\xi) X_j(\xi).
+\end{equation}
+
+The poles of the $TM$ function \eqref{TM_operator} are
+$$ \lambda = T_0^{-1}(\xi) = \xi \, \cos \widetilde{2\varphi}  - \sin \widetilde{2\varphi} \, \zeta_0(\xi) = \cos (\theta - \widetilde{2\varphi}) \quad \text{if} \quad \xi = \cos \theta $$
+$T_0^{-1}$ operates in the domain $\Omega_0^-$, therefore they are crossed during this contour deformation if and only if $\xi \in \Omega_0^-$ (see dotted area on Fig.~\ref{chapter5:figure11}).
+The domain $\Omega_0^-$ is delineated by the hyperbola 
+\begin{equation}
+\partial \Omega_0^- = \{   \xi \in \mathbb{C}, \ {\rm Im}(\xi) <0,  \xi = \cos \theta, {\rm Re} \, \theta = \widetilde{2\varphi} \}.
+\end{equation}
+Domain $\Omega_0^-$ and contour $\partial \Omega_0^-$ are illustrated on Fig.~\ref{chapter5:figure11}.   
+
+Applying the residue theorem to the $TM$ integral operator then gives for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$,
+\begin{equation}
+\label{TM_propag_sol}
+TM(X_j)(\xi) = \int_{\Gamma_0} TM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda  = \int_{\Gamma_2} TM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda + m(\xi) \, X_j[T_0^{-1}(\xi)] \mathbf{1}(\xi \in \Omega_0^-)
+\end{equation}
+
+\begin{figure}[ht]%
+\begin{center}
+    \resizebox{!}{0.4\textwidth}{
+	\begin{tikzpicture}
+	\draw[thin, ->,>=stealth'] (-3,0)  -- (4,0) node[above]{\LARGE $\sigma$};
+	\draw[dashed, ->,>=stealth'](0,-1)--(0,3) node[left]{\LARGE $\tau$};
+	\node at (2,0) {\LARGE $\times$}; % Pole
+	\node at (2,-0.5) {\LARGE $1$};
+	\node at (-2,0) {\LARGE $\times$};
+	\node at (-2.1,0.35) {\LARGE $-1$}; %pole
+	
+	% Hyperbola (contour  partial_Omega_0 )
+	\draw[black, very thick][domain=-2:2] plot({cosh(\x)}, {-sinh(\x)});
+	\node at (3.85,-4.3) {\LARGE $\partial \Omega_0^-$};
+	\draw[thin, ->,>=stealth'](1.7,0.45) -- (1.1, 0.06);
+	\node at (2.2, 0.75) {\LARGE $\cos \widetilde{2\varphi}$};
+	
+	% Omega_0
+	\node at (-4,-2) {\LARGE $\Omega_0^-$};
+	\draw[->,>=stealth'] (-3.7, -2) -- (-2.7,-2);
+	\draw[->,>=stealth'] (-1,-4.1) -- (-1,-3.3);
+	\node at (-1,-4.4) {\LARGE recursive evaluation};
+	\node at (4.2,-1.2) {\LARGE direct evaluation};
+    \node at (4.3,-2) {\LARGE $(\xi \notin \Omega_0^-)$};
+	
+	% Filling Omega_0^-
+	\fill [pattern=dots]
+	(-1,0)
+	-- plot [domain= 0:2] ({cosh(\x)},{-sinh(\x)})
+	-- (-3,0)
+	-- cycle;
+	
+	\fill [pattern=dots]
+	({cosh(2)},{-sinh(2)})
+	-- plot [domain= 0:-3] ({\x},{-sinh(2)})
+	-- (-3,0)
+	-- cycle;
+	
+	\end{tikzpicture}
+    }
+\end{center}
+\caption
+[Domain $\Omega_0^-$ and its lower boundary $\partial \Omega_0^-$]
+{Domain $\Omega_0^-$ and its lower boundary $\partial \Omega_0^-$ in the complex plane $\xi=\sigma + i \tau$. $\Omega_0^-$ is delimited by $\partial \Omega_0^-$ andthe semi-axis $]-\infty, \cos \widetilde{2\varphi}]$. }
+\label{chapter5:figure11}
+\end{figure}
+
+
+Using \eqref{DM_propag_sol} and \eqref{TM_propag_sol} in the system of functional equations \eqref{sys_regular}, the system \eqref{sys_regular} is then equivalent to this new system for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$:
+\begin{equation}
+\label{propag_sol_sys}
+\begin{cases}
+X_1(\xi) = g_1(\xi) -  X_2(T_0^{-1}(\xi)) \, \mathbf{1}(\xi \in \Omega_0^-) \\
+\\
+X_2(\xi) = g_2(\xi) - X_1(T_0^{-1}(\xi)) \, \mathbf{1}(\xi \in \Omega_0^-) 
+\end{cases}
+\end{equation}
+where
+\begin{equation}
+g_j(\xi) = m(\xi)^{-1} \left[ u_j(\xi) - \int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) \, {\rm d} \lambda - \int_{\Gamma_2} TM(\xi,\lambda) \, X_{3-j}(\lambda) \, {\rm d} \lambda \right] \\
+\end{equation}
+Formula \eqref{propag_sol_sys} is called the recursive formula because it uses the value of the regular function $X_2$ at point $T_0^{-1}(\xi)$ to compute the value of $X_1$ at the point $\xi$ where the approximation is not valid (and vice-versa). If the translation from $\xi$ to $T_0^{-1}(\xi)$ is not sufficient to reach the domain $\mathbb{C} \backslash \Omega_0^-$ where the approximation is valid, then the use of the formula is repeated as many times as necessary (computing $X_2(T_0^{-1}(\xi))$ using the value of $X_1(T_0^{-2}(\xi))$, etc.).
+
+To calculate $g_j$ functions, we need to compute
+\begin{equation*}
+\int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda =\sum_k \tilde{X}_j^k \int_{\Gamma_2} DM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda 
+\end{equation*}
+and
+\begin{equation*}
+\int_{\Gamma_2} TM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda = \sum_k \tilde{X}_j^k \int_{\Gamma_2} TM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda
+\end{equation*}
+
+If ${\rm Im}(a) < 0$, the residue theorem combined with the variable change $\lambda = iy$  yields
+\begin{equation}
+\int_{\Gamma_2} DM(\xi,\lambda) \,  \dfrac{1}{\lambda+a} \, \, {\rm d} \lambda =  \dfrac{1}{2\pi} \, \mathcal{D}(a,\xi) - \dfrac{m(\xi)}{\xi +a} = \mathcal{ND}(a,\xi). 
+\end{equation}
+
+For the $TM$ contributions, the poles $\lambda = T_0^{-1}(\xi)$ are taken into account if and only if $\xi \in \Omega_0^-$. Thus, for $\xi \in \Omega_0^-$, ${\rm Im}(a) < 0$, the residue theorem combined with the variable change $\lambda = iy$ gives
+\begin{equation}
+\int_{\Gamma_2} TM(\xi,\lambda) \,  \dfrac{1}{\lambda +a} \, \, {\rm d} \lambda = \frac{1}{2i\pi} \mathcal{T}(a,\xi)- \dfrac{m(\xi)}{T_0^-(\xi) +a}   =  \mathcal{NT}(a,\xi)
+\end{equation}
+
+Formula \eqref{regular_part_decomp} finally leads to, for $\xi \in \Omega_0^-$ and $j=1,2$,
+\begin{eqnarray}
+m(\xi)\, g_j(\xi) -  u_j(\xi)=
+-\Big( \sum_k \tilde X_j^{k}\, d_k \, N\mathcal D(a_k,\xi)+\sum_k \tilde X_{3-j}^{k} \, d_k \,
+N\mathcal T(a_k,\xi) \Big) \nonumber
+\end{eqnarray}
+
+Some numerical results are presented in the sequel.
+
+\section{Numerical results}
+\label{Chapter5:results}
+
+In this section, a far-field ($k_0r>>1$) asymptotic evaluation of the diffraction coefficient is computed using the stationary phase method :
+\begin{equation}
+\label{GTDCoeff_SF}
+D(\theta) = \dfrac{e^{-i\frac{\pi}{4}}}{\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( 2\varphi - \theta))]
+\end{equation}
+where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are the spectral functions, is compared to the analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void as expressed by Sommerfeld \cite{Sommerfeld}. Sommerfeld \cite{Sommerfeld} gives an expression of the coefficient in the case of the diffraction of a scalar plane wave by a wedge which can be used in the case of a stress-free wedge immersed in a fluid :
+\begin{align}
+\label{GTDCoeff_Som}
+D^{\rm (Som)}(\theta) = \dfrac{e^{i\frac{\pi}{4}}}{2n \sqrt{2\pi}}  \, \left[ \cot \left( \dfrac{\pi + (\theta + \theta_{\rm inc})}{2n} \right) + \cot \left( \dfrac{\pi - (\theta + \theta_{\rm inc})}{2n} \right) \right.   \nonumber \\
+\left. - \cot \left( \dfrac{\pi + (\theta - \theta_{\rm inc})}{2n} \right) - \cot \left( \dfrac{\pi - (\theta - \theta_{\rm inc})}{2n} \right) \right] 
+\end{align}
+with $n=2\varphi/\pi$.
+
+To apply the recursive procedure described in \ref{propag_sol}, calculation points $\xi$ must have a negative imaginary part. The calculation points considered are then
+\begin{equation}
+\label{calculation_points_recursive}
+\xi_1 = -\cos \theta -i\,10^{-3}  \quad \text{and} \quad \xi_2=- \cos (2\varphi - \theta) - i\, 10^{-3} 
+\end{equation}
+where $\theta$ is the observation angle in the wedge (see Fig.~\ref{chapter5:figure1}).
+
+For the Galerkin basis defined in \eqref{Galerkin_basis}, the parameters $a_k \in [1,\infty[$ are chosen as an exponential law \cite{CroisilleLebeau}:
+\begin{equation}
+\begin{split}
+\label{bas_Gal}
+a_k &= 1.1 + 0.05 \left( 10^{\frac{k -1}{4}} - 1 \right), \quad 1\leq k\leq 20 \\
+b_k &= a_k  - i 0.1, \quad 1\leq k\leq 20 
+\end{split}
+\end{equation}
+
+The module of the diffraction coefficients computed using spectral functions and Sommerfeld integral method for various wedge angles are plotted in terms of the observation angle $\theta, \quad 0\leq \theta\leq 2\varphi$ and presented on Fig.~\ref{chapter5:figure12}. 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{Figure8a.pdf}
+        \caption{$2\varphi = 80^o$, $\theta_{\rm inc} = 55^o$}
+        \label{chapter5:figure12a}
+    \end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{Figure8b.pdf}
+        \caption{$2\varphi = 160^o$, $\theta_{\rm inc} = 40^o$}
+        \label{chapter5:figure12b}
+    \end{subfigure}
+\\
+~\\
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{Figure8c.pdf}
+        \caption{$2\varphi = 280^o$, $\theta_{\rm inc} = 240^o$}
+        \label{chapter5:figure12d}
+    \end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{Figure8d.pdf}
+        \caption{$2\varphi = 300^o$, $\theta_{\rm inc} = 150^o$}
+        \label{chapter5:figure12c}
+    \end{subfigure}
+\caption
+[Diffraction  coefficient computed with the recursive formula of spectral functions and with the Sommerfeld method]
+{Diffraction  coefficient computed with the spectral functions and with the Sommerfeld method.}
+\label{chapter5:figure12}
+\end{figure}
+
+ In each of these figures, the continuous light blue line represents the modules of the diffraction coefficients obtained using the Sommerfeld integral method, the continuous dark blue line represents those obtained using the Spectral function singular part $Y_j$ alone, the short-dashed green line represents those obtained using the Spectral functions method without propagation of the solution and the red circles represent those obtained using the spectral functions method with propagation of the solution described in paragraph \ref{propag_sol}.
+
+On Figs.~\ref{chapter5:figure12a} and ~\ref{chapter5:figure12b} the wedge angles are lower than $\pi$ and on figs.~\ref{chapter5:figure12c} and \ref{chapter5:figure12d} the wedge angles are greater than $\pi$. In both cases, it appears clearly that both the regular part of the solution and the recursive method are necessary to obtain optimal results. When both of these are included, diffraction coefficients obtained with Spectral functions are close to those of the Sommerfeld method.
+
+
+\section{Conclusion}
+The spectral functions method is shown here to model diffraction of an acoustic wave from stress-free wedges. The diffraction coefficient obtained using the spectral functions has been compared to the analytic one obtained from the asymptotic evaluation of the Sommerfeld integral. The numerical results obtained thanks to the spectral functions method are very close to those given by the analytical solution and a precise result is obtained at a very low computational cost. The spectral functions method may therefore be extended to more complex wedge diffraction cases such as the computation of the diffraction coefficient of an elastic wave, wedges with different boundary conditions or in cases where the incident ray does not lie in the plane normal to the edge. In all these cases, studies may be carried out to numerically calculate corresponding diffraction coefficients for all wedge angles with a good precision and a low computation time.
