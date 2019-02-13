@@ -1,11 +1,11 @@
 % Document de classe yathesis, en 12 points, interligne un et demi, et version finale
-\documentclass[12pt,space=onehalf,version=final,mainlanguage=english,localtocs/depth=subsection,output=screen]{yathesis}
+\documentclass[12pt,space=onehalf,version=final,mainlanguage=english,localtocs/depth=subsection,output=screen,xcolor=dvipsnames]{yathesis}
 %
 % Chargement manuel de packages (pas déjà chargés par la classe yathesis)
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum} % À proscrire dans un vrai mémoire de thèse !
-\usepackage{xcolor}
+%\usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{amsthm}
 \usetikzlibrary{calc,decorations.markings}
@@ -26,10 +26,12 @@
 \usepackage[backend=biber,safeinputenc]{biblatex}
 \usepackage{hyperref}
 \usepackage[xindy,acronyms,symbols]{glossaries}
-%
-\definecolor{pourpre}{rgb}{0,100,0}
 
-\hypersetup{colorlinks=true,linkcolor=pourpre}
+%
+%\definecolor{pourpre}{rgb}{0,100,0}
+
+%\hypersetup{colorlinks=true,linkcolor=pourpre}
+\hypersetup{colorlinks=true,linktoc=page,linkcolor=BlueViolet}
 % Génération de l'index
 %\makeindex
 %
@@ -130,7 +132,7 @@
 %\include{liminaires/avant-propos}
 %
 % Sommaire
-\tableofcontents[depth=chapter,name=Table of Contents]
+\tableofcontents[depth=section,name=Table of Contents]
 %
 % (Facultatif) Liste des tableaux
 %\listoftables
