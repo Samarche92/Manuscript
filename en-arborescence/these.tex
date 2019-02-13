@@ -7,11 +7,16 @@
 \usepackage{lipsum} % À proscrire dans un vrai mémoire de thèse !
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{amsthm}
+\usetikzlibrary{calc,decorations.markings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
 \usepackage{kpfonts}
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{pgfplots}
 \usepackage{floatrow}
+\usepackage{subcaption}
 \usepackage{caption}
 \usepackage{listings}
 \usepackage{microtype}
@@ -58,6 +63,14 @@
 % explicitement (à proscrire dans un vrai mémoire de thèse !)
 %\nocite{*}
 %
+%%%%%%%%%%% Defining Enunciations  %%%%%%%%%%%
+\newtheorem{theorem}{\bf Theorem}[section]
+\newtheorem{condition}{\bf Condition}[section]
+\newtheorem{corollary}{\bf Corollary}[section]
+\newtheorem{definition}{\bf Definition}[section]
+\newtheorem{lemma}{\bf Lemma}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Début du document
