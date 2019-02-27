@@ -33,7 +33,7 @@ For $x\neq \pm 1$,
 
 
 {\bf Proof}
-The roots of the polynomial $a(1-x^2)+2ix, a\in \mathbb C^* $ are $x_\pm={1\over a}(i\pm \sqrt {a^2-1})$. When $a \notin \{ -1,0,1\} $, these roots are distinct and  formula \eqref{rog_function} results from a classical integral computation. When $a=0$, both formulations \eqref{rgl} and \eqref{rog_function} give rog$(0)=\frac{\pi}{2}$ and no singularity arises. However, when $a=1$, \eqref{rgl} yields rog$(1)=1$ whereas \eqref{rog_function} presents a singularity. The indetermination is lifted by defining $z=\sqrt{1-1/a^2}$ in \eqref{rog_function}. We then have :
+The roots of the polynomial $a(1-x^2)+2ix, a\in \mathbb C^* $ are $x_\pm={1\over a}(i\pm \sqrt {a^2-1})$. When $a \notin \{ -1,0,1\} $, these roots are distinct and  formula \eqref{rog_function} results from a classical integral computation. When $a=0$, both formulations \eqref{defrog} and \eqref{rog_function} give rog$(0)=\frac{\pi}{2}$ and no singularity arises. However, when $a=1$, \eqref{defrog} yields rog$(1)=1$ whereas \eqref{rog_function} presents a singularity. The indetermination is lifted by defining $z=\sqrt{1-1/a^2}$ in \eqref{rog_function}. We then have :
 \begin{equation}
 \rm rog(a)=\frac{1}{2az}\ln \left(\frac{1+z}{1-z}\right)
 \end{equation}
@@ -41,12 +41,12 @@ The Taylor series expansion at $z=0$ leads to rog$(1)=1$. The rog function can t
 
 \begin{lemma}
 \label{lemma_sog}
-The function ${\rm sog}(x)$ defined in \eqref{sog_function} for $x>1$ is holomorphic on $\mathbb{C}\setminus \{-1\}$.
+The function ${\rm sog}(x)$ defined in \eqref{defsog} for $x>1$ is holomorphic on $\mathbb{C}\setminus \{-1\}$.
 \end{lemma}
 
 
 {\bf Proof}
-${\rm sog}$ function defined in \eqref{sog_function} depends on the $\rm rog$ function which is holomorphic on $\mathbb{C}\setminus \rbrack - \infty, -1 \rbrack$. To remove the indetermination near $x=0$, let us define $y=\left( 1-x^2 \right)^{1/2}$. We then have $x = -i \left( y^2 -1 \right)^{1/2} $ using the same definition of the square root as in \eqref{zeta_function_inferior1}. Thus,
+${\rm sog}$ function defined in \eqref{defsog} depends on the $\rm rog$ function which is holomorphic on $\mathbb{C}\setminus \rbrack - \infty, -1 \rbrack$. To remove the indetermination near $x=0$, let us define $y=\left( 1-x^2 \right)^{1/2}$. We then have $x = -i \left( y^2 -1 \right)^{1/2} $ using the same definition of the square root as in \eqref{zeta_function_inferior1}. Thus,
 \begin{equation}
 {\rm sog}(x) = - \dfrac{\pi}{2} \dfrac{x}{y(y+1)} + \dfrac{1}{y} \, {\rm rog}(y) \quad \text{with} \quad y \rightarrow  1
 \end{equation}
