@@ -1,4 +1,4 @@
-\chapter{Computation of integrals $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$ and $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$ }
+\chapter[][Some preliminary results]{Some preliminary results for the computation of the regular parts of the spectral functions }
 \label{Intégrale}
 
 The coefficients of matrices $\mathbb{D}$ and $\mathbb{T}$ depend on the values of two elementary integrals. These values are expressed using two complex functions, rog and sog. Let us therefore begin by defining these new complex functions and giving their analytic properties, before presenting the details of the computation of these two elementary integrals.
@@ -7,11 +7,11 @@ The coefficients of matrices $\mathbb{D}$ and $\mathbb{T}$ depend on the values 
 \label{rogsog}
 Let us introduce ${\rm rog}(a)$ and ${\rm sog}(a)$ complex functions defined as
 \begin{equation}
-\label{rgl}
+\label{defrog}
 {\rm rog}(a) =\int_{-1}^1 {1 \over a(1-x^2)+2ix} \, dx,
 \end{equation}
 \begin{equation}
-\label{sog_function}
+\label{defsog}
 {\rm sog}(a) = \dfrac{1}{a}\left( \dfrac{\pi}{2} - {\rm rog}(a)\right)
 \end{equation}
 These functions are used in the sequel to express $\mathcal{T}(a,b)$ [see Eq.~\eqref{T_function_bis2}] and $\mathcal{D}(a,b)$ [see Eq.~\eqref{ldbis}] functions. Their analytic properties are given hereafter.
@@ -82,19 +82,10 @@ $q_\pm$ are substituted by their expression (\ref{q1q2}) :
 \end{equation*}
 Yielding finally :
 \begin{equation}
-\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\frac{\lambda}{\nu}\mbox{sog}(\frac{a}{\nu})+i\frac{\rho}{\nu}\mbox{rog}(\frac{a}{\nu})
+\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\frac{\lambda}{\nu}\mbox{sog}(\frac{a}{\nu})+i\frac{\rho}{\nu}\mbox{rog}(\frac{a}{\nu}),
 \label{intQ}
 \end{equation}
-On a défini la fonction suivante, pour $a>1$
-\begin{equation}
-\mbox{rog}(a)=\int_{-1}^1\frac{dx}{a(1-x^2)+2ix}=\frac{1}{\sqrt{a^2-1}}\log(a+\sqrt{a^2-1})
-\label{defrog}
-\end{equation}
-La branche de coupure de la racine carrée est le long de l'axe des réels négatifs. On definit ensuite :
-\begin{equation}
-\mbox{sog}(a)=\frac{1}{a}\left(\frac{\pi}{2}-\mbox{rog}(a)\right)
-\label{defsog}
-\end{equation}
+where the expressions of the complex functions rog and sog are defined by \eqref{rog_function} and \eqref{defsog} respectively.
 \section{Intégrale $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$}
 \label{calculintP}
 On calcule :
