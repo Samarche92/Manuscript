@@ -87,17 +87,19 @@ Yielding finally :
 \end{equation}
 where the expressions of the complex functions rog and sog are defined by \eqref{rog_function} and \eqref{defsog} respectively.
 
-{\bf Note}
+\begin{note}
 \label{intQ_postcritical}
 In the particular case where $a \in \rbrack -i\infty,-i\rbrack, \nu \in i\mathbb{R}_+$, then $\frac{a}{\nu} \in \rbrack -\infty,-1\rbrack$ and expression \eqref{intQ} can not be used, since functions rog and sog are not defined on $\rbrack -\infty,-1\rbrack$. This issue can simply be avoided by defining $a=-ia'$ and $\nu=i\eta$ and noting that :
 \begin{equation}
-    \int_{-1}^{1} \frac{\lambda t +\rho}{2\nuti_L-ia(1-t^2)}\, dt=\int_{-1}^{1} \frac{\lambda t +\rho}{2i\eta_L-a'(1-t^2)}\, dt=-i\overline{\int_{-1}^{1} \frac{\bar{\lambda} t +\bar{\rho}}{2\eta_L-ia'(1-t^2)}}
+    \int_{-1}^{1} \frac{\lambda t +\rho}{2\nu-ia(1-t^2)}\, dt=\int_{-1}^{1} \frac{\lambda t +\rho}{2i\eta-a'(1-t^2)}\, dt=-i\overline{\int_{-1}^{1} \frac{\bar{\lambda} t +\bar{\rho}}{2\eta-ia'(1-t^2)}}
 \end{equation}
-which leads to :
+Equation \eqref{intQ} can now be applied :
 \begin{equation}
-    \int_{-1}^{1} \frac{\lambda t +\rho}{2\nuti_L-ia(1-t^2)}\, dt=-i\frac{\lambda}{\eta_L}\overline{\sog{a'/\eta_L}}-\frac{\rho}{\eta_L}\overline{\rog{a'/\eta_L}}
+    \int_{-1}^{1} \frac{\lambda t +\rho}{2\nuti-ia(1-t^2)}\, dt=-i\frac{\lambda}{\eta}\overline{\sog{a'/\eta}}-\frac{\rho}{\eta}\overline{\rog{a'/\eta}}
 \label{exprQ_postcr}
 \end{equation}
+\end{note}
+
 
 \section{Intégrale $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$}
 \label{calculintP}
