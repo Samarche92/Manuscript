@@ -1,13 +1,65 @@
-\chapter{Calcul des intégrales $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$ et $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$ }
+\chapter{Computation of integrals $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$ and $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$ }
 \label{Intégrale}
-Avant de nous lancer dans le détail des calculs des coefficients des matrices $\mathbb{D}$ et $\mathbb{T}$, nous allons commencer par calculer deux intégrales élémentaires dont les valeurs seront utilisées dans toute la suite.
-\section{Intégrale $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$}
-\label{calculIntQ}
-On calcule :
+
+The coefficients of matrices $\mathbb{D}$ and $\mathbb{T}$ depend on the values of two elementary integrals. These values are expressed using two complex functions, rog and sog. Let us therefore begin by defining these new complex functions and giving their analytic properties, before presenting the details of the computation of these two elementary integrals.
+
+\section{Definition of rog and sog complex functions}
+\label{rogsog}
+Let us introduce ${\rm rog}(a)$ and ${\rm sog}(a)$ complex functions defined as
+\begin{equation}
+\label{rgl}
+{\rm rog}(a) =\int_{-1}^1 {1 \over a(1-x^2)+2ix} \, dx,
+\end{equation}
+\begin{equation}
+\label{sog_function}
+{\rm sog}(a) = \dfrac{1}{a}\left( \dfrac{\pi}{2} - {\rm rog}(a)\right)
+\end{equation}
+These functions are used in the sequel to express $\mathcal{T}(a,b)$ [see Eq.~\eqref{T_function_bis2}] and $\mathcal{D}(a,b)$ [see Eq.~\eqref{ldbis}] functions. Their analytic properties are given hereafter.
+
+\begin{lemma}
+\label{lemma_rog}
+The function ${\rm rog}(a)$ defined for $a > 1$ by
 \begin{equation*}
-\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\int_{-1}^1 \frac{\lambda t}{iat^2+2\nu t-ia}\,dt+\int_{-1}^1\frac{\rho}{ia(t-q_+)(t-q_-)}\,dt
+ {\rm rog}(a)=\int_{-1}^1 {1 \over a(1-x^2)+2ix} \, dx
 \end{equation*}
-Où on note $q_+,q_-$ les racines de Q. On a:
+is holomorphic on $\mathbb C\setminus \{-1\}$ and has the following property : 
+
+For $x\neq \pm 1$,
+\begin{equation}
+{\rm rog}(a) = \dfrac{1}{\sqrt{a^2 - 1}} \ln (a+\sqrt{a^2 -1})
+\label{rog_function}
+\end{equation}
+\end{lemma}
+
+
+{\bf Proof}
+The roots of the polynomial $a(1-x^2)+2ix, a\in \mathbb C^* $ are $x_\pm={1\over a}(i\pm \sqrt {a^2-1})$. When $a \notin \{ -1,0,1\} $, these roots are distinct and  formula \eqref{rog_function} results from a classical integral computation. When $a=0$, both formulations \eqref{rgl} and \eqref{rog_function} give rog$(0)=\frac{\pi}{2}$ and no singularity arises. However, when $a=1$, \eqref{rgl} yields rog$(1)=1$ whereas \eqref{rog_function} presents a singularity. The indetermination is lifted by defining $z=\sqrt{1-1/a^2}$ in \eqref{rog_function}. We then have :
+\begin{equation}
+\rm rog(a)=\frac{1}{2az}\ln \left(\frac{1+z}{1-z}\right)
+\end{equation}
+The Taylor series expansion at $z=0$ leads to rog$(1)=1$. The rog function can therefore be extended to $\mathbb{C}\setminus \{-1\}$.
+
+\begin{lemma}
+\label{lemma_sog}
+The function ${\rm sog}(x)$ defined in \eqref{sog_function} for $x>1$ is holomorphic on $\mathbb{C}\setminus \{-1\}$.
+\end{lemma}
+
+
+{\bf Proof}
+${\rm sog}$ function defined in \eqref{sog_function} depends on the $\rm rog$ function which is holomorphic on $\mathbb{C}\setminus \rbrack - \infty, -1 \rbrack$. To remove the indetermination near $x=0$, let us define $y=\left( 1-x^2 \right)^{1/2}$. We then have $x = -i \left( y^2 -1 \right)^{1/2} $ using the same definition of the square root as in \eqref{zeta_function_inferior1}. Thus,
+\begin{equation}
+{\rm sog}(x) = - \dfrac{\pi}{2} \dfrac{x}{y(y+1)} + \dfrac{1}{y} \, {\rm rog}(y) \quad \text{with} \quad y \rightarrow  1
+\end{equation}
+
+Knowing the analytic properties of functions $\rm rog$ and ${\rm sog}$, we can now calculate the integrals $\mathcal{T}(a,b)$ \eqref{T_function_bis2} and $\mathcal{D}(a,b)$ \eqref{ldbis}.
+
+\section{Integral $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$}
+\label{calculIntQ}
+The first elementary integral to compute is the following:
+\begin{equation*}
+\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\int_{-1}^1 \frac{\lambda t}{iat^2+2\nu t-ia}\,dt+\int_{-1}^1\frac{\rho}{ia(t-q_+)(t-q_-)}\,dt,
+\end{equation*}
+where $q_+,q_-$ are the roots of the polynomial function Q. They are given by:
 \begin{equation}
 q_\pm=\frac{1}{a}(i\nu\pm\sqrt{a^2-\nu^2})
 \label{q1q2}
@@ -19,7 +71,7 @@ q_\pm=\frac{1}{a}(i\nu\pm\sqrt{a^2-\nu^2})
 &=\frac{\lambda\pi}{2a}+\frac{1}{q_+-q_-}\left(\frac{\rho}{ia}+\frac{\lambda\nu}{a^2}\right)\int_{-1}^1\left(\frac{1}{t-q_+}-\frac{1}{t-q_-}\right)\,dt
 \end{split}
 \end{equation*}
-On réinjecte les expressions de $q_\pm$ données par (\ref{q1q2}):
+$q_\pm$ are substituted by their expression (\ref{q1q2}) :
 \begin{equation*}
 \begin{split}
 \int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt&=\frac{\lambda\pi}{2a}+\frac{1}{2\sqrt{a^2-\nu^2}}\left(\frac{\lambda\nu}{a}-i\rho\right)\log\left(\frac{(1-q_+)(1+q_-)}{(1-q_-)(1+q_+)}\right)\\
@@ -28,7 +80,7 @@ On réinjecte les expressions de $q_\pm$ données par (\ref{q1q2}):
 &=\frac{\lambda\pi}{2a}+\frac{1}{\nu\sqrt{\frac{a^2}{\nu^2}-1}}\left(i\rho-\frac{\lambda\nu}{a}\right)\log\left(\frac{a}{\nu}+\sqrt{\frac{a^2}{\nu^2}-1}\right)
 \end{split}
 \end{equation*}
-Soit finalement :
+Yielding finally :
 \begin{equation}
 \int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\frac{\lambda}{\nu}\mbox{sog}(\frac{a}{\nu})+i\frac{\rho}{\nu}\mbox{rog}(\frac{a}{\nu})
 \label{intQ}
