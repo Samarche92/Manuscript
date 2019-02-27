@@ -1,0 +1,431 @@
+\chapter{Détail des calculs des coefficients de la matrice $\mathbb{T}(a,b)$}
+\label{matT}
+Lors des caluls des coefficients de $\mathbb{T}(a,b)$ nous aurons besoin d'un certain nombre de résultats intermédiaires. Nous allons donc commencer par déterminer ceux-ci avant de procéder au calcul final.
+
+\section{Calcul de l'intégrale $J_2^*$}
+\label{calculJ2}
+On définit :
+\begin{equation}
+J_2 =\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\lbrack b-iy\cos \tilde{\varphi}+ \sqrt{\nuti^2+y^2} \sin \tilde{\varphi}) \rbrack} \, dy
+\label{defJ2}
+\end{equation}
+On effectue une fois de plus le changement de variables (\ref{changevar}) et on obtient désormais :
+$$J_2=8\nuti^3 \int_{-1}^1 \frac{t^2(t^2+1)}{(1-t^2)^2\lbrack b(1-t^2)-2\nuti it\cos\tilde{\varphi}+ \sin \tilde{\varphi} \nuti(1+t^2)\rbrack(2\nuti t-ia(1-t^2))}\, dt$$
+On cherche la décomposition en éléments simples de l'intégrande :
+$$\frac{t^2(1+t^2)}{(1-t)^2(1+t)^2P(t)Q(t)}=\frac{\alpha_2}{1-t}+\frac{\beta_2}{1+t}+\frac{\gamma_2}{(1-t)^2}+\frac{\delta_2}{(1+t)^2}+\frac{\eta_2 t+\psi_2}{P(t)}+\frac{\lambda_2 t +\rho_2}{Q(t)}$$
+Où on a défini :
+\begin{equation}
+P(t)=b(1-t^2)-2\nuti i t\cos\tilde{\varphi}+\nuti\sin\tilde{\varphi}(1+t^2)
+\end{equation}
+On a donc, pour commencer :
+$$ \gamma_2=\frac{e^{i(\pi/2-\tilde{\varphi})}}{8\nuti^2}$$
+$$\delta_2=\frac{e^{i(\pi/2+\tilde{\varphi})}}{8\nuti^2}$$
+D'où :
+\begin{equation*}
+\begin{split}
+\frac{\alpha_2}{1-t}&+\frac{\beta_2}{1+t} +\frac{\eta_2 t+\psi_2}{P(t)}+\frac{\lambda_2 t +\rho_2}{Q(t)}=\frac{t^2(1+t^2)}{(1-t)^2(1+t)^2P(t)Q(t)}-\frac{e^{i(\pi/2-\tilde{\varphi})}}{8\nuti^2(1-t)^2}-\frac{e^{i(\pi/2+\tilde{\varphi})}}{8\nuti^2(1+t)^2}\\
+&=\frac{2iab\sin\tilde{\varphi}t-\nuti^2i\sin(2\tilde{\varphi})t-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2 P(t)Q(t)}\\ &+\frac{(2t\sin\tilde{\varphi}+(1+t^2)i\cos\varphi)(2a\cos\tilde{\varphi}t+ai\sin\tilde{\varphi}(1+t^2)-2bt)}{4\nuti(1-t^2) P(t)Q(t)}
+\end{split}
+\end{equation*}
+
+
+On a maintenant :
+$$\alpha_2=\frac{be^{-2i\tilde{\varphi}}-ae^{-i\tilde{\varphi}}}{8\nuti^3}$$
+$$\beta_2=\frac{ae^{i\tilde{\varphi}}-be^{2i\tilde{\varphi}}}{8\nuti^3}$$
+Ce qui donne :
+\begin{equation}
+\begin{split}
+\frac{\eta_2 t+\psi_2}{P(t)}+&\frac{\lambda_2 t +\rho_2}{Q(t)}
+=\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})t-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
+&+\frac{1}{4(1-t^2)\nuti^3P(t)Q(t)}\Big( \lbrack 2\nuti^2t\sin\tilde{\varphi}+\nuti^2(1+t^2)i\cos\tilde{\varphi} \rbrack\lbrack2a\cos\tilde{\varphi}t+ai\sin\tilde{\varphi}(1+t^2)-2bt \rbrack\\
+&-(b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi})P(t)Q(t)\Big) \\
+~\\
+=&-\frac{b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi}}{4\nuti^3P(t)Q(t)}\lbrack 2\nuti bt-iab(1-t^2)-2a\nuti\cos\tilde{\varphi}t\\
+&-a\nuti i\sin\tilde{\varphi}(1+t^2)\rbrack +\frac{1}{4\nuti(1-t^2)P(t)Q(t)}\Big( \lbrack 2t\sin\tilde{\varphi}+(1+t^2)i\cos\tilde{\varphi} \rbrack\lbrack 2a\cos\tilde{\varphi}t\\
+&+ai\sin\tilde{\varphi}(1+t^2)-2bt \rbrack- (b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi})(2\sin\tilde{\varphi}t(1+t^2)\\
+&-4i\cos\tilde{\varphi}t^2) \Big)+\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
+=&-\frac{b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi}}{4\nuti^3P(t)Q(t)}\lbrack 2\nuti bt-iab(1-t^2)-2a\nuti\cos\tilde{\varphi}t\\
+&-a\nuti i\sin\tilde{\varphi}(1+t^2)\rbrack+\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})t-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
+&+\frac{2ia\cos^2\tilde{\varphi}t-a\cos\tilde{\varphi}\sin\tilde{\varphi}(1+t^2)+2b\sin\tilde{\varphi}\cos(2\tilde{\varphi})t^2-2ib\cos\tilde{\varphi}\cos(2\tilde{\varphi})t}{4\nuti P(t)Q(t)}
+\end{split}
+\label{N2}
+\end{equation}
+Il ne reste plus qu'à déterminer les constantes $\eta_2,\psi_2,\lambda_2,\rho_2$ pour achever le calcul de la décomposition en élements simples. Pour celà, on utilise les considérations générales suivantes :
+\paragraph{}
+On note $N(t)$ un polynôme de degré 3 et on suppose que l'on a :
+\begin{equation}
+\frac{\eta t+\psi}{P(t)}+\frac{\lambda t+\rho}{Q(t)}=\frac{N(t)}{P(t)Q(t)}
+\label{nsurpq}
+\end{equation}
+On a défini $p_\pm$ en (\ref{p1p2}) et $q_\pm$ en (\ref{q1q2})
+Prenons l'égalité (\ref{nsurpq}) et multiplions la par $P(t)$. En évaluant le résultat en $p_+$ puis en $p_-$, on obtient le système suivant :
+\begin{eqnarray*}
+\left\{
+\begin{array}{l}
+\eta p_+ +\psi=\frac{N(p_+)}{Q(p_+)}\\
+\eta p_- +\psi=\frac{N(p_-)}{Q(p_-)}
+\end{array}
+\right.
+\end{eqnarray*}
+La résolution de ce système donne:
+\begin{eqnarray}
+\left\{
+\begin{array}{l}
+\eta=\frac{1}{p_+-p_-}\left[ \frac{N(p_+)}{Q(p_+)}-\frac{N(p_-)}{Q(p_-)} \right] \\
+\psi=\frac{N(p_+)}{Q(p_+)}-\eta p_+
+\end{array}
+\right.
+\label{etapsi}
+\end{eqnarray}
+Par symétrie des rôles de P et Q, on a :
+\begin{eqnarray}
+\left\{
+\begin{array}{l}
+\lambda=\frac{1}{q_+-q_-}\left[ \frac{N(q_+)}{P(q_+)}-\frac{N(q_-)}{P(q_-)} \right] \\
+\rho=\frac{N(q_+)}{P(q_+)}-\lambda q_+
+\end{array}
+\right.
+\label{lambdarho}
+\end{eqnarray}
+Dans le cas présent, le numérateur est donné par (\ref{N2}). Les derniers coefficients de la décomposition s'en déduisent donc en utilisant (\ref{etapsi}) et (\ref{lambdarho}).
+
+\paragraph{}
+On utilise les formules (\ref{intQ}) et (\ref{intP}) :
+\begin{equation}
+\begin{split}
+J_2\sim &2i\cos\tilde{\varphi} A+2i(a\sin\tilde{\varphi}-b\sin(2\tilde{\varphi}))\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}} \right) \\
+&+\frac{8i\eta_2\nuti^2}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\phiti\,\mbox{rog}(\frac{b}{\nuti}) \right)+8\nuti^2\psi_2 \mbox{rog}(\frac{b}{\nuti} )\\
+&+8\nuti^2 \left(\lambda_2 \mbox{sog}(a/\nuti)+i\rho_2 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ2}
+\end{equation}
+On note l'apparition de termes divergents dans le résultat. Ceux-ci se compenseront lors de la sommation des termes issus des coefficients $\mathcal{T}^T$ avec les termes issus des coefficients $\mathcal{T}^L$. 
+
+\section{Calcul de l'intégrale $J_3^*$}
+\label{calculJ3}
+On calcule :
+\begin{equation}
+J_3 = \int_{-\infty}^{+\infty} \frac{1}{(y-ia)\lbrack b-iy\cos \tilde{\varphi}+  \sqrt{\nuti^2+y^2} \sin \tilde{\varphi} \rbrack} \, dy
+\label{defJ3}
+\end{equation}
+Encore une fois, on applique le changement de variables (\ref{changevar}):
+$$J_3= 2\nuti \int_{-1}^1 \frac{1+t^2}{(2\nuti t-ia(1-t^2))(b(1-t^2)-2i\nuti t\cos\tilde{\varphi}+\nuti\sin\tilde{\varphi}(1+t^2))} \, dt$$
+La décomposition en éléments simples de l'intégrande donne :
+$$\frac{1+t^2}{P(t)Q(t)}=\frac{\eta_3 t+\psi_3}{P(t)}+\frac{\lambda_3 t +\rho_3}{Q(t)}$$
+Les coefficients s'obtiennent en utilisant les formules (\ref{etapsi}) et (\ref{lambdarho}).
+
+Soit finalement :
+\begin{equation}
+\begin{split}
+J_3=&\frac{2i\eta_3}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+2\psi_3 \mbox{rog}(\frac{b}{\nuti} )\\
+&+2\left(\lambda_3 \mbox{sog}(a/\nuti)+i\rho_3 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ3}
+\end{equation}
+Cette fois, il n'y a aucun terme divergent. 
+
+\section{Calcul de l'intégrale $J_4^*$}
+\label{calculJ4}
+On définit maintenant :
+\begin{equation}
+J_4=\int_{-\infty}^{+\infty}\frac{y^3}{(y-ia)\sqrt{y^2+\nuti^2}(b-iy\cos\tilde{\varphi}+\sqrt{\nuti^2+y^2}\sin\tilde{\varphi})}\,dy
+\label{defJ4}
+\end{equation}
+On effectue une fois de plus le changement de variables (\ref{changevar}).
+$$J_4=16\nuti^3 \int_{-1}^1 \frac{t^3}{(2\nuti t-ia(1-t^2))(1-t^2)^2(b(1-t^2)-2i\nuti t\cos\tilde{\varphi}+\nuti(1+t^2)\sin\tilde{\varphi})} \, dt $$
+On cherche la décomposition en éléments simples de l'intégrande :
+\begin{equation*}
+\frac{t^3}{(1-t^2)^2P(t)Q(t)}=\frac{\alpha_4}{1-t}+\frac{\beta_4}{1+t}+\frac{\gamma_4}{(1-t)^2}+\frac{\delta_4}{(1+t)^2}+\frac{\eta_4 t+\psi_4}{P(t)}+\frac{\lambda_4 t +\rho_4}{Q(t)}
+\end{equation*}
+
+On a :
+$$\gamma_4=\frac{e^{i(\pi/2-\tilde{\varphi})}}{16\nuti^2}$$
+$$\delta_4=\frac{e^{i(\tilde{\varphi}-\pi/2)}}{16\nuti^2}$$
+On calcule :
+
+\begin{equation*}
+\begin{split}
+\frac{\alpha_4}{1-t}&+\frac{\beta_4}{1+t}+\frac{\eta_4 t+\psi_4}{P(t)}+\frac{\lambda_4 t +\rho_4}{Q(t)}=\frac{8\nuti^2t^3-\lbrack \sin\tilde{\varphi}(1+t^2)+2i\cos\tilde{\varphi} t \rbrack P(t)Q(t)}{8\nuti^2(1-t^2)^2P(t)Q(t)} \\
+~\\
+=&\frac{\sin\tilde{\varphi}(1+t^2)+2i\cos\tilde{\varphi} t}{8\nuti^2(1-t^2)P(t)Q(t)}\Big( a\nuti(2\cos\tilde{\varphi}t+i\sin\tilde{\varphi}(1+t^2))-b(2\nuti t-ia(1-t^2))\Big)\\
+&+\frac{4t^3-(\sin\tilde{\varphi}(1+t^2)+2i\cos\tilde{\varphi} t)(\sin\tilde{\varphi}t(1+t^2)-2i\cos\tilde{\varphi} t^2)}{4(1-t^2)^2P(t)Q(t)}\\
+~\\
+=&\frac{2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2}{4\nuti(1-t^2)P(t)Q(t)}+\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t}{8\nuti^2P(t)Q(t)}\\
+&-\frac{\sin^2\tilde{\varphi}.t}{4P(t)Q(t)}
+\end{split}
+\end{equation*}
+
+D'où:
+$$\alpha_4=\frac{be^{-2i\tilde{\varphi}}-ae^{-i\tilde{\varphi}}}{16\nuti^3}$$
+$$\beta_4=\frac{be^{2i\tilde{\varphi}}-ae^{i\tilde{\varphi}}}{16\nuti^3}$$
+Ce qui donne :
+\begin{equation*}
+\begin{split}
+\frac{\eta_4 t+\psi_4}{P(t)}&+\frac{\lambda_4 t +\rho_4}{Q(t)}=\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t-2\nuti^2\sin^2\tilde{\varphi}t}{8\nuti^2P(t)Q(t)}\\
+&+\frac{2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2}{4\nuti(1-t^2)P(t)Q(t)}\\
+&-\frac{\lbrack b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi}-bit\sin(2\tilde{\varphi})+ait\sin\tilde{\varphi}\rbrack P(t)Q(t)}{8\nuti^3(1-t^2)P(t)Q(t)} \\
+~\\
+=&\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t-2\nuti^2\sin^2\tilde{\varphi}}{8\nuti^2P(t)Q(t)} \\
+&+\frac{b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi}-bit\sin(2\tilde{\varphi})+ait\sin\tilde{\varphi}}{8\nuti^3P(t)Q(t)}\Big(2a\nuti\cos\tilde{\varphi}t+\nuti ai\sin\tilde{\varphi}(1+t^2)\\
+&-2\nuti bt-iab(1-t^2)\Big)+\frac{1}{4\nuti(1-t^2)P(t)Q(t)} \lbrack 2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2\\
+&-(b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi}-bit\sin(2\tilde{\varphi})+ait\sin\tilde{\varphi})\big(\sin\tilde{\varphi}t(1+t^2)-2it^2\cos\tilde{\varphi}\big) \rbrack \\
+~\\
+=&\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t-2\nuti^2\sin^2\tilde{\varphi}t}{8\nuti^2P(t)Q(t)} \\
+&+\frac{b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi}-bit\sin(2\tilde{\varphi})+ait\sin\tilde{\varphi}}{8\nuti^3P(t)Q(t)}\Big(2a\nuti\cos\tilde{\varphi}t+\nuti ai\sin\tilde{\varphi}(1+t^2)\\
+&-2\nuti bt+iab(1-t^2)\Big)\\
+&+\frac{ai\sin^2\tilde{\varphi} t^2+a\cos\tilde{\varphi} \sin\tilde{\varphi} t-b\sin(2\tilde{\varphi})\cos\tilde{\varphi} t-ib\sin\tilde{\varphi}\sin(2\tilde{\varphi})t^2}{4\nuti P(t)Q(t)} 
+\end{split}
+\end{equation*}
+
+Encore une fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition.
+
+Ce qui donne finalement :
+
+\begin{equation}
+\begin{split}
+J_4\sim &2A\sin\tilde{\varphi} +2(b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi})\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
+&+\frac{16i\eta_4\nuti^2}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+16\nuti^2\psi_4 \mbox{rog}(\frac{b}{\nuti} )\\
+&+16\nuti^2\left(\lambda_4 \mbox{sog}(a/\nuti)+i\rho_4 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ4}
+\end{equation}
+
+\section{Calcul de l'intégrale $J_5^*$}
+\label{calculJ5}
+Posons :
+\begin{equation}
+J_5=\int_{-\infty}^{+\infty} \frac{y}{(y-ia)\sqrt{\nuti^2+y^2}\lbrack b-( iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}\,dy
+\label{defJ5}
+\end{equation}
+On effectue le changement de variables (\ref{changevar}). On obtient :
+$$ J_5=4\nuti\int_{-1}^1 \frac{t}{P(t)Q(t)}\,dt $$
+La décomposition en éléments simples s'écrit :
+$$\frac{t}{P(t)Q(t)}=\frac{\eta_5 t+\psi_5}{P(t)}+\frac{\lambda_5 t +\rho_5}{Q(t)}$$
+\paragraph{}
+
+On utilise les formules (\ref{etapsi}) et (\ref{lambdarho}). On a finalement :
+\begin{equation}
+\begin{split}
+J_5=&\frac{4i\eta_5}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+4\psi_5 \mbox{rog}(\frac{b}{\nuti} )\\
+&+4\left(\lambda_5 \mbox{sog}(a/\nuti)+i\rho_5 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ5}
+\end{equation}
+Il n'y a pas de termes divergents.
+
+%\textcolor{red}{Relire à partir d'ici jusqu'à la fin}
+
+\section{Calcul de l'intégrale $J_6^*$}
+On calcule :
+\begin{equation}
+J_6=\int_{-\infty}^{+\infty} \frac{y}{(y-ia)\lbrack b-(iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}\,dy
+\label{defJ6}
+\end{equation}
+On effectue le changement de variables (\ref{changevar}).
+$$ J_6=4\nuti^2\int_{-1}^{1}\frac{t(1+t^2)}{(1-t^2)P(t)Q(t)}\,dt $$
+La décomposition en éléments simples de l'intégrande s'écrit :
+$$\frac{t(1+t^2)}{(1-t^2)P(t)Q(t)}=\frac{\alpha_6}{1-t}+\frac{\beta_6}{1+t}+\frac{\eta_6 t+\psi_6}{P(t)}+\frac{\lambda_6 t +\rho_6}{Q(t)}$$
+On a alors :
+$$\alpha_6=\frac{e^{i(\pi/2-\phiti)}}{4\nuti^2}$$
+$$\beta_6=\frac{e^{-i(\pi/2-\phiti)}}{4\nuti^2}$$
+Ce qui nous donne :
+\begin{equation*}
+\begin{split}
+\frac{\eta_6 t+\psi_6}{P(t)}&+\frac{\lambda_6 t +\rho_6}{Q(t)}=\frac{2\nuti^2t(1+t^2)-(\sin\phiti+i\cos\phiti t)P(t)Q(t)}{2\nuti^2(1-t^2)P(t)Q(t)}\\
+&=-\frac{\sin\phiti+i\cos\phiti t}{2\nuti^2P(t)Q(t)}\Big( b(2\nuti t-ia(1-t^2))-a\nuti(2\cos\phiti t+i\sin\phiti(1+t^2)) \Big) \\
+&+\frac{1}{(1-t^2)P(t)Q(t)}\Big( t(1+t^2)-(\sin\phiti+i\cos\phiti t)(\sin\phiti t(1+t^2)-2it^2\cos\phiti)\Big)\\
+&=-\frac{(\sin\phiti+i\cos\phiti t)}{2\nuti^2P(t)Q(t)}\Big( b(2\nuti t-ia(1-t^2))-a\nuti(2\cos\phiti t+i\sin\phiti(1+t^2)) \Big)\\
+&+\frac{\cos^2\phiti.t+i\sin\phiti\cos\phiti.t^2}{P(t)Q(t)}
+\end{split}
+\end{equation*}
+
+Encore une fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition.
+
+Ce qui donne finalement :
+
+\begin{equation}
+\begin{split}
+J_6\sim & 2\sin\phiti\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
+&+\frac{4i\eta_6\nuti}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+4\nuti\psi_6 \mbox{rog}(\frac{b}{\nuti} )\\
+&+4\nuti\left(\lambda_6 \mbox{sog}(a/\nuti)+i\rho_6 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ6}
+\end{equation}
+
+\section{Calcul de l'intégrale $J_7^*$ }
+On définit maintenant :
+\begin{equation}
+J_7=\int_{-\infty}^{+\infty}\frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}\lbrack b-( iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}\,dy
+\label{defJ7}
+\end{equation}
+On effectue le changement de variables (\ref{changevar}).
+$$ J_7=8\nuti^2 \int_{-1}^{1} \frac{t^2}{(1-t^2)P(t)Q(t)}\,dt$$
+La décomposition en éléments simples donne :
+$$\frac{t^2}{(1-t^2)P(t)Q(t)}=\frac{\alpha_7}{1-t}+\frac{\beta_7}{1+t}+\frac{\eta_7 t+\psi_7}{P(t)}+\frac{\lambda_7 t +\rho_7}{Q(t)}$$
+Soit:
+$$\alpha_7=\frac{e^{i(\frac{\pi}{2}-\phiti)}}{8\nuti^2}$$
+$$\beta_7=\frac{e^{i(\frac{\pi}{2}+\phiti)}}{8\nuti^2}$$
+Ce qui nous donne :
+\begin{equation*}
+\begin{split}
+\frac{\eta_7 t+\psi_7}{P(t)}&+\frac{\lambda_7 t +\rho_7}{Q(t)}=\frac{8\nuti^2t^2-2(i\cos\phiti+\sin\phiti t)P(t)Q(t)}{8\nuti^2(1-t^2)P(t)Q(t)}\\
+&=-\frac{(i\cos\phiti+\sin\phiti t)}{4\nuti^2P(t)Q(t)}\lbrack b(2\nuti t-ia(1-t^2))-a\nuti(2\cos\phiti t+i\sin\phiti(1+t^2)) \rbrack\\
+&+\frac{\sin^2\phiti t^2-i\cos\phiti\sin\phiti t}{2P(t)Q(t)}
+\end{split}
+\end{equation*}
+Encore une fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition. On a finalement :
+\begin{equation}
+\begin{split}
+J_7&\sim 2i\cos\phiti\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right) \\
+&\frac{8i\eta_7\nuti }{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+8\nuti \psi_7 \mbox{rog}(\frac{b}{\nuti} )\\
+&+8\nuti \left(\lambda_7 \mbox{sog}(a/\nuti)+i\rho_7 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ7}
+\end{equation}
+
+\section{Calcul de l'intégrale $J_8^*$ }
+Pour finir, on définit :
+\begin{equation}
+J_8=\int_{-\infty}^{+\infty}\frac{dy}{(y-ia)\sqrt{\nuti^2+y^2}\lbrack b-( iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}
+\label{defJ8}
+\end{equation}
+On effectue le changement de variables (\ref{changevar}).
+$$J_8=2 \int_{-1}^{1} \frac{1-t^2}{P(t)Q(t)}\,dt$$
+La décomposition en éléments simples donne :
+$$\frac{1-t^2}{P(t)Q(t)}=\frac{\eta_8 t+\psi_8}{P(t)}+\frac{\lambda_8 t +\rho_8}{Q(t)}$$
+Une dernière fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition.On a finalement :
+\begin{equation}
+\begin{split}
+J_8=&\frac{2i\eta_8 }{b-\nuti\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+2 \frac{\psi_8}{\nuti} \mbox{rog}(\frac{b}{\nuti} )\\
+&+\frac{2}{\nuti} \left(\lambda_8 \mbox{sog}(a/\nuti)+i\rho_8 \mbox{rog}(a/\nuti) \right)
+\end{split}
+\label{valJ8}
+\end{equation}
+
+
+
+\section{Suite et fin des calculs des coefficients de $\mathbb{T}(a,b)$}
+\label{fincalculs}
+Donnons maintenant l'expression explicite des coefficients de la matrice $\mathbb{T}(a,b)$, obtenus en utilisant les formules \eqref{tmL} à \eqref{tmTV} et \eqref{Tab}. 
+On commence par définir :
+\begin{equation}
+\begin{split}
+J_1&=\int_{-\infty}^{+\infty}\frac{y\sqrt{\nuti^2+y^2}}{(y-ia)\lbrack b-iy\cos\phiti+\sqrt{\nuti^2+y^2}\sin\phiti\rbrack}\,dy\\
+&=J_4+\nuti^2J_5
+\end{split}
+\label{defJ1}
+\end{equation}
+Les intégrales $J_4$ et $J_5$ sont définies par \eqref{defJ4} et \eqref{defJ5}.
+Nous verrons que tous les coefficients de la matrice $\mathbb{T}(a,b)$ peuvent s'écrire comme des combinaisons linéaires des intégrales $J_1^*$ à $J_8^*$ calculées précédemment, ce qui nous donne un moyen simple d'obtenir les valeurs des coefficients de la matrice $\mathbb{T}(a,b)$.
+\subsection{Termes L}
+Nous commençons par les termes issus de la matrice $\mathbf{tm}_L$ donnée par \eqref{tmL}.
+\begin{multline}
+\mathcal{T}_1^L(a,b)= \mu \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_L(iy)+\sin(2\varphi)(y^2+\zeta_L^2(iy))\rbrack}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+ \zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill =-2\epsilon\mu\cos(2\varphi)J_2^L-i\mu\sin(2\varphi)(J_1^L+J_4^L) \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_2^L(a,b)=\mu \int_{-\infty}^{+\infty} \frac{2i \cos(2\varphi).y\zeta_L(iy)+\epsilon \sin(2\varphi)(y^2+\zeta_L^2(iy))}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti )\rbrack} \, dy \\
+\hfill =-2i\mu\cos(2\varphi)J_1^L+\epsilon\mu\sin(2\varphi)(2J_2^L+\nuti_L^2J_3^L) \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_3^L(a,b)=\mu\tau \int_{-\infty}^{+\infty} \frac{ 2i\epsilon\cos(2\varphi).y\zeta_L(iy)+\sin(2\varphi)(y^2+\zeta_L^2(iy))}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+ \zeta_L(iy)\sin \phiti) \rbrack} \, dy \\
+\hfill =\mu\tau \lbrack 2i\epsilon\cos(2\varphi)J_6^L-\sin(2\varphi)(2J_7^L+\nuti_L^2J_8^L) \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_4^L(a,b)= (2\mu-1) \int_{-\infty}^{+\infty}\frac{iy}{(y-ia)\zeta_L(iy)\lbrack b-(iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
++2 \mu\int_{-\infty}^{+\infty} \frac{iy\lbrack i\epsilon\sin(2\varphi).y\zeta_L(iy)-\zeta_L^2(iy)\cos^2\varphi+y^2\sin^2\varphi \rbrack}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy\\
+\hfill=i(1-2\mu)J_5^L+2i\mu\cos^2\varphi J_1^L-2\epsilon\mu\sin(2\varphi)J_2^L-2i\mu\sin^2\varphi J_4^L \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_5^L(a,b)= (2\mu-1) \int_{-\infty}^{+\infty}\frac{\epsilon}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
++2\mu\int_{-\infty}^{+\infty} \frac{ i\sin(2\varphi).y\zeta_L(iy)-\epsilon \cos^2\varphi \zeta_L^2(iy)+\epsilon \sin^2\varphi y^2}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill=\epsilon(2\mu-1-2\mu\nuti_L^2\cos^2\varphi)J_3^L-2i\mu\sin(2\varphi)J_1^L-2\epsilon\mu\cos(2\varphi)J_2^L\hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_6^L(a,b)=   \int_{-\infty}^{+\infty}\frac{\tau(2\mu-1)}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
++2\mu\tau\int_{-\infty}^{+\infty} \frac{ i\epsilon\sin(2\varphi).y\zeta_L(iy)- \cos^2\varphi \zeta_L^2(iy)+ \sin^2\varphi y^2}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill =\tau(\lambda+2\mu\nuti_L^2\cos^2\varphi)J_8^L+2\mu\tau\lbrack i\epsilon \sin(2\varphi)J_6^L+\cos(2\varphi)J_7^L \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_7^L(a,b)=-2\mu \tau \int_{-\infty}^{+\infty} \frac{ \epsilon iy\zeta_L(iy)\cos\varphi+y^2\sin\varphi}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill =-2\mu\tau(\sin\varphi J_7^L-i\epsilon\cos\varphi J_6^L) \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_8^L(a,b)=-2\mu \tau \int_{-\infty}^{+\infty} \frac{i\epsilon y \sin\varphi-\zeta_L(iy)\cos\varphi}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy\\
+\hfill=-2\mu\tau\lbrack i\epsilon\sin\varphi J_6^L+\cos\varphi(J_7^L+\nuti_L^2J_8^L) \rbrack\hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_9^L(a,b)=2\mu \tau^2 \int_{-\infty}^{+\infty} \frac{i y\sin\varphi- \epsilon\zeta_L(iy)\cos\varphi}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill=2\mu\tau^2\lbrack i\sin\varphi J_5^L+\epsilon\cos\varphi J_3^L \rbrack \hfill
+\end{multline}
+
+\subsection{Termes TH}
+Passons maintenant aux termes issus de la matrice $\mathbf{tm}_{TH}$ donnée par \eqref{tmTH}.
+\begin{multline}
+\mathcal{T}_1^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{-2i\sin(2\varphi).y\zeta_T(iy)+\epsilon \cos (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right) \lbrack 2i\sin(2\varphi)J_1^T+\epsilon\cos(2\varphi)(2J_2^T+\nuti_T^2 J_3^T)\rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_2^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon \sin(2\varphi).y\zeta_T(iy)- \cos (2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill= \mu\left(1+\frac{\tau^2}{\nuti_T^2}\right) \lbrack -2\epsilon\sin(2\varphi)J_2^T+i\cos(2\varphi)(J_1^T+J_4^T) \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_4^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{2i\cos(2\varphi).y\zeta_T(iy)+\epsilon \sin (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill =\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right) \lbrack -2i\cos(2\varphi)J_1^T+\epsilon \sin(2\varphi)(2J_2^T+\nuti_TJ_3^T) \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_5^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{-iy\lbrack 2i\epsilon \cos(2\varphi).y\zeta_T(iy)+\sin (2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill =\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right) \lbrack 2\epsilon\cos(2\varphi)J_2^T+i\sin(2\varphi)(J_1^T+J_4^T)\rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_7^{TH}(a,b)=\mu\tau\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{\sin\varphi\zeta_T(iy)+i\epsilon\cos\varphi.y}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \\
+\hfill = -\mu\tau\left(1+\frac{\tau^2}{\nuti_T^2}\right)\lbrack i\epsilon\cos\varphi J_6^T-\sin\varphi(J_7^T+\nuti_T^2J_8^T)\rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_8^{TH}(a,b)=\mu\tau\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{\cos\varphi.y^2-i\epsilon\sin\varphi.y\zeta_T(iy)}{(y-ia)\zeta_T(iy)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack}\\
+\hfill =\mu\tau\left(1+\frac{\tau^2}{\nuti_T^2}\right)\lbrack i\epsilon\sin\varphi J_6^T+\cos\varphi J_7^T\rbrack  \hfill
+\end{multline}
+On précise que l'on a 
+$$ \mathcal{T}_3^{TH}=\mathcal{T}_6^{TH}=\mathcal{T}_9^{TH}=0 $$
+
+\subsection{Termes TV}
+Pour finir, on calcule les termes issus de la matrice $\mathbf{tm}_{TV}$, donnée par \eqref{tmTV}.
+
+\begin{multline}
+\mathcal{T}_1^{TV}(a,b)= \mu\frac{\tau^2}{\nuti^2_T} \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_T(iy)+\sin(2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill = -\mu\frac{\tau^2}{\nuti^2_T} \lbrack 2\epsilon\cos(2\varphi) J_2^T+i\mu\sin(2\varphi)(J_1^T+J_4^T)\rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_2^{TV}(a,b)=\mu\frac{\tau^2}{\nuti^2_T} \int_{-\infty}^{+\infty} \frac{2i \cos(2\varphi).y\zeta_T(iy)+\epsilon \sin(2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti )\rbrack} \, dy \\
+\hfill=\mu\frac{\tau^2}{\nuti^2_T} \lbrack -2i\cos(2\varphi)J_1^T+\epsilon\sin(2\varphi)(2J_2^T+\nuti_T^2 J_3^T) \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_3^{TV}(a,b)=-\mu\tau \int_{-\infty}^{+\infty} \frac{ 2i\epsilon\cos(2\varphi).y\zeta_T(iy)+\sin(2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+ \zeta_T(iy)\sin \phiti) \rbrack} \, dy \\
+\hfill = \mu\tau\lbrack \sin(2\varphi)(2J_7^T+\nuti_T^2J_8^T)-2i\epsilon\cos(2\varphi)J_6^T \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_4^{TV}(a,b)=2 \mu\frac{\tau^2}{\nuti^2_T} \int_{-\infty}^{+\infty} \frac{iy\lbrack i\epsilon\sin(2\varphi).y\zeta_T(iy)-\zeta_T^2(iy)\cos^2\varphi+y^2\sin^2\varphi \rbrack}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill = 2\mu\frac{\tau^2}{\nuti^2_T} \lbrack i\cos^2\varphi J_1^T-\epsilon\sin(2\varphi)J_2^T-i\sin^2\varphi J_4^T \rbrack  \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_5^{TV}(a,b)=2\mu\frac{\tau^2}{\nuti^2_T} \int_{-\infty}^{+\infty} \frac{ i\sin(2\varphi).y\zeta_T(iy)-\epsilon \cos^2\varphi \zeta_T^2(iy)+\epsilon \sin^2\varphi y^2}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill=-2\mu\frac{\tau^2}{\nuti^2_T}\lbrack i\sin(2\varphi)J_1^T+\epsilon\cos(2\varphi)J_2^T+\nuti_T^2\cos^2\varphi J_3^T \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_6^{TV}(a,b)=-2\mu\tau\int_{-\infty}^{+\infty} \frac{ i\epsilon\sin(2\varphi).y\zeta_T(iy)- \cos^2\varphi \zeta_T^2(iy)+ \sin^2\varphi y^2}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti) \rbrack} \, dy\\
+\hfill=-2\mu\tau \lbrack \nuti_T^2\cos^2\varphi J_8^T+i\epsilon\sin(2\varphi)J_6^T+\cos(2\varphi)J_7^T \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_7^{TV}(a,b)=\mu\tau\left(1-\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{ i\epsilon\cos\varphi.y\zeta_T(iy)+ \sin\varphi y^2}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
+\hfill =-\mu\tau\left(1-\frac{\tau^2}{\nuti_T^2}\right) \lbrack i\epsilon\cos\varphi J_6^T-\sin\varphi J_7^T \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_8^{TV}(a,b)=\mu\tau\left(1-\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{ \cos\varphi.\zeta_T(iy)-i\epsilon \sin\varphi y}{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti) \rbrack} \, dy\\
+\hfill=\mu\tau \left(1-\frac{\tau^2}{\nuti_T^2}\right)\lbrack\cos\varphi (J_7^T+\nuti_T^2J_8^T) +i\epsilon\sin\varphi J_6^T \rbrack \hfill
+\end{multline}
+\begin{multline}
+\mathcal{T}_9^{TV}(a,b)=-\mu(\nuti_T^2-\tau^2)\int_{-\infty}^{+\infty} \frac{ \epsilon\cos\varphi.\zeta_T(iy)- i\sin\varphi y}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+\zeta_T(iy)\sin\phiti) \rbrack} \, dy\\
+\hfill=\mu(\nuti_T^2-\tau^2)\lbrack \epsilon\cos\varphi J_3^T+i\sin\varphi  J_5^T \rbrack \hfill
+\end{multline}
+
+Ceci achève le calcul des coefficients de la matrice $\mathbb{T}_{kl}$. Une première vérification qui a été effectuée est que les termes divergents issus des intégrales $J_1^*$ à $J_8^*$ se compensent bien lorsque l'on somme les termes L, TH et TV des matrices.

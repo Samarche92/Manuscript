@@ -1,0 +1,79 @@
+\chapter{Calcul des intégrales $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$ et $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$ }
+\label{Intégrale}
+Avant de nous lancer dans le détail des calculs des coefficients des matrices $\mathbb{D}$ et $\mathbb{T}$, nous allons commencer par calculer deux intégrales élémentaires dont les valeurs seront utilisées dans toute la suite.
+\section{Intégrale $\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt$}
+\label{calculIntQ}
+On calcule :
+\begin{equation*}
+\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\int_{-1}^1 \frac{\lambda t}{iat^2+2\nu t-ia}\,dt+\int_{-1}^1\frac{\rho}{ia(t-q_+)(t-q_-)}\,dt
+\end{equation*}
+Où on note $q_+,q_-$ les racines de Q. On a:
+\begin{equation}
+q_\pm=\frac{1}{a}(i\nu\pm\sqrt{a^2-\nu^2})
+\label{q1q2}
+\end{equation}
+
+\begin{equation*}
+\begin{split}
+\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt&=\int_{-1}^1 \frac{\frac{\lambda}{2ia} (2iat+2\nu)}{iat^2+2\nu t-ia}\,dt+(\rho-\frac{\lambda \nu}{ia})\int_{-1}^1\frac{1}{ia(t-q_+)(t-q_-)}\,dt\\
+&=\frac{\lambda\pi}{2a}+\frac{1}{q_+-q_-}\left(\frac{\rho}{ia}+\frac{\lambda\nu}{a^2}\right)\int_{-1}^1\left(\frac{1}{t-q_+}-\frac{1}{t-q_-}\right)\,dt
+\end{split}
+\end{equation*}
+On réinjecte les expressions de $q_\pm$ données par (\ref{q1q2}):
+\begin{equation*}
+\begin{split}
+\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt&=\frac{\lambda\pi}{2a}+\frac{1}{2\sqrt{a^2-\nu^2}}\left(\frac{\lambda\nu}{a}-i\rho\right)\log\left(\frac{(1-q_+)(1+q_-)}{(1-q_-)(1+q_+)}\right)\\
+&=\frac{\lambda\pi}{2a}+\frac{1}{2\sqrt{a^2-\nu^2}}\left(\frac{\lambda\nu}{a}-i\rho\right)\log\left(\frac{-\nu^2-(a-\sqrt{a^2-\nu^2})^2}{-\nu^2-(a+\sqrt{a^2-\nu^2})^2}\right)\\
+&=\frac{\lambda\pi}{2a}+\frac{1}{2\sqrt{a^2-\nu^2}}\left(\frac{\lambda\nu}{a}-i\rho\right)\log\left(\frac{-a+\sqrt{a^2-\nu^2}}{-a-\sqrt{a^2-\nu^2}}\right)\\
+&=\frac{\lambda\pi}{2a}+\frac{1}{\nu\sqrt{\frac{a^2}{\nu^2}-1}}\left(i\rho-\frac{\lambda\nu}{a}\right)\log\left(\frac{a}{\nu}+\sqrt{\frac{a^2}{\nu^2}-1}\right)
+\end{split}
+\end{equation*}
+Soit finalement :
+\begin{equation}
+\int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\frac{\lambda}{\nu}\mbox{sog}(\frac{a}{\nu})+i\frac{\rho}{\nu}\mbox{rog}(\frac{a}{\nu})
+\label{intQ}
+\end{equation}
+On a défini la fonction suivante, pour $a>1$
+\begin{equation}
+\mbox{rog}(a)=\int_{-1}^1\frac{dx}{a(1-x^2)+2ix}=\frac{1}{\sqrt{a^2-1}}\log(a+\sqrt{a^2-1})
+\label{defrog}
+\end{equation}
+La branche de coupure de la racine carrée est le long de l'axe des réels négatifs. On definit ensuite :
+\begin{equation}
+\mbox{sog}(a)=\frac{1}{a}\left(\frac{\pi}{2}-\mbox{rog}(a)\right)
+\label{defsog}
+\end{equation}
+\section{Intégrale $\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt$}
+\label{calculintP}
+On calcule :
+\begin{equation*}
+\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt = \int_{-1}^1 \frac{\eta t}{(\nu\sin\tilde{\varphi}-b)t^2-2i\nu t\cos\tilde{\varphi}+\nu\sin\tilde{\varphi}+b}\,dt +\int_{-1}^1 \frac{\psi}{(\nu\sin\tilde{\varphi}-b)(t-p_+)(t-p_-)}\, dt
+\end{equation*}
+Où on note $p_+,p_-$ les racines de $P$. On a :
+\begin{equation}
+p_\pm=\frac{\nu i \cos\tilde{\varphi}\pm \sqrt{b^2-\nu^2}}{\nu\sin\varphi-b}
+\label{p1p2}
+\end{equation}
+\begin{equation*}
+\begin{split}
+\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt =& \int_{-1}^1 \frac{\frac{\eta}{2(\nu\sin\tilde{\varphi}-b)}(2(\nu\sin\tilde{\varphi}-b)t-2i\nu\cos\tilde{\varphi})}{(\nu\sin\tilde{\varphi}-b)t^2-2i\nu t\cos\tilde{\varphi}+\nu\sin\tilde{\varphi}+b}\,dt\\
+&+(\psi+\frac{\eta i\nu\cos\tilde{\varphi}}{\nu\sin\tilde{\varphi}-b})\int_{-1}^1 \frac{dt}{(\nu\sin\tilde{\varphi}-b)(t-p_+)(t-p_-)}\\
+=&\frac{i\eta}{\nu\sin\tilde{\varphi}-b}(\tilde{\varphi}-\frac{\pi}{2})\\
+&+\frac{1}{p_+-p_-}\left(\frac{\psi}{\nu\sin\tilde{\varphi}-b}+\frac{\eta i\nu\cos\tilde{\varphi}}{(\nu\sin\tilde{\varphi}-b)^2}\right)\int_{-1}^1 \left(\frac{1}{t-p_+}-\frac{1}{t-p_-}\right)\,dt\\
+\end{split}
+\end{equation*}
+On réinjecte les expressions de $p_\pm$ données par (\ref{p1p2}) :
+\begin{equation*}
+\begin{split}
+\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt =&\frac{i\eta}{\nu\sin\tilde{\varphi}-b}(\tilde{\varphi}-\frac{\pi}{2})+\frac{1}{2\sqrt{b^2-\nu^2}}\left(\psi+\frac{\eta i\nu\cos\tilde{\varphi}}{\nu\sin\tilde{\varphi}-b}\right)\log\left(\frac{(1-p_+)(1+p_-)}{(1-p_-)(1+p_+)}\right)\\
+=&\frac{i\eta}{\nu\sin\tilde{\varphi}-b}(\tilde{\varphi}-\frac{\pi}{2})\\
+&+\frac{1}{2\sqrt{b^2-\nu^2}}\left(\psi+\frac{\eta i\nu\cos\tilde{\varphi}}{\nu\sin\tilde{\varphi}-b}\right)\log\left(\frac{-\nu^2\cos^2\tilde{\varphi}-(\nu\sin\tilde{\varphi}-b-\sqrt{b^2-\nu^2})^2}{-\nu^2\cos^2\tilde{\varphi}-(\nu\sin\tilde{\varphi}-b+\sqrt{b^2-\nu^2})^2}\right)\\
+=&\frac{i\eta}{\nu\sin\tilde{\varphi}-b}(\tilde{\varphi}-\frac{\pi}{2})+\frac{1}{2\sqrt{b^2-\nu^2}}\left(\psi+\frac{\eta i\nu\cos\tilde{\varphi}}{\nu\sin\tilde{\varphi}-b}\right)\log\left(\frac{b+\sqrt{b^2-\nu^2}}{b-\sqrt{b^2-\nu^2}}\right)\\
+=&\frac{i\eta}{\nu\sin\tilde{\varphi}-b}(\tilde{\varphi}-\frac{\pi}{2})+\frac{1}{\nu\sqrt{\frac{b^2}{\nu^2}-1}}\left(\psi+\frac{\eta i\nu\cos\tilde{\varphi}}{\nu\sin\tilde{\varphi}-b}\right)\log\left(\frac{b}{\nu}+\sqrt{\frac{b^2}{\nu^2}-1}\right)
+\end{split}
+\end{equation*}
+Finalement :
+\begin{equation}
+\int_{-1}^1 \frac{\eta t+ \psi}{P(t)}\, dt =\frac{i\eta}{\nu\sin\tilde{\varphi}-b}\lbrack\tilde{\varphi}-\frac{\pi}{2}+\cos\tilde{\varphi} \mbox{rog}(\frac{b}{\nu})\rbrack+\frac{\psi}{\nu}\mbox{rog}(\frac{b}{\nu})
+\label{intP}
+\end{equation}
