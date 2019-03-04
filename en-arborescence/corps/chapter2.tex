@@ -463,12 +463,12 @@ Domain $\Omega_0$ and its upper boundary $\partial \Omega_0^+$ are illustrated o
 {Domain $\Omega_0$ (the grey area) and its upper boundary $\partial \Omega_0^+$. The lower boundary of $\Omega_0$ is the semi-axis $[-\cos \phiti,+\infty[$.}
 \label{chapter5:figure4}
 \end{figure}
-Having found the system of functional equations, it is now resolved following the methodology of \cite{CroisilleLebeau}.
+Having found the system of functional equations, it is now resolved following the methodology of Croisille and Lebeau \cite{CroisilleLebeau}.
 
 \subsection{System resolution}
 \label{Chapter5:System_resolution}
 
-The resolution of the system of functional equations \eqref{functional_eq} is necessary in order to find the values of the spectral functions $\hat{\alpha}_1 $ and $\hat{\alpha}_2 $. With these values, the diffraction coefficients can be computed [see Eq.~\eqref{GTDCoeff_SF}]. 
+The resolution of the system of functional equations \eqref{functional_eq} is necessary in order to find the values of the spectral functions $\hat{\alpha}_1 $ and $\hat{\alpha}_2 $. With these values, the diffraction coefficients can be computed using equation \eqref{GTDCoeff_SF}. 
 
 It is shown in \cite{CroisilleLebeau} that $DM$ and $TM$ integral operators are constituted of a "singular term" and of a "regular term". For a singular function 
 \begin{equation}
@@ -480,9 +480,9 @@ $DM$ and $TM$ integral operators defined respectively in \eqref{DM_operator} and
 \label{Int_op_decomp}
 \begin{align}
 \label{Int_op_decomp_DM}
-DM(\phi)(\xi) &= \int_{\Gamma_0} DM(\xi,\lambda) \cdot \dfrac{1}{\lambda - z} \, {\rm d} \lambda = \dfrac{m(z)}{\xi - z}  + D_p(\xi,z) \\
+DM(\phi)(\xi) &= \int_{\Gamma_0} DM(\xi,\lambda) \cdot \dfrac{1}{\lambda - z} \, d \lambda = \dfrac{dm(z)}{\xi - z}  + D_p(\xi,z) \\
 \label{Int_op_decomp_TM}
-TM(\phi)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \cdot \dfrac{1}{\lambda - z} \, {\rm d} \lambda = \dfrac{m(z) }{\xi - T_0(z)} \mathbf{1} (z \in \Omega_0) + T_p(\xi,z),
+TM(\phi)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \cdot \dfrac{1}{\lambda - z} \, d \lambda = \dfrac{tm(z) }{\xi - T_0(z)} \mathbf{1} (z \in \Omega_0) + T_p(\xi,z),
 \end{align}
 \end{subequations}
 where the function $T_0$ is defined in \eqref{Trans_operator} and where
@@ -498,9 +498,9 @@ and integrals $D_p$ and $T_p$ are holomorphic on $\mathbb{C}\setminus ]-\infty,-
 \label{holomorphic_functions}
 \begin{align}
 \label{defDp}
-D_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\Gamma_1} \dfrac{m(\lambda)}{\xi-\lambda} \cdot \dfrac{1}{\lambda - z} {\rm d}\lambda, \\
+D_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\Gamma_1} \dfrac{dm(\lambda)}{\xi-\lambda} \cdot \dfrac{1}{\lambda - z} d\lambda, \\
 \label{defTp}
-T_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\partial \Omega_0^+}  \dfrac{m(\lambda)}{\xi-T_0(\lambda)} \cdot \dfrac{1}{\lambda - z} {\rm d}\lambda.
+T_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\partial \Omega_0^+}  \dfrac{tm(\lambda)}{\xi-T_0(\lambda)} \cdot \dfrac{1}{\lambda - z} d\lambda.
 \end{align}
 \end{subequations}
 Contours $\Gamma_1$ and $\partial \Omega_0^+$ are illustrated on Figs.~\ref{chapter5:figure5} and \ref{chapter5:figure4} respectively.
@@ -519,19 +519,19 @@ Contours $\Gamma_1$ and $\partial \Omega_0^+$ are illustrated on Figs.~\ref{chap
 
 \draw[dashed, decoration={markings,
  mark=at position 1.0 with {\arrow{latex}}},
-      postaction={decorate}] (-4.5,0) -- (-2.25,0)  arc (-180:0:0.25) -- (-1.5,0) -- (0.75,0) arc (180:0:0.25)-- (2.5,0);
+      postaction={decorate}] (-1.5,0) -- (0.75,0) arc (180:0:0.25)-- (2.5,0);
 \node at (3,0) {$\sigma$};
 \draw[dashed, decoration={markings,
  mark=at position 1.0 with {\arrow{latex}}},
-      postaction={decorate}] (-0.5,-1) -- (-0.5,1.3);
-\node at (-0.8,1.2) {$\tau$};      
+      postaction={decorate}] (-0.5,-1.5) -- (-0.5,2);
+\node at (-0.8,2) {$\tau$};      
 
 \node at (2.5,-0.4) {$(\Gamma_0)$};
       
-\draw[ thick, ->] (2.0,0.3) arc (0:45:1); 
-\node at (2.4,0.8) {$\mathcal{F}_2$};      
+\draw[ thick, ->] (0.75,0.5) arc (0:135:1); 
+  
 
-\draw[thick, black, yshift=0pt,
+\draw[very thick, black, yshift=0pt,
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
@@ -540,7 +540,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \end{tikzpicture}
 \caption
 [Contour $\Gamma_1$]
-{Contour $\Gamma_1$. Arrow $\mathcal{F}_2$ shows the deformation of $\Gamma_0$ (in dashed line) into $\Gamma_1$.}
+{Contour $\Gamma_1$. The curved arrow shows the deformation of $\Gamma_0$ (dashed line) into $\Gamma_1$.}
 \label{chapter5:figure5}
 \end{figure}
 
