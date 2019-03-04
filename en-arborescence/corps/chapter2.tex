@@ -8,25 +8,26 @@ The canonical problem of an acoustic, electromagnetic or elastodynamic plane wav
 
 The mathematical theory of wedge diffraction was first introduced by Sommerfeld \cite{Sommerfeld}, who gave an analytical expression of the exact solution of the diffraction problem of a scalar plane wave as a contour integral \cite{SMtechnique}. Macdonald \cite{Macdo} has expressed the scalar solution as a series, using the variables separation technique. Sommerfeld \cite{Sommerfeld} gave an analytical formula of the \acrfull{gtd} diffraction coefficient for an arbitrary-angled wedge (with Neumann or Dirichlet boundary conditions) illuminated by a scalar plane wave. This wedge \acrshort{gtd} coefficient can be used for scalar wave diffraction both in electromagnetics \cite{Kouyoumjian} and in acoustics \cite{Bouche,Bo}.
 
-In the more complex case of an elastic wave diffracted by a wedge of angle less than $\pi$, there exist two major approaches : one is based on the Sommerfeld integral (SI) representation of the elastodynamic potentials, it was introduced by Budaev and Bogy \cite{Rayleigh} and clarified by Kamotski et al. \cite{KamotskiFradkin}. The other method is based on the Laplace transform of the displacement field (LT), and was developed by Gautesen and Fradkin \cite{GautesenFradkin}. In the particular case of a scattered Rayleigh wave, a method which uses the free-space Green's tensor to express the Fourier transform of the displacement field has been developed by Gautesen for wedge angles smaller and greater than $\pi$ \cite{GautesenRayleigh,GautesenRayleigh2}. However the range of the wedge angle was restricted to the range $\lbrack 63^o,180^o\rbrack $ for angles smaller than $\pi$ and to $\lbrack 189^o,327^o \rbrack$ for angles greater than $\pi$ in order to avoid numerical instabilities.
+%In the more complex case of an elastic wave diffracted by a wedge of angle less than $\pi$, there exist two major approaches : one is based on the Sommerfeld integral (SI) representation of the elastodynamic potentials, it was introduced by Budaev and Bogy \cite{Rayleigh} and clarified by Kamotski et al. \cite{KamotskiFradkin}. The other method is based on the Laplace transform of the displacement field (LT), and was developed by Gautesen and Fradkin \cite{GautesenFradkin}. In the particular case of a scattered Rayleigh wave, a method which uses the free-space Green's tensor to express the Fourier transform of the displacement field has been developed by Gautesen for wedge angles smaller and greater than $\pi$ \cite{GautesenRayleigh,GautesenRayleigh2}. However the range of the wedge angle was restricted to the range $\lbrack 63^o,180^o\rbrack $ for angles smaller than $\pi$ and to $\lbrack 189^o,327^o \rbrack$ for angles greater than $\pi$ in order to avoid numerical instabilities.
+%
+%These methods are non-uniform in the sense that they lead to a solution which diverges at shadow boundaries and caustics of the Geometric-Elastic (GE) field \cite{Bouche}. To overcome this difficulty, Ufimtsev \cite{Ufmi} has introduced the Physical Theory of Diffraction (PTD) in electromagnetics. This technique has been extended to elastic waves by Zernov et al. \cite{Zernov}, however it is computationally expensive. 
+%Another uniform correction of GTD is the Uniform Asymptotic Theory (UAT), introduced by Lewis \cite{Lewis} in electromagnetics and acoustics and extended to elastodynamics by Achenbach et al. \cite{Achenbach}, which gives a systematic approach for computing a uniform solution but is quite complicated to implement for complex geometries as it requires extension of the reflected field to its shadow zone using fictitious rays \cite{Bouche}, \cite{Molinet}.
+%For practical purposes, the most used uniform correction of the GTD method is the Uniform Theory of Diffraction (UTD) as it is computationally efficient and does not require an artificial extension of the reflected field. It was developed in electromagnetics by Kouyoumjian and Pathak \cite{Kouyoumjian}, using the Pauli-Clemmow method \cite{Pauli} and extended to elastodynamics by Kamta Djakou et al. \cite{Audrey}. A comparison of different asymptotic (GTD and uniform) and exact solutions has been carried out in elastodynamics by Aristizabal et al. \cite{Aristizabal} but for the scalar case of the 2D wedge diffraction of a shear horizontally polarized incident wave.
 
-These methods are non-uniform in the sense that they lead to a solution which diverges at shadow boundaries and caustics of the Geometric-Elastic (GE) field \cite{Bouche}. To overcome this difficulty, Ufimtsev \cite{Ufmi} has introduced the Physical Theory of Diffraction (PTD) in electromagnetics. This technique has been extended to elastic waves by Zernov et al. \cite{Zernov}, however it is computationally expensive. 
-Another uniform correction of GTD is the Uniform Asymptotic Theory (UAT), introduced by Lewis \cite{Lewis} in electromagnetics and acoustics and extended to elastodynamics by Achenbach et al. \cite{Achenbach}, which gives a systematic approach for computing a uniform solution but is quite complicated to implement for complex geometries as it requires extension of the reflected field to its shadow zone using fictitious rays \cite{Bouche}, \cite{Molinet}.
-For practical purposes, the most used uniform correction of the GTD method is the Uniform Theory of Diffraction (UTD) as it is computationally efficient and does not require an artificial extension of the reflected field. It was developed in electromagnetics by Kouyoumjian and Pathak \cite{Kouyoumjian}, using the Pauli-Clemmow method \cite{Pauli} and extended to elastodynamics by Kamta Djakou et al. \cite{Audrey}. A comparison of different asymptotic (GTD and uniform) and exact solutions has been carried out in elastodynamics by Aristizabal et al. \cite{Aristizabal} but for the scalar case of the 2D wedge diffraction of a shear horizontally polarized incident wave.
+%For a certain time, methods of computation have been studied without proof of solvability for the wedge diffraction problem. Osher \cite{Osher1, Osher2} has studied the well-posedness of hyperbolic initial and boundary value problems (meaning the solution is fixed at $t=0$ and on the domain boundaries) in a region with a corner (meaning a right-angled wedge) and has given certain necessary conditions that the boundary values must verify in order for a problem to be well-posed; he has thoroughly presented the consequences if these conditions were not verified. Huang and Temam \cite{Huang} have studied the well-posedness of hyperbolic initial and boundary value problems in a rectangular domain and have also specified how the boundary values must be chosen for the problem to be solvable; they have also given a brief explanation as to how their theory can be applied to wave equations.
 
-For a certain time, methods of computation have been studied without proof of solvability for the wedge diffraction problem. Osher \cite{Osher1, Osher2} has studied the well-posedness of hyperbolic initial and boundary value problems (meaning the solution is fixed at $t=0$ and on the domain boundaries) in a region with a corner (meaning a right-angled wedge) and has given certain necessary conditions that the boundary values must verify in order for a problem to be well-posed; he has thoroughly presented the consequences if these conditions were not verified. Huang and Temam \cite{Huang} have studied the well-posedness of hyperbolic initial and boundary value problems in a rectangular domain and have also specified how the boundary values must be chosen for the problem to be solvable; they have also given a brief explanation as to how their theory can be applied to wave equations.
-
-Concerning the specific problem of wave propagation in a wedge-shaped region, Friedlander \cite{Pulses} has studied the problem in the case of an incident acoustic pulse (the incident wave is non-periodical in time) and constructed the corresponding Green's function. Castro and Kapanadze \cite{Castro} have proven existence and uniqueness of the solution for acoustic and electromagnetic plane waves using a detailed Fredholm analysis. Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to the elastic plane wave diffraction  by a soft wedge (Dirichlet boundary) problem using the Spectral Functions method in which the diffracted wave is modeled thanks to these spectral functions. Their demonstration is valid for all wedge angles but they do not propose any method of computation of the solution. The Spectral Functions method was at first developed by Croisille and Lebeau \cite{CroisilleLebeau} who proposed a numerical algorithm in order to compute these functions for elastic wedges of angle lower than $\pi$ immersed in a fluid. In the current paper, wedges are of any angle (even larger than $\pi$) are taken into account, and the outside medium is void. There is only one wave type to be considered and Dirichlet boundary conditions are supposed, as opposed to the case studied by Croisille and Lebeau \cite{CroisilleLebeau} where three propagation modes coupled by the boundary conditions are considered, but only for wedge angles lower than $\pi$.
+These methods of computation have been proposed without proof of solvability for the wedge diffraction problem. Castro and Kapanadze \cite{Castro} have proven existence and uniqueness of the solution for acoustic and electromagnetic plane waves using a detailed Fredholm analysis. Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to the elastic plane wave diffraction  by a soft wedge (Dirichlet boundary) problem using the Spectral Functions method in which the diffracted wave is modeled thanks to these spectral functions. Their demonstration is valid for all wedge angles but they do not propose any method of computation of the solution. The Spectral Functions method was at first developed by Croisille and Lebeau \cite{CroisilleLebeau} who proposed a numerical algorithm in order to compute these functions for elastic wedges of angle lower than $\pi$ immersed in a fluid. In this chapter, wedges of any angle (even larger than $\pi$) are taken into account, and the outside medium is void. There is only one wave type to be considered and Dirichlet or Neumann boundary conditions are supposed, as opposed to the case studied by Croisille and Lebeau \cite{CroisilleLebeau} where three propagation modes coupled by the boundary conditions are considered, but only for wedge angles lower than $\pi$.
 
 In the field of seismic diffraction, other approaches have been developed. The problem of acoustic diffraction in a system of wedge-shaped regions was studied by Klem-Musatov \cite{Klem-Musatov}. Using the Malyuzhinetz transform, this problem is reduced to a system of functional equations. However, this system is too complex to be solved in general cases. A successive approximations method is proposed in the particular case of a wedge-shaped separation between two media having the same acoustic wave velocity or  in the case where the medium containing the incident wave is a wedge of angle lower than $\pi$. In the very general case of acoustic wave propagation in a homogeneous or inhomogeneous medium delimited by an arbitrary-shaped boundary, a mathematical model has been rigorously presented by Aizenberg and Ayzenberg \cite{Aizenberg}, providing the analytical feasible fundamental solution for this problem. The notion of feasible fundamental solution is a generalization of Green's function for an unbounded medium. Ayzenberg \cite{Ayzenberg} shows how this general mathematical model can be numerically applied to the case of wedge diffraction. This method is applied in the case of a spherical source and it appears that parallel computation is necessary to obtain a short computation time, whereas the spectral functions method is applied here in the case of plane-wave diffraction and a simple architecture is sufficient to obtain results for a short computation time. 
 
 The aim of this chapter is to develop and implement the methodology of Croisille and Lebeau \cite{CroisilleLebeau} in the two-dimensional (i.e. the incident wave vector lies in the plane normal to the edge) case of an acoustic wave diffracted by a soft wedge immersed in a fluid (Dirichlet boundary condition) and propose a numerical validation of the method for angles both smaller and larger than $\pi$.  The expansion to all wedge angles is obtained using Kamotski and Lebeau's \cite{KamotskiLebeau} idea of defining a new angular variable, $\widetilde{2\varphi}$, defined in equation \eqref{phitilde}, thanks to which the complete resolution and the computation of the solution are proposed and developed here for all wedge angles with a single method. Numerical validation will be achieved by comparing the GTD approximation of the diffraction coefficient obtained using the spectral functions method, with the analytical expression given in \cite{Bouche,Bo} of the GTD approximation of the exact solution. 
 
-The outline of the paper is the following: section 2. presents the problem and the diffraction coefficients are expressed in terms of the spectral functions. The resolution of the problem is discussed in section 3. Finally, numerical results are given in section 4. and compared to the analytical Sommerfeld solution. 
+The outline of the chapter is the following: section \ref{Chapter5:problem}. presents the problem and the diffraction coefficients are expressed in terms of the spectral functions. The resolution of the problem is discussed in section \ref{Chapter5:resolution}. Finally, numerical results are given in section \ref{Chapter5:results}. and compared to the analytical Sommerfeld solution. 
+
 \section{Problem statement}
 \label{Chapter5:problem}
 
-Let us consider a stress-free wedge of angle $2\varphi$ immersed in a fluid $\Omega_f$ constituted of the junction of two faces $F_1$ and $F_2$ (see Fig.~\ref{chapter5:figure1}). The Cartesian coordinate system $(O; \mathbf{e}_{x_1}, \mathbf{e}_{y_1} )$ is linked to the face $F_1$ of the wedge and $(O;  \mathbf{e}_{x_2}, \mathbf{e}_{y_2} )$ is linked to the face $F_2$. These Cartesian coordinate systems  have the same origin located on the wedge edge which coincides with the $z$-axis. Let $\mathbf{x} = (x_1,y_1)_{ (\mathbf{e}_{x_1}, \mathbf{e}_{y_1}) } = (x_2,y_2)_{ (\mathbf{e}_{x_2}, \mathbf{e}_{y_2})}$ be a position vector $\mathbf{x} = (r,0)$ in a local basis of polar coordinates associated to the Cartesian coordinates $(x_1,y_1)$. The time convention used in this chapter is $\exp(i\omega t)$. The wedge is thus irradiated by a velocity potential plane wave in the form
+Let us consider a stress-free wedge of angle $\varphi$ immersed in a fluid $\Omega_f$ constituted of the junction of two faces $\mathcal{S}_1$ and $\mathcal{S}_2$ (see Fig.~\ref{chapter5:figure1}). The inward unit vectors normal to each of these faces are noted $n_1$ and $n_2$ respectively. The Cartesian coordinate system $(O; \mathbf{e}_{x_1}, \mathbf{e}_{y_1} )$ is linked to the face $\mathcal{S}_1$ of the wedge and $(O;  \mathbf{e}_{x_2}, \mathbf{e}_{y_2} )$ is linked to the face $\mathcal{S}_2$. These Cartesian coordinate systems  have the same origin located on the wedge edge which coincides with the $z$-axis. Let $\mathbf{x} = (x_1,y_1)_{ (\mathbf{e}_{x_1}, \mathbf{e}_{y_1}) } = (x_2,y_2)_{ (\mathbf{e}_{x_2}, \mathbf{e}_{y_2})}$ be a position vector $\mathbf{x} = (r,0)$ in a local basis of polar coordinates associated to the Cartesian coordinates $(x_1,y_1)$. The time convention used in this chapter is $\exp(i\omega t)$. The wedge is thus irradiated by a velocity potential plane wave in the form
 \begin{align}
 \label{Chapter5:incidence_wave}
 g^{\rm inc}(\mathbf{x},t) = A \, e^{i(\omega t - \mathbf{k}^{\rm inc} \cdot \mathbf{x})}
@@ -43,11 +44,18 @@ is the wave vector of the incident wave with $k_0 = \omega/c_0$ being the wave n
 \frac{\partial^2 g}{\partial t^2} - c_0^2 \, \triangle g = 0
 \end{equation}
 
-and the Dirichlet boundary condition on the wedges faces
+and the Dirichlet \eqref{Chapter5:CLDir} or Neumann \eqref{Chapter5:CLNeu} boundary condition on the wedges faces
+
+\begin{subequations}
 \begin{equation}
-\label{Chapter5:CL}
+\label{Chapter5:CLDir}
 g\mid_{F_j} = 0, \quad j=1,2.
 \end{equation}
+\begin{equation}
+\label{Chapter5:CLNeu}
+\frac{\partial g}{\partial n_j} \mid_{F_j} = 0, \quad j=1,2.
+\end{equation}
+\end{subequations}
 
 \begin{figure}[h]
 \centering
@@ -59,9 +67,9 @@ g\mid_{F_j} = 0, \quad j=1,2.
 	
 	\fill[color=gray!60] (0,0) --  (-2.39,6.5778) --(-3.1,6.3) -- (-0.7,-0.3) -- cycle; 
 		
-	\draw[thick, color = black]  (0,0) -- (8,0) node[midway,below] {($F_1$) bottom free surface};
+	\draw[thick, color = black]  (0,0) -- (8,0) node[midway,below] {($\mathcal{S}_1$) bottom free surface};
 	
-	\draw[thick, color = black]  (0,0) -- (-2.39,6.5778) node[midway,below,sloped] {($F_2$) top free surface};
+	\draw[thick, color = black]  (0,0) -- (-2.39,6.5778) node[midway,below,sloped] {($\mathcal{S}_2$) top free surface};
 	
 	\draw[very thick, ->] (-2.39,6.5778) -- (-2.69,7.42);
 	
@@ -72,7 +80,7 @@ g\mid_{F_j} = 0, \quad j=1,2.
 	\node at (-1,7){$\mathbf{e}_{y_2} $};
 	
 	
-	\node at (0.1,2.9){$2 \varphi$} ; 
+	\node at (0.1,2.9){$\varphi$} ; 
 	
 	\draw[very thick, ->] (0,0) -- (1,0);
 	
@@ -133,25 +141,44 @@ h = h_{\rm inc} + v
 \end{equation}
 In this decomposition, the scattered wave $v$ is the sum of two fields : the Geometric-Elastodynamic (GE) field, which  is the sum of the possibly multiple specular reflections of the incident wave and of fictitious fields compensating the incident wave in shadow zones, and the diffracted field. A detailed description of the GE field, in the case of a half-plane scatterer, is given by Kamta-Djakou et al. \cite{Audrey}.
 
-The system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CL} is equivalent to the following  system of equations for the dimensionless problem, obtained by inserting Fourier transform \eqref{Chapter5:dimensionless} and decomposition \eqref{decompinc} into equations \eqref{Chapter5:WaveMotion} and \eqref{Chapter5:CL}
+The system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CLDir} is equivalent to the following  system of equations for the dimensionless problem, obtained by inserting Fourier transform \eqref{Chapter5:dimensionless} and decomposition \eqref{decompinc} into equations \eqref{Chapter5:WaveMotion} and \eqref{Chapter5:CLDir}
 \begin{equation}
-\label{Chapter5:Adimen_waveMotion}
+\label{Chapter5:Adimen_waveMotion_Dir}
 \begin{cases}
 (\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
 v =  -h_{\rm inc} \quad \quad \quad \text{on } F_j, \quad j=1,2
 \end{cases}.
 \end{equation}
-In order to obtain a solution to this problem which is physically relevant, the limiting absorption principle is used. It consists in substituting the wave number $k_0$ by a complex one $k_0 e^{-i\epsilon} $ with $\epsilon > 0$. This means that absorption occurs in the medium and thus the scattered waves attenuate with the distance. The system (\ref{Chapter5:Adimen_waveMotion}) then becomes :
+
+Similarly, the system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CLNeu} is equivalent to the following  system of equations for the dimensionless problem
 \begin{equation}
-\label{Chapter5:waveMotion_epsilon}
+\label{Chapter5:Adimen_waveMotion_Neu}
+\begin{cases}
+(\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
+\frac{\partial v}{\partial n_j} =  -\frac{\partial h_{\rm inc}}{\partial n_j}  \quad \quad \quad \text{on } F_j, \quad j=1,2
+\end{cases}.
+\end{equation}
+
+In order to obtain a solution to this problem which is physically relevant, the limiting absorption principle is used. It consists in substituting the wave number $k_0$ by a complex one $k_0 e^{-i\epsilon} $ with $\epsilon > 0$. This means that absorption occurs in the medium and thus the scattered waves attenuate with the distance. The system (\ref{Chapter5:Adimen_waveMotion_Dir}) then becomes :
+\begin{equation}
+\label{Chapter5:waveMotion_epsilon_Dir}
 (S_\epsilon^*) \quad
 \begin{cases}
 (\triangle+ \, e^{-2i\epsilon}) v^\epsilon  =  0 \quad \text{in } \Omega_f, \\
 v^\epsilon  =  -h_{\rm inc}^\epsilon  \quad \text{on } F_j, \quad j=1,2
 \end{cases}
 \end{equation}
+and system (\ref{Chapter5:Adimen_waveMotion_Neu}) becomes :
+\begin{equation}
+\label{Chapter5:waveMotion_epsilon_Neu}
+(S_\epsilon^*) \quad
+\begin{cases}
+(\triangle+ \, e^{-2i\epsilon}) v^\epsilon  =  0 \quad \text{in } \Omega_f, \\
+\frac{\partial v}{\partial n_j} =  -\frac{\partial h_{\rm inc}}{\partial n_j}  \quad \quad \quad \text{on } F_j, \quad j=1,2
+\end{cases}
+\end{equation}
 
-The physically relevant solution to (\ref{Chapter5:Adimen_waveMotion}), called the outgoing solution, can now be defined. It is the one obtained when taking $\epsilon \to 0$ in (\ref{Chapter5:waveMotion_epsilon}). This limit is noted $v^0$. Its integral representation is found hereafter.
+The physically relevant solution to (\ref{Chapter5:Adimen_waveMotion_Dir}) or \eqref{Chapter5:Adimen_waveMotion_Neu}, called the outgoing solution, can now be defined. It is the one obtained when taking $\epsilon \to 0$ in (\ref{Chapter5:waveMotion_epsilon_Dir}) or \eqref{Chapter5:waveMotion_epsilon_Neu} respectively. This limit is noted $v^0$. Its integral representation is found hereafter.
 
 \subsection*{Outgoing solution: integral representation}
 \label{integral_representation}
