@@ -37,25 +37,29 @@ where $A$ is the amplitude of the incident velocity potential, $\omega$ is the c
 \begin{align}
 \mathbf{k}^{\rm inc} = k_0 (-\cos \theta_{\rm inc},-\sin \theta_{\rm inc})_{(\mathbf{e}_{x_1}, \mathbf{e}_{y_1})}
 \end{align}
-
-is the wave vector of the incident wave with $k_0 = \omega/c_0$ being the wave number - $c_0$ is the sound velocity in the fluid.  The velocity potential in the fluid $g$ satisfies the motion equation in the fluid medium $\Omega_f$ surrounding the wedge 
+is the wave vector of the incident wave with $k_0 = \omega/c_0$ being the wave number and $c_0$ is the sound velocity in the fluid.  The velocity potential in the fluid $g$ satisfies the motion equation in the fluid medium $\Omega_f$ surrounding the wedge 
 \begin{equation}
 \label{Chapter5:WaveMotion}
 \frac{\partial^2 g}{\partial t^2} - c_0^2 \, \triangle g = 0
 \end{equation}
-
-and the Dirichlet \eqref{Chapter5:CLDir} or Neumann \eqref{Chapter5:CLNeu} boundary condition on the wedges faces
-
+and the boundary condition on the wedges faces
+\begin{equation}
+\label{Chapter5:CL}
+Bg\mid_{F_j} = 0, \quad j=1,2,
+\end{equation}
+where the expression of operator B is given by \eqref{Chapter5:CLDir} for Dirichlet boundary conditions and by \eqref{Chapter5:CLNeu} for Neumann boundary conditoins :
 \begin{subequations}
 \begin{equation}
 \label{Chapter5:CLDir}
-g\mid_{F_j} = 0, \quad j=1,2.
+Bg = g \quad \mbox{for Dirichlet boundary conditons}
 \end{equation}
 \begin{equation}
 \label{Chapter5:CLNeu}
-\frac{\partial g}{\partial n_j} \mid_{F_j} = 0, \quad j=1,2.
+Bg = \frac{\partial g}{\partial n_j} \quad \mbox{for Neumann boundary conditons}
 \end{equation}
 \end{subequations}
+
+This common notation will allow us to treat both cases simultaneously in the following developments.
 
 \begin{figure}[h]
 \centering
@@ -141,40 +145,22 @@ h = h_{\rm inc} + v
 \end{equation}
 In this decomposition, the scattered wave $v$ is the sum of two fields : the Geometric-Elastodynamic (GE) field, which  is the sum of the possibly multiple specular reflections of the incident wave and of fictitious fields compensating the incident wave in shadow zones, and the diffracted field. A detailed description of the GE field, in the case of a half-plane scatterer, is given by Kamta-Djakou et al. \cite{Audrey}.
 
-The system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CLDir} is equivalent to the following  system of equations for the dimensionless problem, obtained by inserting Fourier transform \eqref{Chapter5:dimensionless} and decomposition \eqref{decompinc} into equations \eqref{Chapter5:WaveMotion} and \eqref{Chapter5:CLDir}
+The system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CL} is equivalent to the following  system of equations for the dimensionless problem, obtained by inserting Fourier transform \eqref{Chapter5:dimensionless} and decomposition \eqref{decompinc} into equations \eqref{Chapter5:WaveMotion} and \eqref{Chapter5:CL}
 \begin{equation}
-\label{Chapter5:Adimen_waveMotion_Dir}
+\label{Chapter5:Adimen_waveMotion}
 \begin{cases}
 (\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
-v =  -h_{\rm inc} \quad \quad \quad \text{on } F_j, \quad j=1,2
+Bv =  -Bh_{\rm inc} \quad \quad \quad \text{on } F_j, \quad j=1,2
 \end{cases}.
 \end{equation}
 
-Similarly, the system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CLNeu} is equivalent to the following  system of equations for the dimensionless problem
+In order to obtain a solution to this problem which is physically relevant, the limiting absorption principle is used. It consists in substituting the wave number $k_0$ by a complex one $k_0 e^{-i\epsilon} $ with $\epsilon > 0$. This means that absorption occurs in the medium and thus the scattered waves attenuate with the distance. The system (\ref{Chapter5:Adimen_waveMotion}) then becomes :
 \begin{equation}
-\label{Chapter5:Adimen_waveMotion_Neu}
-\begin{cases}
-(\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
-\frac{\partial v}{\partial n_j} =  -\frac{\partial h_{\rm inc}}{\partial n_j}  \quad \quad \quad \text{on } F_j, \quad j=1,2
-\end{cases}.
-\end{equation}
-
-In order to obtain a solution to this problem which is physically relevant, the limiting absorption principle is used. It consists in substituting the wave number $k_0$ by a complex one $k_0 e^{-i\epsilon} $ with $\epsilon > 0$. This means that absorption occurs in the medium and thus the scattered waves attenuate with the distance. The system (\ref{Chapter5:Adimen_waveMotion_Dir}) then becomes :
-\begin{equation}
-\label{Chapter5:waveMotion_epsilon_Dir}
+\label{Chapter5:waveMotion_epsilon}
 (S_\epsilon^*) \quad
 \begin{cases}
 (\triangle+ \, e^{-2i\epsilon}) v^\epsilon  =  0 \quad \text{in } \Omega_f, \\
-v^\epsilon  =  -h_{\rm inc}^\epsilon  \quad \text{on } F_j, \quad j=1,2
-\end{cases}
-\end{equation}
-and system (\ref{Chapter5:Adimen_waveMotion_Neu}) becomes :
-\begin{equation}
-\label{Chapter5:waveMotion_epsilon_Neu}
-(S_\epsilon^*) \quad
-\begin{cases}
-(\triangle+ \, e^{-2i\epsilon}) v^\epsilon  =  0 \quad \text{in } \Omega_f, \\
-\frac{\partial v}{\partial n_j} =  -\frac{\partial h_{\rm inc}}{\partial n_j}  \quad \quad \quad \text{on } F_j, \quad j=1,2
+Bv^\epsilon  =  -Bh_{\rm inc}^\epsilon  \quad \text{on } F_j, \quad j=1,2
 \end{cases}
 \end{equation}
 
