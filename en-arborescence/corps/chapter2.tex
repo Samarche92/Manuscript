@@ -45,7 +45,7 @@ is the wave vector of the incident wave with $k_0 = \omega/c_0$ being the wave n
 and the boundary condition on the wedges faces
 \begin{equation}
 \label{Chapter5:CL}
-Bg\mid_{F_j} = 0, \quad j=1,2,
+Bg\mid_{\mathcal{S}_j} = 0, \quad j=1,2,
 \end{equation}
 where the expression of operator B is given by \eqref{Chapter5:CLDir} for Dirichlet boundary conditions and by \eqref{Chapter5:CLNeu} for Neumann boundary conditoins :
 \begin{subequations}
@@ -55,7 +55,7 @@ Bg = g \quad \mbox{for Dirichlet boundary conditons}
 \end{equation}
 \begin{equation}
 \label{Chapter5:CLNeu}
-Bg = \frac{\partial g}{\partial n_j} \quad \mbox{for Neumann boundary conditons}
+Bg = \frac{\partial g}{\partial n} \quad \mbox{for Neumann boundary conditons}
 \end{equation}
 \end{subequations}
 
@@ -150,7 +150,7 @@ The system \eqref{Chapter5:WaveMotion}-\eqref{Chapter5:CL} is equivalent to the 
 \label{Chapter5:Adimen_waveMotion}
 \begin{cases}
 (\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
-Bv =  -Bh_{inc} \quad \quad \quad \text{on } F_j, \quad j=1,2
+Bv =  -Bh_{inc} \quad \quad \quad \text{on } \mathcal{S}_j, \quad j=1,2
 \end{cases}.
 \end{equation}
 
@@ -160,7 +160,7 @@ In order to obtain a solution to this problem which is physically relevant, the 
 (S_\epsilon^*) \quad
 \begin{cases}
 (\triangle+ \, e^{-2i\epsilon}) v^\epsilon  =  0 \quad \text{in } \Omega_f, \\
-Bv^\epsilon  =  -Bh_{\rm inc}^\epsilon  \quad \text{on } F_j, \quad j=1,2
+Bv^\epsilon  =  -Bh_{\rm inc}^\epsilon  \quad \text{on } \mathcal{S}_j, \quad j=1,2
 \end{cases}
 \end{equation}
 
@@ -193,9 +193,9 @@ v=v_1|_{\Omega_f}+v_2|_{\Omega_f}
 where, for $j=1,2$ :
 \begin{equation}
 \label{inv_potentiels}
-v_j=-\lim_{\epsilon \to 0} \left(\Delta+e^{-2i\epsilon}\right)^{-1} \left[ \alpha_j \otimes \delta_{F_j} \right]
+v_j=-\lim_{\epsilon \to 0} \left(\Delta+e^{-2i\epsilon}\right)^{-1} \left[ \alpha_j \otimes \delta_{\mathcal{S}_j} \right]
 \end{equation}
-with $\alpha_j \in \mathcal{A}$ are unknown and where $\delta_{F_1}$ and $\delta_{F_2}$ are Dirac delta functions on the faces $F_1$ and $F_2$ of the wedge respectively (these functions take value $\delta_{F_j}(x,y)=1$ on $F_j$, and 0 elsewhere).
+$\alpha_j \in \mathcal{A}$ are unknown and $\delta_{\mathcal{S}_1}$ and $\delta_{\mathcal{S}_2}$ are the Dirac delta functions on the faces $\mathcal{S}_1$ and $\mathcal{S}_2$ of the wedge respectively (these functions verify $\delta_{\mathcal{S}_j}(x,y)=1$ on $\mathcal{S}_j$, and $\delta_{\mathcal{S}_j}(x,y)=0$ elsewhere).
 
 \end{definition}
 The following theorem is proven by Croisille and Lebeau in \cite{CroisilleLebeau} :
@@ -248,7 +248,7 @@ This integral is well defined if $\text{Im}(\zeta_0^\epsilon) > 0$, so that the 
 \zeta_0^\epsilon(\xi)&= -\sqrt{e^{-i\epsilon}-\xi^2} \quad  \text{if} \quad \vert \xi\vert \leq 1.
 \end{align}
 \end{subequations}
-The branch points of the function $\zeta_0^\epsilon(\xi)$ are $\pm  \, e^{-i\epsilon}$. For $\epsilon > 0$, integral \eqref{champ_epsilon} is well defined because these complex singular points are never crossed by the integration contour (the real axis). The integration contour of \eqref{champ_epsilon}, is deformed into the contour $\Gamma_0$ illustrated on Fig.~\ref{chapter5:figure2} so that these singular points $\pm  \, e^{-i\epsilon}$ are not crossed by the new contour $\Gamma_0$  when $\epsilon \rightarrow 0$ (for which the physical outgoing solution of (\ref{Chapter5:waveMotion_epsilon}) is obtained). Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ on Fig.~\ref{chapter5:figure2} are described later in section \ref{Chapter5:regular_part}.
+The branch points of the function $\zeta_0^\epsilon(\xi)$ are $\pm  \, e^{-i\epsilon}$. For $\epsilon > 0$, integral \eqref{champ_epsilon} is well defined because these complex singular points are never crossed by the integration contour (the real axis). The integration contour of \eqref{champ_epsilon}, is deformed into the contour $\Gamma_0$ illustrated on Fig.~\ref{chapter5:figure2} so that these singular points $\pm  \, e^{-i\epsilon}$ are not crossed by the new contour $\Gamma_0$  when $\epsilon \rightarrow 0$ (for which the physical outgoing solution of (\ref{Chapter5:waveMotion_epsilon}) is obtained). The curved arrows on Fig.~\ref{chapter5:figure2} are described later in section \ref{Chapter5:regular_part}.
 
 Thus, even for $\epsilon=0$, the integral
 \begin{equation}
@@ -273,9 +273,9 @@ v(\mathbf{x}) = v_1^0(x_1,y_1) + v_2^0(x_2,y_2)
 	\node at (-2,0.35) {\large $-1$}; %pole
 	\node at (3.5,-0.38) {\large $(\Gamma_0)$};
 	\draw[ thick, ->] (-2.5,-0.5) arc (180:235:1);
-	\node at (-2.8,-0.9) {\large $\mathcal{F}_1$};
+%	\node at (-2.8,-0.9) {\large $\mathcal{F}_1$};
 	\draw[ thick, ->] (2.5,0.5) arc (0:45:1); %ici c'est les fleches 
-	\node at (2.8,0.9) {\large $\mathcal{F}_2$};
+	%\node at (2.8,0.9) {\large $\mathcal{F}_2$};
     \node at (4.5,0.3) {\large $\sigma$};
     \node at (-0.3,1.5) {\large $\tau$};
 	\draw[step=1.5cm,gray,thick,dashed,->,>=stealth'] (-4.5,0) -- (4.5,0);
@@ -290,7 +290,7 @@ v(\mathbf{x}) = v_1^0(x_1,y_1) + v_2^0(x_2,y_2)
 	\end{tikzpicture}
 \caption
 [Contour $\Gamma_0$]
-{Integration contour $\Gamma_0$ in the complex plane $\xi = \sigma + i \tau$. Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ show the deformation of $\Gamma_0$ into the imaginary axis.}
+{Integration contour $\Gamma_0$ in the complex plane $\xi = \sigma + i \tau$. The curved arrows show the deformation of $\Gamma_0$ into the imaginary axis.}
 \label{chapter5:figure2}
 \end{figure}
 
@@ -300,26 +300,31 @@ One of the goals of this chapter is to compute the spectral functions $\hat{\alp
 \section{Spectral functions computation}
 \label{Chapter5:resolution}
 
-To compute the spectral functions, the functional equations satisfied by spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ first have to be determined.
+To compute the spectral functions, the functional equations satisfied by these spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ first have to be determined.
 \subsection{Functional equations of spectral functions}
 
 The velocity potential in the boundary conditions of the system \eqref{Chapter5:waveMotion_epsilon} is substituted by its expression \eqref{initial_sol}. It then leads to the following system of equations for the boundary conditions on each wedge face:
 \begin{equation}
 \label{CL}
 \begin{cases}
-v_1^0(x_1,0) + v_2^0(x_2 \cos 2\varphi,x_2 \sin 2\varphi)  =  -v^0_{\rm inc} \mid_{F_1}\\
-v_1^0(x_1 \cos 2\varphi,x_1 \sin 2\varphi) + v_2^0(x_2,0)   =  -v^0_{\rm inc} \mid_{F_2}
+Bv_1^0(x_1,0) + Bv_2^0(x_2 \cos \varphi,x_2 \sin \varphi)  =  -Bv^0_{\rm inc} \mid_{\mathcal{S}_1}\\
+Bv_1^0(x_1 \cos \varphi,x_1 \sin \varphi) + Bv_2^0(x_2,0)   =  -Bv^0_{\rm inc} \mid_{\mathcal{S}_2}
 \end{cases}.
 \end{equation}
-The Fourier transform is applied to the potential velocity expression on the face of each wedge 
+The Fourier transform is applied to the potential velocity expression on the face of each wedge
 \begin{align}
 \mathcal{F}(x_j \mapsto v_j^0 (x_j,0))(\xi) & =  \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda)}  \left( \int_0^{\infty} \, e^{-i x_j (\xi-\lambda)} dx_j \right) {\rm d} \lambda,\\
 & =  \dfrac{1}{4\pi} \int_{\Gamma_0} \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) (\xi - \lambda)} {\rm d} \lambda \nonumber
 \end{align}
 and
 \begin{align}
-\mathcal{F} \left( x_j \mapsto v_j^0 \left( x_j \cos 2\varphi,x_j \sin 2\varphi \right) \right)(\xi)  & =  \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda)}  \left( \int_0^{\infty} \, e^{-i x_j \left( \xi - \lambda  \, \cos 2\varphi - |\sin 2\varphi| \, \zeta_0^0(\lambda) \right)} dx_j \right) {\rm d} \lambda,\\
-& = \dfrac{1}{4\pi} \int_{\Gamma_0} \dfrac{ \hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) \left[ \xi - \lambda \, \cos 2\varphi  - |\sin 2\varphi| \, \zeta_0^0(\lambda) \right]} {\rm d} \lambda.  \nonumber
+\mathcal{F} \left( x_j \mapsto v_j^0 \left( x_j \cos \varphi,x_j \sin \varphi \right) \right)(\xi)  & =  \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda)}  \left( \int_0^{\infty} \, e^{-i x_j \left( \xi - \lambda  \, \cos \varphi - |\sin \varphi| \, \zeta_0^0(\lambda) \right)} dx_j \right) {\rm d} \lambda,\\
+& = \dfrac{1}{4\pi} \int_{\Gamma_0} \dfrac{ \hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) \left[ \xi - \lambda \, \cos \varphi  - |\sin \varphi| \, \zeta_0^0(\lambda) \right]} {\rm d} \lambda.  \nonumber
+\end{align}
+
+The Fourier transform is also applied to the potential velocity's normal derivative on the face of each wedge
+\begin{align}
+\mathcal{F}(x_j \mapsto v_j^0 (x_j,0))(\xi)
 \end{align}
 
 
@@ -328,7 +333,7 @@ The dimensionless incident wave on the faces $F_1$ and $F_2$ of the wedge which 
 \label{CL2}
 \begin{align}
 v^0_{\rm inc}(x_1,0) & =  \dfrac{1}{2} \, e^{i \, x_1 \cos \theta_{\rm inc}} ,\\
-v^0_{\rm inc}(x_2,0) & =   \dfrac{1}{2} \, e^{i \, x_2 \cos (2\varphi - \theta_{\rm inc} )} .
+v^0_{\rm inc}(x_2,0) & =   \dfrac{1}{2} \, e^{i \, x_2 \cos (\varphi - \theta_{\rm inc} )} .
 \end{align}
 \end{subequations}
 
