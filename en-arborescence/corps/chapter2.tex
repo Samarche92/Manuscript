@@ -321,19 +321,44 @@ and
 \mathcal{F} \left( x_j \mapsto v_j^0 \left( x_j \cos \varphi,x_j \sin \varphi \right) \right)(\xi)  & =  \dfrac{i}{4\pi} \int_{\Gamma_0}  \dfrac{\hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda)}  \left( \int_0^{\infty} \, e^{-i x_j \left( \xi - \lambda  \, \cos \varphi - |\sin \varphi| \, \zeta_0^0(\lambda) \right)} dx_j \right) {\rm d} \lambda,\\
 & = \dfrac{1}{4\pi} \int_{\Gamma_0} \dfrac{ \hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) \left[ \xi - \lambda \, \cos \varphi  - |\sin \varphi| \, \zeta_0^0(\lambda) \right]} {\rm d} \lambda.  \nonumber
 \end{align}
-
-The Fourier transform is also applied to the potential velocity's normal derivative on the face of each wedge
+The potential velocity's normal derivative on the face of each wedge is computed using \eqref{champ}, and by noting that for each face $n_j=y_j$ (see Fig.~\ref{chapter5:figure1}) :
+\begin{equation}
+\frac{\partial v_j^0}{\partial n_j}(x_j,y_j) = -\frac{1}{4\pi} \int_{\Gamma_0} te^{i\xi x_j}e^{i|y_j|\zeta_0^0(\xi)} \hat{\alpha_j}(\xi)\, d\xi,
+\end{equation}
+where $t= \rm sgn \, y_j$. In order to go from one Cartesian coordinate system to another, the following change in variables is given for $j=1,2$ (see Fig.~\ref{chapter5:figure1}) :
+\begin{eqnarray}
+\label{changecoords}
+\left\{
+\begin{array}{l}
+x_{3-j}=x_j\cos\varphi+y_j\sin\varphi \\
+y_{3-j}=x_j\sin\varphi-y_j\cos\varphi
+\end{array}
+\right.
+\end{eqnarray}
+This yields :
 \begin{align}
-\mathcal{F}(x_j \mapsto v_j^0 (x_j,0))(\xi)
+\frac{\partial v_j^0}{\partial n_{3-j}}&=\frac{\partial v_j^0}{\partial y_{3-j}}= \sin\varphi \frac{\partial v_j^0}{\partial x_j}-\cos\varphi \frac{\partial v_j^0}{\partial y_j}\\
+&=-\frac{1}{4\pi}\int_{\Gamma_0}\frac{(\xi\sin\varphi-t\cos\varphi\zeta_0^0(\xi))}{\zeta_0^0(\xi)}e^{i(\xi x_j+|y_j|\zeta_0^0(\xi))}\hat{\alpha_j}(\xi)\,d\xi
 \end{align}
+The Fourier transform can now also be applied to the potential velocity's normal derivative on the each face of the wedge
+\begin{align}
+\mathcal{F}(x_j \mapsto \frac{\partial v_j^0}{\partial n_j} (x_j,0))(\xi)&=-\frac{1}{4\pi} \int_{\Gamma_0}  \hat{\alpha_j}(\lambda)\left( \int_0^{\infty} \, e^{-i x_j (\xi-\lambda)} dx_j \right)\, d \lambda \nonumber\\
+&=\frac{i}{4\pi}\int_{\Gamma_0}\frac{\hat{\alpha_j}}{\xi-\lambda}\, d\lambda
+\end{align}
+and
+\begin{align}
+\mathcal{F} &\left( x_j \mapsto \frac{\partial v_j^0}{\partial n_{3-j}} ( x_j \cos \varphi,x_j \sin \varphi) \right)(\xi)  \nonumber\\
+& =  -\frac{1}{4\pi} \int_{\Gamma_0}  \frac{(\lambda\sin\varphi-t\cos\varphi\zeta_0^0(\lambda))}{\zeta_0^0(\lambda)}\hat{\alpha_j}(\lambda)  \left( \int_0^{\infty} \, e^{-i x_j \left( \xi - \lambda  \, \cos \varphi - |\sin \varphi| \, \zeta_0^0(\lambda) \right)} dx_j \right) \,d \lambda, \nonumber\\
+& = \frac{i}{4\pi} \int_{\Gamma_0} \dfrac{ \lbrack \lambda\sin\varphi-t\cos\varphi\zeta_0^0(\lambda)\rbrack \, \hat{\alpha_j}(\lambda)}{\zeta_0^0(\lambda) \left[ \xi - \lambda \, \cos \varphi  - |\sin \varphi| \, \zeta_0^0(\lambda) \right]} \, d\lambda,
+\end{align}
+here $t=\rm sgn \sin \varphi$.
 
-
-The dimensionless incident wave on the faces $F_1$ and $F_2$ of the wedge which is involved at the right side of \eqref{CL} is respectively:
+The dimensionless incident wave on the faces $\mathcal{S}_1$ and $\mathcal{S}_2$ of the wedge which is involved at the right side of \eqref{CL} is respectively:
 \begin{subequations}
 \label{CL2}
 \begin{align}
-v^0_{\rm inc}(x_1,0) & =  \dfrac{1}{2} \, e^{i \, x_1 \cos \theta_{\rm inc}} ,\\
-v^0_{\rm inc}(x_2,0) & =   \dfrac{1}{2} \, e^{i \, x_2 \cos (\varphi - \theta_{\rm inc} )} .
+v^0_{\rm inc}(x_1,y_1) & =  \dfrac{1}{2} \, e^{i \, (x_1 \cos \theta_{inc}+y_1\sin\theta_{inc} ) } ,\\
+v^0_{\rm inc}(x_2,y_2) & =   \dfrac{1}{2} \, e^{i \, (x_2 \cos (\varphi - \theta_{inc} )+y_2\sin(\varphi-\theta_{inc}))} 
 \end{align}
 \end{subequations}
 
@@ -341,64 +366,67 @@ Therefore, applying the Fourier transform to \eqref{CL} leads to the following f
 \begin{equation}
 \label{functional_eq}
 \begin{cases}
-DM(\hat{\alpha}_1)(\xi) + TM(\hat{\alpha}_2)(\xi) = \dfrac{1}{\xi - Z_1} \\
-TM(\hat{\alpha}_1)(\xi) + DM(\hat{\alpha}_2)(\xi)  = \dfrac{1}{\xi - Z_2} 
+DM(\hat{\alpha}_1)(\xi) + TM(\hat{\alpha}_2)(\xi) = \dfrac{W_1}{\xi - Z_1} \\
+TM(\hat{\alpha}_1)(\xi) + DM(\hat{\alpha}_2)(\xi)  = \dfrac{W_2}{\xi - Z_2} 
 \end{cases}
 \end{equation}
-where $Z_1 =  \cos \theta_{\rm inc}$, $Z_2 =  \cos (2\varphi - \theta_{\rm inc})$. $DM$ is an integral operator defined as
+where $Z_1 =  \cos \theta_{\rm inc}$, $Z_2 =  \cos (\varphi - \theta_{\rm inc})$, $W_1=W_2=1$ in the case of Dirichlet boundary conditions and $W_1=\sin\theta_{inc}, \quad W_2=\sin(\varphi-\theta_{inc})$ in the case of Neumann boundary conditions. $DM$ is an integral operator defined as
 \begin{equation}
 \label{DM_operator}
 \begin{split}
-DM(\hat{\alpha}_1)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, {\rm d} \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{m(\lambda)  }{\xi - \lambda} \hat{\alpha}_1(\lambda) \, {\rm d} \lambda
+DM(\hat{\alpha}_1)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, d \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{dm(\lambda)  }{\xi - \lambda} \hat{\alpha}_1(\lambda) \, d\lambda
 \end{split}
 \end{equation}
-where $m(\lambda) = \dfrac{1}{\zeta_0^0(\lambda)}$ and $TM$ is also an integral operator defined as
+where $dm(\lambda) = \dfrac{1}{\zeta_0^0(\lambda)}$ in the case of Dirichlet boundary conditions and $dm(\lambda)=1$ in the case of Neumann boundary conditions. 
+
+$TM$ is an integral operator defined as
 \begin{equation}
 \label{TM_operator}
 \begin{split}
-TM(\hat{\alpha}_1)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, {\rm d} \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{ m(\lambda)}{ \xi- \lambda \cos 2\varphi  - |\sin 2\varphi| \zeta_0^0(\lambda)} \hat{\alpha}_1(\lambda) \, {\rm d} \lambda 
+TM(\hat{\alpha}_1)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, {\rm d} \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{ tm(\lambda)}{ \xi- \lambda \cos \varphi  - |\sin \varphi| \zeta_0^0(\lambda)} \hat{\alpha}_1(\lambda) \, {\rm d} \lambda 
 \end{split}
 \end{equation}
-
+where $tm(\lambda)=\dfrac{1}{\zeta_0^0(\lambda)}$ in the case of Dirichlet boundary conditions and $tm(\lambda)=\dfrac{\lambda\sin\varphi-t\cos\varphi\zeta_0^0(\lambda)}{\zeta_0^0(\lambda)}$ in the case of Neumann boundary conditions.
 Note that the function $TM$ can be expressed as
 \begin{equation}
-TM(\xi,\lambda) =  \dfrac{1}{2i\pi} \dfrac{ m(\lambda)}{ \xi- T_0(\lambda)} , 
+TM(\xi,\lambda) =  \dfrac{1}{2i\pi} \dfrac{ tm(\lambda)}{ \xi- T_0(\lambda)} , 
 \end{equation}
 where, applying the variable change $\lambda=\cos\theta$
 \begin{equation}
 \label{Trans_operator}
-T_0(\lambda=\cos\theta) =  \lambda \cos \widetilde{2\varphi}  + \sin \widetilde{2\varphi} \, \zeta_0^0(\lambda) =  \cos (\theta + \widetilde{2\varphi})
+T_0(\lambda=\cos\theta) =  \lambda \cos \phiti  + \sin \phiti \, \zeta_0^0(\lambda) =  \cos (\theta + \phiti)
 \end{equation}
 with 
 \begin{equation}
-\widetilde{2\varphi} =
+\phiti =
 \begin{cases}
- 2\varphi \quad \text{if} \quad 0 < 2\varphi < \pi \qquad \\
- 2\pi - 2\varphi \quad \text{if} \quad \pi < 2\varphi < 2\pi
+ \varphi \quad \text{if} \quad 0 < \varphi < \pi \qquad \\
+ 2\pi - \varphi \quad \text{if} \quad \pi < \varphi < 2\pi
  \label{phitilde}
 \end{cases}
 \end{equation}
-By using this angular variable, defined differently for wedge angles lower and higher than $\pi$, the description of the spectral functions method can be written the same way for wedge angles lower and higher than $\pi$, even if the final results (the diffraction coefficients) are different for wedge angles $\pi<2\varphi<2\pi$ and $2\pi-2\varphi$. Indeed, the variable $2\varphi$ appears in all the resolution, whereas the variable $\widetilde{2\varphi}$ appears only in the definition of the function $T_0$ in \eqref{Trans_operator} and of the domain $\Omega_0$ in which $T_0$ operates, defined as
+By using this angular variable, defined differently for wedge angles lower and higher than $\pi$, the description of the spectral functions method can be written the same way for wedge angles lower and higher than $\pi$, even if the final results (the diffraction coefficients) are different for wedge angles $\pi<\varphi<2\pi$ and $2\pi-\varphi$. Indeed, the variable $\varphi$ appears in all the resolution, whereas the variable $\phiti$ appears only in the definition of the function $T_0$ in \eqref{Trans_operator} and of the domain $\Omega_0$ in which $T_0$ operates, defined as
 \begin{equation}
 \label{Domain_Omega0}
-\Omega_0 =\{\xi\in\mathbb C, \ \xi=\cos \theta, \ 0< {\rm Re } \, \theta < \pi -\widetilde{2\varphi} \}.
+\Omega_0 =\{\xi\in\mathbb C, \ \xi=\cos \theta, \ 0< {\rm Re } \, \theta < \pi -\phiti \}.
 \end{equation}
 Domain $\Omega_0$ is delineated by the hyperbola 
 \begin{equation}
-\partial \Omega_0^+ = \{   \xi \in \mathbb{C},  \xi = \cos \theta, {\rm Re} \, \theta = \pi - \widetilde{2\varphi} \}.
+\partial \Omega_0^+ = \{   \xi \in \mathbb{C}, \quad \xi = \cos \theta, \quad {\rm Re}  \theta = \pi - \phiti \}.
 \end{equation}
-Domain $\Omega_0$ and its upper boundary $\partial \Omega_0^+$ are illustrated on Fig.~\ref{chapter5:figure4}. Domain $\Omega_0$ is the dotted area in Fig.~\ref{chapter5:figure4}. Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ on Fig.~\ref{chapter5:figure4} are described later in section \ref{Chapter5:System_resolution}.
+Domain $\Omega_0$ and its upper boundary $\partial \Omega_0^+$ are illustrated on Fig.~\ref{chapter5:figure4}. Domain $\Omega_0$ is the grey area in Fig.~\ref{chapter5:figure4}.
 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
 % Filling Omega_0
 \fill [color=gray!20]
-(3,0)
+(5,0)
 -- plot [domain=0:2] ({-cosh(\x)},{sinh(\x)})
--- (3,3.62)
+-- (5,3.62)
 -- cycle;
-\fill[color=white] (4,0) circle (0.1);
+
+\fill[color=white] (2,0) circle (0.25);
 
 \node at (2,0) {\Large $\mathbf{\times}$}; % Pole
 \node at (2,-0.45) { $1$};
@@ -413,26 +441,26 @@ Domain $\Omega_0$ and its upper boundary $\partial \Omega_0^+$ are illustrated o
 \node at (-0.6,4) { $\tau$};
       % axis
 
-% arrows indicating countour deformation
-\draw[ thick, ->] (-3,-0.25) arc (180:235:1);
-\node at (-3.2,-0.9) {$\mathcal{F}_1$};
-\draw[ thick, ->] (4.0,0.3) arc (0:45:1); 
-\node at (4.5,0.8) { $\mathcal{F}_2$};
+%% arrows indicating countour deformation
+%\draw[ thick, ->] (-3,-0.25) arc (180:235:1);
+%\node at (-3.2,-0.9) {$\mathcal{F}_1$};
+%\draw[ thick, ->] (4.0,0.3) arc (0:45:1); 
+%\node at (4.5,0.8) { $\mathcal{F}_2$};
 
 % Hyperbola (contour  partial_Omega_0 )
 \draw[black, very thick][domain=-2:2] plot({-cosh(\x)}, {sinh(\x)});
 \node at (-4.0,2.8) { $\mathbf{\partial \Omega_0^+}$};
 \draw[thick,->] (0.2,-1.0)--(-0.7,-0.2);
-\node at (1.1,-1.3) {$-\cos \widetilde{2\varphi}$};
+\node at (1.1,-1.3) {$-\cos \phiti$};
 
 %  Omega_0
-\draw [thick, ->] (3.5,3)--(2.5,3);
-\node at (4,3) {$\mathbf{\Omega_0}$};
+\draw [thick, ->] (5.5,3)--(4.5,3);
+\node at (6,3) {$\mathbf{\Omega_0}$};
 
 \end{tikzpicture}
 \caption
 [Contour $\partial \Omega_0^+$]
-{Domain $\Omega_0$ (the dotted area) and its upper boundary $\partial \Omega_0^+$. The lower boundary of $\Omega_0$ is the semi-axis $[-\cos \widetilde{2\varphi},+\infty[$. Arrows $\mathcal{F}_1$ and $\mathcal{F}_2$ show the deformation of $\Gamma_0$ (in thick dashed line) into $\partial \Omega_0^+$.}
+{Domain $\Omega_0$ (the grey area) and its upper boundary $\partial \Omega_0^+$. The lower boundary of $\Omega_0$ is the semi-axis $[-\cos \phiti,+\infty[$.}
 \label{chapter5:figure4}
 \end{figure}
 Having found the system of functional equations, it is now resolved following the methodology of \cite{CroisilleLebeau}.
