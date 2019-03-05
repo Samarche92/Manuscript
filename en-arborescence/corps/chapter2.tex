@@ -377,7 +377,17 @@ where $Z_1 =  \cos \theta_{\rm inc}$, $Z_2 =  \cos (\varphi - \theta_{\rm inc})$
 DM(\hat{\alpha}_1)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, d \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{dm(\lambda)  }{\xi - \lambda} \hat{\alpha}_1(\lambda) \, d\lambda
 \end{split}
 \end{equation}
-where $dm(\lambda) = \dfrac{1}{\zeta_0^0(\lambda)}$ in the case of Dirichlet boundary conditions and $dm(\lambda)=1$ in the case of Neumann boundary conditions. 
+where 
+\begin{equation}
+\label{dmDir}
+dm(\lambda) = \dfrac{1}{\zeta_0^0(\lambda)}
+\end{equation}
+in the case of Dirichlet boundary conditions and 
+\begin{equation}
+\label{dmDir}
+dm(\lambda)=1
+\end{equation}
+in the case of Neumann boundary conditions. 
 
 $TM$ is an integral operator defined as
 \begin{equation}
@@ -386,7 +396,17 @@ $TM$ is an integral operator defined as
 TM(\hat{\alpha}_1)(\xi) &= \int_{\Gamma_0} TM(\xi,\lambda) \, \hat{\alpha}_1(\lambda) \, {\rm d} \lambda =\dfrac{1}{2i\pi} \int_{\Gamma_0} \dfrac{ tm(\lambda)}{ \xi- \lambda \cos \varphi  - |\sin \varphi| \zeta_0^0(\lambda)} \hat{\alpha}_1(\lambda) \, {\rm d} \lambda 
 \end{split}
 \end{equation}
-where $tm(\lambda)=\dfrac{1}{\zeta_0^0(\lambda)}$ in the case of Dirichlet boundary conditions and $tm(\lambda)=\dfrac{\lambda\sin\varphi-t\cos\varphi\zeta_0^0(\lambda)}{\zeta_0^0(\lambda)}$ in the case of Neumann boundary conditions.
+where 
+\begin{equation}
+\label{tmDir}
+tm(\lambda)=\dfrac{1}{\zeta_0^0(\lambda)}
+\end{equation}
+in the case of Dirichlet boundary conditions and 
+\begin{equation}
+\label{tmNeu}
+tm(\lambda)=\dfrac{\lambda\sin\varphi-t\cos\varphi\zeta_0^0(\lambda)}{\zeta_0^0(\lambda)}
+\end{equation}
+in the case of Neumann boundary conditions.
 Note that the function $TM$ can be expressed as
 \begin{equation}
 TM(\xi,\lambda) =  \dfrac{1}{2i\pi} \dfrac{ tm(\lambda)}{ \xi- T_0(\lambda)} , 
@@ -798,11 +818,11 @@ Using \eqref{TM_operator} and \eqref{Galerkin_basis} the $\mathbb{T}_{lk}$ eleme
 \label{matrice_T}
 (-2i\pi) \mathbb{T}_{lk} =  - d_k \mathcal{T}(a_k,b_l)
 \end{equation}
-%where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
-%\begin{equation}
-%\label{ltbis}
-%\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{tm(iy)}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, dy . 
-%\end{equation}
+where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
+\begin{equation}
+\label{ltbis}
+\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{tm(iy)}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, dy . 
+\end{equation}
 %According to \eqref{zeta_function}, $\mathcal{D}(a,b)$ and $\mathcal{T}(a,b)$ functions can be simplified using the relation
 %\begin{equation}
 %\zeta_0^0(iy)= - \sqrt{1+y^2}.
