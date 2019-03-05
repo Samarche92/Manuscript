@@ -384,7 +384,7 @@ dm(\lambda) = \dfrac{1}{\zeta_0^0(\lambda)}
 \end{equation}
 in the case of Dirichlet boundary conditions and 
 \begin{equation}
-\label{dmDir}
+\label{dmNeu}
 dm(\lambda)=1
 \end{equation}
 in the case of Neumann boundary conditions. 
@@ -813,6 +813,8 @@ with the function $\mathcal{D}(a,b)$ defined for $a>1$ and $b>1$ as
 \mathcal{D}(a,b) = \int_{-\infty}^{+\infty} \dfrac{dm(iy)}{y + ib} \, \dfrac{1}{y -ia} dy 
 % = \int_{-\infty}^{+\infty} \dfrac{1}{y + ib} \, \dfrac{1}{y -ia} \, \dfrac{1}{\zeta_0^0(iy)} {\rm d}y. 
 \end{equation}
+This integral's value can be determined analytically. The details of the computation being a bit heavy, they are given in appendix \ref{finalDac}.
+
 Using \eqref{TM_operator} and \eqref{Galerkin_basis} the $\mathbb{T}_{lk}$ elements defined in \eqref{T_matrix} can be expressed as
 \begin{equation}
 \label{matrice_T}
@@ -823,33 +825,11 @@ where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
 \label{ltbis}
 \mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{tm(iy)}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, dy . 
 \end{equation}
-This integral's value can be determined analytically. The details of the computation are given in appendix \ref{finalTac}.
-
-Integral $\mathcal{D}(a,b)$ given in \eqref{ldbis} can then be rewritten, using a partial fraction decomposition, as
-\begin{equation}
-\label{D3}
- \mathcal{D}(a,b) = \dfrac{i}{b+a} \int_{-\infty}^{+\infty} \left( \dfrac{1}{y - ia} \, \dfrac{1}{\sqrt{1+y^2}} - \dfrac{1}{y + ib}  \, \dfrac{1}{\sqrt{1+y^2}}  \right) {\rm d} y, \quad \text{if } a+b \neq 0.
-\end{equation}
-Using the variable change \eqref{variable_change}, we have for $a \geq 1$,
-\begin{equation}
-\label{D1}
-\int_\mathbb R {1\over y-ia}{1\over \sqrt {1+y^2}}{\rm d} y  =  2i \int_{-1}^{1} \dfrac{1}{a(1-x^2)+2ix} \, dx = 2i \, {\rm rog} (a)
-\end{equation}
-and for $b \geq 1$
-\begin{equation}
-\label{D2}
-\int_\mathbb R {1\over y+ib}{1\over \sqrt {1+y^2}}{\rm d} y= \overline{\int_\mathbb R  {1\over y-ib}{1\over \sqrt {1+y^2}}{\rm d} y}=\overline{2i {\rm rog}(b)}=-2i \, {\rm rog}(b).
-\end{equation}
-From \eqref{D1} and \eqref{D2}, Eq.~\eqref{D3} reduces to
-\begin{equation}
-\label{ld}
-\mathcal{D}(a,b) = \dfrac{-2}{a+b} \left[ {\rm rog}(a) + {\rm rog}(b)\right].
-\end{equation}
+This integral's value can be determined analytically. The details of the computation being a bit heavy, they are given in appendix \ref{finalTac}.
 
 The matrices $\mathbb{D}$ and $\mathbb{T}$ are completely determined using \eqref{matrice_D} and \eqref{matrice_T} respectively. Their analytical properties are also known. In order to resolve the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod},  their right hand side constituted of $\mathbb{U}_1$ and $\mathbb{U}_2$ must also be computed.
 
 \paragraph{Determination of the right hand side of the system of equations}
-
 
 Using \eqref{second_member}, the right hand side of the system \eqref{sys_regular_gal_col} which is calculated at the collocation points $b_l$ defined in \eqref{points_collocation}, $l \in \{ 1,2, \ldots, N \}$, is 
 \begin{equation}
@@ -877,7 +857,7 @@ Expressions \eqref{Dp_final} of $D_p$ and \eqref{Tp_final} of $T_p$ functions ar
 \cdot V_{3-j}^k  \right) +  \dfrac{2\pi i}{b_l - Z_j}
 \end{equation}
 
-Once all matrix terms have been calculated, system \eqref{Syst_lineaire} is resolved numerically. For that, the NAG numeric subroutine library for Fortran is used. With the resolution of this linear system of equations, the coordinates $\tilde{X}_j^k$ of the regular term $X_j$ of the spectral functions are known and therefore the regular term $X_j$ is approximated using \eqref{regular_part_decomp}. The spectral functions $\hat{\alpha}_j$ are then completely determined using \eqref{spec_decomp}, \eqref{sing_part} and \eqref{regular_part_decomp}. 
+Once all matrix terms have been calculated, system \eqref{Syst_lineaire} is resolved numerically using the numeric library Eigen for C++. With the resolution of this linear system of equations, the coordinates $\tilde{X}_j^k$ of the regular term $X_j$ of the spectral functions are known and therefore the regular term $X_j$ is approximated using \eqref{regular_part_decomp}. The spectral functions $\hat{\alpha}_j$ are then completely determined using \eqref{spec_decomp}, \eqref{sing_part} and \eqref{regular_part_decomp}. 
 
 \subsection{Propagation of the solution}
 \label{propag_sol}
