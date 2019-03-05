@@ -869,7 +869,7 @@ The regular part approximation described previously is not accurate in the entir
 is represented in Fig.~\ref{chapter5:figure11}. 
 The procedure consists in deriving new recursive equations by deforming the  contour $\Gamma_0$ in the integrals of the right-hand side of \eqref{sys_regular} into a new contour $\Gamma_2$ and taking into account the poles crossed in the process.
 
-To begin, the contour $\Gamma_0$ in the $DM$ integral operator is deformed into $\Gamma_2$. The half-space $\{ \lambda, {\rm Im} \ \lambda < 0 \}$ is then crossed during this contour deformation as shown by the $F_1$ arrow on Fig.~\ref{chapter5:figure8}.
+To begin, the contour $\Gamma_0$ in the $DM$ integral operator is deformed into contour $\Gamma_2$, visible Fig.~\ref{chapter5:figure8}. The half-space $\{ \lambda, {\rm Im} \ \lambda < 0 \}$ is then crossed during this contour deformation as shown by the curved arrow on Fig.~\ref{chapter5:figure8}.
 
 \begin{figure}[ht]%
 \centering
@@ -908,7 +908,7 @@ decoration={ markings,
 \end{tikzpicture}
 \caption
 [Contour $\Gamma_2$]
-{Contour $\Gamma_2$. The curved arrow shows the deformation of $\Gamma_0$ (dashed line) into $\Gamma_2$.}
+{Contour $\Gamma_2$. The curved arrow shows the deformation of $\Gamma_0$ into $\Gamma_2$.}
 \label{chapter5:figure8}
 \end{figure}
 
@@ -919,15 +919,15 @@ During this contour deformation, only the poles
 of the $DM$ function \eqref{DM_operator} are crossed and therefore, applying the residue theorem, we have for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$, 
 \begin{equation}
 \label{DM_propag_sol}
-DM(X_j)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda  = \int_{\Gamma_2} DM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda + m(\xi) X_j(\xi).
+DM(X_j)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) X_j(\lambda) \, d \lambda  = \int_{\Gamma_2} DM(\xi,\lambda) X_j(\lambda) \, d \lambda + dm(\xi) X_j(\xi).
 \end{equation}
 
 The poles of the $TM$ function \eqref{TM_operator} are
-$$ \lambda = T_0^{-1}(\xi) = \xi \, \cos \widetilde{2\varphi}  - \sin \widetilde{2\varphi} \, \zeta_0(\xi) = \cos (\theta - \widetilde{2\varphi}) \quad \text{if} \quad \xi = \cos \theta $$
-$T_0^{-1}$ operates in the domain $\Omega_0^-$, therefore they are crossed during this contour deformation if and only if $\xi \in \Omega_0^-$ (see dotted area on Fig.~\ref{chapter5:figure11}).
+$$ \lambda = T_0^{-1}(\xi) = \xi \, \cos \phiti  - \sin \phiti \, \zeta_0(\xi) = \cos (\theta - \phiti) \quad \text{if} \quad \xi = \cos \theta $$
+$T_0^{-1}$ operates in the domain $\Omega_0^-$, therefore these poles are crossed during this contour deformation if and only if $\xi \in \Omega_0^-$ (see dotted area on Fig.~\ref{chapter5:figure11}).
 The domain $\Omega_0^-$ is delineated by the hyperbola 
 \begin{equation}
-\partial \Omega_0^- = \{   \xi \in \mathbb{C}, \ {\rm Im}(\xi) <0,  \xi = \cos \theta, {\rm Re} \, \theta = \widetilde{2\varphi} \}.
+\partial \Omega_0^- = \{   \xi \in \mathbb{C}, \ {\rm Im}(\xi) <0,  \xi = \cos \theta, {\rm Re} \, \theta = \phiti \}.
 \end{equation}
 Domain $\Omega_0^-$ and contour $\partial \Omega_0^-$ are illustrated on Fig.~\ref{chapter5:figure11}.   
 
