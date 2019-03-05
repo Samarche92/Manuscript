@@ -321,6 +321,7 @@ In the case of Dirichlet boundary conditions, the expression of function $\mathc
 According to \eqref{zeta_function}, the above expression can be simplified using the relation
 \begin{equation}
 \zeta_0^0(iy)= - \sqrt{1+y^2}.
+\label{zeta0iy}
 \end{equation}
 By setting $\nuti=1$ in \eqref{defJ8}, we find :
 \begin{equation}
@@ -330,8 +331,14 @@ This integral is computed in section \ref{calculJ8} and its value is given by \e
 \subsubsection{Neumann boundary conditions}
 \label{finalTacNeu}
 In the case of Dirichlet boundary conditions, the expression of function $\mathcal{T}(a,b)$ is obtained by substituting \eqref{tmNeu} in \eqref{ltbis} for $a>1$ and $b>1$ :
-
-
+\begin{equation}
+\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{iy\sin\varphi-\epsilon\zeta_0^0(iy)\cos\varphi}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \,\dfrac{1}{\zeta_0^0(iy)} \, dy .
+\end{equation}
+where $\epsilon= \rm sgn \sin\varphi$. Once again, the expression above can be simplified using \eqref{zeta0iy}. By setting $\nuti=1$ in \eqref{defJ3} and \eqref{defJ5}, we find :
+\begin{equation}
+\mathcal{T}(a,b)=-\epsilon\cos\varphi J_3^1-i\sin\varphi J_5^1
+\end{equation}
+Integrals $J_3^1$ and $J_5^1$ are computed in sections \ref{calculJ3} and \ref{calculJ5} respectively. Their values are given by \eqref{valJ3} and \eqref{valJ5}.
 
 \subsection{2D elastic case}
 \label{finalT2D}
