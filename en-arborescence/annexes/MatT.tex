@@ -1,4 +1,4 @@
-\chapter{Détail des calculs des coefficients de la matrice $\mathbb{T}(a,b)$}
+\chapter{Computation details for the coefficients of matrix $\mathbb{T}(a,b)$}
 \label{matT}
 Lors des caluls des coefficients de $\mathbb{T}(a,b)$ nous aurons besoin d'un certain nombre de résultats intermédiaires. Nous allons donc commencer par déterminer ceux-ci avant de procéder au calcul final.
 
@@ -306,6 +306,88 @@ J_8=&\frac{2i\eta_8 }{b-\nuti\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\var
 
 \section{Suite et fin des calculs des coefficients de $\mathbb{T}(a,b)$}
 \label{fincalculs}
+The final steps of the computation of the coefficients of matrices $\mathbb{T}_{lk}$ are given here. For each physical configuration presented in this manuscript, the coefficients can be expressed as linear combinations of integrals $J_1^*$ to $J_8^*$. These combinations are given case by case in the following.
+
+\subsection{Acoustic case}
+\label{finalTac}
+In the second chapter of this manuscript, which deals with the diffraction of an acoustic wave, the expression of operator $\mathcal{T}(a,b)$ depends on whether the wedge is soft (Dirichlet boundary conditions) or hard (Neumann boundary conditions). Let us begin with the case of a soft wedge.  
+\subsubsection{Dirichlet boundary conditions}
+\label{finalTacDir}
+where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
+\begin{equation}
+\label{ltbis}
+\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{tm(iy)}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, dy . 
+\end{equation}
+According to \eqref{zeta_function}, $\mathcal{D}(a,b)$ and $\mathcal{T}(a,b)$ functions can be simplified using the relation
+\begin{equation}
+\zeta_0^0(iy)= - \sqrt{1+y^2}.
+\end{equation}
+
+The function $\mathcal{T}(a,b)$ is first calculated. The variable change
+\begin{equation}
+\label{variable_change}
+y = \dfrac{2x}{1 - x^2};\qquad
+\dfrac{1+x^2}{1-x^2} = \sqrt{1+y^2}; \qquad
+{\rm d}y = 2\dfrac{x^2+1}{\left( 1 - x^2 \right)^2} \, {\rm d}x
+\end{equation}
+is applied to \eqref{ltbis} :
+\begin{equation}
+\label{T_function_bis}
+\mathcal{T}(a,b) = 2 \int_{-1}^{1} \dfrac{x^2-1}{ b \, (1-x^2) - 2ix \cos 2\varphi  +|\sin 2\varphi| (1+x^2)} \, \dfrac{1}{2x -i a (1-x^2)} \, {\rm d}x
+\end{equation}
+Let us define the polynomial functions $P(x)$ and $Q(x)$ as 
+\begin{align}
+\label{P_pol_function}
+P(x) =& b(1-x^2) - 2ix \cos 2\varphi  + |\sin 2\varphi| (1+x^2),\\
+\label{Q_pol_function}
+Q(x) =& 2x - i a(1-x^2).
+\end{align}
+The integrand of the $\mathcal{T}(a,b)$ function \eqref{T_function_bis} is a rational function which can be decomposed in the partial fraction :
+\begin{equation}
+\label{decomposition_elts_simples}
+\dfrac{-1+ x^2 }{PQ} = \dfrac{\gamma x + \delta}{P} + \dfrac{\alpha x +\beta}{Q}
+\end{equation}
+as long as $\triangle \neq 0$, with
+\begin{equation}
+\triangle =a^2+b^2 +2ab\cos\varphi- (\sin \varphi)^2 \neq 0
+\end{equation}
+
+Using this partial fraction decomposition, $\mathcal{T}(a,b)$ function \eqref{T_function_bis} can be written as
+\begin{equation}
+\label{T_function_bis2}
+\mathcal{T}(a,b) = 2  \int_{-1}^{1} \left(  \dfrac{\gamma x + \delta}{ P(x)} + \dfrac{\alpha x + \beta}{Q(x)} \right) dx, 
+\end{equation} 
+It is shown in appendix \ref{AppendixF} that
+\begin{equation}
+\label{int1}
+\int_{-1}^{1} \dfrac{\alpha x + \beta}{Q(x)} \, dx = \alpha {\rm sog}(a) + i\beta \, {\rm rog}(a) 
+\end{equation}
+
+and that
+\begin{equation}
+\label{int2}
+\int_{-1}^{1} \dfrac{\gamma x + \delta}{P(x)} \, dx = \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi} \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
+\end{equation}
+where rog and sog are defined in appendix \ref{AppendixF}.
+Finally, using \eqref{int1}, \eqref{int2} and \eqref{T_function_bis2},
+\begin{equation}
+\label{lt}
+\mathcal{T}(a,b) = 2 \, [ T_1(a,b) + T_2(a,b) ]
+\end{equation}
+with
+\begin{subequations}
+\label{glt1}
+\begin{align}
+T_1(a,b) &= \alpha \, {\rm sog}(a) + i\beta \, {\rm rog}(a), \\
+T_2(a,b) &= \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi}  \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
+\end{align}
+\end{subequations}
+\subsubsection{Neumann boundary conditions}
+\label{finalTacNeu}
+\subsection{2D elastic case}
+\label{finalT2D}
+\subsection{3D elastic case}
+\label{finalT3D}
 Donnons maintenant l'expression explicite des coefficients de la matrice $\mathbb{T}(a,b)$, obtenus en utilisant les formules \eqref{tmL} à \eqref{tmTV} et \eqref{Tab}. 
 On commence par définir :
 \begin{equation}
@@ -317,7 +399,7 @@ J_1&=\int_{-\infty}^{+\infty}\frac{y\sqrt{\nuti^2+y^2}}{(y-ia)\lbrack b-iy\cos\p
 \end{equation}
 Les intégrales $J_4$ et $J_5$ sont définies par \eqref{defJ4} et \eqref{defJ5}.
 Nous verrons que tous les coefficients de la matrice $\mathbb{T}(a,b)$ peuvent s'écrire comme des combinaisons linéaires des intégrales $J_1^*$ à $J_8^*$ calculées précédemment, ce qui nous donne un moyen simple d'obtenir les valeurs des coefficients de la matrice $\mathbb{T}(a,b)$.
-\subsection{Termes L}
+\subsubsection{Termes L}
 Nous commençons par les termes issus de la matrice $\mathbf{tm}_L$ donnée par \eqref{tmL}.
 \begin{multline}
 \mathcal{T}_1^L(a,b)= \mu \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_L(iy)+\sin(2\varphi)(y^2+\zeta_L^2(iy))\rbrack}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+ \zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
@@ -359,7 +441,7 @@ Nous commençons par les termes issus de la matrice $\mathbf{tm}_L$ donnée par 
 \hfill=2\mu\tau^2\lbrack i\sin\varphi J_5^L+\epsilon\cos\varphi J_3^L \rbrack \hfill
 \end{multline}
 
-\subsection{Termes TH}
+\subsubsection{Termes TH}
 Passons maintenant aux termes issus de la matrice $\mathbf{tm}_{TH}$ donnée par \eqref{tmTH}.
 \begin{multline}
 \mathcal{T}_1^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{-2i\sin(2\varphi).y\zeta_T(iy)+\epsilon \cos (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
@@ -388,7 +470,7 @@ Passons maintenant aux termes issus de la matrice $\mathbf{tm}_{TH}$ donnée par
 On précise que l'on a 
 $$ \mathcal{T}_3^{TH}=\mathcal{T}_6^{TH}=\mathcal{T}_9^{TH}=0 $$
 
-\subsection{Termes TV}
+\subsubsection{Termes TV}
 Pour finir, on calcule les termes issus de la matrice $\mathbf{tm}_{TV}$, donnée par \eqref{tmTV}.
 
 \begin{multline}

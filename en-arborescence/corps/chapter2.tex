@@ -777,94 +777,96 @@ are the matrix elements of $\mathbb{D}$ and $\mathbb{T}$ respectively. System \e
 (\mathbb{D} - \mathbb{T}) \, (\mathbb{X}_1 - \mathbb{X}_2) = \mathbb{U}_1 - \mathbb{U}_2
 \end{cases}.
 \end{equation}
-To find the regular part of the spectral functions \eqref{regular_part_decomp}, its coordinates $\tilde{X}_j^k$ in the Galerkin basis $\varphi_k, \, 1 \leq k \leq N$ defined in \eqref{Gal_basis} must be determined. These coordinates are solutions of the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod}. To resolve such a system, the matrices $[D]$ and $[T]$ and its right hand side $U_{1,2}$ must be calculated. 
+To approximate the regular part of the spectral functions \eqref{regular_part_decomp}, its coordinates $\tilde{X}_j^k$ in the Galerkin basis $\varphi_k, \, 1 \leq k \leq N$ defined in \eqref{Gal_basis} must be determined. These coordinates are the solutions of the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod}. To resolve such a system, the matrices $\mathbb{D}$ and $\mathbb{T}$ and the right hand side $\mathbb{U}_{1,2}$ must be computed. 
 
 \paragraph{Matrix calculation}
-The first step is to determine $[D]$ and $[T]$ matrices.
-Using \eqref{DM_operator} and \eqref{Galerkin_basis}, the $[D]_{lk}$ elements defined in \eqref{D_matrix} can be expressed as
+
+The first step is to determine $\mathbb{D}$ and $\mathbb{T}$ matrices.
+Using \eqref{DM_operator} and \eqref{Galerkin_basis}, the $\mathbb{D}_{lk}$ elements defined in \eqref{D_matrix} can be expressed as
 \begin{equation}
 \label{matrice_D}
-(-2i\pi) [D]_{lk} =  -i d_k \mathcal{D}(a_k,b_l)
+(-2i\pi) \mathbb{D}_{lk} =  -i d_k \mathcal{D}(a_k,b_l)
 \end{equation}
 with the function $\mathcal{D}(a,b)$ defined for $a>1$ and $b>1$ as
 \begin{equation}
 \label{ldbis}
-\mathcal{D}(a,b) = \int_{-\infty}^{+\infty} \dfrac{m(iy)}{y + ib} \, \dfrac{1}{y -ia} {\rm d}y = \int_{-\infty}^{+\infty} \dfrac{1}{y + ib} \, \dfrac{1}{y -ia} \, \dfrac{1}{\zeta_0^0(iy)} {\rm d}y. 
+\mathcal{D}(a,b) = \int_{-\infty}^{+\infty} \dfrac{dm(iy)}{y + ib} \, \dfrac{1}{y -ia} dy 
+% = \int_{-\infty}^{+\infty} \dfrac{1}{y + ib} \, \dfrac{1}{y -ia} \, \dfrac{1}{\zeta_0^0(iy)} {\rm d}y. 
 \end{equation}
-Using \eqref{TM_operator} and \eqref{Galerkin_basis} the $[T]_{lk}$ elements defined in \eqref{T_matrix} can be expressed as
+Using \eqref{TM_operator} and \eqref{Galerkin_basis} the $\mathbb{T}_{lk}$ elements defined in \eqref{T_matrix} can be expressed as
 \begin{equation}
 \label{matrice_T}
-(-2i\pi) [T]_{lk} =  - d_k \mathcal{T}(a_k,b_l)
+(-2i\pi) \mathbb{T}_{lk} =  - d_k \mathcal{T}(a_k,b_l)
 \end{equation}
-where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
-\begin{equation}
-\label{ltbis}
-\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{1}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, \dfrac{1}{\zeta_0^0(iy)} {\rm d} y . 
-\end{equation}
-According to \eqref{zeta_function}, $\mathcal{D}(a,b)$ and $\mathcal{T}(a,b)$ functions can be simplified using the relation
-\begin{equation}
-\zeta_0^0(iy)= - \sqrt{1+y^2}.
-\end{equation}
-
-The function $\mathcal{T}(a,b)$ is first calculated. The variable change
-\begin{equation}
-\label{variable_change}
-y = \dfrac{2x}{1 - x^2};\qquad
-\dfrac{1+x^2}{1-x^2} = \sqrt{1+y^2}; \qquad
-{\rm d}y = 2\dfrac{x^2+1}{\left( 1 - x^2 \right)^2} \, {\rm d}x
-\end{equation}
-is applied to \eqref{ltbis} :
-\begin{equation}
-\label{T_function_bis}
-\mathcal{T}(a,b) = 2 \int_{-1}^{1} \dfrac{x^2-1}{ b \, (1-x^2) - 2ix \cos 2\varphi  +|\sin 2\varphi| (1+x^2)} \, \dfrac{1}{2x -i a (1-x^2)} \, {\rm d}x
-\end{equation}
-Let us define the polynomial functions $P(x)$ and $Q(x)$ as 
-\begin{align}
-\label{P_pol_function}
-P(x) =& b(1-x^2) - 2ix \cos 2\varphi  + |\sin 2\varphi| (1+x^2),\\
-\label{Q_pol_function}
-Q(x) =& 2x - i a(1-x^2).
-\end{align}
-The integrand of the $\mathcal{T}(a,b)$ function \eqref{T_function_bis} is a rational function which can be decomposed in the partial fraction :
-\begin{equation}
-\label{decomposition_elts_simples}
-\dfrac{-1+ x^2 }{PQ} = \dfrac{\gamma x + \delta}{P} + \dfrac{\alpha x +\beta}{Q}
-\end{equation}
-as long as $\triangle \neq 0$, with
-\begin{equation}
-\triangle =a^2+b^2 +2ab\cos\varphi- (\sin \varphi)^2 \neq 0
-\end{equation}
-
-Using this partial fraction decomposition, $\mathcal{T}(a,b)$ function \eqref{T_function_bis} can be written as
-\begin{equation}
-\label{T_function_bis2}
-\mathcal{T}(a,b) = 2  \int_{-1}^{1} \left(  \dfrac{\gamma x + \delta}{ P(x)} + \dfrac{\alpha x + \beta}{Q(x)} \right) dx, 
-\end{equation} 
-It is shown in appendix \ref{AppendixF} that
-\begin{equation}
-\label{int1}
-\int_{-1}^{1} \dfrac{\alpha x + \beta}{Q(x)} \, dx = \alpha {\rm sog}(a) + i\beta \, {\rm rog}(a) 
-\end{equation}
-
-and that
-\begin{equation}
-\label{int2}
-\int_{-1}^{1} \dfrac{\gamma x + \delta}{P(x)} \, dx = \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi} \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
-\end{equation}
-where rog and sog are defined in appendix \ref{AppendixF}.
-Finally, using \eqref{int1}, \eqref{int2} and \eqref{T_function_bis2},
-\begin{equation}
-\label{lt}
-\mathcal{T}(a,b) = 2 \, [ T_1(a,b) + T_2(a,b) ]
-\end{equation}
-with
-\begin{subequations}
-\label{glt1}
-\begin{align}
-T_1(a,b) &= \alpha \, {\rm sog}(a) + i\beta \, {\rm rog}(a), \\
-T_2(a,b) &= \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi}  \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
-\end{align}
-\end{subequations}
+%where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
+%\begin{equation}
+%\label{ltbis}
+%\mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{tm(iy)}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, dy . 
+%\end{equation}
+%According to \eqref{zeta_function}, $\mathcal{D}(a,b)$ and $\mathcal{T}(a,b)$ functions can be simplified using the relation
+%\begin{equation}
+%\zeta_0^0(iy)= - \sqrt{1+y^2}.
+%\end{equation}
+%
+%The function $\mathcal{T}(a,b)$ is first calculated. The variable change
+%\begin{equation}
+%\label{variable_change}
+%y = \dfrac{2x}{1 - x^2};\qquad
+%\dfrac{1+x^2}{1-x^2} = \sqrt{1+y^2}; \qquad
+%{\rm d}y = 2\dfrac{x^2+1}{\left( 1 - x^2 \right)^2} \, {\rm d}x
+%\end{equation}
+%is applied to \eqref{ltbis} :
+%\begin{equation}
+%\label{T_function_bis}
+%\mathcal{T}(a,b) = 2 \int_{-1}^{1} \dfrac{x^2-1}{ b \, (1-x^2) - 2ix \cos 2\varphi  +|\sin 2\varphi| (1+x^2)} \, \dfrac{1}{2x -i a (1-x^2)} \, {\rm d}x
+%\end{equation}
+%Let us define the polynomial functions $P(x)$ and $Q(x)$ as 
+%\begin{align}
+%\label{P_pol_function}
+%P(x) =& b(1-x^2) - 2ix \cos 2\varphi  + |\sin 2\varphi| (1+x^2),\\
+%\label{Q_pol_function}
+%Q(x) =& 2x - i a(1-x^2).
+%\end{align}
+%The integrand of the $\mathcal{T}(a,b)$ function \eqref{T_function_bis} is a rational function which can be decomposed in the partial fraction :
+%\begin{equation}
+%\label{decomposition_elts_simples}
+%\dfrac{-1+ x^2 }{PQ} = \dfrac{\gamma x + \delta}{P} + \dfrac{\alpha x +\beta}{Q}
+%\end{equation}
+%as long as $\triangle \neq 0$, with
+%\begin{equation}
+%\triangle =a^2+b^2 +2ab\cos\varphi- (\sin \varphi)^2 \neq 0
+%\end{equation}
+%
+%Using this partial fraction decomposition, $\mathcal{T}(a,b)$ function \eqref{T_function_bis} can be written as
+%\begin{equation}
+%\label{T_function_bis2}
+%\mathcal{T}(a,b) = 2  \int_{-1}^{1} \left(  \dfrac{\gamma x + \delta}{ P(x)} + \dfrac{\alpha x + \beta}{Q(x)} \right) dx, 
+%\end{equation} 
+%It is shown in appendix \ref{AppendixF} that
+%\begin{equation}
+%\label{int1}
+%\int_{-1}^{1} \dfrac{\alpha x + \beta}{Q(x)} \, dx = \alpha {\rm sog}(a) + i\beta \, {\rm rog}(a) 
+%\end{equation}
+%
+%and that
+%\begin{equation}
+%\label{int2}
+%\int_{-1}^{1} \dfrac{\gamma x + \delta}{P(x)} \, dx = \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi} \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
+%\end{equation}
+%where rog and sog are defined in appendix \ref{AppendixF}.
+%Finally, using \eqref{int1}, \eqref{int2} and \eqref{T_function_bis2},
+%\begin{equation}
+%\label{lt}
+%\mathcal{T}(a,b) = 2 \, [ T_1(a,b) + T_2(a,b) ]
+%\end{equation}
+%with
+%\begin{subequations}
+%\label{glt1}
+%\begin{align}
+%T_1(a,b) &= \alpha \, {\rm sog}(a) + i\beta \, {\rm rog}(a), \\
+%T_2(a,b) &= \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi}  \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
+%\end{align}
+%\end{subequations}
 
 Integral $\mathcal{D}(a,b)$ given in \eqref{ldbis} can then be rewritten, using a partial fraction decomposition, as
 \begin{equation}
