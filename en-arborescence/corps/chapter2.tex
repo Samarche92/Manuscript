@@ -405,7 +405,7 @@ with
  \label{phitilde}
 \end{cases}
 \end{equation}
-By using this angular variable, defined differently for wedge angles lower and higher than $\pi$, the description of the spectral functions method can be written the same way for wedge angles lower and higher than $\pi$, even if the final results (the diffraction coefficients) are different for wedge angles $\pi<\varphi<2\pi$ and $2\pi-\varphi$. Indeed, the variable $\varphi$ appears in all the resolution, whereas the variable $\phiti$ appears only in the definition of the function $T_0$ in \eqref{Trans_operator} and of the domain $\Omega_0$ in which $T_0$ operates, defined as
+Function $T_0$ is thereforre called the translation operator, since it translates the complex angle $\theta$ to $\theta+\phiti$. By using this angular variable, defined differently for wedge angles lower and higher than $\pi$, the description of the spectral functions method can be written the same way for wedge angles lower and higher than $\pi$, even if the final results (the diffraction coefficients) are different for wedge angles $\pi<\varphi<2\pi$ and $2\pi-\varphi$. Indeed, the variable $\varphi$ appears in all the resolution, whereas the variable $\phiti$ appears only in the definition of the function $T_0$ in \eqref{Trans_operator} and of the domain $\Omega_0$ in which $T_0$ operates, defined as
 \begin{equation}
 \label{Domain_Omega0}
 \Omega_0 =\{\xi\in\mathbb C, \ \xi=\cos \theta, \ 0< {\rm Re } \, \theta < \pi -\phiti \}.
@@ -548,6 +548,7 @@ In the sequel, using the decomposition of the $DM$ and $TM$ operators for a func
 
 \subsubsection{Singular part}
 \label{Chapter5:sing_part}
+
 It is well known that poles of the spectral functions lead to the reflections of the incident field on the wedge faces (these reflections can be multiple), and to the fictitious fields that compensate the incident wave in the shadow zones. The sum of these reflections with the fictitious compensating fields constitute the aforementioned GE field. The singular part of the spectral functions contains these poles. The goal of this subsection is to calculate the poles and the corresponding residues and then to determine the expression of the singular part of the spectral functions, by employing a recursive algorithm. 
 
 Knowing the incident field on the wedge faces, the spectral function  $\hat{\alpha}_j$ can be written as
@@ -558,29 +559,29 @@ Knowing the incident field on the wedge faces, the spectral function  $\hat{\alp
 where $Z_1,Z_2$ are the initial poles, given in (\ref{functional_eq}) with unknown residues $V_1$ and $V_2$ and the functions $X_j'$ are unknown, $j=1,2$. From \eqref{Int_op_decomp_DM}, it is known that
 \begin{equation}
 \label{Chapter5:pole_propag_DM_1}
-DM(\hat{\alpha}_j)(\xi) = \dfrac{m(Z_j) \cdot V_j}{\xi - Z_j} + D_p(\xi,Z_j)\cdot V_j + DM( X_j')(\xi).
+DM(\hat{\alpha}_j)(\xi) = \dfrac{dm(Z_j) \cdot V_j}{\xi - Z_j} + D_p(\xi,Z_j)\cdot V_j + DM( X_j')(\xi).
 \end{equation}
-By choosing $V_j =  m^{-1}(Z_j)$, the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. The resulting system's unknown functions are $X'_j, \, j=1,2$ :
+By choosing $V_j =  dm^{-1}(Z_j).W_j$, the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. The resulting system's unknown functions are $X'_j, \, j=1,2$ :
 \begin{equation}
 DM  (X_j' )(\xi)+ TM (X_{3-j}' )(\xi) = - TM  \left(  \dfrac{V_{3-j}}{\xi - Z_{3-j}} \right) (\xi)  - D_p(V_j,Z_j)(\xi) \qquad j=1,2
 \end{equation}
 Besides, from \eqref{Int_op_decomp_TM}, we know that
 \begin{equation}
 \label{Chapter5:pol_propag_step3}
-TM  \left(  \dfrac{V_j}{\xi - Z_j} \right)(\xi) = \dfrac{m(Z_j) \cdot V_j}{\xi - T_0(Z_j)}  \, \mathbf{1}(Z_j \in \Omega_0) + T_p(\xi,Z_j)\cdot V_j \qquad j=1,2
+TM  \left(  \dfrac{V_j}{\xi - Z_j} \right)(\xi) = \dfrac{tm(Z_j) \cdot V_j}{\xi - T_0(Z_j)}  \, \mathbf{1}(Z_j \in \Omega_0) + T_p(\xi,Z_j)\cdot V_j \qquad j=1,2
 \end{equation}
-Thus, $X_j'$ has a pole at $\xi = Z_j^2 = T_0(Z_{3-j})$ if $Z_{3-j} \in \Omega_0$. $T_0$ function defined in \eqref{Trans_operator} is then called translation operator because it translates a pole of the spectral function $\hat{\alpha}_j$, $j=1,2$, to a pole of the spectral function $\hat{\alpha}_{3-j}$. The wave incident on face $F_{3-j}$ is reflected. This reflected wave is incident on face $F_j$, generating a new pole $Z_j^2=T_0(Z_{3-j})$. 
+Thus, $X_j'$ has a pole at $\xi = Z_j^{1)} = T_0(Z_{3-j})$ if $Z_{3-j} \in \Omega_0$. The wave incident on face $\mathcal{S}_{3-j}$ is reflected. This reflected wave is incident on face $\mathcal{S}_j$, generating a new pole $Z_j^{(1)}=T_0(Z_{3-j})$. 
 The unknown function $X_j'$ in \eqref{Chapter5:ini_pol_propag} is then decomposed as
 \begin{equation}
 \label{Chapter5:pol_propag_step2}
-X_j'(\xi) =  \dfrac{V_j^2}{\xi - Z_j^2} + X_j''(\xi), \quad j=1,2
+X_j'(\xi) =  \dfrac{V_j^{(1)}}{\xi - Z_j^{(1)}} + X_j''(\xi), \quad j=1,2
 \end{equation}
 where the function $ X_j''$ is unknown. 
-Once again, the residues $V_j^2$ of these generated poles $Z_j^2$ are chosen so that they cancel the singular term $DM(X_j')(\xi)$, found using the formula \eqref{Int_op_decomp_DM}, compensating the singular term in the $TM$ operator in \eqref{Chapter5:pol_propag_step3}.
+Once again, the residues $V_j^{(1)}$ of these generated poles $Z_j^{(1)}$ are chosen so that they cancel the singular term in $DM(X_j')(\xi)$, found using formula \eqref{Int_op_decomp_DM}, compensating the singular term in the $TM$ operator in \eqref{Chapter5:pol_propag_step3}.
 
-This pole propagation process is applied recursively in order to determine all the poles of the spectral functions $\hat{\alpha}_j$. This process stops when the generated poles are no longer in the domain $\Omega_0$ defined in \eqref{Domain_Omega0}. All the generated poles then belong to $\Omega_0 \cup \rbrack-\cos \widetilde{2\varphi}, +\infty \rbrack$. Their imaginary part is then always positive due to the definition of the domain $\Omega_0$ (see Fig.~\ref{chapter5:figure4}).
+This pole propagation process is applied recursively in order to determine all the poles of the spectral functions $\hat{\alpha}_j$. This process stops when the generated poles are no longer in the domain $\Omega_0$ defined in \eqref{Domain_Omega0}. All the generated poles then belong to $\Omega_0$. 
 
-At the end of this process, spectral functions have the decomposition
+At the end of this process, the spectral functions have the following decomposition
 \begin{equation}
 \label{spec_decomp}
 \hat{\alpha}_j=Y_j+X_j, 
@@ -588,17 +589,17 @@ At the end of this process, spectral functions have the decomposition
 where  $Y_j$ is the singular part, $X_j$ is the regular part  and $j=1,2$ is the face index. The singular part is expressed as
 \begin{equation}
 \label{sing_part}
- Y_j(\xi) = \sum_i {V_j^{i} \over \xi - Z_j^{i}},
+ Y_j(\xi) = \sum_i {V_j^{(i)} \over \xi - Z_j^{(i)}},
 \end{equation}
-where $i \in \mathbb{N}*$, $Z_j^{1} = Z_j$ defined in \eqref{functional_eq} is the initial pole on each face of the wedge,
+where $i \in \mathbb{N}^*$, $Z_j^{(0)} = Z_j$ defined in \eqref{functional_eq} is the initial pole on each face of the wedge, $V_j^{(0)}=V_j$ is the corresponding initial residue on each face of the wedge, 
 \begin{equation}
 \label{Generated_poles}
-Z_j^{i+1} = T_0(Z_k^{i}), \quad j,k \in \{1,2\}, \quad k \not= j 
+Z_j^{(i+1)} = T_0(Z_{3-j}^{(i)}), \quad j,k \in \{1,2\}, \quad j=1,2
 \end{equation} 
-are the different generated poles with their respective residue 
+are the different generated poles with their respective residues 
 \begin{equation}
 \label{Generated_residues}
-V_j^{i+1}=-m^{-1}(T_0(Z_k^{i})) \,  m(Z_k^{i})) \, V_k^{i} \, \mathbf{1}(Z_k^{i} \in \Omega_0), \quad k \neq j.
+V_j^{(i+1)}=-dm^{-1}(T_0(Z_{3-j}^{(i)})) \,  tm(Z_{3-j}^{(i)})) \, V_{3-j}^{(i)} \, \mathbf{1}(Z_{3-j}^{(i)} \in \Omega_0), \quad  j=1,2.
 \end{equation}
 \paragraph{}
 Figure \ref{poles} represents the generated poles in the complex plane for two different cases : figure \ref{poles80} for a wedge of angle $\varphi=80^o$ with an incident angle of $\theta_{inc}=55^o$ and figure \ref{poles20} for $\varphi=20^o$ and $\theta_{inc}=15^o$. As the wedge angle decreases, the number of poles increases, some poles being very close to one another, rendering the method less accurate for very small wedge angles.
@@ -651,11 +652,11 @@ Figure \ref{poles} represents the generated poles in the complex plane for two d
 \subcaption{$\varphi=20^o, \, \theta_{inc}=15^o$}
 \label{poles20}
 \end{subfigure}
-\caption{Generated poles plotted in the complex plane}
+\caption{Poles generated by the recursive algorithm plotted in the complex plane}
 \label{poles}
 \end{figure}
 
-The second step of the system resolution is the determination of the regular part $X_j$ of the spectral function $\hat{\alpha}_j$ [see Eq.~\eqref{spec_decomp}]. The regular part is determined by using the Galerkin collocation method. Section \ref{Chapter5:regular_part} gives the principal steps of this resolution method. 
+The second step of the system resolution is the determination of the regular part $X_j$ of the spectral function $\hat{\alpha}_j$, see Eq.~\eqref{spec_decomp}. The regular part is determined by using the Galerkin collocation method. Section \ref{Chapter5:regular_part} gives the principal steps of this resolution method. 
 
 \subsubsection{Regular part}
 \label{Chapter5:regular_part}
