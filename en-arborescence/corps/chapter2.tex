@@ -823,70 +823,7 @@ where the function $\mathcal{T}(a,b)$ is defined for $a>1$ and $b>1$ as
 \label{ltbis}
 \mathcal{T}(a,b) = \int_{-\infty}^{+\infty} \dfrac{tm(iy)}{ b - iy \cos 2\varphi  + |\sin 2\varphi| \sqrt{1+y^2}} \, \dfrac{1}{y -i a} \, dy . 
 \end{equation}
-%According to \eqref{zeta_function}, $\mathcal{D}(a,b)$ and $\mathcal{T}(a,b)$ functions can be simplified using the relation
-%\begin{equation}
-%\zeta_0^0(iy)= - \sqrt{1+y^2}.
-%\end{equation}
-%
-%The function $\mathcal{T}(a,b)$ is first calculated. The variable change
-%\begin{equation}
-%\label{variable_change}
-%y = \dfrac{2x}{1 - x^2};\qquad
-%\dfrac{1+x^2}{1-x^2} = \sqrt{1+y^2}; \qquad
-%{\rm d}y = 2\dfrac{x^2+1}{\left( 1 - x^2 \right)^2} \, {\rm d}x
-%\end{equation}
-%is applied to \eqref{ltbis} :
-%\begin{equation}
-%\label{T_function_bis}
-%\mathcal{T}(a,b) = 2 \int_{-1}^{1} \dfrac{x^2-1}{ b \, (1-x^2) - 2ix \cos 2\varphi  +|\sin 2\varphi| (1+x^2)} \, \dfrac{1}{2x -i a (1-x^2)} \, {\rm d}x
-%\end{equation}
-%Let us define the polynomial functions $P(x)$ and $Q(x)$ as 
-%\begin{align}
-%\label{P_pol_function}
-%P(x) =& b(1-x^2) - 2ix \cos 2\varphi  + |\sin 2\varphi| (1+x^2),\\
-%\label{Q_pol_function}
-%Q(x) =& 2x - i a(1-x^2).
-%\end{align}
-%The integrand of the $\mathcal{T}(a,b)$ function \eqref{T_function_bis} is a rational function which can be decomposed in the partial fraction :
-%\begin{equation}
-%\label{decomposition_elts_simples}
-%\dfrac{-1+ x^2 }{PQ} = \dfrac{\gamma x + \delta}{P} + \dfrac{\alpha x +\beta}{Q}
-%\end{equation}
-%as long as $\triangle \neq 0$, with
-%\begin{equation}
-%\triangle =a^2+b^2 +2ab\cos\varphi- (\sin \varphi)^2 \neq 0
-%\end{equation}
-%
-%Using this partial fraction decomposition, $\mathcal{T}(a,b)$ function \eqref{T_function_bis} can be written as
-%\begin{equation}
-%\label{T_function_bis2}
-%\mathcal{T}(a,b) = 2  \int_{-1}^{1} \left(  \dfrac{\gamma x + \delta}{ P(x)} + \dfrac{\alpha x + \beta}{Q(x)} \right) dx, 
-%\end{equation} 
-%It is shown in appendix \ref{AppendixF} that
-%\begin{equation}
-%\label{int1}
-%\int_{-1}^{1} \dfrac{\alpha x + \beta}{Q(x)} \, dx = \alpha {\rm sog}(a) + i\beta \, {\rm rog}(a) 
-%\end{equation}
-%
-%and that
-%\begin{equation}
-%\label{int2}
-%\int_{-1}^{1} \dfrac{\gamma x + \delta}{P(x)} \, dx = \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi} \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
-%\end{equation}
-%where rog and sog are defined in appendix \ref{AppendixF}.
-%Finally, using \eqref{int1}, \eqref{int2} and \eqref{T_function_bis2},
-%\begin{equation}
-%\label{lt}
-%\mathcal{T}(a,b) = 2 \, [ T_1(a,b) + T_2(a,b) ]
-%\end{equation}
-%with
-%\begin{subequations}
-%\label{glt1}
-%\begin{align}
-%T_1(a,b) &= \alpha \, {\rm sog}(a) + i\beta \, {\rm rog}(a), \\
-%T_2(a,b) &= \dfrac{i \gamma}{b - \sin \widetilde{2\varphi}} \left[ \left( \dfrac{\pi}{2} - \widetilde{2\varphi} \right) - \cos \widetilde{2\varphi}  \, {\rm rog}(b) \right] + \delta \, {\rm rog}(b).
-%\end{align}
-%\end{subequations}
+This integral's value can be determined analytically. The details of the computation are given in appendix \ref{finalTac}.
 
 Integral $\mathcal{D}(a,b)$ given in \eqref{ldbis} can then be rewritten, using a partial fraction decomposition, as
 \begin{equation}
@@ -909,9 +846,9 @@ From \eqref{D1} and \eqref{D2}, Eq.~\eqref{D3} reduces to
 \mathcal{D}(a,b) = \dfrac{-2}{a+b} \left[ {\rm rog}(a) + {\rm rog}(b)\right].
 \end{equation}
 
-The matrices $[D]$ and $[T]$ are now completely determined using \eqref{matrice_D} and \eqref{matrice_T} respectively. Their analytical properties are also known. In order to resolve the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod},  their right hand side constituted of $U_1$ and $U_2$ must also be computed.
+The matrices $\mathbb{D}$ and $\mathbb{T}$ are completely determined using \eqref{matrice_D} and \eqref{matrice_T} respectively. Their analytical properties are also known. In order to resolve the linear system of equations \eqref{Syst_lineaire} or \eqref{Syst_lineaire_mod},  their right hand side constituted of $\mathbb{U}_1$ and $\mathbb{U}_2$ must also be computed.
 
-\subsubsection*{Determination of the right hand side of the system of equations}
+\paragraph{Determination of the right hand side of the system of equations}
 
 
 Using \eqref{second_member}, the right hand side of the system \eqref{sys_regular_gal_col} which is calculated at the collocation points $b_l$ defined in \eqref{points_collocation}, $l \in \{ 1,2, \ldots, N \}$, is 

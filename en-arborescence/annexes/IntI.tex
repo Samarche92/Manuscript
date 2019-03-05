@@ -1,20 +1,23 @@
-\chapter{Calcul des intégrales $I_1^*$ à $I_5^*$}
+\chapter{Computation details for the coefficients of matrix $\mathbb{D}(a,b)$}
 \label{matD}
 Ces intégrales interviennent dans le calcul des coefficients de la matrice $\mathbb{D}$. Nous donnons ici les développements permettant d'obtenir leurs valeurs.
 \section{Calcul de $I_1^*$}
 \label{calcI1}
+Integral $I_1^*$ is defined by :
+\begin{equation}
+\label{defI1}
+I_1^*=\int_{-\infty}^{+\infty} \frac{y}{(y+ib)(y-ia)\sqrt{\nuti_*^2+y^2}}\,dy
+\end{equation}
+
 Lorsque $a+b \neq 0$, on a la décomposition en éléments simples suivante :
 \begin{equation}
 \frac{y}{(y+ib)(y-ia)}=\frac{1}{a+b} \left( \frac{b}{y+ib}+\frac{a}{y-ia} \right) 
 \label{decomp2}
 \end{equation}
 Ce qui donne : 
-\begin{equation*}
-\begin{split}
-I_1^*&=\int_{-\infty}^{+\infty} \frac{y}{(y+ib)(y-ia)\sqrt{\nuti_*^2+y^2}}\,dy\\
-&= \frac{1}{a+b} \left( \int_{-\infty}^{+\infty} \frac{b}{(y+ib)\sqrt{\nuti_*^2+y^2}} \,dy +\int_{-\infty}^{+\infty} \frac{a}{(y-ia)\sqrt{\nuti_*^2+y^2}} \,dy \right)
-\end{split}
-\end{equation*}
+\begin{equation}
+I_1^*= \frac{1}{a+b} \left( \int_{-\infty}^{+\infty} \frac{b}{(y+ib)\sqrt{\nuti_*^2+y^2}} \,dy +\int_{-\infty}^{+\infty} \frac{a}{(y-ia)\sqrt{\nuti_*^2+y^2}} \,dy \right)
+\end{equation}
 On effectue le changement de variables suivant :
 \begin{equation}
 \begin{split}
@@ -29,9 +32,10 @@ Ce qui donne :
 \int_{-\infty}^{+\infty} \frac{dy}{(y-ia)\sqrt{\nuti_*^2+y^2}}=\int_{-1}^1\frac{2\,dt}{2\nuti_*t-ia(1-t^2)}
 \end{equation*}
 On applique la formule (\ref{intQ}) :
-\begin{equation*}
+\begin{equation}
 I_1^*=\frac{2ia}{(a+b)\nuti_*}\mbox{rog}(a/\nuti_*)-\frac{2ib}{(a+b)\nuti_*}\mbox{rog}(b/\nuti_*)
-\end{equation*}
+\label{valI1}
+\end{equation}
 
 \section{Calcul de $I_3^*$}
 \label{calcI3}
@@ -112,6 +116,11 @@ donc
 \end{equation}
 \section{Calcul de $I_4^*$}
 \label{calcI4}
+Integral $I_4^*$ is defined by :
+\begin{equation}
+I_4^*=\int_{-\infty}^{+\infty} \dfrac{dy}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}}
+\label{defI4}
+\end{equation}
 On a lorsque $a+b\neq0$ :
 \begin{equation}
     \frac{1}{(y+ib)(y-ia)}=\frac{-i}{a+b}\left( \frac{1}{y-ia}-\frac{1}{y+ib}\right)
@@ -148,3 +157,42 @@ On reconnait le calcul mené précédemment. En appliquant la formule \eqref{y2_
 I_5^*=2\log\left(\frac{1+t_{\nuti^*}}{1-t_{\nuti^*}}\right)-\frac{2}{\nuti_*(a+b)}\lbrack b^2\rog{b/\nuti_*}+a^2\rog{a/\nuti_*}\rbrack
 \label{intI5}
 \end{equation}
+
+\section{Continuation and conclusion of the computation of the coefficients of $\mathbb{D}(a,b)$}
+\label{fincalculs}
+The final steps of the computation of the coefficients of matrices $\mathbb{D}_{lk}$ are given here. For each physical configuration presented in this manuscript, the coefficients can be expressed as linear combinations of integrals $I_1^*$ to $I_5^*$. These combinations are given case by case in the following.
+
+\subsection{Acoustic case}
+\label{finalDac}
+In the second chapter of this manuscript, which deals with the diffraction of an acoustic wave, the expression of operator $\mathcal{D}(a,b)$ depends on whether the wedge is soft (Dirichlet boundary conditions) or hard (Neumann boundary conditions). Let us begin with the case of a soft wedge.  
+\subsubsection{Dirichlet boundary conditions}
+\label{finalDacDir}
+In the case of Dirichlet boundary conditions, the expression of function $\mathcal{D}(a,b)$ is obtained by substituting \eqref{dmDir} in \eqref{ldbis} for $a>1$ and $b>1$ :
+\begin{equation}
+\mathcal{D}(a,b) = \int_{-\infty}^{+\infty} \dfrac{1}{ y+ib} \, \dfrac{1}{y -i a} \,\dfrac{1}{\zeta_0^0(iy)} \, dy . 
+\end{equation}
+According to \eqref{zeta_function}, the above expression can be simplified using the relation
+\begin{equation}
+\zeta_0^0(iy)= - \sqrt{1+y^2}.
+\label{zeta0iy}
+\end{equation}
+By setting $\nuti=1$ in \eqref{defI4}, we find :
+\begin{equation}
+\mathcal{T}(a,b)=-I_4^1
+\end{equation}
+This integral is computed in section \ref{calculI4} and its value is given by \eqref{valI4}.
+\subsubsection{Neumann boundary conditions}
+\label{finalDacNeu}
+In the case of Neumann boundary conditions, the expression of function $\mathcal{D}(a,b)$ is obtained by substituting \eqref{dmNeu} in \eqref{ldbis} for $a>1$ and $b>1$ :
+\begin{equation}
+\mathcal{D}(a,b) = \int_{-\infty}^{+\infty} \dfrac{dy}{ (y+ib)(y-ia)} \, dy .
+\end{equation}
+The result can be computed directly, by using Cauchy's residue theorem, yielding :
+\begin{equation}
+\mathcal{D}(a,b)=\dfrac{2\pi}{a+b}
+\end{equation}
+
+\subsection{2D elastic case}
+\label{finalD2D}
+\subsection{3D elastic case}
+\label{finalD3D}
