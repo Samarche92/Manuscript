@@ -1011,11 +1011,11 @@ X_j(\xi)= \sum_{k} R^{(k)}\mathcal{G}_j^{(k)}(\xi^{(k)}),
 \end{equation}
 where $k \in \mathbb{N}$, $\xi^{(0)}=\xi$ is the initial point at which function $X_j$ is evaluated and $R^{(0)}=1$. The computation points $\xi^{(k)}$ and the coefficients $R^{(k)}$ are determined recursively :
 \begin{equation}
-\xi^{(k+1)}=T_0^{-1}(\xi^{(k)}) \quad \rm if \xi^{(k)} \in \Omega_0^-
+\xi^{(k+1)}=T_0^{-1}(\xi^{(k)}) \quad \rm if \quad \xi^{(k)} \in \Omega_0^-
 \end{equation}
 are the generated evaluation points with the corresponding coefficients 
 \begin{equation}
-R^{(k+1)}=-R^{(k)}.dm^{-1}(\xi^{(k)}).M_(\xi^{(k)})
+R^{(k+1)}=-R^{(k)}.dm^{-1}(\xi^{(k)}).M_0(\xi^{(k)})
 \end{equation}
 The term $1_{\Omega_0^-}$ appears in the expression \eqref{defM0} of the transfer operator $M_0$, ensuring that the process stops when the generated evaluation points are no longer in $\Omega_0^-$. Finally, the operator $\mathcal{G}_j^{(k)}$ is defined in the following manner :
 \begin{eqnarray}
@@ -1029,19 +1029,19 @@ g_{3-j}(\xi^{(k)}) \mbox{ if }k \mbox{ is odd}\\
 \end{eqnarray}
 In practice, formulation \eqref{prop_concise_ac} is implemented to evaluate the regular part of the system numerically. In order to do so, the points $\xi^{(k)}$  and the corresponding coefficients $R^{(k)}$ are determined recursively, using an algorithm similar to the one used to determine the poles and residues of the spectral functions. To calculate $g_j$ functions, we need to compute
 \begin{equation*}
-\int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda =\sum_k \tilde{X}_j^k \int_{\Gamma_2} DM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda 
+\int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda \approx \sum_k \tilde{X}_j^k \int_{\Gamma_2} DM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda 
 \end{equation*}
 and
 \begin{equation*}
-\int_{\Gamma_2} TM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda = \sum_k \tilde{X}_j^k \int_{\Gamma_2} TM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda
+\int_{\Gamma_2} TM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda \approx \sum_k \tilde{X}_j^k \int_{\Gamma_2} TM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda
 \end{equation*}
 
-If ${\rm Im}(a) < 0$, the residue theorem combined with the variable change $\lambda = iy$  yields
+If ${\rm Im}(\xi) < 0$, the residue theorem combined with the variable change $\lambda = iy$  yields
 \begin{equation}
 \int_{\Gamma_2} DM(\xi,\lambda) \,  \dfrac{1}{\lambda+a} \, \, {\rm d} \lambda =  \dfrac{1}{2\pi} \, \mathcal{D}(a,\xi) - \dfrac{m(\xi)}{\xi +a} = \mathcal{ND}(a,\xi). 
 \end{equation}
 
-For the $TM$ contributions, the poles $\lambda = T_0^{-1}(\xi)$ are taken into account if and only if $\xi \in \Omega_0^-$. Thus, for $\xi \in \Omega_0^-$, ${\rm Im}(a) < 0$, the residue theorem combined with the variable change $\lambda = iy$ gives
+For the $TM$ contributions, the poles $\lambda = T_0^{-1}(\xi)$ are taken into account if and only if $\xi \in \Omega_0^-$. Thus, for $\xi \in \Omega_0^-$, ${\rm Im}(\xi) < 0$, the residue theorem combined with the variable change $\lambda = iy$ gives
 \begin{equation}
 \int_{\Gamma_2} TM(\xi,\lambda) \,  \dfrac{1}{\lambda +a} \, \, {\rm d} \lambda = \frac{1}{2i\pi} \mathcal{T}(a,\xi)- \dfrac{m(\xi)}{T_0^-(\xi) +a}   =  \mathcal{NT}(a,\xi)
 \end{equation}
