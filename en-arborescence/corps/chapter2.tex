@@ -611,7 +611,7 @@ where  $Y_j$ is the singular part, $X_j$ is the regular part  and $j=1,2$ is the
 \label{sing_part}
  Y_j(\xi) = \sum_i {V_j^{(i)} \over \xi - Z_j^{(i)}},
 \end{equation}
-where $i \in \mathbb{N}^*$, $Z_j^{(0)} = Z_j$ defined in \eqref{functional_eq} is the initial pole on each face of the wedge, $V_j^{(0)}=V_j$ is the corresponding initial residue on each face of the wedge, 
+where $i \in \mathbb{N}$, $Z_j^{(0)} = Z_j$ defined in \eqref{functional_eq} is the initial pole on each face of the wedge, $V_j^{(0)}=V_j$ is the corresponding initial residue on each face of the wedge, 
 \begin{equation}
 \label{Generated_poles}
 Z_j^{(i+1)} = T_0(Z_{3-j}^{(i)}) \quad j=1,2
@@ -934,7 +934,12 @@ Domain $\Omega_0^-$ and contour $\partial \Omega_0^-$ are illustrated on Fig.~\r
 Applying the residue theorem to the $TM$ integral operator then gives for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$,
 \begin{equation}
 \label{TM_propag_sol}
-TM(X_j)(\xi) = \int_{\Gamma_0} TM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda  = \int_{\Gamma_2} TM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda + m(\xi) \, X_j[T_0^{-1}(\xi)] \mathbf{1}(\xi \in \Omega_0^-)
+\int_{\Gamma_0} TM(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\Gamma_2}  TM(\xi,\zeta)X_j(\zeta)\, d\zeta+M_0(\xi).X_j(T^{-1}_0(\xi)),
+\end{equation}
+where the transfer operator $M_0$ is defined as :
+\begin{equation}
+\label{defM0}
+M_0(\xi=\cos\theta)=-\frac{\sin(\theta-\tilde{\varphi})}{\sin\theta} tm(T_0^{-1}(\xi))1_{\Omega_0^-}(\xi)
 \end{equation}
 
 \begin{figure}[ht]%
@@ -986,22 +991,43 @@ TM(X_j)(\xi) = \int_{\Gamma_0} TM(\xi,\lambda) X_j(\lambda) \, {\rm d} \lambda  
 \end{figure}
 
 
-Using \eqref{DM_propag_sol} and \eqref{TM_propag_sol} in the system of functional equations \eqref{sys_regular}, the system \eqref{sys_regular} is then equivalent to this new system for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$:
+Using \eqref{DM_propag_sol} and \eqref{TM_propag_sol} in the system of functional equations \eqref{sys_regular}, a new equivalent system is obtained for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$:
 \begin{equation}
 \label{propag_sol_sys}
 \begin{cases}
-X_1(\xi) = g_1(\xi) -  X_2(T_0^{-1}(\xi)) \, \mathbf{1}(\xi \in \Omega_0^-) \\
+X_1(\xi) = g_1(\xi) -  dm^{-1}(\xi)M_0(\xi)X_2(T_0^{-1}(\xi)) \\
 \\
-X_2(\xi) = g_2(\xi) - X_1(T_0^{-1}(\xi)) \, \mathbf{1}(\xi \in \Omega_0^-) 
+X_2(\xi) = g_2(\xi) - dm^{-1}(\xi)M_0(\xi)X_1(T_0^{-1}(\xi))
 \end{cases}
 \end{equation}
 where
 \begin{equation}
-g_j(\xi) = m(\xi)^{-1} \left[ u_j(\xi) - \int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) \, {\rm d} \lambda - \int_{\Gamma_2} TM(\xi,\lambda) \, X_{3-j}(\lambda) \, {\rm d} \lambda \right] \\
+g_j(\xi) = dm(\xi)^{-1} \left[ u_j(\xi) - \int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) \, {\rm d} \lambda - \int_{\Gamma_2} TM(\xi,\lambda) \, X_{3-j}(\lambda) \, {\rm d} \lambda \right] \\
 \end{equation}
-Formula \eqref{propag_sol_sys} is called the recursive formula because it uses the value of the regular function $X_2$ at point $T_0^{-1}(\xi)$ to compute the value of $X_1$ at the point $\xi$ where the approximation is not valid (and vice-versa). If the translation from $\xi$ to $T_0^{-1}(\xi)$ is not sufficient to reach the domain $\mathbb{C} \backslash \Omega_0^-$ where the approximation is valid, then the use of the formula is repeated as many times as necessary (computing $X_2(T_0^{-1}(\xi))$ using the value of $X_1(T_0^{-2}(\xi))$, etc.).
-
-To calculate $g_j$ functions, we need to compute
+Formula \eqref{propag_sol_sys} is called the recursive formula because it uses the value of the regular function $X_2$ at point $T_0^{-1}(\xi)$ to compute the value of $X_1$ at the point $\xi$ where the approximation is not valid (and vice-versa). If the translation from $\xi$ to $T_0^{-1}(\xi)$ is not sufficient to reach the domain $\mathbb{C} \backslash \Omega_0^-$ where the approximation is valid, then the use of the formula is repeated as many times as necessary (computing $X_2(T_0^{-1}(\xi))$ using the value of $X_1(T_0^{-2}(\xi))$, etc.). This recursive evaluation can be summed up in one concise formula, for $j=1,2$ :
+\begin{equation}
+X_j(\xi)= \sum_{k} R^{(k)}\mathcal{G}_j^{(k)}(\xi^{(k)}),
+\label{prop_concise_ac}
+\end{equation}
+where $k \in \mathbb{N}$, $\xi^{(0)}=\xi$ is the initial point at which function $X_j$ is evaluated and $R^{(0)}=1$. The computation points $\xi^{(k)}$ and the coefficients $R^{(k)}$ are determined recursively :
+\begin{equation}
+\xi^{(k+1)}=T_0^{-1}(\xi^{(k)}) \quad \rm if \xi^{(k)} \in \Omega_0^-
+\end{equation}
+are the generated evaluation points with the corresponding coefficients 
+\begin{equation}
+R^{(k+1)}=-R^{(k)}.dm^{-1}(\xi^{(k)}).M_(\xi^{(k)})
+\end{equation}
+The term $1_{\Omega_0^-}$ appears in the expression \eqref{defM0} of the transfer operator $M_0$, ensuring that the process stops when the generated evaluation points are no longer in $\Omega_0^-$. Finally, the operator $\mathcal{G}_j^{(k)}$ is defined in the following manner :
+\begin{eqnarray}
+\mathcal{G}_j(\xi^{(k)})=
+\left\{
+\begin{array}{l}
+g_j(\xi^{(k)}) \mbox{ if }k \mbox{ is even } \\
+g_{3-j}(\xi^{(k)}) \mbox{ if }k \mbox{ is odd}\\
+\end{array}
+\right.
+\end{eqnarray}
+In practice, formulation \eqref{prop_concise_ac} is implemented to evaluate the regular part of the system numerically. In order to do so, the points $\xi^{(k)}$  and the corresponding coefficients $R^{(k)}$ are determined recursively, using an algorithm similar to the one used to determine the poles and residues of the spectral functions. To calculate $g_j$ functions, we need to compute
 \begin{equation*}
 \int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda =\sum_k \tilde{X}_j^k \int_{\Gamma_2} DM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda 
 \end{equation*}
