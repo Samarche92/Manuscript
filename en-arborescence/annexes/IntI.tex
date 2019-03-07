@@ -1,13 +1,13 @@
 \chapter{Computation details for the coefficients of matrix $\mathbb{D}(a,b)$}
 \label{matD}
-In each chapter of this manuscript, a matrix $\mathbb{D}$ appears, the coefficients of which must be determined analytically. These coefficients are linear combinations of integrals noted $I_1^*$ to $I_5^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{D}$ in the acoustic and 2D and 3D elastic cases are given.
+In each chapter of this manuscript, a matrix $\mathbb{D}$ appears, the coefficients of which must be determined analytically. These coefficients are linear combinations of integrals noted $I_1^*$ to $I_5^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{D}$ in the acoustic and 2D and 3D elastic cases are given. In all the following, $\nuti \in \{ 1,\nu_T,\nuti_L,\nuti_T \}$.
 
 \section{Integral $I_1^*$}
 \label{calcI1}
 Integral $I_1^*$ is defined by :
 \begin{equation}
 \label{defI1}
-I_1^*=\int_{-\infty}^{+\infty} \frac{y}{(y+ib)(y-ia)\sqrt{\nuti_*^2+y^2}}\,dy
+I_1^*=\int_{-\infty}^{+\infty} \frac{y}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}}\,dy
 \end{equation}
 When $a+b \neq 0$, we have the simple elements decomposition :
 \begin{equation}
@@ -16,26 +16,42 @@ When $a+b \neq 0$, we have the simple elements decomposition :
 \end{equation}
 which leads to
 \begin{equation}
-I_1^*= \frac{1}{a+b} \left( \int_{-\infty}^{+\infty} \frac{b}{(y+ib)\sqrt{\nuti_*^2+y^2}} \,dy +\int_{-\infty}^{+\infty} \frac{a}{(y-ia)\sqrt{\nuti_*^2+y^2}} \,dy \right)
+I_1^*= \frac{1}{a+b} \left( \int_{-\infty}^{+\infty} \frac{b}{(y+ib)\sqrt{\nuti^2+y^2}} \,dy +\int_{-\infty}^{+\infty} \frac{a}{(y-ia)\sqrt{\nuti^2+y^2}} \,dy \right)
 \end{equation}
 In each of these integrals, the following variable change is applied :
 \begin{equation}
 \begin{split}
- y&=2\nuti_* \frac{t}{1-t^2} \\
-\sqrt{\nuti_*^2+y^2}&=\nuti_*\left( \frac{1+t^2}{1-t^2} \right)  \\
- dy&= 2\nuti_* \frac{1+t^2}{(1-t^2)^2}dt 
+ y&=2\nuti \frac{t}{1-t^2} \\
+\sqrt{\nuti^2+y^2}&=\nuti\left( \frac{1+t^2}{1-t^2} \right)  \\
+ dy&= 2\nuti \frac{1+t^2}{(1-t^2)^2}dt 
 \end{split}
 \label{changevar}
 \end{equation}
 Yielding
-\begin{equation*}
-\int_{-\infty}^{+\infty} \frac{dy}{(y-ia)\sqrt{\nuti_*^2+y^2}}=\int_{-1}^1\frac{2\,dt}{2\nuti_*t-ia(1-t^2)}
-\end{equation*}
+\begin{equation}
+\int_{-\infty}^{+\infty} \frac{dy}{(y-ia)\sqrt{\nuti^2+y^2}}=\int_{-1}^1\frac{2\,dt}{2\nutit-ia(1-t^2)}
+\end{equation}
 Finally, formula \eqref{intQ} is applied :
 \begin{equation}
-I_1^*=\frac{2ia}{(a+b)\nuti_*}\mbox{rog}(a/\nuti_*)-\frac{2ib}{(a+b)\nuti_*}\mbox{rog}(b/\nuti_*)
+I_1^*=\frac{2ia}{(a+b)\nuti}\mbox{rog}(a/\nuti)-\frac{2ib}{(a+b)\nuti}\mbox{rog}(b/\nuti)
 \label{valI1}
 \end{equation}
+
+\section{Integral $I_2^*$}
+\label{calcI2}
+Integral $I_2^*$ is defined by :
+\begin{equation}
+I_2^*=  \int_{-\infty}^{+\infty} \frac{y\sqrt{\nu^2+y^2}}{(y+ib)(y-ia)}\, dy
+\label{defI2}
+\end{equation}
+Note that
+\begin{equation*}
+\begin{split}
+I_2^*&=\nu_*^2 \int_{-\infty}^{+\infty}  \frac{y}{(y+ib)(y-ia)\sqrt{\nu_*^2+y^2}}\,dy+ \int_{-\infty}^{+\infty} \frac{y^3}{(y+ib)(y-ia)\sqrt{\nu_*^2+y^2}} \, dy\\
+I_2^*&=\nu_*^2 I_1^*+I_3^*,
+\end{split}
+\end{equation*}
+where integrals $I_1^*$ and $I_3^*$ are defined by equations \eqref{defI1} and \eqref{defI3} and their expressions are given by \eqref{valI1} and \eqref{valI3} respectively.
 
 \section{Calcul de $I_3^*$}
 \label{calcI3}
