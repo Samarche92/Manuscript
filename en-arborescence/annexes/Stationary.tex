@@ -1,21 +1,25 @@
 \chapter{Steepest Descent Method}
 \label{PhaseStationnaire}
-
-
-La méthode de la plus grande pente est une technique permettant d'approximer une intégrale en déformant le contour d'intégration afin qu'il passe près d'un point-selle de l'intégrande. Les résultats utiles seront simplement énoncés ici, sans démonstration. 
-\paragraph{}
-L'intégrale à approcher est de la forme :
-\begin{equation}
-I(\lambda)=\int_C f(z)e^{\lambda S(z)}\,dz
-\end{equation}
-où $C$ est le contour d'intégration initial, S et f sont des applications analytiques sur $\mathbb{C}^n$, sauf éventuellement en un ensemble fini de points,  et $\lambda$ est un réel positif.
+The steepest descent method is an integral approximation technique where the integration contour is deformed into a contour $\gamma$ called the steepest descent contour, which passes near a saddle-point of the integrated function. Useful results are stated here without demonstration.
 
 \paragraph{}
-On note $\mathbf{S_{xx}}(z)$ la matrice hessienne de $S$ :
+The integral to be estimated is of the form :
 \begin{equation}
-\mathbf{S_{xx}}(z)=\left( \frac{\partial^2 S}{\partial x_i \partial x_j}(z) \right)_{1\leq i,j \leq n}
+I(\lambda)=\int_{\gamma} f(z)e^{\lambda S(z)}\,dz
 \end{equation}
-On dit que $z_ 0$ est un point-selle non-dégénéré de $S$ si et seulement si :
+where $\gamma$ is the steepest descent contour, $S$ and $f$ are analytical on all $\mathbb{C}^n$, except for eventually at a finite number of points, and $\lambda>0$. The steepest descent contour $\gamma$ must verify :
+\begin{itemize}
+\item $C$ and $\gamma$ must have the same endpoints,
+\item $\gamma$ passes through at least one saddle point of $g$,
+\item Im$(g)$ is constant on $\gamma$.
+\end{itemize}
+
+\paragraph{}
+Le us denote $\mathbf{S_{xx}}(z)$ the hessian matrix of $S$, defined by :
+\begin{equation}
+\mathbf{S_{xx}}(z)=\left( \frac{\partial^2 S}{\partial x_i \partial x_j}(z) \right)_{1\leq i,j \leq n},
+\end{equation}
+then $z_ 0$ is a non-degenerate saddle point of $S$ if and only if :
 \begin{eqnarray}
 \left\{
 \begin{array}{l}
@@ -24,21 +28,23 @@ On dit que $z_ 0$ est un point-selle non-dégénéré de $S$ si et seulement si 
 \end{array}
 \right.
 \end{eqnarray}
-On a alors le résultat suivant :
+
+The following proposition is then true :
 
 \begin{prop}
-Supposons que l'on a:
+Assume
 \begin{description}
-  \item[(i)] $f$ et $S$ sont holomorphes sur un ouvert borné simplement connexe $W_x \subset \mathbb{C}^n$ tel que $I_x=W_x \cap \mathbb{R}^n$ est connexe
-  \item[(ii)]$ Re\left( S(z) \right)$ possède un unique maximum atteint en un unique point $z_0 \in I_x$
-  \item[(iii)] $z_0$ est un point-selle non dégénéré de S.
+  \item[(i)] $f$ and $S$ are holomorphic on an open, bounded and simply connected subset $W_x \subset \mathbb{C}^n$ such that $I_x=W_x \cap \mathbb{R}^n$ is connected,
+  \item[(ii)]$ Re\left( S(z) \right)$ has a single maximum reached at exactly one point $z_0 \in I_x$,
+  \item[(iii)] $z_0$ is a non-degenerate saddle point of $S$.
 \end{description}
-On a alors le développement asymptotique suivant:
+The following asymptotic evaluation then holds :
 \begin{equation}
-I(\lambda) \underset{\lambda \to +\infty}{=} \left( \frac{2\pi}{\lambda} \right)^{n/2} e^{\lambda S(z_0)} \lbrack f(z_0)+ \mathcal{O}(\lambda^{-1}) \rbrack \prod_{j=1}^n (-\mu_j)^{-1/2}
+I(\lambda) \underset{\lambda \to +\infty}{=} \left( \frac{2\pi}{\lambda} \right)^{n/2} e^{\lambda S(z_0)} \lbrack f(z_0)+ \mathcal{O}(\lambda^{-1}) \rbrack \prod_{j=1}^n (-\mu_j)^{-1/2},
 \label{steepformula}
 \end{equation}
-où les $(\mu_j)_{1\leq j \leq n}$ sont les valeurs propres de la hessienne $\mathbf{S_{xx}}(z_0)$ et les racines carrées sont définies en prenant
+where $(\mu_j)_{1\leq j \leq n}$ are the eigen values of $\mathbf{S_{xx}}(z_0)$ and their square roots are defined by
 $$|\mbox{arg} \sqrt{-\mu_j}| <\frac{\pi}{4} $$
 \end{prop}
-Notons que lors de la déformation du contour $C$ en le contour de plus grande pente $I_x$, si des singularités de l'intégrande sont traversées, leur contribution doit bien être prise en compte lors de l'évaluation de l'intégrale.
+
+Note that any if any singularities are crossed during deformation of contour $C$ to contour $\gamma$, their contribution to the integral must be correctly taken into account.
