@@ -29,7 +29,7 @@ In each of these integrals, the following variable change is applied :
 \end{equation}
 Yielding
 \begin{equation}
-\int_{-\infty}^{+\infty} \frac{dy}{(y-ia)\sqrt{\nuti^2+y^2}}=\int_{-1}^1\frac{2\,dt}{2\nutit-ia(1-t^2)}
+\int_{-\infty}^{+\infty} \frac{dy}{(y-ia)\sqrt{\nuti^2+y^2}}=\int_{-1}^1\frac{2\,dt}{2\nuti t-ia(1-t^2)}
 \end{equation}
 Finally, formula \eqref{intQ} is applied :
 \begin{equation}
@@ -41,91 +41,118 @@ I_1^*=\frac{2ia}{(a+b)\nuti}\mbox{rog}(a/\nuti)-\frac{2ib}{(a+b)\nuti}\mbox{rog}
 \label{calcI2}
 Integral $I_2^*$ is defined by :
 \begin{equation}
-I_2^*=  \int_{-\infty}^{+\infty} \frac{y\sqrt{\nu^2+y^2}}{(y+ib)(y-ia)}\, dy
+I_2^*=  \int_{-\infty}^{+\infty} \frac{y\sqrt{\nuti^2+y^2}}{(y+ib)(y-ia)}\, dy
 \label{defI2}
 \end{equation}
 Note that
 \begin{equation*}
 \begin{split}
-I_2^*&=\nu_*^2 \int_{-\infty}^{+\infty}  \frac{y}{(y+ib)(y-ia)\sqrt{\nu_*^2+y^2}}\,dy+ \int_{-\infty}^{+\infty} \frac{y^3}{(y+ib)(y-ia)\sqrt{\nu_*^2+y^2}} \, dy\\
-I_2^*&=\nu_*^2 I_1^*+I_3^*,
+I_2^*&=\nuti^2 \int_{-\infty}^{+\infty}  \frac{y}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}}\,dy+ \int_{-\infty}^{+\infty} \frac{y^3}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}} \, dy\\
+I_2^*&=\nuti^2 I_1^*+I_3^*,
 \end{split}
 \end{equation*}
 where integrals $I_1^*$ and $I_3^*$ are defined by equations \eqref{defI1} and \eqref{defI3} and their expressions are given by \eqref{valI1} and \eqref{valI3} respectively.
 
-\section{Calcul de $I_3^*$}
+\section{Integral $I_3^*$}
 \label{calcI3}
-En utilisant la formule \eqref{decomp2} on a :
-\begin{equation*}
-\begin{split}
-I_3^*&=\int_{-\infty}^{+\infty} \frac{y^3}{(y+ib)(y-ia)\sqrt{\nuti_*^2+y^2}} \,dy \\
-&=\frac{b}{a+b}\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)\sqrt{\nuti_*^2+y^2}} \, dy +\frac{a}{a+b}\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti_*^2+y^2}} \, dy
-\end{split}
-\end{equation*}
-On effectue le changement de variables \eqref{changevar} :
+Integral $I_3^*$ is defined by :
 \begin{equation}
- \int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti_*^2+y^2}} \,dy = \int_{-1}^1 \frac{8\nuti_*^2t^2}{(1-t^2)^2(2\nuti_* t -ia(1-t^2))} \, dt
+I_3^*=\int_{-\infty}^{+\infty} \frac{y^3}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}} \,dy
+\label{defI3}
+\end{equation}
+The simple elements decomposition \eqref{decomp2} leads to
+\begin{equation}
+I_3^*=\frac{b}{a+b}\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)\sqrt{\nuti^2+y^2}} \, dy +\frac{a}{a+b}\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \, dy
+\label{decompI3}
 \end{equation}
 
-On cherche la décomposition en éléments simples de l'intégrande :
-\begin{equation*}
-\frac{t^2}{(1-t^2)^2(2\nuti_* t -ia(1-t^2))}=\frac{\alpha}{1-t}+\frac{\beta}{1+t}+ \frac{\gamma}{(1-t)^2}+\frac{\delta}{(1+t)^2} +\frac{\lambda t + \rho }{2\nuti_* t-ia(1-t^2)}
-\end{equation*}
-
-On a en multipliant à gauche et à droite successivement par $(1-t)^2$ puis par $(1+t)^2$ et en évaluant le résultat respectivement en $1$ puis en $-1$ :
-$$ \gamma=\frac{1}{8\nuti_*} $$
-$$\delta = -\frac{1}{8\nuti_*} $$
-Notons que la contribution de ces élements simples à l'intégrale finale sera donc nulle. En effet :
-$$ \frac{\gamma}{(1-t)^2}+\frac{\delta}{(1+t)^2}=\frac{1}{8\nuti_*}\left( \frac{1}{(1-t)^2}-\frac{1}{(1+t)^2}\right) $$
-est une fonction impaire. Son intégrale sur le domaine $ (-1,1)$ qui est symétrique par rapport à 0 est donc nulle.
-
-Il nous reste :
-\begin{equation*}
-\begin{split}
-\frac{\alpha}{1-t}+\frac{\beta}{1+t}&+ \frac{\lambda t + \rho }{2\nuti_* t-ia(1-t^2)}\\  
-~\\
-&=\frac{t^2}{(1-t^2)^2(2\nuti_* t -ia(1-t^2))}-\frac{1}{8\nuti_*(1-t)^2}+\frac{1}{8\nuti_*(1+t)^2}  \\
-~\\
-&=\frac{8\nuti_*t^2-(1+t)^2(2\nuti_*t-ia(1-t^2))+(1-t)^2(2\nuti_*t-ia(1-t^2))}{8\nuti_*(1-t^2)^2(2\nuti_*-ia(1-t^2))}\\
-~\\
-&=\frac{iat}{2\nuti_*(1-t^2)(2\nuti_*t-ia(1-t^2))}
-\end{split}
-\end{equation*}
-
-Comme précédemment, on a :
-$$ \alpha=\frac{ia}{8\nuti_*^2}$$
-$$ \beta=\frac{ia}{8\nuti_*^2}$$
-Ce qui nous donne maintenant :
-\begin{equation*}
-\begin{split}
- \frac{\lambda t + \rho }{2\nuti_* t-ia(1-t^2)} &=\frac{iat}{2\nuti_*(1-t^2)(2\nuti_*-ia(1-t^2))} -\frac{ia}{8\nuti_*^2(1-t)}-\frac{ia}{8\nuti_*^2(1+t)} \\
-&= \frac{2\nuti_* iat-ia(2\nuti_*t-ia(1-t^2))}{4\nuti_*^2(1-t^2)(2\nuti_*t-ia(1-t^2))} \\
-&=\frac{-a^2}{4\nuti_*^2(2\nuti_*t-ia(1-t^2))}
-\end{split}
-\end{equation*}
-Soit 
-$$\lambda=0$$
-et
-$$\rho=-\frac{a^2}{4\nuti_*^2}$$
-On peut donc appliquer \eqref{intQ} pour obtenir :
+Once again, variable change \eqref{changevar} is applied
 \begin{equation}
-\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti_*^2+y^2}} \, dy =2ia\log\left(\frac{1+t_{\nuti_*}}{1-t_{\nuti_*}}\right)-2i\frac{a^2}{\nuti_*}\rog{\frac{a}{\nuti_*}}
+ \int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \,dy = \int_{-1}^1 \frac{8\nuti^2t^2}{(1-t^2)^2(2\nuti t -ia(1-t^2))} \, dt
+\end{equation}
+
+The integrated functions can be decomposed as such :
+\begin{equation}
+\frac{t^2}{(1-t^2)^2(2\nuti t -ia(1-t^2))}=\frac{\alpha}{1-t}+\frac{\beta}{1+t}+ \frac{\gamma}{(1-t)^2}+\frac{\delta}{(1+t)^2} +\frac{\lambda t + \rho }{2\nuti t-ia(1-t^2)},
+\label{elemsimpl3}
+\end{equation}
+where the coefficients $\alpha,\beta,\gamma,\delta,\lambda,\rho$ will be determined in the sequel.
+
+To determine $\gamma$, \eqref{elemsimpl3} is multiplied by $(1-t)^2$ and the result is evaluated at $t=1$. Similarly, $\delta$ is determined by multiplying \eqref{elemsimpl3} by $(1+t)^2$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\gamma=\frac{1}{8\nuti}
+\end{equation}
+\begin{equation}
+\delta = -\frac{1}{8\nuti}
+\end{equation}
+\end{subequations}
+
+The remaining terms are
+\begin{equation}
+\begin{split}
+\frac{\alpha}{1-t}+\frac{\beta}{1+t}&+ \frac{\lambda t + \rho }{2\nuti t-ia(1-t^2)}\\  
+~\\
+&=\frac{t^2}{(1-t^2)^2(2\nuti t -ia(1-t^2))}-\frac{1}{8\nuti(1-t)^2}+\frac{1}{8\nuti(1+t)^2}  \\
+~\\
+&=\frac{8\nuti t^2-(1+t)^2(2\nuti t-ia(1-t^2))+(1-t)^2(2\nuti t-ia(1-t^2))}{8\nuti(1-t^2)^2(2\nuti_*-ia(1-t^2))}\\
+~\\
+&=\frac{iat}{2\nuti(1-t^2)(2\nuti t-ia(1-t^2))}
+\end{split}
+\end{equation}
+
+To determine $\alpha$, \eqref{elemsimpl3} is multiplied by $(1-t)$ and the result is evaluated at $t=1$. Similarly, $\beta$ is determined by multiplying \eqref{elemsimpl3} by $(1+t)$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\alpha=\frac{ia}{8\nuti^2}
+\end{equation}
+\begin{equation}
+\beta=\frac{ia}{8\nuti^2}
+\end{equation}
+\end{subequations}
+
+The remaining term is
+\begin{equation}
+\begin{split}
+ \frac{\lambda t + \rho }{2\nuti t-ia(1-t^2)} &=\frac{iat}{2\nuti(1-t^2)(2\nuti-ia(1-t^2))} -\frac{ia}{8\nuti^2(1-t)}-\frac{ia}{8\nuti^2(1+t)} \\
+&= \frac{2\nuti iat-ia(2\nuti t-ia(1-t^2))}{4\nuti^2(1-t^2)(2\nuti t-ia(1-t^2))} \\
+&=\frac{-a^2}{4\nuti ^2(2\nuti t-ia(1-t^2))}
+\end{split}
+\end{equation}
+The final coefficients can now be determined by a simple identification :
+\begin{subequations}
+\begin{equation}
+\lambda=0
+\end{equation}
+\begin{equation}
+\rho=-\frac{a^2}{4\nuti^2}
+\end{equation}
+\end{subequations}
+
+Finally, equation \eqref{intQ} can be applied :
+\begin{equation}
+\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \, dy =2ia\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)-2i\frac{a^2}{\nuti}\rog{\frac{a}{\nuti}}
 \label{y2_D}
 \end{equation}
-On obtient la valeur de  $\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)\sqrt{\nuti_*^2+y^2}} \, dy $ nécessaire au calcul de $I_3$ en prenant le conjugué de $\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti_*^2+y^2}} \, dy $ et en remplaçant $a$ par $b$. On somme ensuite ces résultats et on obtient finalement :
-\begin{equation*}
+The value of $\int_{-\infty}^{+\infty} \dfrac{y^2}{(y+ib)\sqrt{\nuti^2+y^2}} \, dy $ can be obtained by taking the complex conjugate of  $\int_{-\infty}^{+\infty} \dfrac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \, dy $ replacing $a$ with $b$ in the result. The final result can then be obtained using \eqref{decompI3} :
+\begin{equation}
 \begin{split}
-I_3^*&=i(a-b)\int_{-1}^1 \left( \frac{1}{1-t}+\frac{1}{1+t} \right) \, dt+ 2\nuti_* \int_{-1}^1 \left( \frac{1}{(1-t)^2}-\frac{1}{(1+t)^2} \right) \, dt \\
- &-\frac{2a^3}{a+b}\int_{-1}^1\frac{dt}{2\nuti_*t-ia(1-t^2)}-\frac{2b^3}{a+b}\int_{-1}^1\frac{dt}{2\nuti_*t+ib(1-t^2)}\\
+I_3^*&=i(a-b)\int_{-1}^1 \left( \frac{1}{1-t}+\frac{1}{1+t} \right) \, dt+ 2\nuti \int_{-1}^1 \left( \frac{1}{(1-t)^2}-\frac{1}{(1+t)^2} \right) \, dt \\
+ &-\frac{2a^3}{a+b}\int_{-1}^1\frac{dt}{2\nuti t-ia(1-t^2)}-\frac{2b^3}{a+b}\int_{-1}^1\frac{dt}{2\nuti t+ib(1-t^2)}\\
  ~\\
- &=2i(a-b)\log\left(\frac{1+t_{\nuti_*}}{1-t_{\nuti_*}}\right)-\frac{2ia^3}{\nuti_*(a+b)}\mbox{rog}(a/\nuti_*)+\frac{2ib^3}{\nuti_*(a+b)}\mbox{rog}(b/\nuti_*) 
+ &=2i(a-b)\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)-\frac{2ia^3}{\nuti(a+b)}\mbox{rog}(a/\nuti)+\frac{2ib^3}{\nuti(a+b)}\mbox{rog}(b/\nuti) 
 \end{split}
-\end{equation*}
-Or on a, en utilisant (\ref{changevar}) :
-$$ \frac{2t_{\nuti_*}}{1-t_{\nuti_*}^2}=\frac{A}{\nuti_*} \mbox{ et } A\rightarrow + \infty \mbox{ si et seulement si } t_{\nuti_*} \rightarrow 1$$
-Le terme divergent se compense avec un autre dans le calcul final du coefficient. En effet :
-$$1-t_{\nuti} =\frac{(1-t_{\nuti})(1+t_{\nuti})}{1+t_{\nuti}} \sim \frac{\nuti}{A}$$
-donc
+\label{valI3}
+\end{equation}
+Note the appearance of the diverging term $\log\left(\dfrac{1+t_{\nuti}}{1-t_{\nuti}}\right)$. This term will be compensated by another in the final expression of the coefficients of matrix $\mathbb{D}$. In fact, \eqref{changevar} leads to :
+\begin{equation}
+\frac{2t_{\nuti}}{1-t_{\nuti}^2}=\frac{A}{\nuti} \mbox{ and } A\rightarrow + \infty \mbox{ when } t_{\nuti} \rightarrow 1
+\end{equation}
+and
+\begin{equation}
+1-t_{\nuti} =\frac{(1-t_{\nuti})(1+t_{\nuti})}{1+t_{\nuti}} \sim \frac{\nuti}{A}
+\end{equation}
+so that
 \begin{equation}
 \ln\left(\frac{1+t_{\nuti_L}}{1-t_{\nuti_L}}\right)- \ln\left(\frac{1+t_{\nuti_T}}{1-t_{\nuti_T}}\right)\sim \ln\left(\frac{\nuti_T}{\nuti_L}\right) 
 \label{compensation}
