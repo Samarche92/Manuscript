@@ -1,0 +1,44 @@
+\chapter{Steepest Descent Method}
+\label{PhaseStationnaire}
+
+
+La méthode de la plus grande pente est une technique permettant d'approximer une intégrale en déformant le contour d'intégration afin qu'il passe près d'un point-selle de l'intégrande. Les résultats utiles seront simplement énoncés ici, sans démonstration. 
+\paragraph{}
+L'intégrale à approcher est de la forme :
+\begin{equation}
+I(\lambda)=\int_C f(z)e^{\lambda S(z)}\,dz
+\end{equation}
+où $C$ est le contour d'intégration initial, S et f sont des applications analytiques sur $\mathbb{C}^n$, sauf éventuellement en un ensemble fini de points,  et $\lambda$ est un réel positif.
+
+\paragraph{}
+On note $\mathbf{S_{xx}}(z)$ la matrice hessienne de $S$ :
+\begin{equation}
+\mathbf{S_{xx}}(z)=\left( \frac{\partial^2 S}{\partial x_i \partial x_j}(z) \right)_{1\leq i,j \leq n}
+\end{equation}
+On dit que $z_ 0$ est un point-selle non-dégénéré de $S$ si et seulement si :
+\begin{eqnarray}
+\left\{
+\begin{array}{l}
+\nabla S(z_0)=0 \\
+\mbox{det} \; \mathbf{S_{xx}}(z_0) \neq 0
+\end{array}
+\right.
+\end{eqnarray}
+On a alors le résultat suivant :
+
+\begin{prop}
+Supposons que l'on a:
+\begin{description}
+  \item[(i)] $f$ et $S$ sont holomorphes sur un ouvert borné simplement connexe $W_x \subset \mathbb{C}^n$ tel que $I_x=W_x \cap \mathbb{R}^n$ est connexe
+  \item[(ii)]$ Re\left( S(z) \right)$ possède un unique maximum atteint en un unique point $z_0 \in I_x$
+  \item[(iii)] $z_0$ est un point-selle non dégénéré de S.
+\end{description}
+On a alors le développement asymptotique suivant:
+\begin{equation}
+I(\lambda) \underset{\lambda \to +\infty}{=} \left( \frac{2\pi}{\lambda} \right)^{n/2} e^{\lambda S(z_0)} \lbrack f(z_0)+ \mathcal{O}(\lambda^{-1}) \rbrack \prod_{j=1}^n (-\mu_j)^{-1/2}
+\label{steepformula}
+\end{equation}
+où les $(\mu_j)_{1\leq j \leq n}$ sont les valeurs propres de la hessienne $\mathbf{S_{xx}}(z_0)$ et les racines carrées sont définies en prenant
+$$|\mbox{arg} \sqrt{-\mu_j}| <\frac{\pi}{4} $$
+\end{prop}
+Notons que lors de la déformation du contour $C$ en le contour de plus grande pente $I_x$, si des singularités de l'intégrande sont traversées, leur contribution doit bien être prise en compte lors de l'évaluation de l'intégrale.
