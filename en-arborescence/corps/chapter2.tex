@@ -3,18 +3,10 @@ wedge : theory and validation}
 \label{chap-developpement}
 
 
-\section{Introduction}
+\section*{Introduction}
 The canonical problem of an acoustic, electromagnetic or elastodynamic plane wave diffraction by a wedge with Neumann or Dirichlet boundary conditions is a complex mathematical problem which has been of great interest to researchers for over a century.
 
 The mathematical theory of wedge diffraction was first introduced by Sommerfeld \cite{Sommerfeld}, who gave an analytical expression of the exact solution of the diffraction problem of a scalar plane wave as a contour integral \cite{SMtechnique}. Macdonald \cite{Macdo} has expressed the scalar solution as a series, using the variables separation technique. Sommerfeld \cite{Sommerfeld} gave an analytical formula of the \acrfull{gtd} diffraction coefficient for an arbitrary-angled wedge (with Neumann or Dirichlet boundary conditions) illuminated by a scalar plane wave. This wedge \acrshort{gtd} coefficient can be used for scalar wave diffraction both in electromagnetics \cite{Kouyoumjian} and in acoustics \cite{Bouche,Bo}.
-
-%In the more complex case of an elastic wave diffracted by a wedge of angle less than $\pi$, there exist two major approaches : one is based on the Sommerfeld integral (SI) representation of the elastodynamic potentials, it was introduced by Budaev and Bogy \cite{Rayleigh} and clarified by Kamotski et al. \cite{KamotskiFradkin}. The other method is based on the Laplace transform of the displacement field (LT), and was developed by Gautesen and Fradkin \cite{GautesenFradkin}. In the particular case of a scattered Rayleigh wave, a method which uses the free-space Green's tensor to express the Fourier transform of the displacement field has been developed by Gautesen for wedge angles smaller and greater than $\pi$ \cite{GautesenRayleigh,GautesenRayleigh2}. However the range of the wedge angle was restricted to the range $\lbrack 63^o,180^o\rbrack $ for angles smaller than $\pi$ and to $\lbrack 189^o,327^o \rbrack$ for angles greater than $\pi$ in order to avoid numerical instabilities.
-%
-%These methods are non-uniform in the sense that they lead to a solution which diverges at shadow boundaries and caustics of the Geometric-Elastic (GE) field \cite{Bouche}. To overcome this difficulty, Ufimtsev \cite{Ufmi} has introduced the Physical Theory of Diffraction (PTD) in electromagnetics. This technique has been extended to elastic waves by Zernov et al. \cite{Zernov}, however it is computationally expensive. 
-%Another uniform correction of GTD is the Uniform Asymptotic Theory (UAT), introduced by Lewis \cite{Lewis} in electromagnetics and acoustics and extended to elastodynamics by Achenbach et al. \cite{Achenbach}, which gives a systematic approach for computing a uniform solution but is quite complicated to implement for complex geometries as it requires extension of the reflected field to its shadow zone using fictitious rays \cite{Bouche}, \cite{Molinet}.
-%For practical purposes, the most used uniform correction of the GTD method is the Uniform Theory of Diffraction (UTD) as it is computationally efficient and does not require an artificial extension of the reflected field. It was developed in electromagnetics by Kouyoumjian and Pathak \cite{Kouyoumjian}, using the Pauli-Clemmow method \cite{Pauli} and extended to elastodynamics by Kamta Djakou et al. \cite{Audrey}. A comparison of different asymptotic (GTD and uniform) and exact solutions has been carried out in elastodynamics by Aristizabal et al. \cite{Aristizabal} but for the scalar case of the 2D wedge diffraction of a shear horizontally polarized incident wave.
-
-%For a certain time, methods of computation have been studied without proof of solvability for the wedge diffraction problem. Osher \cite{Osher1, Osher2} has studied the well-posedness of hyperbolic initial and boundary value problems (meaning the solution is fixed at $t=0$ and on the domain boundaries) in a region with a corner (meaning a right-angled wedge) and has given certain necessary conditions that the boundary values must verify in order for a problem to be well-posed; he has thoroughly presented the consequences if these conditions were not verified. Huang and Temam \cite{Huang} have studied the well-posedness of hyperbolic initial and boundary value problems in a rectangular domain and have also specified how the boundary values must be chosen for the problem to be solvable; they have also given a brief explanation as to how their theory can be applied to wave equations.
 
 These methods of computation have been proposed without proof of solvability for the wedge diffraction problem. Castro and Kapanadze \cite{Castro} have proven existence and uniqueness of the solution for acoustic and electromagnetic plane waves using a detailed Fredholm analysis. Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to the elastic plane wave diffraction  by a soft wedge (Dirichlet boundary) problem using the Spectral Functions method in which the diffracted wave is modeled thanks to these spectral functions. Their demonstration is valid for all wedge angles but they do not propose any method of computation of the solution. The Spectral Functions method was at first developed by Croisille and Lebeau \cite{CroisilleLebeau} who proposed a numerical algorithm in order to compute these functions for elastic wedges of angle lower than $\pi$ immersed in a fluid. In this chapter, wedges of any angle (even larger than $\pi$) are taken into account, and the outside medium is void. There is only one wave type to be considered and Dirichlet or Neumann boundary conditions are supposed, as opposed to the case studied by Croisille and Lebeau \cite{CroisilleLebeau} where three propagation modes coupled by the boundary conditions are considered, but only for wedge angles lower than $\pi$.
 
@@ -1061,24 +1053,24 @@ Some numerical results are presented in the sequel.
 In this section, a far-field ($k_0r>>1$) asymptotic evaluation of the diffraction coefficient is computed using the stationary phase method :
 \begin{equation}
 \label{GTDCoeff_SF}
-D(\theta) = \dfrac{e^{-i\frac{\pi}{4}}}{\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( 2\varphi - \theta))]
+D(\theta) = \dfrac{e^{-i\frac{\pi}{4}}}{\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( \varphi - \theta))]
 \end{equation}
-(where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are the spectral functions) is compared to the analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void as expressed by Sommerfeld \cite{Sommerfeld}. Keller \cite{GTD} gives an analytical expression of the GTD approximation of the coefficient in the case of the diffraction of a scalar plane wave by a wedge with Dirichlet boundaries which can be used in the case of a stress-free wedge immersed in a fluid :
+(where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are the spectral functions) is compared to the analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void as expressed by Sommerfeld \cite{Sommerfeld}. Keller \cite{GTD} gives an analytical expression of the GTD approximation of the coefficient in the case of the diffraction of a scalar plane wave by a wedge with Dirichlet boundary conditions which can be used in the case of a stress-free wedge immersed in a fluid :
 \begin{align}
 \label{GTDCoeff_Dir}
 D^{\rm (Dir)}(\theta) = \dfrac{e^{i\frac{\pi}{4}}}{2N \sqrt{2\pi}}  \, \left[ \cot \left( \dfrac{\pi + (\theta + \theta_{\rm inc})}{2N} \right) + \cot \left( \dfrac{\pi - (\theta + \theta_{\rm inc})}{2N} \right) \right.   \nonumber \\
 \left. - \cot \left( \dfrac{\pi + (\theta - \theta_{\rm inc})}{2N} \right) - \cot \left( \dfrac{\pi - (\theta - \theta_{\rm inc})}{2N} \right) \right],
 \end{align}
-with $N=2\varphi/\pi$.
+with $N=\varphi/\pi$.
 
 To apply the recursive procedure described in \ref{propag_sol}, calculation points $\xi$ must have a negative imaginary part. The calculation points considered are then
 \begin{equation}
 \label{calculation_points_recursive}
-\xi_1 = -\cos \theta -i\,10^{-3}  \quad \text{and} \quad \xi_2=- \cos (2\varphi - \theta) - i\, 10^{-3} ,
+\xi_1 = -\cos \theta -i\,10^{-3}  \quad \text{and} \quad \xi_2=- \cos (\varphi - \theta) - i\, 10^{-3} ,
 \end{equation}
 where $\theta$ is the observation angle in the wedge (see Fig.~\ref{chapter5:figure1}).
 
-For the Galerkin basis defined in \eqref{Galerkin_basis}, the parameters $a_k \in [1,\infty[$ are chosen as an exponential law \cite{CroisilleLebeau}:
+For the Galerkin basis defined in \eqref{Galerkin_basis}, the parameters $a_k \in [1,\infty[$ are chosen as an exponential law :
 \begin{equation}
 \begin{split}
 \label{bas_Gal}
@@ -1087,29 +1079,29 @@ b_k &= a_k  - i 0.1, \quad 1\leq k\leq 20 .
 \end{split}
 \end{equation}
 
-The module of the diffraction coefficients computed using spectral functions and Sommerfeld integral method for various wedge angles are plotted in terms of the observation angle $\theta, \quad 0\leq \theta\leq 2\varphi$ and presented on Fig.~\ref{chapter5:figure12}. 
+The module of the diffraction coefficients computed using the spectral functions and the Sommerfeld integral method for various wedge angles are plotted in terms of the observation angle $\theta, \quad 0\leq \theta\leq \varphi$ and presented on Fig.~\ref{chapter5:figure12}. 
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure8a.pdf}
-        \caption{$2\varphi = 80^o$, $\theta_{\rm inc} = 55^o$}
+        \caption{$\varphi = 80^o$, $\theta_{\rm inc} = 55^o$}
         \label{chapter5:figure12a}
     \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure8b.pdf}
-        \caption{$2\varphi = 160^o$, $\theta_{\rm inc} = 40^o$}
+        \caption{$\varphi = 160^o$, $\theta_{\rm inc} = 40^o$}
         \label{chapter5:figure12b}
     \end{subfigure}
 \\
 ~\\
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure8c.pdf}
-        \caption{$2\varphi = 280^o$, $\theta_{\rm inc} = 240^o$}
+        \caption{$\varphi = 280^o$, $\theta_{\rm inc} = 240^o$}
         \label{chapter5:figure12d}
     \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure8d.pdf}
-        \caption{$2\varphi = 300^o$, $\theta_{\rm inc} = 150^o$}
+        \caption{$\varphi = 300^o$, $\theta_{\rm inc} = 150^o$}
         \label{chapter5:figure12c}
     \end{subfigure}
 \caption
@@ -1118,44 +1110,36 @@ The module of the diffraction coefficients computed using spectral functions and
 \label{chapter5:figure12}
 \end{figure}
 
-In the case of Neumann boundary conditions, the initial system \eqref{Chapter5:Adimen_waveMotion} is replaced by the follwing :
-\begin{equation}
-\begin{cases}
-(\triangle+1)v =  0 \quad \text{in } \Omega_f, \\
-\partial v/\partial n =  -\partial h_{\rm inc}/\partial n \quad \quad \quad \text{on } F_j, \quad j=1,2
-\end{cases},
-\label{neuproblem}
-\end{equation}
-where n is the inward-pointing normal to the wedge faces. The spectral functions method can once again be applied following the same steps as for the Dirichlet boundary conditions. The details of the computation are not repeated here. Once again, a far-field evaluation of the diffraction, given by  \eqref{GTDCoeff_SF} is compared to the analytic expression of the diffraction coefficient given by Sommerfeld \cite{Sommerfeld}. The GTD approximation of this coefficient is also given by Keller \cite{GTD} :
+In the case of Neumann boundary conditions, a far-field evaluation of the diffraction, given by \eqref{GTDCoeff_SF} is compared to the analytic expression of the diffraction coefficient given by Sommerfeld \cite{Sommerfeld}. The GTD approximation of this coefficient is also given by Keller \cite{GTD} :
 \begin{align}
 \label{GTDCoeff_Neu}
 D^{\rm (Neu)}(\theta) = \dfrac{e^{i\frac{\pi}{4}}}{2N \sqrt{2\pi}}  \, \left[ \cot \left( \dfrac{\pi + (\theta + \theta_{\rm inc})}{2N} \right) + \cot \left( \dfrac{\pi - (\theta + \theta_{\rm inc})}{2N} \right) \right.   \nonumber \\
 \left. + \cot \left( \dfrac{\pi + (\theta - \theta_{\rm inc})}{2N} \right) + \cot \left( \dfrac{\pi - (\theta - \theta_{\rm inc})}{2N} \right) \right] 
 \end{align}
-with $N=2\varphi/\pi$. The results are presented on Fig ~\ref{chapter5:figure13}.
+with $N2\varphi/\pi$. The results are presented on Fig ~\ref{chapter5:figure13}.
 
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure9a.pdf}
-        \caption{$2\varphi = 80^o$, $\theta_{\rm inc} = 55^o$}
+        \caption{$\varphi = 80^o$, $\theta_{\rm inc} = 55^o$}
         \label{chapter5:figure13a}
     \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure9b.pdf}
-        \caption{$2\varphi = 160^o$, $\theta_{\rm inc} = 40^o$}
+        \caption{$\varphi = 160^o$, $\theta_{\rm inc} = 40^o$}
         \label{chapter5:figure13b}
     \end{subfigure}
 \\
 ~\\
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure9c.pdf}
-        \caption{$2\varphi = 280^o$, $\theta_{\rm inc} = 240^o$}
+        \caption{$\varphi = 280^o$, $\theta_{\rm inc} = 240^o$}
         \label{chapter5:figure13d}
     \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter2/Figure9d.pdf}
-        \caption{$2\varphi = 300^o$, $\theta_{\rm inc} = 150^o$}
+        \caption{$\varphi = 300^o$, $\theta_{\rm inc} = 150^o$}
         \label{chapter5:figure13c}
     \end{subfigure}
 \caption
@@ -1168,3 +1152,6 @@ with $N=2\varphi/\pi$. The results are presented on Fig ~\ref{chapter5:figure13}
  In each of these figures, the continuous light blue line represents the modules of the diffraction coefficients obtained using the Sommerfeld integral method, the continuous dark blue line represents those obtained using the Spectral function singular part $Y_j$ alone, the short-dashed green line represents those obtained using the Spectral functions method without propagation of the solution and the red circles represent those obtained using the spectral functions method with propagation of the solution described in paragraph \ref{propag_sol}.
 
 On Figs.~\ref{chapter5:figure12a},~\ref{chapter5:figure12b},~\ref{chapter5:figure13a} and ~\ref{chapter5:figure13b} the wedge angles are lower than $\pi$ and on figs.~\ref{chapter5:figure12c},~\ref{chapter5:figure12d},~\ref{chapter5:figure13c} and ~\ref{chapter5:figure13d} the wedge angles are greater than $\pi$. In all cases, it appears clearly that both the regular part of the solution and the recursive method are necessary to obtain optimal results. When both of these are included, diffraction coefficients obtained with Spectral functions are close to those of the Sommerfeld method. In addition, the run time to evaluate the diffraction coefficients in 250 different observation points, in each of the presented configurations, using an Intel(R) Xeon(R) CPU E3-1240 v3 is under 0.1 seconds for both methods. 
+
+\section*{Conclusion}
+
