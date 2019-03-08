@@ -116,7 +116,7 @@ In the present case, numerator $N$ is given by equation (\ref{N2}) and coefficie
 Finally, using (\ref{intQ}) and (\ref{intP}) :
 \begin{equation}
 \begin{split}
-J_2\sim &2i\cos\tilde{\varphi} A+2i(a\sin\tilde{\varphi}-b\sin(2\tilde{\varphi}))\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}} \right) \\
+J_2= &2i\cos\tilde{\varphi} A+2i(a\sin\tilde{\varphi}-b\sin(2\tilde{\varphi}))\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}} \right) \\
 &+\frac{8i\eta_2\nuti^2}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\phiti\,\mbox{rog}(\frac{b}{\nuti}) \right)+8\nuti^2\psi_2 \mbox{rog}(\frac{b}{\nuti} )\\
 &+8\nuti^2 \left(\lambda_2 \mbox{sog}(a/\nuti)+i\rho_2 \mbox{rog}(a/\nuti) \right),
 \end{split}
@@ -213,27 +213,29 @@ The remaining terms are
 The final coefficients are deduced using (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
-J_4\sim &2A\sin\tilde{\varphi} +2(b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi})\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
+J_4= &2A\sin\tilde{\varphi} +2(b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi})\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
 &+\frac{16i\eta_4\nuti^2}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+16\nuti^2\psi_4 \mbox{rog}(\frac{b}{\nuti} )\\
 &+16\nuti^2\left(\lambda_4 \mbox{sog}(a/\nuti)+i\rho_4 \mbox{rog}(a/\nuti) \right)
 \end{split}
 \label{valJ4}
 \end{equation}
 
-\section{Calcul de l'intégrale $J_5^*$}
+\section{Integral $J_5^*$}
 \label{calculJ5}
-Posons :
+Integral $J_5^*$ is defined by
 \begin{equation}
 J_5=\int_{-\infty}^{+\infty} \frac{y}{(y-ia)\sqrt{\nuti^2+y^2}\lbrack b-( iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}\,dy
 \label{defJ5}
 \end{equation}
-On effectue le changement de variables (\ref{changevar}). On obtient :
-$$ J_5=4\nuti\int_{-1}^1 \frac{t}{P(t)Q(t)}\,dt $$
-La décomposition en éléments simples s'écrit :
-$$\frac{t}{P(t)Q(t)}=\frac{\eta_5 t+\psi_5}{P(t)}+\frac{\lambda_5 t +\rho_5}{Q(t)}$$
-\paragraph{}
-
-On utilise les formules (\ref{etapsi}) et (\ref{lambdarho}). On a finalement :
+Variable change (\ref{changevar}) is applied :
+\begin{equation}
+J_5=4\nuti\int_{-1}^1 \frac{t}{P(t)Q(t)}\,dt
+\end{equation}
+We have the following simple elements decomposition
+\begin{equation}
+\frac{t}{P(t)Q(t)}=\frac{\eta_5 t+\psi_5}{P(t)}+\frac{\lambda_5 t +\rho_5}{Q(t)}
+\end{equation}
+Coefficients $\eta_5,\psi_5,\lambda_5,\rho_5$ are determined using \eqref{etapsi} and \eqref{lambdarho}. Finally
 \begin{equation}
 \begin{split}
 J_5=&\frac{4i\eta_5}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+4\psi_5 \mbox{rog}(\frac{b}{\nuti} )\\
@@ -241,9 +243,6 @@ J_5=&\frac{4i\eta_5}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\var
 \end{split}
 \label{valJ5}
 \end{equation}
-Il n'y a pas de termes divergents.
-
-%\textcolor{red}{Relire à partir d'ici jusqu'à la fin}
 
 \section{Calcul de l'intégrale $J_6^*$}
 On calcule :
