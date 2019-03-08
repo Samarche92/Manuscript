@@ -328,18 +328,22 @@ J_7&\sim 2i\cos\phiti\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right) \\
 \label{valJ7}
 \end{equation}
 
-\section{Calcul de l'intégrale $J_8^*$ }
+\section{Integral $J_8^*$ }
 \label{calculJ8}
-Pour finir, on définit :
+Integral $J_8^*$ is defined by
 \begin{equation}
 J_8=\int_{-\infty}^{+\infty}\frac{dy}{(y-ia)\sqrt{\nuti^2+y^2}\lbrack b-( iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}
 \label{defJ8}
 \end{equation}
-On effectue le changement de variables (\ref{changevar}).
-$$J_8=2 \int_{-1}^{1} \frac{1-t^2}{P(t)Q(t)}\,dt$$
-La décomposition en éléments simples donne :
-$$\frac{1-t^2}{P(t)Q(t)}=\frac{\eta_8 t+\psi_8}{P(t)}+\frac{\lambda_8 t +\rho_8}{Q(t)}$$
-Une dernière fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition.On a finalement :
+Variable change (\ref{changevar}) is applied
+\begin{equation}
+J_8=2 \int_{-1}^{1} \frac{1-t^2}{P(t)Q(t)}\,dt
+\end{equation}
+We have the following simple elements decomposition
+\begin{equation}
+\frac{1-t^2}{P(t)Q(t)}=\frac{\eta_8 t+\psi_8}{P(t)}+\frac{\lambda_8 t +\rho_8}{Q(t)}
+\end{equation}
+The final coefficients are determined using (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
 J_8=&\frac{2i\eta_8 }{b-\nuti\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+2 \frac{\psi_8}{\nuti} \mbox{rog}(\frac{b}{\nuti} )\\
@@ -387,16 +391,7 @@ Integrals $J_3^1$ and $J_5^1$ are computed in sections \ref{calculJ3} and \ref{c
 \label{finalT2D}
 \subsection{3D elastic case}
 \label{finalT3D}
-Donnons maintenant l'expression explicite des coefficients de la matrice $\mathbb{T}(a,b)$, obtenus en utilisant les formules \eqref{tmL} à \eqref{tmTV} et \eqref{Tab}. 
-On commence par définir :
-\begin{equation}
-\begin{split}
-J_1&=\int_{-\infty}^{+\infty}\frac{y\sqrt{\nuti^2+y^2}}{(y-ia)\lbrack b-iy\cos\phiti+\sqrt{\nuti^2+y^2}\sin\phiti\rbrack}\,dy\\
-&=J_4+\nuti^2J_5
-\end{split}
-\label{defJ1}
-\end{equation}
-Les intégrales $J_4$ et $J_5$ sont définies par \eqref{defJ4} et \eqref{defJ5}.
+
 Nous verrons que tous les coefficients de la matrice $\mathbb{T}(a,b)$ peuvent s'écrire comme des combinaisons linéaires des intégrales $J_1^*$ à $J_8^*$ calculées précédemment, ce qui nous donne un moyen simple d'obtenir les valeurs des coefficients de la matrice $\mathbb{T}(a,b)$.
 \subsubsection{Termes L}
 Nous commençons par les termes issus de la matrice $\mathbf{tm}_L$ donnée par \eqref{tmL}.
