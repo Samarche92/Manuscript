@@ -14,37 +14,50 @@ J_1^*&= \int_{-\infty}^{+\infty} \frac{y (\nuti^2+y^2)}{(y-ia)\lbrack b-iy\cos \
 \end{equation}
 where integral $J_4^*$ and $J_5^*$ are defined by equations \eqref{defJ4} and \eqref{defJ5} and their expressions are given \eqref{valJ4} nad \eqref{valJ5} respectively.
 
-\section{Calcul de l'intégrale $J_2^*$}
+\section{Integral $J_2^*$}
 \label{calcJ2}
-On définit :
+Integral $J_2^*$ is defined by :
 \begin{equation}
 J_2 =\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\lbrack b-iy\cos \tilde{\varphi}+ \sqrt{\nuti^2+y^2} \sin \tilde{\varphi}) \rbrack} \, dy
 \label{defJ2}
 \end{equation}
-On effectue une fois de plus le changement de variables (\ref{changevar}) et on obtient désormais :
-$$J_2=8\nuti^3 \int_{-1}^1 \frac{t^2(t^2+1)}{(1-t^2)^2\lbrack b(1-t^2)-2\nuti it\cos\tilde{\varphi}+ \sin \tilde{\varphi} \nuti(1+t^2)\rbrack(2\nuti t-ia(1-t^2))}\, dt$$
-On cherche la décomposition en éléments simples de l'intégrande :
-$$\frac{t^2(1+t^2)}{(1-t)^2(1+t)^2P(t)Q(t)}=\frac{\alpha_2}{1-t}+\frac{\beta_2}{1+t}+\frac{\gamma_2}{(1-t)^2}+\frac{\delta_2}{(1+t)^2}+\frac{\eta_2 t+\psi_2}{P(t)}+\frac{\lambda_2 t +\rho_2}{Q(t)}$$
-Où on a défini :
+Once again, variable change \eqref{changevar} is applied 
 \begin{equation}
-P(t)=b(1-t^2)-2\nuti i t\cos\tilde{\varphi}+\nuti\sin\tilde{\varphi}(1+t^2)
+J_2=8\nuti^3 \int_{-1}^1 \frac{t^2(t^2+1)}{(1-t^2)^2\lbrack b(1-t^2)-2\nuti it\cos\tilde{\varphi}+ \sin \tilde{\varphi} \nuti(1+t^2)\rbrack(2\nuti t-ia(1-t^2))}\, dt
 \end{equation}
-On a donc, pour commencer :
-$$ \gamma_2=\frac{e^{i(\pi/2-\tilde{\varphi})}}{8\nuti^2}$$
-$$\delta_2=\frac{e^{i(\pi/2+\tilde{\varphi})}}{8\nuti^2}$$
-D'où :
-\begin{equation*}
+We have the following simple elements decomposition :
+\begin{equation}
+\frac{t^2(1+t^2)}{(1-t)^2(1+t)^2P(t)Q(t)}=\frac{\alpha_2}{1-t}+\frac{\beta_2}{1+t}+\frac{\gamma_2}{(1-t)^2}+\frac{\delta_2}{(1+t)^2}+\frac{\eta_2 t+\psi_2}{P(t)}+\frac{\lambda_2 t +\rho_2}{Q(t)}
+\label{decompJ2}
+\end{equation}
+where the coefficients of the decomposition are determined in the sequel.
+
+The first step is to determine $\gamma_2$ by multiplying the above decomposition by $(1-t)^2$ and evaluating the result at $t=1$. Similarly, $\delta_2$ is determined by multiplying \eqref{decompJ2} by $(1+t)^2$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\gamma_2=\frac{e^{i(\pi/2-\tilde{\varphi})}}{8\nuti^2}
+\end{equation}
+\begin{equation}
+\delta_2=\frac{e^{i(\pi/2+\tilde{\varphi})}}{8\nuti^2}
+\end{equation}
+\end{subequations}
+The remaining terms are
+\begin{equation}
 \begin{split}
 \frac{\alpha_2}{1-t}&+\frac{\beta_2}{1+t} +\frac{\eta_2 t+\psi_2}{P(t)}+\frac{\lambda_2 t +\rho_2}{Q(t)}=\frac{t^2(1+t^2)}{(1-t)^2(1+t)^2P(t)Q(t)}-\frac{e^{i(\pi/2-\tilde{\varphi})}}{8\nuti^2(1-t)^2}-\frac{e^{i(\pi/2+\tilde{\varphi})}}{8\nuti^2(1+t)^2}\\
 &=\frac{2iab\sin\tilde{\varphi}t-\nuti^2i\sin(2\tilde{\varphi})t-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2 P(t)Q(t)}\\ &+\frac{(2t\sin\tilde{\varphi}+(1+t^2)i\cos\varphi)(2a\cos\tilde{\varphi}t+ai\sin\tilde{\varphi}(1+t^2)-2bt)}{4\nuti(1-t^2) P(t)Q(t)}
 \end{split}
-\end{equation*}
-
-
-On a maintenant :
-$$\alpha_2=\frac{be^{-2i\tilde{\varphi}}-ae^{-i\tilde{\varphi}}}{8\nuti^3}$$
-$$\beta_2=\frac{ae^{i\tilde{\varphi}}-be^{2i\tilde{\varphi}}}{8\nuti^3}$$
-Ce qui donne :
+\end{equation}
+$\alpha_2$ is determined by multiplying the above decomposition by $(1-t)$ and evaluating the result at $t=1$. Similarly, $\beta_2$ is determined by multiplying the above equation by $(1+t)$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\alpha_2=\frac{be^{-2i\tilde{\varphi}}-ae^{-i\tilde{\varphi}}}{8\nuti^3}
+\end{equation}
+\begin{equation}
+\beta_2=\frac{ae^{i\tilde{\varphi}}-be^{2i\tilde{\varphi}}}{8\nuti^3}
+\end{equation}
+\end{subequations}
+The remaining terms are
 \begin{equation}
 \begin{split}
 \frac{\eta_2 t+\psi_2}{P(t)}+&\frac{\lambda_2 t +\rho_2}{Q(t)}
@@ -62,24 +75,23 @@ Ce qui donne :
 \end{split}
 \label{N2}
 \end{equation}
-Il ne reste plus qu'à déterminer les constantes $\eta_2,\psi_2,\lambda_2,\rho_2$ pour achever le calcul de la décomposition en élements simples. Pour celà, on utilise les considérations générales suivantes :
-\paragraph{}
-On note $N(t)$ un polynôme de degré 3 et on suppose que l'on a :
+The last step is to determine constants $\eta_2,\psi_2,\lambda_2,\rho_2$. The method used is detailed in the sequel.
+
+Let us note $N(t)$ a third degree polynomial and assume we have:
 \begin{equation}
 \frac{\eta t+\psi}{P(t)}+\frac{\lambda t+\rho}{Q(t)}=\frac{N(t)}{P(t)Q(t)}
 \label{nsurpq}
 \end{equation}
-On a défini $p_\pm$ en (\ref{p1p2}) et $q_\pm$ en (\ref{q1q2})
-Prenons l'égalité (\ref{nsurpq}) et multiplions la par $P(t)$. En évaluant le résultat en $p_+$ puis en $p_-$, on obtient le système suivant :
-\begin{eqnarray*}
+The roots of polynomial $P$ are $p_\pm$ and have been defined by equation (\ref{p1p2}). The roots of polynomial $Q$ are $q_\pm$ and are defined by equation (\ref{q1q2}). Multiplying \eqref{nsurpq} by $P(t)$ and evaluating the result at $t=p_+$ and $t=p_-$ leas to the following system
+\begin{eqnarray}
 \left\{
 \begin{array}{l}
 \eta p_+ +\psi=\frac{N(p_+)}{Q(p_+)}\\
 \eta p_- +\psi=\frac{N(p_-)}{Q(p_-)}
 \end{array}
 \right.
-\end{eqnarray*}
-La résolution de ce système donne:
+\end{eqnarray}
+solved by
 \begin{eqnarray}
 \left\{
 \begin{array}{l}
@@ -89,7 +101,7 @@ La résolution de ce système donne:
 \right.
 \label{etapsi}
 \end{eqnarray}
-Par symétrie des rôles de P et Q, on a :
+By symmetry of the roles of $P$ and $Q$, we also have :
 \begin{eqnarray}
 \left\{
 \begin{array}{l}
@@ -99,19 +111,18 @@ Par symétrie des rôles de P et Q, on a :
 \right.
 \label{lambdarho}
 \end{eqnarray}
-Dans le cas présent, le numérateur est donné par (\ref{N2}). Les derniers coefficients de la décomposition s'en déduisent donc en utilisant (\ref{etapsi}) et (\ref{lambdarho}).
+In the present case, numerator $N$ is given by equation (\ref{N2}) and coefficients $\eta_2,\psi_2,\lambda_2,\rho_2$ are deduced using \eqref{etapsi} and \eqref{lambdarho}.
 
-\paragraph{}
-On utilise les formules (\ref{intQ}) et (\ref{intP}) :
+Finally, using (\ref{intQ}) and (\ref{intP}) :
 \begin{equation}
 \begin{split}
 J_2\sim &2i\cos\tilde{\varphi} A+2i(a\sin\tilde{\varphi}-b\sin(2\tilde{\varphi}))\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}} \right) \\
 &+\frac{8i\eta_2\nuti^2}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\phiti\,\mbox{rog}(\frac{b}{\nuti}) \right)+8\nuti^2\psi_2 \mbox{rog}(\frac{b}{\nuti} )\\
-&+8\nuti^2 \left(\lambda_2 \mbox{sog}(a/\nuti)+i\rho_2 \mbox{rog}(a/\nuti) \right)
+&+8\nuti^2 \left(\lambda_2 \mbox{sog}(a/\nuti)+i\rho_2 \mbox{rog}(a/\nuti) \right),
 \end{split}
 \label{valJ2}
 \end{equation}
-On note l'apparition de termes divergents dans le résultat. Ceux-ci se compenseront lors de la sommation des termes issus des coefficients $\mathcal{T}^T$ avec les termes issus des coefficients $\mathcal{T}^L$. 
+with $A\rightarrow +\infty$ and $t_{\nuti}\rightarrow 1$. These diverging terms will be compensated in the final computation of matrix $\mathbb{T}$, as seen in section \label{calcI3}.
 
 \section{Calcul de l'intégrale $J_3^*$}
 \label{calculJ3}
