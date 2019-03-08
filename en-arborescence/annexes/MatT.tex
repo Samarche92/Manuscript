@@ -147,27 +147,32 @@ J_3=&\frac{2i\eta_3}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\var
 \end{split}
 \label{valJ3}
 \end{equation}
-
-\section{Calcul de l'intégrale $J_4^*$}
+\section{Integral $J_4^*$}
 \label{calculJ4}
-On définit maintenant :
+Integral $J_4^*$ is defined by
 \begin{equation}
 J_4=\int_{-\infty}^{+\infty}\frac{y^3}{(y-ia)\sqrt{y^2+\nuti^2}(b-iy\cos\tilde{\varphi}+\sqrt{\nuti^2+y^2}\sin\tilde{\varphi})}\,dy
 \label{defJ4}
 \end{equation}
-On effectue une fois de plus le changement de variables (\ref{changevar}).
-$$J_4=16\nuti^3 \int_{-1}^1 \frac{t^3}{(2\nuti t-ia(1-t^2))(1-t^2)^2(b(1-t^2)-2i\nuti t\cos\tilde{\varphi}+\nuti(1+t^2)\sin\tilde{\varphi})} \, dt $$
-On cherche la décomposition en éléments simples de l'intégrande :
-\begin{equation*}
+Variable change (\ref{changevar}) is applied
+\begin{equation}
+J_4=16\nuti^3 \int_{-1}^1 \frac{t^3}{(2\nuti t-ia(1-t^2))(1-t^2)^2(b(1-t^2)-2i\nuti t\cos\tilde{\varphi}+\nuti(1+t^2)\sin\tilde{\varphi})} \, dt
+\end{equation}
+We have the following simple elements decomposition
+\begin{equation}
 \frac{t^3}{(1-t^2)^2P(t)Q(t)}=\frac{\alpha_4}{1-t}+\frac{\beta_4}{1+t}+\frac{\gamma_4}{(1-t)^2}+\frac{\delta_4}{(1+t)^2}+\frac{\eta_4 t+\psi_4}{P(t)}+\frac{\lambda_4 t +\rho_4}{Q(t)}
-\end{equation*}
-
-On a :
-$$\gamma_4=\frac{e^{i(\pi/2-\tilde{\varphi})}}{16\nuti^2}$$
-$$\delta_4=\frac{e^{i(\tilde{\varphi}-\pi/2)}}{16\nuti^2}$$
-On calcule :
-
-\begin{equation*}
+\end{equation}
+The first step is to determine $\gamma_4$ by multiplying the above decomposition by $(1-t)^2$ and evaluating the result at $t=1$. Similarly, $\delta_4$ is determined by multiplying \eqref{decompJ2} by $(1+t)^2$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\gamma_4=\frac{e^{i(\pi/2-\tilde{\varphi})}}{16\nuti^2}
+\end{equation}
+\begin{equation}
+\delta_4=\frac{e^{i(\tilde{\varphi}-\pi/2)}}{16\nuti^2}
+\end{equation}
+\end{subequations}
+The remaining terms are
+\begin{equation}
 \begin{split}
 \frac{\alpha_4}{1-t}&+\frac{\beta_4}{1+t}+\frac{\eta_4 t+\psi_4}{P(t)}+\frac{\lambda_4 t +\rho_4}{Q(t)}=\frac{8\nuti^2t^3-\lbrack \sin\tilde{\varphi}(1+t^2)+2i\cos\tilde{\varphi} t \rbrack P(t)Q(t)}{8\nuti^2(1-t^2)^2P(t)Q(t)} \\
 ~\\
@@ -177,13 +182,18 @@ On calcule :
 =&\frac{2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2}{4\nuti(1-t^2)P(t)Q(t)}+\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t}{8\nuti^2P(t)Q(t)}\\
 &-\frac{\sin^2\tilde{\varphi}.t}{4P(t)Q(t)}
 \end{split}
-\end{equation*}
-
-D'où:
-$$\alpha_4=\frac{be^{-2i\tilde{\varphi}}-ae^{-i\tilde{\varphi}}}{16\nuti^3}$$
-$$\beta_4=\frac{be^{2i\tilde{\varphi}}-ae^{i\tilde{\varphi}}}{16\nuti^3}$$
-Ce qui donne :
-\begin{equation*}
+\end{equation}
+$\alpha_4$ is determined by multiplying the above decomposition by $(1-t)$ and evaluating the result at $t=1$. Similarly, $\beta_4$ is determined by multiplying the above equation by $(1+t)$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\alpha_4=\frac{be^{-2i\tilde{\varphi}}-ae^{-i\tilde{\varphi}}}{16\nuti^3}
+\end{equation}
+\begin{equation}
+\beta_4=\frac{be^{2i\tilde{\varphi}}-ae^{i\tilde{\varphi}}}{16\nuti^3}
+\end{equation}
+\end{subequations}
+The remaining terms are
+\begin{equation}
 \begin{split}
 \frac{\eta_4 t+\psi_4}{P(t)}&+\frac{\lambda_4 t +\rho_4}{Q(t)}=\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t-2\nuti^2\sin^2\tilde{\varphi}t}{8\nuti^2P(t)Q(t)}\\
 &+\frac{2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2}{4\nuti(1-t^2)P(t)Q(t)}\\
@@ -199,12 +209,8 @@ Ce qui donne :
 &-2\nuti bt+iab(1-t^2)\Big)\\
 &+\frac{ai\sin^2\tilde{\varphi} t^2+a\cos\tilde{\varphi} \sin\tilde{\varphi} t-b\sin(2\tilde{\varphi})\cos\tilde{\varphi} t-ib\sin\tilde{\varphi}\sin(2\tilde{\varphi})t^2}{4\nuti P(t)Q(t)} 
 \end{split}
-\end{equation*}
-
-Encore une fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition.
-
-Ce qui donne finalement :
-
+\end{equation}
+The final coefficients are deduced using (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
 J_4\sim &2A\sin\tilde{\varphi} +2(b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi})\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
