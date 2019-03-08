@@ -124,20 +124,22 @@ J_2\sim &2i\cos\tilde{\varphi} A+2i(a\sin\tilde{\varphi}-b\sin(2\tilde{\varphi})
 \end{equation}
 with $A\rightarrow +\infty$ and $t_{\nuti}\rightarrow 1$. These diverging terms will be compensated in the final computation of matrix $\mathbb{T}$, as seen in section \label{calcI3}.
 
-\section{Calcul de l'intégrale $J_3^*$}
+\section{Integral $J_3^*$}
 \label{calculJ3}
-On calcule :
+Integral $J_3^*$ is defined by
 \begin{equation}
 J_3 = \int_{-\infty}^{+\infty} \frac{1}{(y-ia)\lbrack b-iy\cos \tilde{\varphi}+  \sqrt{\nuti^2+y^2} \sin \tilde{\varphi} \rbrack} \, dy
 \label{defJ3}
 \end{equation}
-Encore une fois, on applique le changement de variables (\ref{changevar}):
-$$J_3= 2\nuti \int_{-1}^1 \frac{1+t^2}{(2\nuti t-ia(1-t^2))(b(1-t^2)-2i\nuti t\cos\tilde{\varphi}+\nuti\sin\tilde{\varphi}(1+t^2))} \, dt$$
-La décomposition en éléments simples de l'intégrande donne :
-$$\frac{1+t^2}{P(t)Q(t)}=\frac{\eta_3 t+\psi_3}{P(t)}+\frac{\lambda_3 t +\rho_3}{Q(t)}$$
-Les coefficients s'obtiennent en utilisant les formules (\ref{etapsi}) et (\ref{lambdarho}).
-
-Soit finalement :
+Variable change (\ref{changevar}) is applied
+\begin{equation}
+J_3= 2\nuti \int_{-1}^1 \frac{1+t^2}{(2\nuti t-ia(1-t^2))(b(1-t^2)-2i\nuti t\cos\tilde{\varphi}+\nuti\sin\tilde{\varphi}(1+t^2))} \, dt
+\end{equation}
+We have the following simple elements decomposition
+\begin{equation}
+\frac{1+t^2}{P(t)Q(t)}=\frac{\eta_3 t+\psi_3}{P(t)}+\frac{\lambda_3 t +\rho_3}{Q(t)}
+\end{equation}
+The coefficients of the decomposition are obtained using \eqref{etapsi} and \eqref{lambdarho}. Finally :
 \begin{equation}
 \begin{split}
 J_3=&\frac{2i\eta_3}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+2\psi_3 \mbox{rog}(\frac{b}{\nuti} )\\
@@ -145,7 +147,6 @@ J_3=&\frac{2i\eta_3}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\var
 \end{split}
 \label{valJ3}
 \end{equation}
-Cette fois, il n'y a aucun terme divergent. 
 
 \section{Calcul de l'intégrale $J_4^*$}
 \label{calculJ4}
