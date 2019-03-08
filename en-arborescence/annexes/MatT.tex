@@ -244,21 +244,31 @@ J_5=&\frac{4i\eta_5}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\var
 \label{valJ5}
 \end{equation}
 
-\section{Calcul de l'intégrale $J_6^*$}
-On calcule :
+\section{Integral $J_6^*$}
+Integral $J_6^*$ is defined by
 \begin{equation}
 J_6=\int_{-\infty}^{+\infty} \frac{y}{(y-ia)\lbrack b-(iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}\,dy
 \label{defJ6}
 \end{equation}
-On effectue le changement de variables (\ref{changevar}).
-$$ J_6=4\nuti^2\int_{-1}^{1}\frac{t(1+t^2)}{(1-t^2)P(t)Q(t)}\,dt $$
-La décomposition en éléments simples de l'intégrande s'écrit :
-$$\frac{t(1+t^2)}{(1-t^2)P(t)Q(t)}=\frac{\alpha_6}{1-t}+\frac{\beta_6}{1+t}+\frac{\eta_6 t+\psi_6}{P(t)}+\frac{\lambda_6 t +\rho_6}{Q(t)}$$
-On a alors :
-$$\alpha_6=\frac{e^{i(\pi/2-\phiti)}}{4\nuti^2}$$
-$$\beta_6=\frac{e^{-i(\pi/2-\phiti)}}{4\nuti^2}$$
-Ce qui nous donne :
-\begin{equation*}
+Variable change (\ref{changevar}) is applied
+\begin{equation}
+J_6=4\nuti^2\int_{-1}^{1}\frac{t(1+t^2)}{(1-t^2)P(t)Q(t)}\,dt
+\end{equation}
+We have the following simple elements decomposition
+\begin{equation}
+\frac{t(1+t^2)}{(1-t^2)P(t)Q(t)}=\frac{\alpha_6}{1-t}+\frac{\beta_6}{1+t}+\frac{\eta_6 t+\psi_6}{P(t)}+\frac{\lambda_6 t +\rho_6}{Q(t)}
+\end{equation}
+$\alpha_6$ is determined by multiplying the above decomposition by $(1-t)$ and evaluating the result at $t=1$. Similarly, $\beta_6$ is determined by multiplying the above equation by $(1+t)$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\alpha_6=\frac{e^{i(\pi/2-\phiti)}}{4\nuti^2}
+\end{equation}
+\begin{equation}
+\beta_6=\frac{e^{-i(\pi/2-\phiti)}}{4\nuti^2}
+\end{equation}
+\end{subequations}
+The remaining terms are
+\begin{equation}
 \begin{split}
 \frac{\eta_6 t+\psi_6}{P(t)}&+\frac{\lambda_6 t +\rho_6}{Q(t)}=\frac{2\nuti^2t(1+t^2)-(\sin\phiti+i\cos\phiti t)P(t)Q(t)}{2\nuti^2(1-t^2)P(t)Q(t)}\\
 &=-\frac{\sin\phiti+i\cos\phiti t}{2\nuti^2P(t)Q(t)}\Big( b(2\nuti t-ia(1-t^2))-a\nuti(2\cos\phiti t+i\sin\phiti(1+t^2)) \Big) \\
@@ -266,12 +276,8 @@ Ce qui nous donne :
 &=-\frac{(\sin\phiti+i\cos\phiti t)}{2\nuti^2P(t)Q(t)}\Big( b(2\nuti t-ia(1-t^2))-a\nuti(2\cos\phiti t+i\sin\phiti(1+t^2)) \Big)\\
 &+\frac{\cos^2\phiti.t+i\sin\phiti\cos\phiti.t^2}{P(t)Q(t)}
 \end{split}
-\end{equation*}
-
-Encore une fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition.
-
-Ce qui donne finalement :
-
+\end{equation}
+The final coefficients are determined using (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
 J_6\sim & 2\sin\phiti\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
