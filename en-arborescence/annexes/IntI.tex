@@ -157,6 +157,7 @@ so that
 \ln\left(\frac{1+t_{\nuti_L}}{1-t_{\nuti_L}}\right)- \ln\left(\frac{1+t_{\nuti_T}}{1-t_{\nuti_T}}\right)\sim \ln\left(\frac{\nuti_T}{\nuti_L}\right) 
 \label{compensation}
 \end{equation}
+
 \section{Integral $I_4^*$}
 \label{calcI4}
 Integral $I_4^*$ is defined by :
@@ -171,11 +172,11 @@ For $a+b\neq0$,
 \end{equation}
 Substituting the above decomposition in \eqref{defI4}, we get
 \begin{equation}
-I_4^*=\frac{i}{a+b} \int_{-\infty}^{+\infty} \left(\frac{1}{(y+ib)\sqrt{\nuti_*^2+y^2}}-\frac{1}{(y-ia)\sqrt{\nuti_*^2+y^2}} \right)\,dy
+I_4^*=\frac{i}{a+b} \int_{-\infty}^{+\infty} \left(\frac{1}{(y+ib)\sqrt{\nuti^2+y^2}}-\frac{1}{(y-ia)\sqrt{\nuti^2+y^2}} \right)\,dy
 \end{equation}
 These integrals have been computed in section \ref{calculIntQ}. Using \eqref{intQ}, we get :
 \begin{equation}
-I_4^*=\frac{2}{\nuti(a+b)}\left(\rog{a/\nuti_*}+\rog{b/\nuti_*} \right)
+I_4^*=\frac{2}{\nuti(a+b)}\left(\rog{a/\nuti}+\rog{b/\nuti} \right)
 \label{valI4}
 \end{equation}
 
@@ -184,11 +185,13 @@ I_4^*=\frac{2}{\nuti(a+b)}\left(\rog{a/\nuti_*}+\rog{b/\nuti_*} \right)
 
 Integral $I_5^*$ is defined by :
 \begin{equation}
-I_5^*=\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)(y-ia)\sqrt{\nuti_*^2+y^2}}\,dy
+I_5^*=\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}}\,dy
 \end{equation}
 Using decomposition \eqref{decomp1} we get
-$$ I_5^*=\frac{i}{a+b}\int_{-\infty}^{+\infty}\left( \frac{y^2}{(y+ib)\sqrt{\nuti^2_*+y^2}}-\frac{y^2}{(y-ia)\sqrt{\nuti_*^2+y^2}}\right)\,dy $$
-On reconnait le calcul mené précédemment. En appliquant la formule \eqref{y2_D}, on obtient :
+\begin{equation}
+I_5^*=\frac{i}{a+b}\int_{-\infty}^{+\infty}\left( \frac{y^2}{(y+ib)\sqrt{\nuti^2+y^2}}-\frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}}\right)\,dy
+\end{equation}
+These integrals have been computed at section \ref{calcI3}. Applying formula \eqref{y2_D}, we get :
 % En appliquant le changement de variables \eqref{changevar}, on a
 % $$\int_{-\infty}^{+\infty}\frac{y}{(y-ia)\sqrt{\nuti_*^2+y^2}} \, dy=\int_{-1}^1 \frac{4\nuti t}{(1-t^2)(2\nuti t-ia(1-t^2))}\,dt$$
 % On cherche la décomposition en éléments simples de l'intégrande :
@@ -199,7 +202,7 @@ On reconnait le calcul mené précédemment. En appliquant la formule \eqref{y2_
 % $$\lambda=0, \, \, \; \rho=2ia$$
 % La formule \eqref{intQ} nous donne finalement :
 \begin{equation}
-I_5^*=2\log\left(\frac{1+t_{\nuti^*}}{1-t_{\nuti^*}}\right)-\frac{2}{\nuti_*(a+b)}\lbrack b^2\rog{b/\nuti_*}+a^2\rog{a/\nuti_*}\rbrack
+I_5^*=2\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)-\frac{2}{\nuti(a+b)}\lbrack b^2\rog{b/\nuti}+a^2\rog{a/\nuti}\rbrack
 \label{intI5}
 \end{equation}
 

@@ -1,9 +1,21 @@
 \chapter{Computation details for the coefficients of matrix $\mathbb{T}(a,b)$}
 \label{matT}
-Lors des caluls des coefficients de $\mathbb{T}(a,b)$ nous aurons besoin d'un certain nombre de résultats intermédiaires. Nous allons donc commencer par déterminer ceux-ci avant de procéder au calcul final.
+In each chapter of this manuscript, a matrix $\mathbb{T}(a,b)$ appears, the coefficients of which can be determined analytically. These coefficients are linear combinations of integrals $J_1^*$ to $J_8^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matric $\mathbb{T}(a,b)$ in the acoustic and 2D and 3D elastic case are given. In all the following, $\nuti \in \{1,\nu_T, \nuti_L,\nuti_T\}$.
+
+\section{Integral $J_1^*$}
+\label{calcJ1}
+Integral $J_1^*$ is defined by :
+\begin{equation}
+\begin{split}
+J_1^*&= \int_{-\infty}^{+\infty} \frac{y (\nuti^2+y^2)}{(y-ia)\lbrack b-iy\cos \varphi+ \sqrt{\nuti^2+y^2} \sin\phiti) \rbrack\sqrt{\nuti^2+y^2}} \, dy\\
+&=\nuti^2J_5^*+J_4^*
+\end{split}
+\label{defJ1}
+\end{equation}
+where integral $J_4^*$ and $J_5^*$ are defined by equations \eqref{defJ4} and \eqref{defJ5} and their expressions are given \eqref{valJ4} nad \eqref{valJ5} respectively.
 
 \section{Calcul de l'intégrale $J_2^*$}
-\label{calculJ2}
+\label{calcJ2}
 On définit :
 \begin{equation}
 J_2 =\int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\lbrack b-iy\cos \tilde{\varphi}+ \sqrt{\nuti^2+y^2} \sin \tilde{\varphi}) \rbrack} \, dy
