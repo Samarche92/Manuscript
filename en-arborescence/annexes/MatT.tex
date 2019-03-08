@@ -287,28 +287,38 @@ J_6\sim & 2\sin\phiti\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
 \label{valJ6}
 \end{equation}
 
-\section{Calcul de l'intégrale $J_7^*$ }
-On définit maintenant :
+\section{Integral $J_7^*$ }
+Integral $J_7^*$ is defined by
 \begin{equation}
 J_7=\int_{-\infty}^{+\infty}\frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}\lbrack b-( iy\cos \tilde{\varphi}+ \zeta(iy)\sin \tilde{\varphi}) \rbrack}\,dy
 \label{defJ7}
 \end{equation}
-On effectue le changement de variables (\ref{changevar}).
-$$ J_7=8\nuti^2 \int_{-1}^{1} \frac{t^2}{(1-t^2)P(t)Q(t)}\,dt$$
-La décomposition en éléments simples donne :
-$$\frac{t^2}{(1-t^2)P(t)Q(t)}=\frac{\alpha_7}{1-t}+\frac{\beta_7}{1+t}+\frac{\eta_7 t+\psi_7}{P(t)}+\frac{\lambda_7 t +\rho_7}{Q(t)}$$
-Soit:
-$$\alpha_7=\frac{e^{i(\frac{\pi}{2}-\phiti)}}{8\nuti^2}$$
-$$\beta_7=\frac{e^{i(\frac{\pi}{2}+\phiti)}}{8\nuti^2}$$
-Ce qui nous donne :
-\begin{equation*}
+Variable change (\ref{changevar}) is applied
+\begin{equation}
+J_7=8\nuti^2 \int_{-1}^{1} \frac{t^2}{(1-t^2)P(t)Q(t)}\,dt
+\end{equation}
+We have the following simple elements decomposition
+\begin{equation}
+\frac{t^2}{(1-t^2)P(t)Q(t)}=\frac{\alpha_7}{1-t}+\frac{\beta_7}{1+t}+\frac{\eta_7 t+\psi_7}{P(t)}+\frac{\lambda_7 t +\rho_7}{Q(t)}
+\end{equation}
+$\alpha_7$ is determined by multiplying the above decomposition by $(1-t)$ and evaluating the result at $t=1$. Similarly, $\beta_7$ is determined by multiplying the above equation by $(1+t)$ and evaluating the result at $t=-1$ :
+\begin{subequations}
+\begin{equation}
+\alpha_7=\frac{e^{i(\frac{\pi}{2}-\phiti)}}{8\nuti^2}
+\end{equation}
+\begin{equation}
+\beta_7=\frac{e^{i(\frac{\pi}{2}+\phiti)}}{8\nuti^2}
+\end{equation}
+\end{subequations}
+The remaining terms are
+\begin{equation}
 \begin{split}
 \frac{\eta_7 t+\psi_7}{P(t)}&+\frac{\lambda_7 t +\rho_7}{Q(t)}=\frac{8\nuti^2t^2-2(i\cos\phiti+\sin\phiti t)P(t)Q(t)}{8\nuti^2(1-t^2)P(t)Q(t)}\\
 &=-\frac{(i\cos\phiti+\sin\phiti t)}{4\nuti^2P(t)Q(t)}\lbrack b(2\nuti t-ia(1-t^2))-a\nuti(2\cos\phiti t+i\sin\phiti(1+t^2)) \rbrack\\
 &+\frac{\sin^2\phiti t^2-i\cos\phiti\sin\phiti t}{2P(t)Q(t)}
 \end{split}
-\end{equation*}
-Encore une fois, on utilise les formules (\ref{etapsi}) et (\ref{lambdarho}) pour obtenir les coefficients de la décomposition. On a finalement :
+\end{equation}
+The final coefficients are determined using (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
 J_7&\sim 2i\cos\phiti\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right) \\
