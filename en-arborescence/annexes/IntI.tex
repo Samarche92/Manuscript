@@ -157,34 +157,36 @@ so that
 \ln\left(\frac{1+t_{\nuti_L}}{1-t_{\nuti_L}}\right)- \ln\left(\frac{1+t_{\nuti_T}}{1-t_{\nuti_T}}\right)\sim \ln\left(\frac{\nuti_T}{\nuti_L}\right) 
 \label{compensation}
 \end{equation}
-\section{Calcul de $I_4^*$}
+\section{Integral $I_4^*$}
 \label{calcI4}
 Integral $I_4^*$ is defined by :
 \begin{equation}
 I_4^*=\int_{-\infty}^{+\infty} \dfrac{dy}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}}
 \label{defI4}
 \end{equation}
-On a lorsque $a+b\neq0$ :
+For $a+b\neq0$, 
 \begin{equation}
     \frac{1}{(y+ib)(y-ia)}=\frac{-i}{a+b}\left( \frac{1}{y-ia}-\frac{1}{y+ib}\right)
     \label{decomp1}
 \end{equation}
-ce qui donne
-\begin{equation*}
+Substituting the above decomposition in \eqref{defI4}, we get
+\begin{equation}
 I_4^*=\frac{i}{a+b} \int_{-\infty}^{+\infty} \left(\frac{1}{(y+ib)\sqrt{\nuti_*^2+y^2}}-\frac{1}{(y-ia)\sqrt{\nuti_*^2+y^2}} \right)\,dy
-\end{equation*}
-Ces intégrales ont déjà été calculées précédemment, en utilisant les resultats de \ref{calculIntQ} on obtient finalement :
+\end{equation}
+These integrals have been computed in section \ref{calculIntQ}. Using \eqref{intQ}, we get :
 \begin{equation}
 I_4^*=\frac{2}{\nuti(a+b)}\left(\rog{a/\nuti_*}+\rog{b/\nuti_*} \right)
 \label{valI4}
 \end{equation}
-\section{Calcul de $I_5^*$}
+
+\section{Integral $I_5^*$}
 \label{calcI5}
-On rappelle:
+
+Integral $I_5^*$ is defined by :
 \begin{equation}
 I_5^*=\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)(y-ia)\sqrt{\nuti_*^2+y^2}}\,dy
 \end{equation}
-La formule \eqref{decomp2} donne 
+Using decomposition \eqref{decomp1} we get
 $$ I_5^*=\frac{i}{a+b}\int_{-\infty}^{+\infty}\left( \frac{y^2}{(y+ib)\sqrt{\nuti^2_*+y^2}}-\frac{y^2}{(y-ia)\sqrt{\nuti_*^2+y^2}}\right)\,dy $$
 On reconnait le calcul mené précédemment. En appliquant la formule \eqref{y2_D}, on obtient :
 % En appliquant le changement de variables \eqref{changevar}, on a
