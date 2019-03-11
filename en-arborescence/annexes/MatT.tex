@@ -392,7 +392,7 @@ Integrals $J_3^1$ and $J_5^1$ are computed in sections \ref{calculJ3} and \ref{c
 \subsection{3D elastic case}
 \label{finalT3D}
 
-\subsubsection{Termes L}
+\subsubsection{L terms}
 We begin by computing the terms derived from $\mathbf{tm}_L$, defined by \eqref{tmL3D}.
 \begin{multline}
 \mathcal{T}_1^L(a,b)= \mu \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_L(iy)+\sin(2\varphi)(y^2+\zeta_L^2(iy))\rbrack}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+ \zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
@@ -434,8 +434,8 @@ We begin by computing the terms derived from $\mathbf{tm}_L$, defined by \eqref{
 \hfill=2\mu\tau^2\lbrack i\sin\varphi J_5^L+\epsilon\cos\varphi J_3^L \rbrack \hfill
 \end{multline}
 
-\subsubsection{Termes TH}
-Let us now compute $\mathbf{tm}_{TH}$ donnée par \eqref{tmTH}.
+\subsubsection{TH terms}
+Let us now compute terms derived from $\mathbf{tm}_{TH}$, defined by \eqref{tmTH}.
 \begin{multline}
 \mathcal{T}_1^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{-2i\sin(2\varphi).y\zeta_T(iy)+\epsilon \cos (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
 \hfill=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right) \lbrack 2i\sin(2\varphi)J_1^T+\epsilon\cos(2\varphi)(2J_2^T+\nuti_T^2 J_3^T)\rbrack \hfill
@@ -460,11 +460,11 @@ Let us now compute $\mathbf{tm}_{TH}$ donnée par \eqref{tmTH}.
 \mathcal{T}_8^{TH}(a,b)=\mu\tau\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{\cos\varphi.y^2-i\epsilon\sin\varphi.y\zeta_T(iy)}{(y-ia)\zeta_T(iy)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack}\\
 \hfill =\mu\tau\left(1+\frac{\tau^2}{\nuti_T^2}\right)\lbrack i\epsilon\sin\varphi J_6^T+\cos\varphi J_7^T\rbrack  \hfill
 \end{multline}
-On précise que l'on a 
+In addition, we have
 $$ \mathcal{T}_3^{TH}=\mathcal{T}_6^{TH}=\mathcal{T}_9^{TH}=0 $$
 
-\subsubsection{Termes TV}
-Pour finir, on calcule les termes issus de la matrice $\mathbf{tm}_{TV}$, donnée par \eqref{tmTV}.
+\subsubsection{TV terms}
+Finally, we compute terms derived from $\mathbf{tm}_{TV}$, defined by \eqref{tmTV}.
 
 \begin{multline}
 \mathcal{T}_1^{TV}(a,b)= \mu\frac{\tau^2}{\nuti^2_T} \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_T(iy)+\sin(2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
@@ -503,4 +503,4 @@ Pour finir, on calcule les termes issus de la matrice $\mathbf{tm}_{TV}$, donné
 \hfill=\mu(\nuti_T^2-\tau^2)\lbrack \epsilon\cos\varphi J_3^T+i\sin\varphi  J_5^T \rbrack \hfill
 \end{multline}
 
-Ceci achève le calcul des coefficients de la matrice $\mathbb{T}_{kl}$. Une première vérification qui a été effectuée est que les termes divergents issus des intégrales $J_1^*$ à $J_8^*$ se compensent bien lorsque l'on somme les termes L, TH et TV des matrices.
+This concludes computation of coefficients of matrix $\mathbb{T}_{kl}$. It has been verified that all diverging terms that appear in integral $J_1^*$ to $J_8^*$ compensate each other when the L, TH and TV terms are summed.
