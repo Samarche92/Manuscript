@@ -300,7 +300,47 @@ where $C_0$ is depicted on Fig.~\ref{chapter5:figure3}.
 
 \begin{figure}[ht]%
 \begin{center}
-  \includegraphics[width=0.45\textwidth]{images/chapter2/Figure3}
+ \begin{tikzpicture}
+\draw[step=1.5cm,gray,very thin,dashed](-1,-2.7)grid(5.7,3.7);
+%\draw[thin](-1,0)-- (0,0);
+\draw[thin] (-1,0)  -- (5,0) node[above]{$\sigma$};
+%\drawn[thin] -- (pi+1,0) node[below]{$\sigma$};
+\draw[thin](0,-2.5)--(0,3.5) node[left]{$\tau$};
+\foreach \x in {pi} {  
+  \draw (\x,-1pt) -- (\x,1pt) node[pos=0,above] {$\pi$};
+  }
+
+\node at (-0.2,0.2) {$0$};
+\node at (0.92,0.3) {$\bar{\theta}_s$};
+%\node at (3.5,-3.8) {$(\mathcal{C}_\xi)$};
+\node at (3.5,-2.6) {$\mathcal{C}_0$};
+\node at (1.7,-1.5) {$\gamma_0$};
+
+\draw[black,very thick][domain=0:3.5] plot({2*pi/7 - acos(1/cosh(\x))*pi/180},\x);
+\draw[black,very thick][domain=-2.8:0] plot({2*pi/7 + acos(1/cosh(\x))*pi/180},\x);
+\draw[very thick,black,xshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.8 with {\arrow{latex}}},
+      postaction={decorate}]
+      (0.3,-0.2) arc (270:180:0.2) -- (0.1,3); 
+\draw[very thick,black,yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.5 with {\arrow{latex}}},
+      postaction={decorate}]
+      (pi-0.2,-0.2) -- (0.3,-0.2) ;
+%\draw[very thick] (0.3,0) arc (270:180:0.2);
+
+\draw[very thick,black,xshift=89.5pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.5 with {\arrow{latex}}},
+      postaction={decorate}]
+      (0,-2.8) -- (0,-0.4) arc (0:90:0.2) ;
+      \draw[very thick,black,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}}},
+      postaction={decorate}]
+      (1.3988,-pi/6)  -- (0.3964,pi/6);  
+\end{tikzpicture}
 \end{center}
 \caption
 [Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\lambda = \sigma + i\tau$]
@@ -1150,7 +1190,7 @@ Some numerical results are presented in the sequel.
 
 In this section, a far-field ($k_0r>>1$) asymptotic evaluation of the diffraction coefficient is computed using the stationary phase method :
 \begin{equation}
-\label{GTDCoeff_SF}
+%\label{GTDCoeff_SF}
 D(\theta) = \dfrac{e^{-i\frac{\pi}{4}}}{\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( \varphi - \theta))]
 \end{equation}
 (where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are the spectral functions) is compared to the analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void as expressed by Sommerfeld \cite{Sommerfeld}. Keller \cite{GTD} gives an analytical expression of the GTD approximation of the coefficient in the case of the diffraction of a scalar plane wave by a wedge with Dirichlet boundary conditions which can be used in the case of a stress-free wedge immersed in a fluid :
