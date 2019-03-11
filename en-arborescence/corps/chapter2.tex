@@ -288,6 +288,104 @@ v(\mathbf{x}) = v_1^0(x_1,y_1) + v_2^0(x_2,y_2)
 
 One of the goals of this chapter is to compute the spectral functions $\hat{\alpha}_1(\xi)$ and $\hat{\alpha}_2(\xi)$ in order to find the GTD diffraction coefficient \eqref{GTDCoeff_SF}. The accuracy of the spectral functions method is evaluated in section 4 by comparing results of \eqref{GTDCoeff_SF} with \eqref{GTDCoeff_Dir} in the case of Dirichlet boundary conditions and \eqref{GTDCoeff_Neu} in the case of Neumann boundary conditions. Section \ref{Chapter5:resolution} is devoted to the computation of the spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$.
 
+\subsection{Far-field asymptotics}
+\label{CoeffDiffAc}
+
+Variable change $\xi = \cos \beta$, ${\rm d} \xi = - \sin \beta \, {\rm d}\beta$ allows us to transform \eqref{champ} for $j=1$ in
+\begin{equation}
+\label{face1_solution_exacte}
+v_1^0(r \cos \theta,r \sin \theta) =  \dfrac{i}{4 \pi} \int_{C_0}  e^{i r (\cos \beta \cos \theta - |\sin \theta| \sin \beta)}  \hat{\alpha}_1( \cos \beta) \, {\rm d}\beta,
+\end{equation}
+where $C_0$ is depicted on Fig.~\ref{chapter5:figure3}. 
+
+\begin{figure}[ht]%
+\begin{center}
+  \includegraphics[width=0.45\textwidth]{images/chapter2/Figure3}
+\end{center}
+\caption
+[Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\lambda = \sigma + i\tau$]
+{Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\lambda = \sigma + i\tau$. $\bar{\theta}_s$ is the phase stationary point.}
+\label{chapter5:figure3}
+\end{figure}
+
+
+Let us introduce the variable $\bar{\theta}$ defined as
+\begin{equation}
+\label{obs}
+\begin{cases}
+\bar{\theta} = \theta \qquad \quad \; \text{if } \theta < \pi \\ 
+\bar{\theta} = 2\pi - \theta \quad \text{if } \theta \geq \pi 
+\end{cases}.
+\end{equation}
+Finally, using \eqref{obs} in \eqref{face1_solution_exacte}, we have
+\begin{equation}
+v_1^0(r \cos \theta,r \sin \theta) = \dfrac{i}{4 \pi} \int_{C_0}  e^{i r \cos ( \beta + \bar{\theta})} \hat{\alpha}_1(\cos \beta)  \, {\rm d}\beta.
+\end{equation}
+The same process is applied to \eqref{champ} for $j=2$ and leads to
+\begin{equation}
+v_2^0(r \cos (\varphi - \theta),r \sin (\varphi - \theta)) = \dfrac{i}{4 \pi} \int_{C_0}  e^{i r \cos ( \beta \, + \, \overline{2\varphi - \theta})}  \hat{\alpha}_2( \cos \beta) \, {\rm d}\beta
+\end{equation}
+with $\overline{2\varphi - \theta}$ defined in the same way as \eqref{obs}. The saddle point of this two last equations, is respectively $\beta = \bar{\theta}_s = \pi - \bar{\theta} $ and $\beta = \bar{\theta}_s = \pi - \overline{2\varphi-\theta}$. These saddle points are always in the interval $[0,\pi]$. Poles of the integrand functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ can be crossed during the deformation contour of $C_0$ into the steepest descent path $\gamma_0$ (see Fig.~\ref{chapter5:figure3}). Since the imaginary part of the poles of $\hat{\alpha}_1$ and $\hat{\alpha}_2$ is always positive (see section \ref{Chapter5:sing_part}), poles of $\hat{\alpha}_1$ which are crossed are
+\begin{equation}
+\{\theta_1^k  \mid \;  \text{Re}(\theta_1^k) \leq \pi - \bar{\theta})  \}, \quad k \in \mathbb{N}
+\end{equation}
+and those of $\hat{\alpha}_2$ are
+\begin{equation}
+\{\theta_2^k \mid \;\text{Re}(\theta_2^k) \leq \pi -\overline{2\varphi - \theta})
+ \}, \quad k \in \mathbb{N}. 
+\end{equation}
+Being crossed, these poles contribute to the integrals \eqref{champ} and lead to the geometrical field. Their contribution is calculated using the residue theorem and is respectively:
+\begin{equation}
+\label{geometrical_field1}
+v_1^{0 \rm(poles)}(x_1,y_1) =  \dfrac{1}{2} \dfrac{V_1^k}{\sin \theta_1^k} \,  e^{i r \cos \left( \theta_1^k  + \bar{\theta} \right)}, \quad k \in \mathbb{N}   
+\end{equation}
+and
+\begin{equation}
+\label{geometrical_field2}
+v_2^{0 \rm (poles)}(x_2,y_2) =  \dfrac{1}{2} \dfrac{V_2^k}{\sin \theta_2^k} \,  e^{i r \cos \left( \theta_2^k  + \overline{2\varphi - \theta} \right)}, \quad k \in \mathbb{N}  
+\end{equation}
+with $V_1^k$ and $V_2^k$ being the residues of the poles $\theta_1^k$ and $\theta_2^k$ to the spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ respectively. These poles and their corresponding residues are determined in section \ref{Chapter5:sing_part}. The contribution of the poles $\theta_1^k$ in \eqref{geometrical_field1} [$\theta_2^k$ in \eqref{geometrical_field2} respectively] corresponds to the incident (for the first pole, $k=1$) and reflected waves ($k>1$) on the $F_1$ ($F_2$ respectively) face of the wedge. 
+
+
+The contribution of the integrand crossed poles during the contour deformation having been calculated, the resulting integral after the contour deformation is approximated using the steepest descent method (see appendix \ref{appendix:SteepestDescentMethod}). The contribution of the saddle points $  \bar{\theta}_s $ is respectively:
+\begin{equation}
+\label{diffracted_field1}
+v_1^{0 \rm (diff)}(x_1,y_1) = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}}\dfrac{e^{-ir}}{\sqrt{r}} \hat{\alpha}_1( - \cos \theta)   
+\end{equation}
+and
+\begin{equation}
+\label{diffracted_field2}
+v_2^{0 \rm (diff)}(x_2,y_2) = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}} \dfrac{e^{-ir}}{\sqrt{r}} \hat{\alpha}_2( - \cos ( 2\varphi - \theta)).   
+\end{equation}
+Finally at far-field, $r \gg 1$, using \eqref{initial_sol}, \eqref{geometrical_field1} - \eqref{diffracted_field2}, the GTD total field is 
+\begin{equation}
+v^{\rm tot(GTD)} = v^{\rm (GE)} + v^{\rm diff(GTD)}
+\end{equation}
+where
+\begin{equation}
+v^{\rm (GE)} = \sum_k \dfrac{V_1^k}{2 \sin \theta_1^k} \,  e^{i r \cos \left( \theta_1^k  + \bar{\theta} \right)} H(\pi - \overline{\theta} - \text{Re}(\theta_1^k)) + \dfrac{V_2^k}{2 \sin \theta_2^k} \,  e^{i r \cos \left( \theta_2^k  + \bar{\theta} \right)} H(\pi - \overline{2\varphi - \theta} - \text{Re}(\theta_2^k))
+\end{equation}
+and
+\begin{equation}
+\label{Chapter5:diff_field}
+v^{\rm diff(GTD)} = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}} \dfrac{e^{-ir}}{\sqrt{r}} [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( 2\varphi - \theta))].
+\end{equation}
+Using \eqref{Chapter5:dimensionless} and \eqref{Chapter5:diff_field}, the GTD diffraction coefficient is defined as
+\begin{equation}
+\label{GTDCoeff_SF}
+D^{\rm GTD} = \dfrac{e^{-i\frac{\pi}{4}}}{\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( 2\varphi - \theta))]
+\end{equation}
+where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are unknown spectral functions. 
+
+An analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void is known. This analytic expression is obtained using the Sommerfeld integral method. Bo \cite{BoLu} gives its expression in his thesis for a wedge at interfaces fluid/solid (Neumann boundary conditions). For the Dirichlet boundary conditions, there is a change of sign to consider \cite{Pathak,Babich}:
+\begin{align}
+\label{GTDCoeff_Som}
+D^{\rm GTD (Som)} = \dfrac{e^{i\frac{\pi}{4}}}{2n \sqrt{2\pi}}  \, \left[ \cot \left( \dfrac{\pi + (\theta + \theta_{\rm inc})}{2n} \right) + \cot \left( \dfrac{\pi - (\theta + \theta_{\rm inc})}{2n} \right) \right.   \nonumber \\
+\left. - \cot \left( \dfrac{\pi + (\theta - \theta_{\rm inc})}{2n} \right) - \cot \left( \dfrac{\pi - (\theta + \theta_{\rm inc})}{2n} \right) \right] 
+\end{align}
+with $n=2\varphi/\pi$.
+
+One of the aims of this chapter is to compute the spectral functions $\hat{\alpha}_1(\xi)$ and $\hat{\alpha}_2(\xi)$ in order to find the GTD diffraction coefficient \eqref{GTDCoeff_SF}. The accuracy of the spectral functions method could therefore be evaluated by comparing results of \eqref{GTDCoeff_SF} with \eqref{GTDCoeff_Som}. The section \ref{Chapter5:resolution} is then devoted to the computation of the spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$.
 
 \section{Spectral functions computation}
 \label{Chapter5:resolution}
