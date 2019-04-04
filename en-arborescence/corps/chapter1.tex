@@ -12,7 +12,7 @@ The first approximation that can be applied to the study of wave propagation in 
     \frac{1}{c_{\alpha}}\cos\theta_{\alpha} = \frac{1}{c_{\beta}} \cos\theta_{\beta}
     \label{Snellrefl}
 \end{equation}
-In all this thesis, $\alpha=L,TH or TV$ represents the type of the incident wave (\acrshort{L} for Longitudinal, \acrshort{TH} for Transverse Horizontal and \acrshort{TV} for Transverse Vertical) and $\beta$ is the type of the reflected, transmitted of diffracted wave.
+In all this thesis, $\alpha=L,TH$ or $TV$ represents the type of the incident wave (\acrshort{L} for Longitudinal, \acrshort{TH} for Transverse Horizontal and \acrshort{TV} for Transverse Vertical) and $\beta$ is the type of the reflected, transmitted of diffracted wave.
 
 When the incident wave meets a surface containing an edge, the propagation medium can be decomposed into four zones (see Fig.~\ref{illuzones}) :
 \begin{itemize}
@@ -60,11 +60,11 @@ The \acrshort{gtd} is also a ray tracing method, meaning that at a given observa
 \begin{equation}
     \mathbf{u^{tot}}(M)=\mathbf{u^{(GE)}}(M)+\sum_{\beta} \mathbf{u^{diff}_{\beta}}(M)
 \end{equation}
-where $u^{(GE)}$ is the \acrshort{ge} displacement field, composed of the incident, reflected and refracted fields and $u^{diff}_{\beta}$ is the diffracted field of type $\beta=L,TH,TV$. In this chapter, the bold font is used to denote vectors. The diffracted field's amplitude decreases as the distance $r$ from the point of impact $x_{\beta}^{\alpha}$ of the incident wave on the diffracting edge grows. As for the \acrshort{ge} field, the diffracted field is proportional to the field incident on the edge and this proportionality is characterized by a multiplicative coefficient called the diffraction coefficient, which depends on the propagation medium, on the geometry of the diffracting object and on the direction of observation. This is summarized by the following equation :
+where $\mathbf{u^{(GE)}}$ is the \acrshort{ge} displacement field, composed of the incident, reflected and refracted fields and $\mathbf{u^{diff}_{\beta}}$ is the diffracted field of type $\beta=L,TH,TV$. In this chapter, the bold font is used to denote vectors. The diffracted field's amplitude decreases as the distance $r$ from the point of impact $x_{\beta}^{\alpha}$ of the incident wave on the diffracting edge grows. As for the \acrshort{ge} field, the diffracted field is proportional to the field incident on the edge and this proportionality is characterized by a multiplicative coefficient called the diffraction coefficient, which depends on the propagation medium, on the geometry of the diffracting object and on the direction of observation. This is summarized by the following equation :
 \begin{equation}
     \mathbf{u}_{\beta}^{diff}(M)=u_{\alpha}^{inc}(x_{\beta}^{\alpha})D_{\beta}^{\alpha}(M)\dfrac{e^{ik_{\beta}r}}{\sqrt{k_{\beta}R_{\beta}^{diff}}}\mathbf{e_{\beta}}(M)
 \end{equation}
-where $u_{\alpha}^{inc}$ is the value of the incident field, $D_{\beta}^{\alpha}$ is the diffraction coefficient, $k_{\beta}$ is the diffracted wave's wave number, $\mathbf{e_{\beta}}(M)$ is the unit polarisation vector of the diffracted wave at point M and $R_{\beta}^{diff}$ is a distance parameter which will be computed later, at section \ref{}.
+where $\mathbf{u_{\alpha}^{inc}}$ is the value of the incident field, $D_{\beta}^{\alpha}$ is the diffraction coefficient, $k_{\beta}$ is the diffracted wave's wave number, $\mathbf{e_{\beta}}(M)$ is the unit polarisation vector of the diffracted wave at point M and $R_{\beta}^{diff}$ is a distance parameter which will be computed later, at section \ref{}.
 
 This principle is called the locality principle, because it stipulates that the value of the field at any given point is fully determined by the field in the close vicinity of the point from which the ray carrying this field emanates. Computation of diffracted fields can therefore be reduced to a number of canonical problems, such as diffraction by a tip or a half plane. In the present thesis, the canonical problem of interest is diffraction by a wedge.
 
@@ -74,6 +74,13 @@ The \acrshort{gtd} is a high-frequency model which accounts for edge-diffracted 
 %% Maybe details only for UTD. Name PTD and UAT with principle behind it but not details (refer to litterature & AKD for these), give shortcomings and why need for UTD. Then briefly describe UTD. In each case, these are corrections of a GTD method -> need for good GTD
 
 \subsection{\acrfull{ka}}
+The \acrfull{ka}, also called \acrfull{po} was first developed in optics by Baker and Copson \cite{POoptics} before being extended to acoustic and electromagnetic waves \cite{POtechreport, POLewis} before being adapted by Chapman to elastic waves \cite{POChapman}, where it is essentially used for NDT applications \cite{Schmerr,Dorval}.
+
+The Kirchoff Approximation is a high frequency approximation for which the scattering surface is assumed to behave locally like a plane. This means that for each point of the surface, the plane tangent to the surface at that point is determined and the displacement field on the illuminated side is computed using \acrshort{ge}. The other side of the plane is shadowed and the total displacement field vanishes. The jump in the displacement between both sides of this plane is called \acrfull{cod} and noted $\lbrack \mathbf{u}(\mathbf{x}) \rbrack$. It appears in an integral formulation of the scattered field, called the Rayleigh-Sommerfeld integral :
+\begin{equation}
+u_p(\mathbf{x})=\int_{S^+}\lbrack u_i(\mathbf{x'})G_{ij}^{(p)}(\mathbf{x},\mathbf{x'})n_j(\mathbf{x'})\,d^2\mathbf{x'}
+\end{equation}
+
 \subsection{\acrfull{ptd}}
 \subsection{\acrfull{uat}}
 \subsection{\acrfull{utd}}
