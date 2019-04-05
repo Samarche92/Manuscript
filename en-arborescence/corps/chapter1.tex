@@ -108,16 +108,40 @@ Substituting this into \eqref{eqPTD}, we find that in these regions, the \acrsho
 The Physical theory of diffraction has been developed in the \acrshort{ndt} software platform CIVA \cite{systmodel}. It provides a good description of the scattered field in the directions of specular reflection, as well as far from the shadow boundaries. However, it requires meshing of the scattering surface for the \acrshort{ka} model as well as meshing of the flaw contour for the \acrshort{gtd} model. Another uniform model has been developed, called the \acrfull{uat}.
 
 \subsection{\acrfull{uat}}
-The \acrfull{uat} was first developed in for acoustics and electromagnetics by Lewis and Boersma \cite{Lewis} before being extended to elastodynamics by Achenbach et al. \cite{Achenbach}. It is a correction of the \acrshort{gtd} model where the \acrshort{ge} field is modified to compensate the divergence in the \acrshort{gtd} field and smooth the discontinuity in the \acrshort{ge} field. The total field \eqref{GTDtot} becomes :
+The \acrfull{uat} was first developed in for acoustics and electromagnetics by Lewis and Boersma \cite{Lewis} in two dimensions and was extended to three-dimensional problems by Ahluwalia \cite{Ahluwalia} and to a curved wedge by Lee and Deschamps \cite{LeeDeschamps} before being extended to elastodynamics by Achenbach et al. \cite{Achenbach}. It is a correction of the \acrshort{gtd} model where the \acrshort{ge} field is modified to compensate the divergence in the \acrshort{gtd} field and smooth the discontinuity in the \acrshort{ge} field. The total field \eqref{GTDtot} becomes :
 \begin{equation}
 \mathbf{u}^{tot(UAT)}(\mathbf{x})=\left[ \overline{F}(\xi_{\alpha})-\hat{\overline{F}}(\xi_{\alpha})\right]\mathbf{u}_{\alpha}(\mathbf{x})+\sum_{\beta} \left[ \overline{F}(\xi_{\beta})-\hat{\overline{F}}(\xi_{\beta})\right]\mathbf{u}^{ref}_{\beta}(\mathbf{x})+\mathbf{u}_{\beta}^{diff(GTD)}(\mathbf{x})
 \label{eqUAT}
 \end{equation}
-where $\hat{\overline{F}}$ is the Fresnel function, defined by :
+where $\overline{F}$ is the Fresnel function, defined by 
 \begin{equation}
-\hat{\overline{F}}(X)=\frac{1}{\sqrt{i\pi}}\int_X^{+\infty}
+\overline{F}(X)=\frac{1}{\sqrt{i\pi}}\int_X^{+\infty} e^{it^2}\,dt
 \label{defFresnel}
 \end{equation}
+and 
+\begin{equation}
+\hat{\overline{F}}(X)=e^{i\frac{\pi}{4}}\dfrac{e^{iX^2}}{2X\sqrt{\pi}}
+\end{equation}
+$\mathbf{u}^{ref}_{\beta}$ is the reflected field of type $\beta$, $\mathbf{u}_{\beta}^{diff(GTD)}$ is the \acrshort{gtd} diffracted field of type $\beta$ and $\xi_{\alpha}$ and $\xi_{\beta}$ are detour parameters defined in \cite{LeeDeschamps}. They evaluate the proximity of the observation point to the shadow boundary of the incident wave for $\xi_{\alpha}$ and of the reflected wave for $\xi_{\beta}$. The presence of the Fresnel function $\overline{F}$ smooths the discontinuity in the \acrshort{ge} field while the function $\hat{\overline{F}}$ compensates the divergence of the \acrshort{gtd} diffracted field. Therefore, the total \acrshort{uat} field is spatially uniform.
+
+In \eqref{eqUAT} the incident and reflected fields are defined in the the whole space, this means in particular that they must be extended to their shadow zones. This is achieved by constructing the fictitious rays in the shadow zones \cite{Bouche,Molinet}, see Fig.~\ref{FictRays}. This makes \acrshort{uat} difficult to implement for complex geometries. A uniform model which is simpler to implement, the \acrfull{utd} has therefore been developed.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter1/FictitiousStraight.png}
+        \caption{Fictitious rays constructed in the case of a straight scatterer}
+        \label{Straightfict}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter1/FictitiousCurved.png}
+        \caption{Fictitious rays constructed in the case of a curved scatterer}
+        \label{Curvedfict}
+    \end{subfigure}
+    \caption{(Reproduced from \cite{Bouche,Molinet}) Extension of the reflected field to its shadow zone using fictitious rays. Dashed thick lines are extensions of the scatterers beyond the crack edge and dashed thin lines are incident and fictitious reflected rays on these extensions}
+    \label{FictRays}
+\end{figure}
 
 \subsection{\acrfull{utd}}
 
