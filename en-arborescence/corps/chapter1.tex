@@ -163,6 +163,16 @@ where $R_{\beta}^{diff}$ is the divergence factor of the diffracted wave and $R_
 \end{equation}
 $\overline{F}$ is the Fresnel function defined by \eqref{defFresnel}.
 
+Far from the shadow boundaries, $\zeta a_{\beta}^j >>1$ and
+\begin{equation}
+F(\zeta a_{\beta}^j) \rightarrow 1 \mbox{ and } (-1)^{M_{\beta}+1}\left[ \sum_{j=1}^{M_{\beta}} \prod_{\underset{k\neq j}{k=1}}^{M_{\beta}} \dfrac{s_\beta^{k}}{(s_\beta^{j}-s_\beta^{k})}\right]=1
+\end{equation}
+In this case, the \acrshort{utd} solution for the diffracted field is the same as the \acrshort{gtd} diffracted field. Close to the shadow boundaries, Kamta-Djakou \cite{AKDthese} has shown that the transition functions makes the diffracted field discontinuous when crossing shadow boundaries and that these irregularities compensate exactly those of the \acrshort{ge} field, so that the total field computed using \eqref{GTDtot} is uniform.
+
+The \acrfull{utd} has been validated numerically in far-field configurations in \cite{AKDthese}. It models the diffracted field well and provides a spatially uniform solution while being simple to implement.
+
+The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all uniform \textit{corrections} of the \acrshort{gtd} field. This means that they all rely on a preexisting \acrshort{gtd} solution, which must therefore be accurate. In the following, the two main existing\acrshort{gtd} approaches to the problem of diffraction of an elastic wave by a stress-free wedge are presented.
+
 \section{Principal \acrshort{gtd} elastic wedge diffraction models}
 \subsection{The \acrfull{si} Method}
 \subsection{The \acrfull{lt} Method}
