@@ -58,7 +58,8 @@ Rahmat-Samii \cite{ConePhoto} has observed this cone in a hotel room, see Fig.~\
 
 The \acrshort{gtd} is also a ray tracing method, meaning that at a given observation point $M$, the total field $\mathbf{u^{tot}}$ is the sum of the fields carried by each ray passing through $M$ :
 \begin{equation}
-    \mathbf{u^{tot}}(M)=\mathbf{u^{(GE)}}(M)+\sum_{\beta} \mathbf{u^{diff}_{\beta}}(M)
+    \mathbf{u}^{tot}(M)=\mathbf{u}^{(GE)}(M)+\sum_{\beta} \mathbf{u}^{diff}_{\beta}(M)
+    \label{GTDtot}
 \end{equation}
 where $\mathbf{u^{(GE)}}$ is the \acrshort{ge} displacement field, composed of the incident, reflected and refracted fields and $\mathbf{u^{diff}_{\beta}}$ is the diffracted field of type $\beta=L,TH,TV$. In this chapter, the bold font is used to denote vectors. The diffracted field's amplitude decreases as the distance $r$ from the point of impact $x_{\beta}^{\alpha}$ of the incident wave on the diffracting edge grows. As for the \acrshort{ge} field, the diffracted field is proportional to the field incident on the edge and this proportionality is characterized by a multiplicative coefficient called the diffraction coefficient, which depends on the propagation medium, on the geometry of the diffracting object and on the direction of observation. This is summarized by the following equation :
 \begin{equation}
@@ -71,7 +72,6 @@ This principle is called the locality principle, because it stipulates that the 
 The \acrshort{gtd} is a high-frequency model which accounts for edge-diffracted waves. However, the resulting field is discontinuous at shadow boundaries and is therefore not physical. Some uniform corrections have been proposed to solve this problem, resulting in continuous fields. They are presented in the following. 
 
 \section{Uniform corrections}
-%% Maybe details only for UTD. Name PTD and UAT with principle behind it but not details (refer to litterature & AKD for these), give shortcomings and why need for UTD. Then briefly describe UTD. In each case, these are corrections of a GTD method -> need for good GTD
 
 \subsection{\acrfull{ka}}
 The \acrfull{ka}, also called \acrfull{po} was first developed in optics by Baker and Copson \cite{POoptics} before being extended to acoustic and electromagnetic waves \cite{POtechreport, POLewis} before being adapted by Chapman to elastic waves \cite{POChapman}, where it is essentially used for \acrshort{ndt} applications \cite{Schmerr,Dorval}.
@@ -90,9 +90,9 @@ The \acrshort{gtd} solution models diffraction well is non-uniform in the sense 
 \subsection{\acrfull{ptd}}
 The \acrfull{ptd} was first developed for acoustic and electromagnetic waves by Ufmitsev \cite{Ufmi} and was extended to elastodynamics by Darmon et al. \cite{DarmonKA}. The idea is to combine \acrshort{gtd} and \acrshort{ka} models to overcome their shortcomings. This is done by adding a corrective term to the \acrshort{ka} diffracted field which is the difference between the \acrshort{gtd} and the \acrshort{ka} diffracted fields :
 \begin{equation}
-\mathbf{u}^{tot (PTD)}=\mathbf{u}^{\alpha}(\mathbf{x})+\mathbf{u}^{sc (PTD)}(\mathbf{x})
+\mathbf{u}^{tot (PTD)}=\mathbf{u}_{\alpha}(\mathbf{x})+\mathbf{u}^{sc (PTD)}(\mathbf{x})
 \end{equation}
-where
+where $\mathbf{u}_{\alpha}$ is the incident field and
 \begin{equation}
 \mathbf{u}^{sc (PTD)}(\mathbf{x})=\sum_{\beta}\left[\mathbf{u}^{\alpha(KA)}_{\beta}(\mathbf{x})+u_{\alpha}(\mathbf{x}_{\beta}^{\alpha})\left(D_{\beta}^{\alpha(GTD)}(\mathbf{x})-D_{\beta}^{\alpha(KA)}(\mathbf{x})\right)\dfrac{e^{ik_{\beta}S_{\beta}}}{\sqrt{k_{\beta}R_{\beta}^{diff}}}\right]
 \label{eqPTD}
@@ -105,9 +105,20 @@ Far from the incident and specular directions, we have :
 \end{equation}
 Substituting this into \eqref{eqPTD}, we find that in these regions, the \acrshort{ka} contribution vanishes and only the \acrshort{gtd} field remains, which models diffraction accurately.
 
-The Physical theory of diffraction has been developed in the \acrshort{ndt} software platform CIVA \cite{systmodel}. It provides a good description of the scattered field in the directions of specular reflection, as well as far from the shadow boundaries. However, it requires meshing of the scattering surface for the \acrshort{ka} model as well as meshing of the flaw contour for the \acrshort{gtd} model. Another uniform model has been developed, called the \acrfull{uat}
+The Physical theory of diffraction has been developed in the \acrshort{ndt} software platform CIVA \cite{systmodel}. It provides a good description of the scattered field in the directions of specular reflection, as well as far from the shadow boundaries. However, it requires meshing of the scattering surface for the \acrshort{ka} model as well as meshing of the flaw contour for the \acrshort{gtd} model. Another uniform model has been developed, called the \acrfull{uat}.
 
 \subsection{\acrfull{uat}}
+The \acrfull{uat} was first developed in for acoustics and electromagnetics by Lewis and Boersma \cite{Lewis} before being extended to elastodynamics by Achenbach et al. \cite{Achenbach}. It is a correction of the \acrshort{gtd} model where the \acrshort{ge} field is modified to compensate the divergence in the \acrshort{gtd} field and smooth the discontinuity in the \acrshort{ge} field. The total field \eqref{GTDtot} becomes :
+\begin{equation}
+\mathbf{u}^{tot(UAT)}(\mathbf{x})=\left[ \overline{F}(\xi_{\alpha})-\hat{\overline{F}}(\xi_{\alpha})\right]\mathbf{u}_{\alpha}(\mathbf{x})+\sum_{\beta} \left[ \overline{F}(\xi_{\beta})-\hat{\overline{F}}(\xi_{\beta})\right]\mathbf{u}^{ref}_{\beta}(\mathbf{x})+\mathbf{u}_{\beta}^{diff(GTD)}(\mathbf{x})
+\label{eqUAT}
+\end{equation}
+where $\hat{\overline{F}}$ is the Fresnel function, defined by :
+\begin{equation}
+\hat{\overline{F}}(X)=\frac{1}{\sqrt{i\pi}}\int_X^{+\infty}
+\label{defFresnel}
+\end{equation}
+
 \subsection{\acrfull{utd}}
 
 \section{Principal \acrshort{gtd} elastic wedge diffraction models}
