@@ -74,7 +74,7 @@ The \acrshort{gtd} is a high-frequency model which accounts for edge-diffracted 
 %% Maybe details only for UTD. Name PTD and UAT with principle behind it but not details (refer to litterature & AKD for these), give shortcomings and why need for UTD. Then briefly describe UTD. In each case, these are corrections of a GTD method -> need for good GTD
 
 \subsection{\acrfull{ka}}
-The \acrfull{ka}, also called \acrfull{po} was first developed in optics by Baker and Copson \cite{POoptics} before being extended to acoustic and electromagnetic waves \cite{POtechreport, POLewis} before being adapted by Chapman to elastic waves \cite{POChapman}, where it is essentially used for NDT applications \cite{Schmerr,Dorval}.
+The \acrfull{ka}, also called \acrfull{po} was first developed in optics by Baker and Copson \cite{POoptics} before being extended to acoustic and electromagnetic waves \cite{POtechreport, POLewis} before being adapted by Chapman to elastic waves \cite{POChapman}, where it is essentially used for \acrshort{ndt} applications \cite{Schmerr,Dorval}.
 
 The Kirchoff Approximation is a high frequency approximation for which the scattering surface is assumed to behave locally like a plane. This means that for each point of the surface, the plane tangent to the surface at that point is determined and the displacement field on the illuminated side is computed using \acrshort{ge}. The other side of the plane is shadowed and the total displacement field vanishes. The jump in the displacement between both sides of this plane is called \acrfull{cod} and noted $\lbrack \mathbf{u}(\mathbf{x}) \rbrack$. It appears in an integral formulation of the scattered field, called the Rayleigh-Sommerfeld integral \cite{POChapman} :
 \begin{equation}
@@ -95,8 +95,17 @@ The \acrfull{ptd} was first developed for acoustic and electromagnetic waves by 
 where
 \begin{equation}
 \mathbf{u}^{sc (PTD)}(\mathbf{x})=\sum_{\beta}\left[\mathbf{u}^{\alpha(KA)}_{\beta}(\mathbf{x})+u_{\alpha}(\mathbf{x}_{\beta}^{\alpha})\left(D_{\beta}^{\alpha(GTD)}(\mathbf{x})-D_{\beta}^{\alpha(KA)}(\mathbf{x})\right)\dfrac{e^{ik_{\beta}S_{\beta}}}{\sqrt{k_{\beta}R_{\beta}^{diff}}}\right]
+\label{eqPTD}
 \end{equation}
-where  $\mathbf{u}^{\alpha(KA)}_{\beta}$ is obtained by \eqref{intKA}, $D_{\beta}^{\alpha(GTD)}$ is the \acrshort{gtd} diffraction coefficient and $D_{\beta}^{\alpha(KA)}$ is the \acrshort{ka} diffraction coefficient obtained by an asymptotic evaluation of \eqref{intKA}, for $k_{\beta}S_{\beta}>>1$ (see appendix \ref{PhaseStationnaire}), which correspond to the contribution of the scattering edges to the Rayleigh-Sommerfeld integral. In the far-field, the \acrshort{ka} diffraction coefficient
+where  $\mathbf{u}^{\alpha(KA)}_{\beta}$ is obtained by \eqref{intKA}, $D_{\beta}^{\alpha(GTD)}$ is the \acrshort{gtd} diffraction coefficient and $D_{\beta}^{\alpha(KA)}$ is the \acrshort{ka} diffraction coefficient obtained by an asymptotic evaluation of \eqref{intKA}, for $k_{\beta}S_{\beta}>>1$ (see appendix \ref{PhaseStationnaire}), which correspond to the contribution of the scattering edges to the Rayleigh-Sommerfeld integral. In the far-field, the \acrshort{ka} diffraction coefficient diverges at specular directions, compensating the divergence of the \acrshort{gtd} diffraction coefficient. The diffracted field then disappears, leaving only the Kirchhoff evaluation, which is accurate in regions of specular reflection.
+
+Far from the incident and specular directions, we have :
+\begin{equation}
+\mathbf{u}_{\beta}^{\alpha(KA)}(\mathbf{x})\approx \mathbf{u}_{\beta}^{diff(KA)}(\mathbf{x}) \approx u_{\alpha}(\mathbf{x}_{\beta}^{\alpha})D_{\beta}^{\alpha(KA)}(\mathbf{x})\dfrac{e^{ik_{\beta}S_{\beta}}}{\sqrt{k_{\beta}R_{\beta}^{diff}}}
+\end{equation}
+Substituting this into \eqref{eqPTD}, we find that in these regions, the \acrshort{ka} contribution vanishes and only the \acrshort{gtd} field remains, which models diffraction accurately.
+
+The Physical theory of diffraction has been developed in the \acrshort{ndt} software platform CIVA \cite{systmodel}. It provides a good description of the scattered field in the directions of specular reflection, as well as far from the shadow boundaries. However, it requires meshing of the scattering surface for the \acrshort{ka} model as well as meshing of the flaw contour for the \acrshort{gtd} model. Another uniform model has been developed, called the \acrfull{uat}
 
 \subsection{\acrfull{uat}}
 \subsection{\acrfull{utd}}
