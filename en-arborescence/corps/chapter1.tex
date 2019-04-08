@@ -174,5 +174,91 @@ The \acrfull{utd} has been validated numerically in far-field configurations in 
 The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all uniform \textit{corrections} of the \acrshort{gtd} field. This means that they all rely on a preexisting \acrshort{gtd} solution, which must therefore be accurate. In the following, the two main existing \acrshort{gtd} approaches to the problem of diffraction of an elastic wave by a stress-free wedge are presented.
 
 \section{Principal \acrshort{gtd} elastic wedge diffraction models}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\fill[color=gray!20] (0,0) -- (7,0)  -- (7,6.5778) -- (-2.39,6.5778) -- cycle;  
+\draw[ thick, ->] (2,0) arc (0:110:2);
+
+\fill[color=gray!60] (0,0) -- (7,0)  -- (7,-0.5) -- (0,-0.5) -- cycle;  
+
+\fill[color=gray!60] (0,0) --  (-2.39,6.5778) --(-2.9,6.4) -- (-0.5,-0.2) -- cycle; 
+
+
+\draw[color = black]  (0,0) -- (7,0) node[midway,below] {($\mathcal{S}_1$) bottom free surface};
+
+\draw[color = black]  (0,0) -- (-2.39,6.5778) node[midway,below,sloped] { ($\mathcal{S}_2$) top free surface};
+
+\draw[very thick, ->] (-2.39,6.5778) -- (-2.69,7.42);
+
+\node[scale=1] at (-2.5,7.7){ $\mathbf{e}_{x_2}$};
+
+\draw[very thick, ->] (-2.39,6.5778) -- (-1.5,6.9);
+
+\node at (-1,7){$\mathbf{e}_{y_2} $};
+
+
+\node at (0.4,2.2){$2 \varphi$} ; 
+
+\draw[very thick, ->] (0,0) -- (1,0);
+
+\node at (1.3,0.2) {$\mathbf{e}_{x_1} $};
+
+\draw[very thick, ->] (0,0) -- (0,1);
+
+\node at (0,1.2){$\mathbf{e}_{y_1} $};
+
+\node at (8,0) {$\bullet$};
+
+\draw[thick] (8,0) circle (0.2);
+
+\node at (8.5,0){$\mathbf{e}_{z}$};
+
+\draw[very thick, ->] (0,0) -- (0.57,0.82);
+
+\node at (0.9,0.8){$\mathbf{e}_x$};
+
+\draw[very thick, ->] (0,0) -- (-0.82, 0.57);
+
+\node at (-1.1,0.7){$\mathbf{e}_y$};
+
+\draw[very thick, ->] (5,5) -- (4,4);
+
+\draw[dashed] (6,4) -- (4,4);
+
+\draw[ thick, ->] (5,4) arc (0:45:1);
+
+\node at (5.3,4.3){$\theta_{\rm inc}$};
+
+\node at (5.4,5.1){$\mathbf{k}_{\rm inc}$};
+
+\node at (-0.1,-0.2){$O$};
+
+\node at (5,1){Isotropic solid};
+
+% point observation
+
+\draw[->] (0,0) -- (2,5); 
+
+\draw[->] (3,0) arc (0:68.2:3);
+
+\draw[dashed] (0,0) -- (2.85,4.1);
+
+\node at (2.6,2){$\theta$};
+
+\node at (1.5,4.3){$r$};
+
+\node at (2.06,5.2){$\mathbf{x}$};
+
+\draw[->] (2.28,3.2) arc (55:68:4);
+
+\node at (2.1,3.8){$\theta'$};
+
+\end{tikzpicture}
+\caption{Stress-free wedge of angle $2\varphi$ illuminated by a plane wave of wave vector $\mathbf{k}^{\rm inc}$.}
+\label{C1:figure1}
+\end{figure}
+
 \subsection{The \acrfull{si} Method}
 \subsection{The \acrfull{lt} Method}
