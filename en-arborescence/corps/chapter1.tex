@@ -64,6 +64,7 @@ where $\Omega_{\alpha}$ is the angle between the incident wave vector $\mathbf{k
 where $\mathbf{u^{(GE)}}$ is the \acrshort{ge} displacement field, composed of the incident, reflected and refracted fields and $\mathbf{u^{diff}_{\beta}}$ is the diffracted field of type $\beta=L,TH,TV$. The diffracted field's amplitude decreases as the distance $r$ from the point of impact $\mathbf{x}_{\beta}^{\alpha}$ of the incident wave on the diffracting edge grows. As for the \acrshort{ge} field, the diffracted field is proportional to the field incident on the edge. This proportionality is characterized by a multiplicative coefficient called the diffraction coefficient, which depends on the propagation medium, on the geometry of the diffracting object and on the direction of observation. This is summarized by the following equation :
 \begin{equation}
     \mathbf{u}_{\beta}^{diff}(\mathbf{x})=u_{\alpha}(x_{\beta}^{\alpha})D_{\beta}^{\alpha}(\theta)\dfrac{e^{ik_{\beta}S_{\beta}}}{\sqrt{k_{\beta}R_{\beta}^{diff}}}\mathbf{e_{\beta}}(\mathbf{x})
+    \label{C1:GTDdiff}
 \end{equation}
 where $u_{\alpha}$ is the scalar value of the incident field, $D_{\beta}^{\alpha}$ is the diffraction coefficient, $\theta$ is the direction of observation, $k_{\beta}$ is the diffracted wave's wave number, $S_{\beta}$ is the distance between the observation point $\mathbf{x}$ and the diffraction point $\mathbf{x}_{\beta}^{\alpha}$ (visible Fig.~\ref{KellerCone}), $\mathbf{e_{\beta}}(M)$ is the unit polarization vector of the diffracted wave at point $\mathbf{x}$ and $R_{\beta}^{diff}$ is a distance parameter which will be computed later, at section \ref{}.
 
@@ -293,7 +294,7 @@ In the case of an incident T wave, the polarization vector is normal to the wave
     \label{SymAntisym}
 \end{figure}
 
-Both of the semi-analytic resolutions that will be described in the following deal with the symmetric and antisymmetric problems separately, in order to reduce the size of the numerical part of the problem by half. The first approach presented is called the \acrfull{si} method.
+Both of the semi-analytic resolutions that will be described in the following deal with the symmetric and antisymmetric problems separately, in order to reduce the size of the numerical part of the problem by half. The first approach presented is called the \acrfull{si} method. The main steps of the resolution will be given but the technical details are not given.
 
 \subsection{The \acrfull{si} Method}
 The \acrfull{si} method was first proposed by Budaev \cite{BudaevBook,Budaev1,Budaev2} and Budaev and Bogy \cite{Rayleigh,Rayleigh2,Rayleigh3} have proposed the corresponding numerical scheme and their theoretical was completed and clarified by Kamotski et al. \cite{KamotskiFradkin}.
@@ -301,8 +302,9 @@ The \acrfull{si} method was first proposed by Budaev \cite{BudaevBook,Budaev1,Bu
 In this approach, the elastodynamic potentials $\psi_L$ and $\psi_T$ are the unknowns. They are related to the displacement field by :
 \begin{equation}
 \mathbf{u}=\mathbf{\nabla}\psi_L+\mathbf{\nabla}\times(\psi_T\mathbf{e}_z)
+\label{C1:elastopotentials}
 \end{equation}
-These potentials satisfy the Helmoltz equations in the angular domain \cite{Achenbach} :
+where $\mathbf{\nabla}$ is the gradient operator and $\mathbf{\nabla}\times$ is the curl operator. These potentials satisfy the Helmoltz equations in the angular domain \cite{Achenbach} :
 \begin{equation}
 \Delta \psi_L+k_L^2\psi_L=0 \mbox{ and } \Delta \psi_T+k_T^2\psi_T=0 \rm \mbox{ for } |\theta'|<\varphi
 \label{C1:Helmoltz}
@@ -317,77 +319,60 @@ Sommerfeld \cite{Sommerfeld} has given an exact expression of these potentials i
 \psi_*(k_*r,\theta')=\int_{\gamma_++\gamma_-}e^{-ik_*r\cos\lambda}\Psi_*(\theta'+\lambda)\,d\lambda
 \label{C1:Sommerfeld}
 \end{equation}
-where $*=L,T$, $\Psi_*$ are unknown amplitudes and contours $\gamma_+$ and $\gamma_-$ are represented on Fig.~\ref{C1:Somcontours}.
+where $*=L,T$,$\lambda$ is a complex angle, $\Psi_*$ are unknown amplitudes and contours $\gamma_+$ and $\gamma_-$ are represented on Fig.~\ref{C1:Somcontours}.
 
 \begin{figure}
 \centering
 \begin{tikzpicture}
-%\draw[step=1.3cm,gray,very thin,dashed](-5.2,-4.7)grid(5.2,4.7);
-\draw[thin](-1,0)-- (0,0);
-\draw[thin] (-5.3,0)  -- (5.8,0) node[above]{$\sigma$};
-%\drawn[thin] -- (pi+1,0) node[below]{$\sigma$};
-\draw[thin](0,-4.7)--(0,4.7) node[left]{$\tau$};
-\draw[thin] (-pi,-4.7)  -- (-pi,4.7);
-\draw[dashed] (-3*pi/2,-4.7)  -- (-3*pi/2,4.7);
-\draw[dashed] (-pi/2,-4.7)  -- (-pi/2,4.7);
-\draw[dashed] (pi/2,-4.7)  -- (pi/2,4.7);
-\draw[dashed] (3*pi/2,-4.7)  -- (3*pi/2,4.7);
-\draw[thin] (pi,-4.7)  -- (pi,4.7);
+\fill[color=gray!20] (0,0) -- (0,3.5)  -- (pi,3.5) -- (pi,0);
+\fill[color=gray!20] (-pi,-3.5) -- (0,-3.5)  -- (0,0) -- (-pi,0);
+\draw[thin] (-4.5,0)  -- (4.5,0) node[above]{$\sigma$};
+\draw[thin](0,-3.5)--(0,3.5) node[left]{$\tau$};
+\draw[thin] (-pi,-3.5)  -- (-pi,3.5);
+\draw[thin] (pi,-3.5)  -- (pi,3.5);
 \node at (-3.4,-0.2) {$-\pi$};
-\node at (-5.05,-0.3) {$-{3\pi \over 2}$};
-\node at (-1.8,-0.3) {$- {\pi \over 2}$};
-\node at (1.7,-0.3) {$ {\pi \over 2}$};
-\node at (4.9,-0.3) {$3\pi \over 2$};
 \node at (3.3,0.2) {$\pi$};
-%foreach \x in {-pi} {  
-%  \draw (\x,-1pt) -- (\x,1pt) node[pos=0,above] {$-\pi$};
-%  }
 \node at (-0.2,0.2) {$0$};
-\node at (-2,1.7) {$\gamma_+$};
-\node at (2,-1.7) {$\gamma_-$};
-\node at (-2.4,-2.6) {$SDC_{-\pi}$};
-\node at (2.4,2.6) {$SDC_{\pi}$};
-\node at (0.5,-0.3) {$SDC_0$};
-%\node at (4, 0.2) {$-\pi + \theta_c'$};
-%\node at (-4.2, 0.2) {$-\pi -\theta_c'$};
+\node at (-2,1.0) {$\gamma_+$};
+\node at (2,-1.0) {$\gamma_-$};
 
 % segment de branche de coupure
-\draw[very thick] (-4, 0) -- (-2.2, 0);
-\draw[very thick] (4, 0) -- (2.2, 0);
-\draw (-4, 0) node {$\bullet$} ;
-\draw (-2.2, 0) node {$\bullet$} ;
-\draw (4, 0) node {$\bullet$} ;
-\draw (2.2, 0) node {$\bullet$} ;
+%\draw[very thick] (-4, 0) -- (-2.2, 0);
+%\draw[very thick] (4, 0) -- (2.2, 0);
+%\draw (-4, 0) node {$\bullet$} ;
+%\draw (-2.2, 0) node {$\bullet$} ;
+%\draw (4, 0) node {$\bullet$} ;
+%\draw (2.2, 0) node {$\bullet$} ;
 
 % sommerfeld contour -pi
-\draw[black,very thick][domain=0:4.8] plot({-pi - acos(1/cosh(\x))*pi/180},\x);
-\draw[black,very thick][domain=-4.8:0] plot({-pi + acos(1/cosh(\x))*pi/180},\x);
+%\draw[black,very thick][domain=0:4.8] plot({-pi - acos(1/cosh(\x))*pi/180},\x);
+%\draw[black,very thick][domain=-4.8:0] plot({-pi + acos(1/cosh(\x))*pi/180},\x);
 
- \draw[very thick,black,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-2.6404,-pi/6)  -- (-3.6428,pi/6); 
+% \draw[very thick,black,
+%decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+%      mark=at position 0.1 with {\arrow{latex}}},
+%      postaction={decorate}]
+%      (-2.6404,-pi/6)  -- (-3.6428,pi/6); 
 
 % sommerfeld contour pi
-\draw[black,very thick][domain=0:4.8] plot({pi - acos(1/cosh(\x))*pi/180},\x);
-\draw[black,very thick][domain=-4.8:0] plot({pi + acos(1/cosh(\x))*pi/180},\x);
+%\draw[black,very thick][domain=0:4.8] plot({pi - acos(1/cosh(\x))*pi/180},\x);
+%\draw[black,very thick][domain=-4.8:0] plot({pi + acos(1/cosh(\x))*pi/180},\x);
 
- \draw[very thick,black,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}}},
-      postaction={decorate}]
-     (2.6404,pi/6) -- (3.6428,-pi/6); 
+% \draw[very thick,black,
+%decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+%      mark=at position 0.1 with {\arrow{latex}}},
+%      postaction={decorate}]
+%     (2.6404,pi/6) -- (3.6428,-pi/6); 
 
 % sommerfeld contour 0
-\draw[black,very thick, dashed][domain=0:4.8] plot({0 + acos(1/cosh(\x))*pi/180},\x);
-\draw[black,very thick, dashed][domain=-4.8:0] plot({0 - acos(1/cosh(\x))*pi/180},\x);
+%\draw[black,very thick, dashed][domain=0:4.8] plot({0 + acos(1/cosh(\x))*pi/180},\x);
+%\draw[black,very thick, dashed][domain=-4.8:0] plot({0 - acos(1/cosh(\x))*pi/180},\x);
 
- \draw[thick,dashed,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}}},
-      postaction={decorate}]
-      ( -0.5012,-pi/6)  -- (0.5012,pi/6); 
+% \draw[thick,dashed,
+%decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+%      mark=at position 0.1 with {\arrow{latex}}},
+%      postaction={decorate}]
+%      ( -0.5012,-pi/6)  -- (0.5012,pi/6); 
 
 \draw[very thick,black,xshift=0pt,
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
@@ -395,7 +380,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
       mark=at position 0.5 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
       postaction={decorate}]
-      (0.2,4.7) -- (0.2,1.5) -- (-pi-0.2,1.5) -- (-pi -0.2,4.7); 
+      (0.2,3.5) -- (0.2,0.8) -- (-pi-0.2,0.8) -- (-pi -0.2,3.5); 
       
 \draw[very thick,black,xshift=0pt,
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
@@ -403,7 +388,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
       mark=at position 0.5 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
       postaction={decorate}]
-      (-0.2,-4.7) -- (-0.2,-1.5) -- (pi+0.2,-1.5) -- (pi +0.2,-4.7);
+      (-0.2,-3.5) -- (-0.2,-0.8) -- (pi+0.2,-0.8) -- (pi +0.2,-3.5);
 \end{tikzpicture}
 \label{C1:Somcontours}
 \caption{Sommerfeld contours of integration $\gamma_+$ and $\gamma_-$ in the complex plane $\lambda=\sigma+i\tau$.}
@@ -440,6 +425,49 @@ r_T^L(\lambda)&r_T^T(\lambda)
 \cos 2\lambda-\tan\varphi\sin 2\lambda \\
 \sin 2\lambda+\tan\varphi\dfrac{\sin\lambda\cos 2\lambda}{\sqrt{\kappa^{-2}-\cos^2\lambda}}
 \end{pmatrix}
+\label{C1:SIfunctional}
 \end{multline}
+where $\kappa=c_L/c_T$,
+\begin{equation}
+g(\lambda)=\arccos(\kappa\cos\lambda),
+\end{equation}
+the potential reflection coefficients $r_L^L,r_L^T,r_T^L$ and $r_T^T$ for the traction-free elastic half-space are known explicitly and are given in \cite{KamotskiFradkin}, function $\mathcal{R}$ is called the Rayleigh function :
+\begin{equation}
+\mathcal{R}(\lambda)=\cos^2 2\lambda+2\sqrt{\kappa^{-2}-\cos^2\lambda}\sin 2\lambda \cos\lambda
+\label{C1:defRayleigh}
+\end{equation}
+and finally $c_1^\pm$ are unknown constants.
+
+Representation \eqref{C1:Sommerfeld} gives the total elastodynamic potentials, including incident and reflected fields. It is well known that the poles of the Sommerfeld amplitudes $\Psi_*$ lead to the \acrshort{ge} field. The Sommerfeld amplitudes $\Psi_*^\pm$ can therefore be decomposed into two parts : a "singular part" $\Psi_*^{\pm \, sing}$, containing these poles and a "regular part" $\Psi_*^{\pm \, reg}$
+\begin{equation}
+\Psi_*^\pm=\Psi_*^{\pm \, sing}+\Psi_*^{\pm \, reg}
+\label{C1:singreg}
+\end{equation}
+where $\Psi_*^{\pm \, reg}$ is regular in the strip 
+\begin{equation}
+\{ \lambda \in \mathbb{C},\, \pi/2-\varphi \leq \rm Re \lambda \leq \pi/2+\varphi \}
+\end{equation}
+and
+\begin{equation}
+\Psi_*^{\pm sing}(\lambda)=\sum_j \dfrac{res^\pm(\pm \lambda_*^j)}{2}\cot\left(\dfrac{\lambda\mp\lambda_*^j}{2}\right)
+\end{equation}
+$\pm\lambda_*^j$ are the poles of the Sommerfeld amplitudes $\Psi_*^{\pm sing}$ and  $res^\pm(\pm \lambda_*^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is explained in great detail in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:singreg} is then substituted into \eqref{C1:SIfunctional} and the resulting system is solved numerically, thanks to the scheme proposed by Kamotski et al. \cite{KamotskiFradkin}.
+
+The diffracted elastodynamic potentials $\psi_{\beta}^{GTD} $ can be expressed in terms of the Sommerfeld amplitudes by evaluating integral \eqref{C1:Sommerfeld} asymptotically with the steepest descent method (see appendix \ref{PhaseStationnaire}) :
+\begin{equation}
+\psi_{\beta}^{GTD}=(k_{\beta} r,\theta')=i\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack \dfrac{e^{ik_{\beta}r}}{\sqrt{k_{\beta}r}}
+\end{equation}
+Using \eqref{C1:elastopotentials}, the diffracted displacement field are given by :
+\begin{equation}
+\mathbf{u}_{\beta}^{diff(SI)}(r,\theta')=D_L^{SI}(\theta')\dfrac{e^{ik_Lr}}{\sqrt{k_Lr}}\mathbf{e}_{r'}+D_T^{SI}(\theta')\dfrac{e^{ik_Tr}}{\sqrt{k_Tr}}\mathbf{e}_{\theta'}
+\end{equation}
+where
+\begin{equation}
+D_{\beta}^{SI}=-k_{\beta}\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack
+\end{equation}
+
+Following the steps of Kamotski et al. \cite{KamotskiFradkin}, the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ can be computed. First, Sommerfeld's integral formulation of the elastodynamic potentials \eqref{C1:Sommerfeld} is used to determine two systems (one for the symmetric problem and once for the antisymmetric problem) of functional equations \eqref{C1:SIfunctional} of which the symmetric and antisymmetric Sommerfeld amplitudes are solution. These systems are then solved by determining the poles and residues of the Sommerfeld amplitudes analytically and computing the remaining regular function numerically. Finally, the \acrshort{gtd} diffraction coefficient is deduced. 
+
+An other semi-analytic resolution technique is called the \acrfull{lt} method and is presented in the following. Once again, the main steps of the resolution will be given but the technical details are not given.
 
 \subsection{The \acrfull{lt} Method}
