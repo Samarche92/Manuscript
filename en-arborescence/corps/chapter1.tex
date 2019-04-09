@@ -298,4 +298,148 @@ Both of the semi-analytic resolutions that will be described in the following de
 \subsection{The \acrfull{si} Method}
 The \acrfull{si} method was first proposed by Budaev \cite{BudaevBook,Budaev1,Budaev2} and Budaev and Bogy \cite{Rayleigh,Rayleigh2,Rayleigh3} have proposed the corresponding numerical scheme and their theoretical was completed and clarified by Kamotski et al. \cite{KamotskiFradkin}.
 
+In this approach, the elastodynamic potentials $\psi_L$ and $\psi_T$ are the unknowns. They are related to the displacement field by :
+\begin{equation}
+\mathbf{u}=\mathbf{\nabla}\psi_L+\mathbf{\nabla}\times(\psi_T\mathbf{e}_z)
+\end{equation}
+These potentials satisfy the Helmoltz equations in the angular domain \cite{Achenbach} :
+\begin{equation}
+\Delta \psi_L+k_L^2\psi_L=0 \mbox{ and } \Delta \psi_T+k_T^2\psi_T=0 \rm \mbox{ for } |\theta'|<\varphi
+\label{C1:Helmoltz}
+\end{equation}
+In addition, the wedge faces are stress-free, meaning :
+\begin{equation}
+\sigma_{r\theta'}=0 \mbox{ and } \sigma_{\theta'\theta'}=0 \mbox{ for } |\theta'|=\varphi
+\label{C1:stresses}
+\end{equation}
+Sommerfeld \cite{Sommerfeld} has given an exact expression of these potentials in the form of an integral. This integral satisfies \eqref{C1:Helmoltz} as well as the radiation conditions at infinity \cite{SMtechnique} :
+\begin{equation}
+\psi_*(k_*r,\theta')=\int_{\gamma_++\gamma_-}e^{-ik_*r\cos\lambda}\Psi_*(\theta'+\lambda)\,d\lambda
+\label{C1:Sommerfeld}
+\end{equation}
+where $*=L,T$, $\Psi_*$ are unknown amplitudes and contours $\gamma_+$ and $\gamma_-$ are represented on Fig.~\ref{C1:Somcontours}.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+%\draw[step=1.3cm,gray,very thin,dashed](-5.2,-4.7)grid(5.2,4.7);
+\draw[thin](-1,0)-- (0,0);
+\draw[thin] (-5.3,0)  -- (5.8,0) node[above]{$\sigma$};
+%\drawn[thin] -- (pi+1,0) node[below]{$\sigma$};
+\draw[thin](0,-4.7)--(0,4.7) node[left]{$\tau$};
+\draw[thin] (-pi,-4.7)  -- (-pi,4.7);
+\draw[dashed] (-3*pi/2,-4.7)  -- (-3*pi/2,4.7);
+\draw[dashed] (-pi/2,-4.7)  -- (-pi/2,4.7);
+\draw[dashed] (pi/2,-4.7)  -- (pi/2,4.7);
+\draw[dashed] (3*pi/2,-4.7)  -- (3*pi/2,4.7);
+\draw[thin] (pi,-4.7)  -- (pi,4.7);
+\node at (-3.4,-0.2) {$-\pi$};
+\node at (-5.05,-0.3) {$-{3\pi \over 2}$};
+\node at (-1.8,-0.3) {$- {\pi \over 2}$};
+\node at (1.7,-0.3) {$ {\pi \over 2}$};
+\node at (4.9,-0.3) {$3\pi \over 2$};
+\node at (3.3,0.2) {$\pi$};
+%foreach \x in {-pi} {  
+%  \draw (\x,-1pt) -- (\x,1pt) node[pos=0,above] {$-\pi$};
+%  }
+\node at (-0.2,0.2) {$0$};
+\node at (-2,1.7) {$\gamma_+$};
+\node at (2,-1.7) {$\gamma_-$};
+\node at (-2.4,-2.6) {$SDC_{-\pi}$};
+\node at (2.4,2.6) {$SDC_{\pi}$};
+\node at (0.5,-0.3) {$SDC_0$};
+%\node at (4, 0.2) {$-\pi + \theta_c'$};
+%\node at (-4.2, 0.2) {$-\pi -\theta_c'$};
+
+% segment de branche de coupure
+\draw[very thick] (-4, 0) -- (-2.2, 0);
+\draw[very thick] (4, 0) -- (2.2, 0);
+\draw (-4, 0) node {$\bullet$} ;
+\draw (-2.2, 0) node {$\bullet$} ;
+\draw (4, 0) node {$\bullet$} ;
+\draw (2.2, 0) node {$\bullet$} ;
+
+% sommerfeld contour -pi
+\draw[black,very thick][domain=0:4.8] plot({-pi - acos(1/cosh(\x))*pi/180},\x);
+\draw[black,very thick][domain=-4.8:0] plot({-pi + acos(1/cosh(\x))*pi/180},\x);
+
+ \draw[very thick,black,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-2.6404,-pi/6)  -- (-3.6428,pi/6); 
+
+% sommerfeld contour pi
+\draw[black,very thick][domain=0:4.8] plot({pi - acos(1/cosh(\x))*pi/180},\x);
+\draw[black,very thick][domain=-4.8:0] plot({pi + acos(1/cosh(\x))*pi/180},\x);
+
+ \draw[very thick,black,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}}},
+      postaction={decorate}]
+     (2.6404,pi/6) -- (3.6428,-pi/6); 
+
+% sommerfeld contour 0
+\draw[black,very thick, dashed][domain=0:4.8] plot({0 + acos(1/cosh(\x))*pi/180},\x);
+\draw[black,very thick, dashed][domain=-4.8:0] plot({0 - acos(1/cosh(\x))*pi/180},\x);
+
+ \draw[thick,dashed,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}}},
+      postaction={decorate}]
+      ( -0.5012,-pi/6)  -- (0.5012,pi/6); 
+
+\draw[very thick,black,xshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.2 with {\arrow{latex}},
+      mark=at position 0.5 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (0.2,4.7) -- (0.2,1.5) -- (-pi-0.2,1.5) -- (-pi -0.2,4.7); 
+      
+\draw[very thick,black,xshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.2 with {\arrow{latex}},
+      mark=at position 0.5 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-0.2,-4.7) -- (-0.2,-1.5) -- (pi+0.2,-1.5) -- (pi +0.2,-4.7);
+\end{tikzpicture}
+\label{C1:Somcontours}
+\caption{Sommerfeld contours of integration $\gamma_+$ and $\gamma_-$ in the complex plane $\lambda=\sigma+i\tau$.}
+\end{figure}
+
+Following the decomposition of the problem, the unknown amplitudes can be decomposed into symmetric and antisymmetric amplitudes. The superscript "+" refers to the symmetric problem and the superscript "-" refers to the antisymmetric one. We then have :
+\begin{equation}
+\Psi_*(\lambda)=\Psi_*^+(\lambda)+\Psi_*^-(\lambda)
+\end{equation}
+where
+\begin{subequations}
+\begin{equation}
+\Psi_L^\pm(\lambda)=\frac{1}{2}\lbrack\Psi_L(\lambda)\pm\Psi_L(-\lambda)\rbrack
+\end{equation}
+\begin{equation}
+\Psi_T^\pm(\lambda)=\frac{1}{2}\lbrack\Psi_L(\lambda)\mp\Psi_L(-\lambda)\rbrack
+\end{equation}
+\end{subequations}
+The symmetric and antisymmetric potentials $\psi_*^\pm$ associated to these amplitudes using \eqref{C1:Sommerfeld} are the solutions of the symmetric and antisymmetric problems. Kamotski et al. \cite{KamotskiFradkin} have shown that subsituting \eqref{C1:Sommerfeld} into \eqref{C1:stresses} yields the following system of functional equations :
+\begin{multline}
+\begin{pmatrix}
+\Psi_L^\pm(g(\lambda)+\varphi)\\
+\Psi_T^\pm(\lambda+\varphi)
+\end{pmatrix}
+=\pm\begin{pmatrix}
+r_L^L(\lambda)&r_L^T(\lambda)\\
+r_T^L(\lambda)&r_T^T(\lambda)
+\end{pmatrix} 
+\begin{pmatrix}
+\Psi_L^\pm(g(\lambda)-\varphi)\\
+\Psi_T^\pm(\lambda-\varphi)
+\end{pmatrix} \\
++\kappa^2 c_1^\pm\dfrac{\sqrt{\kappa^{-2}-\cos^2\lambda}}{\mathcal{R}(\lambda)} \begin{pmatrix}
+\cos 2\lambda-\tan\varphi\sin 2\lambda \\
+\sin 2\lambda+\tan\varphi\dfrac{\sin\lambda\cos 2\lambda}{\sqrt{\kappa^{-2}-\cos^2\lambda}}
+\end{pmatrix}
+\end{multline}
+
 \subsection{The \acrfull{lt} Method}
