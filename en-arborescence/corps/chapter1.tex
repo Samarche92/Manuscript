@@ -12,7 +12,7 @@ The first approximation that can be applied to the study of wave propagation in 
     \frac{1}{c_{\alpha}}\cos\theta_{\alpha} = \frac{1}{c_{\beta}} \cos\theta_{\beta}
     \label{Snellrefl}
 \end{equation}
-In all this thesis, $\alpha=L,TH$ or $TV$ represents the type of the incident wave (\acrshort{L} for Longitudinal, \acrshort{TH} for Transverse Horizontal and \acrshort{TV} for Transverse Vertical) and $\beta$ is the type of the reflected, transmitted of diffracted wave.
+In all this thesis, $\alpha=L,TH$ or $TV$ represents the type of the incident wave (L for Longitudinal, TH for Transverse Horizontal and TV for Transverse Vertical) and $\beta$ is the type of the reflected, transmitted of diffracted wave.
 
 When the incident wave meets a surface containing an edge, the propagation medium can be decomposed into four zones (see Fig.~\ref{illuzones}) :
 \begin{itemize}
@@ -262,14 +262,36 @@ The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all 
 
 As seen in the previous section, an accurate uniform scattering model requires a trust-worthy initial \acrshort{gtd} solution in order to be developed. The aim of this thesis will therefore be to develop a generic and trust-worthy wedge diffraction \acrshort{gtd} model. To our knowledge, there is no fully analytical resolution of the problem of elastic wedge diffraction available in scientific literature, and the preferred approach is semi-analytical. We begin this work by a review of the two main existing 2D wedge-diffraction models. These two models have been presented and compared by Gautesen and Fradkin \cite{GautesenFradkin}, who also discuss their numerical validation. Experimental validation  of these codes has been done by Chapman et al. \cite{ChapmanLTval}.
 
-The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ is illuminated by a a plane wave of which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to the system are $\mathbf{x}=(r,\theta)$ In this coordinate system, the incident wave vector is :
+The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ is illuminated by a a plane wave of which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{- i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to the system are $\mathbf{x}=(r,\theta)$ In this coordinate system, the incident wave vector is :
 \begin{equation}
 \mathbf{k}^{inc}=-(\cos\theta_{inc},\sin\theta_{inc})_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}
 \end{equation}
 $(0;\mathbf{e}_x,\mathbf{e}_y,\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $x$-axis coincides with the wedge bisector and the polar coordinates associated to the system are $\mathbf{x}=(r,\theta')$.
 
-In both of the following approaches, the the symmetry of the problem with respect to the wedge bisector is used and the problem is split in two : a symmetric problem and an antisymmetric problem.
+In both of the following approaches, the the symmetry of the problem with respect to the wedge bisector is used and the problem is split in two : a symmetric problem, regarding the polarization of the incident wave, and an antisymmetric problem. This is done by introducing a wave vector symmetric to $\mathbf{k}^{inc}$ with respect to the bisector :
+\begin{equation}
+\mathbf{k}_{sym}=(-\cos\theta'_{inc},\sin\theta'_{inc})_{(\mathbf{e}_x,\mathbf{e}_y)}
+\end{equation}
+In the case of an incident L wave, the symmetric problem is constructed by considering that the incident wave is the sum of two plane waves of which the wave vectors are $\mathbf{k}^{inc}$ and $\mathbf{k}_{sym}$, see Fig.~\ref{Sym}. In this case, the polarization vectors $\mathbf{p}^{inc}=\mathbf{k}^{inc}$ and $\mathbf{p}_{sym}=\mathbf{k}_{sym}$ are symmetric. The antisymmetric problem is constructed by setting the incident wave to be the sum of two plane waves of which the wave vectors are $\mathbf{k}^{inc}$ and $-\mathbf{k}_{sym}$, see Fig.~\ref{Antisym}. In this case the polarization vectors $\mathbf{p}^{inc}$ and $-\mathbf{p}_{sym}$ are antisymmetric.
 
+In the case of an incident T wave
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter1/SymPb.png}
+        \caption{Symmetric problem for an incident longitudinal wave or antisymmetric problem for an incident transversal wave}
+        \label{Sym}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter1/AntisymPb.png}
+        \caption{Antisymmetric problem for an incident longitudinal wave or symmetric problem for an incident transversal wave}
+        \label{Antisym}
+    \end{subfigure}
+    \caption{Symmetric and antisymmetric problems. Blue and red vectors are the wave vectors and green vectors are the polarization vectors of the transversal waves.}
+    \label{SymAntisym}
+\end{figure}
 
 \subsection{The \acrfull{si} Method}
 \subsection{The \acrfull{lt} Method}
