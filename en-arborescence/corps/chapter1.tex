@@ -73,8 +73,9 @@ This principle is called the locality principle, because it stipulates that the 
 \acrshort{gtd} is a high-frequency model which accounts for edge-diffracted waves. However, the resulting field is discontinuous at shadow boundaries and the diffraction coefficient possesses poles in the directions of specular reflection, rendering the diffracted field divergent in these directions. It is therefore not physical. Some uniform corrections have been proposed to solve this problem, resulting in continuous fields. They are presented in the following. 
 
 \section{Uniform corrections}
-
+\label{sectUnif}
 \subsection{\acrfull{ka}}
+\label{sectKA}
 The \acrfull{ka}, also called \acrfull{po} was first developed in optics by Baker and Copson \cite{POoptics} before being extended to acoustic and electromagnetic waves \cite{POtechreport, POLewis} before being adapted by Chapman to elastic waves \cite{POChapman}, where it is essentially used for \acrshort{ndt} applications \cite{Schmerr,Dorval}.
 
 The Kirchoff Approximation is a high frequency approximation for which the scattering surface is assumed to behave locally like a plane. This means that for each point of the surface, the plane tangent to the surface at that point is determined and the displacement field on the illuminated side is computed using \acrshort{ge}. The other side of the plane is shadowed and the total displacement field vanishes. The jump in the displacement between both sides of this plane is called \acrfull{cod} and noted $\lbrack \mathbf{u}(\mathbf{x}) \rbrack$. It appears in an integral formulation of the scattered field, called the Rayleigh-Sommerfeld integral \cite{POChapman} :
@@ -263,6 +264,8 @@ The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all 
 
 As seen in the previous section, an accurate uniform scattering model requires a trust-worthy initial \acrshort{gtd} solution in order to be developed. The aim of this thesis will therefore be to develop a generic and trust-worthy wedge diffraction \acrshort{gtd} model. To our knowledge, there is no fully analytical resolution of the problem of elastic wedge diffraction available in scientific literature, and the preferred approach is semi-analytical. We begin this work by a review of the two main existing 2D wedge-diffraction models. These two models have been presented and compared by Gautesen and Fradkin \cite{GautesenFradkin}, who also discuss their numerical validation. Experimental validation  of these codes has been done by Chapman et al. \cite{ChapmanLTval}.
 
+\subsection{Problem statement}
+\label{C1:PbStatement}
 The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ is illuminated by a a plane wave of which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{- i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to the system are $\mathbf{x}=(r,\theta)$ In this coordinate system, the incident wave vector is :
 \begin{equation}
 \mathbf{k}^{inc}=-(\cos\theta_{inc},\sin\theta_{inc})_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}
@@ -477,6 +480,49 @@ The \acrfull{lt} method is due to Gautesen, who had developed it in the case of 
 
 In this approach, the unknown quantity is the elastodynamic displacement $\mathbf{u}=(u_1,u_2)_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}$, Gautesen \cite{GautesenRayleigh} has expressed the the components of the displacement field in the entire space (not just inside the wedge) as a single-layer potential, analogously to Lax's extinction theorem \cite{Lax}.
 \begin{multline}
-H(2\varphi-\theta)u_p(\mathbf{x})=u_p^{inc}(\mathbf{x})-\sum_{i=1}^2\int_0^{+\infty}\Big[ \sigma_{i2}^{(p)}(x_1-l,x_2)u_i(l,0) \\
+H(2\varphi-\theta)u_p(\mathbf{x})=u_p^{inc}(\mathbf{x})-\sum_{i=1}^2\int_0^{+\infty}\Big[ G_{i2}^{(p)}(x_1-l,x_2)u_i(l,0) \\
  +\sum_{j=1}^2\sum_{m=1}^2\sigma_{jm}^{(p)}(x_1-l\cos 2\varphi,x_2-l\sin 2\varphi)e_{x_2}^{(j)}e_{y_2}^{(m)}u^{(i)}(l) \Big] \, dl
+ \label{C1:extthm}
 \end{multline}
+where $(0;\mathbf{e}_{x_2},\mathbf{e}_{y_2})$ is an orthonormal basis, shown on Fig.~\ref{C1:wedge} where the $x_2$-axis coincides with the top free surface and where $\mathbf{e}_{y_2}$ is directed towards the inside of the wedge, $G^{(p)}$ is Green's stress tensor, defined in section \ref{sectKA} and
+\begin{eqnarray}
+u^{(i)}(l)=
+\left\{
+\begin{array}{cc}
+\mathbf{u}(l\cos 2\varphi,l\sin 2\varphi).\mathbf{e}_{x_2} & \mbox{ for } i=1 \\
+\mathbf{u}(l\cos 2\varphi,l\sin 2\varphi).\mathbf{e}_{y_2} & \mbox{ for } i=2
+\end{array}
+\right.
+\end{eqnarray}
+Equation \eqref{C1:extthm} is simplified by working only in the region $x_2<0$ where, in the case $2\varphi<\pi$, the left-hand side of \eqref{C1:extthm} vanishes. The equation then contains four unknowns $(u_1,u_2)(l,0)$ and $(u^{(1)},u^{(2)})(l)$. In order to reduce the number of unknowns by half, the problem is once again symmetrized as described in \ref{C1:PbStatement}. As in the previous section, the $"+"$ sign describes the symmetric problem and the $"-"$ sign describes the antisymmetric problem. We then have :
+\begin{equation}
+u^{(i)\pm}(l)=\pm u_i^\pm(l,0), \hspace{2em} i=1,2, \hspace{2em} l>0
+\end{equation}
+Equation \eqref{C1:PbStatement} is then reduced to :
+\begin{multline}
+u_p^{inc \pm}(\mathbf{x})=\sum_{i=1}^2\int_0^{+\infty}\Big[ G_{i2}^{(p)}(x_1-l,x_2)u_i^\pm(l,0)\\
+\pm\sum_{j=1}^2\sum_{m=1}^2\sigma_{jm}^{(p)}(x_1-l\cos 2\varphi,x_2-l\sin 2\varphi)e_{x_2}^{(j)}e_{y_2}^{(m)}u_i^\pm(l,0) \Big] \, dl
+\label{C1:extthmsym}
+\end{multline}
+The Laplace transform of the displacement is defined by :
+\begin{equation}
+\hat{u}_i(\xi)=k_T\int_0^{+\infty}u_i^\pm(l,0)e^{ik_Tl\xi}\, dl
+\label{C1:defLapl}
+\end{equation}
+In order to separate the contributions of the longitudinal and transversal waves, the curl and divergence operators of equation \eqref{C1:extthmsym} are successively taken. The Laplace transform, defined by \eqref{C1:defLapl}, is then applied to the resulting system, yielding
+\begin{equation}
+A(\xi)\begin{pmatrix}
+\hat{u}_1(\xi)\\
+\hat{u}_2(\xi)
+\end{pmatrix}
+= \begin{pmatrix}
+f_1(\xi)-\hat{U}_1(\xi)\\
+f_2(\xi)-\hat{U}_2(\xi)
+\end{pmatrix}
+\end{equation}
+(for the sake of simplicity, the superscript $\pm$ is omitted but implied) where $U_1=\mathbf{\nabla}\times\mathbf{u}^\pm$ and $U_2=\mathbf{\nabla}.\mathbf{u}^\pm$ and 
+\begin{subequations}
+\begin{equation}
+\hat{U}_1(\xi)=\pm\lbrack
+\end{equation}
+\end{subequations}
