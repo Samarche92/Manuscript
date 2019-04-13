@@ -516,13 +516,59 @@ A(\xi)\begin{pmatrix}
 \hat{u}_2(\xi)
 \end{pmatrix}
 = \begin{pmatrix}
-f_1(\xi)-\hat{U}_1(\xi)\\
-f_2(\xi)-\hat{U}_2(\xi)
+f_T(\xi)-\hat{U}_Ts(\xi)\\
+f_L(\xi)-\hat{U}_L(\xi)
 \end{pmatrix}
 \end{equation}
-(for the sake of simplicity, the superscript $\pm$ is omitted but implied) where $U_1=\mathbf{\nabla}\times\mathbf{u}^\pm$ and $U_2=\mathbf{\nabla}.\mathbf{u}^\pm$ and 
+(for the sake of simplicity, the superscript $\pm$ is omitted but implied) where $U_T=\mathbf{\nabla}\times\mathbf{u}^\pm$ and $U_L=\mathbf{\nabla}.\mathbf{u}^\pm$ and 
 \begin{subequations}
 \begin{equation}
-\hat{U}_1(\xi)=\pm\lbrack
+\hat{U}_T(\xi)=\pm\lbrack -a(T_T)\hat{u}_1(T_T)+\overline{b}_T(\xi)\hat{u}_2(T_T) \rbrack
+\end{equation}
+\begin{equation}
+\hat{U}_L(\xi)=\pm\lbrack \overline{b}_L(\xi)\hat{u}_1(T_L)+a(T_L)\hat{u}_2(T_L) \rbrack
+\end{equation}
+\label{C1:ULUT}
+\end{subequations}
+and
+\begin{equation}
+A(\xi)=\begin{pmatrix}
+a(\xi)&-b_T(\xi)\\
+b_L(\xi)&a(\xi)
+\end{pmatrix}
+\label{C1:matA}
+\end{equation}
+In equations \eqref{C1:ULUT} and \eqref{C1:matA}, we have, for $*=L,T$ :
+\begin{subequations}
+\begin{equation}
+a(\xi)=\kappa_T-2\xi^2
+\end{equation}
+\begin{equation}
+b_*(\xi)=2\xi\gamma_*(\xi)
+\end{equation}
+\begin{equation}
+\overline{b}_*(\xi)=2T_*\eta_*
 \end{equation}
 \end{subequations}
+where $\kappa_*=c_L/c_*$ and
+\begin{subequations}
+\begin{equation}
+\gamma_*(\xi)=\sqrt{\kappa_*^2-\xi^2}
+\end{equation}
+\begin{equation}
+T_*(\xi)=\xi\cos 2\varphi+\gamma_*(\xi)\sin 2\varphi
+\end{equation}
+\begin{equation}
+\eta_*(\xi)=\xi\sin 2\varphi-\gamma_*(\xi)\sin 2\varphi
+\end{equation}
+\end{subequations}
+and finally
+\begin{eqnarray}
+f_*(\xi)=\left\{
+\begin{array}{cc}
+\mp2\pi\kappa_*^2\lbrack \sin\theta_{inc}\delta(\xi-\kappa_*\cos\theta_{inc})\sin(2\varphi-\theta_{inc})\delta(\xi-\kappa_*\cos(2\varphi-\theta_{inc}))\rbrack & \mbox{ if } *=\alpha \\
+0&\mbox{ else}
+\end{array}
+\right.
+\end{eqnarray}
+where $\alpha$ is the type of the incident wave.
