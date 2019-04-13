@@ -519,6 +519,7 @@ A(\xi)\begin{pmatrix}
 f_T(\xi)-\hat{U}_Ts(\xi)\\
 f_L(\xi)-\hat{U}_L(\xi)
 \end{pmatrix}
+\label{C1:LTsyst}
 \end{equation}
 (for the sake of simplicity, the superscript $\pm$ is omitted but implied) where $U_T=\mathbf{\nabla}\times\mathbf{u}^\pm$ and $U_L=\mathbf{\nabla}.\mathbf{u}^\pm$ and 
 \begin{subequations}
@@ -566,9 +567,28 @@ and finally
 \begin{eqnarray}
 f_*(\xi)=\left\{
 \begin{array}{cc}
-\mp2\pi\kappa_*^2\lbrack \sin\theta_{inc}\delta(\xi-\kappa_*\cos\theta_{inc})\sin(2\varphi-\theta_{inc})\delta(\xi-\kappa_*\cos(2\varphi-\theta_{inc}))\rbrack & \mbox{ if } *=\alpha \\
-0&\mbox{ else}
+\mp2\pi\kappa_*^2\lbrack \sin\theta_{inc}\delta(\xi-\kappa_*\cos\theta_{inc})\sin(2\varphi-\theta_{inc})\delta(\xi-\kappa_*\cos(2\varphi-\theta_{inc}))\rbrack & \mbox{if } *=\alpha \\
+0&\mbox{else}
 \end{array}
 \right.
 \end{eqnarray}
 where $\alpha$ is the type of the incident wave.
+
+As for the \acrshort{si} method, the solution $\hat{\mathbf{u}}$ can be decomposed into two parts : a singular part $\hat{\mathbf{u}}^{sing}$ containing the poles of $\hat{\mathbf{u}}$, which represent the \acrshort{ge} field and a regular part $\hat{\mathbf{u}}^{reg}$ :
+\begin{equation}
+\hat{\mathbf{u}}=\hat{\mathbf{u}}^{sing}+\hat{\mathbf{u}}^{reg}
+\label{C1:LTsingreg}
+\end{equation}
+where $\hat{\mathbf{u}}^{reg}$ is regular in the whole complex plane except for the branch 
+\begin{equation}
+\{ \xi \in \mathbb{C}, \, \, \mbox{ Im} \xi=0, \, \, \mbox{ Re} \xi<-1 \}
+\end{equation}
+and, for $i=1,2$,
+\begin{equation}
+\hat{u}_i^{sing}=\sum_j \dfrac{res(\xi_i^j)}{\xi-\xi_i^j}
+\end{equation}
+where $\xi_i^j$ are the poles of $\hat{u}_i$ and $res(\xi_i^j$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is detailed in \cite{AKDthese} and will not be reproduced. Decomposition \eqref{C1:LTsingreg} is then substituted into \eqref{C1:LTsyst} and the resulting system is solved numerically using the scheme proposed by Gautesen and Fradkin \cite{GautesenFradkin}. The final expression of the \acrshort{gtd} diffraction coefficient is expressed in terms of $\hat{u}_1$ and $\hat{u}_2$. It is more complex than in the \acrshort{si} case and is not reproduced here. It can be found in \cite{GautesenFradkin}.
+
+Following the steps of Gautesen and Fradkin \cite{GautesenFradkin}, the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ can be computed. First, the extinction theorem is used to determine an integral formulation of the elastodynamic displacement field in the entire domain. Using this formulation, two functional systems of equations are derived (one for the symmetric problem and one for the antisymmetric problem) of which the components of the Laplace transform of the displacement field are the solution. These two systems are solved seperately by determining the poles and residues of the unknowns and computing the remaining regular functions numerically. Finally the \acrshort{gtd} diffraction coefficient is deduced.
+
+\section*{Conclusion}
