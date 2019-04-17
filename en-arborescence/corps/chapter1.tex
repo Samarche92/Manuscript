@@ -486,13 +486,13 @@ An other semi-analytic resolution technique is called the \acrfull{lt} method an
 \subsection{The \acrfull{lt} Method}
 The \acrfull{lt} method is due to Gautesen, who had developed it in the case of an incident Rayleigh wave \cite{GautesenRayleigh,GautesenRayleigh2,GautesenRayleigh0,GautesenRayleigh3,GautesenRayleigh4}, and in the case of an incident longitudinal wave on a right-angled wedge\cite{GautesenLwave}. It has been extended to the case of an L or T elastic wave incident on a wedge of angle $2\varphi<\pi$ by Gautesen and Fradkin \cite{GautesenFradkin}.
 
-In this approach, the unknown quantity is the elastodynamic displacement $\mathbf{u}=(u_1,u_2)_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}$, Gautesen \cite{GautesenRayleigh} has expressed the the components of the displacement field in the entire space (not just inside the wedge) as a single-layer potential, analogously to Lax's extinction theorem \cite{Lax}.
+In this approach, the unknown quantity is the elastodynamic displacement $\mathbf{u}=(u_1,u_2)_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}$. Gautesen \cite{GautesenRayleigh} has expressed the components of the displacement field in the entire space (not just inside the wedge) as a single-layer potential, analogously to Lax's electromagnetic extinction theorem \cite{Lax} :
 \begin{multline}
 H(2\varphi-\theta)u_p(\mathbf{x})=u_p^{inc}(\mathbf{x})-\sum_{i=1}^2\int_0^{+\infty}\Big[ G_{i2}^{(p)}(x_1-l,x_2)u_i(l,0) \\
  +\sum_{j=1}^2\sum_{m=1}^2\sigma_{jm}^{(p)}(x_1-l\cos 2\varphi,x_2-l\sin 2\varphi)e_{x_2}^{(j)}e_{y_2}^{(m)}u^{(i)}(l) \Big] \, dl
  \label{C1:extthm}
 \end{multline}
-where $(0;\mathbf{e}_{x_2},\mathbf{e}_{y_2})$ is an orthonormal basis, shown on Fig.~\ref{C1:wedge} where the $x_2$-axis coincides with the top free surface and where $\mathbf{e}_{y_2}$ is directed towards the inside of the wedge, $G^{(p)}$ is Green's stress tensor, defined in section \ref{sectKA} and
+where $(0;\mathbf{e}_{x_2},\mathbf{e}_{y_2}, \mathbf{e}_z)$ is an orthonormal basis, shown on Fig.~\ref{C1:wedge} where the $x_2$-axis coincides with the top free surface and where $\mathbf{e}_{y_2}$ is directed towards the inside of the wedge, $G^{(p)}$ is Green's stress tensor, defined in section \ref{sectKA} and
 \begin{eqnarray}
 u^{(i)}(l)=
 \left\{
@@ -502,7 +502,7 @@ u^{(i)}(l)=
 \end{array}
 \right.
 \end{eqnarray}
-Equation \eqref{C1:extthm} is simplified by working only in the region $x_2<0$ where, in the case $2\varphi<\pi$, the left-hand side of \eqref{C1:extthm} vanishes. The equation then contains four unknowns $(u_1,u_2)(l,0)$ and $(u^{(1)},u^{(2)})(l)$. In order to reduce the number of unknowns by half, the problem is once again symmetrized as described in \ref{C1:PbStatement}. As in the previous section, the $"+"$ sign describes the symmetric problem and the $"-"$ sign describes the antisymmetric problem. We then have :
+Equation \eqref{C1:extthm} is simplified by working in the region $x_2<0$ where, in the case $2\varphi<\pi$, the left-hand side of \eqref{C1:extthm} vanishes. The equation then contains four unknowns $(u_1,u_2)(l,0)$ and $(u^{(1)},u^{(2)})(l)$. In order to reduce the number of unknowns by half, the problem is once again symmetrized as described in subsection \ref{C1:PbStatement}. As in the previous section, the $"+"$ sign describes the symmetric problem and the $"-"$ sign describes the antisymmetric problem. We then have :
 \begin{equation}
 u^{(i)\pm}(l)=\pm u_i^\pm(l,0), \hspace{2em} i=1,2, \hspace{2em} l>0
 \end{equation}
@@ -512,12 +512,12 @@ u_p^{inc \pm}(\mathbf{x})=\sum_{i=1}^2\int_0^{+\infty}\Big[ G_{i2}^{(p)}(x_1-l,x
 \pm\sum_{j=1}^2\sum_{m=1}^2\sigma_{jm}^{(p)}(x_1-l\cos 2\varphi,x_2-l\sin 2\varphi)e_{x_2}^{(j)}e_{y_2}^{(m)}u_i^\pm(l,0) \Big] \, dl
 \label{C1:extthmsym}
 \end{multline}
-The Laplace transform of the displacement is defined by :
+The Laplace transform of the displacement field is defined by :
 \begin{equation}
 \hat{u}_i(\xi)=k_T\int_0^{+\infty}u_i^\pm(l,0)e^{ik_Tl\xi}\, dl
 \label{C1:defLapl}
 \end{equation}
-In order to separate the contributions of the longitudinal and transversal waves, the curl and divergence operators of equation \eqref{C1:extthmsym} are successively taken. The Laplace transform, defined by \eqref{C1:defLapl}, is then applied to the resulting system, yielding
+In the Laplace domain, for the sake of simplicity, the superscript $\pm$ is omitted but implied. In order to separate the contributions of the longitudinal and transversal waves, the curl and divergence operators of equation \eqref{C1:extthmsym} are successively taken. The Laplace transform, defined by \eqref{C1:defLapl}, is then applied to the resulting system, yielding
 \begin{equation}
 A(\xi)\begin{pmatrix}
 \hat{u}_1(\xi)\\
@@ -529,7 +529,7 @@ f_L(\xi)-\hat{U}_L(\xi)
 \end{pmatrix}
 \label{C1:LTsyst}
 \end{equation}
-(for the sake of simplicity, the superscript $\pm$ is omitted but implied) where $U_T=\mathbf{\nabla}\times\mathbf{u}^\pm$ and $U_L=\mathbf{\nabla}.\mathbf{u}^\pm$ and 
+where $U_T=\mathbf{\nabla}\times\mathbf{u}^\pm$ and $U_L=\mathbf{\nabla}.\mathbf{u}^\pm$ and 
 \begin{subequations}
 \begin{equation}
 \hat{U}_T(\xi)=\pm\lbrack -a(T_T)\hat{u}_1(T_T)+\overline{b}_T(\xi)\hat{u}_2(T_T) \rbrack
@@ -579,8 +579,9 @@ f_*(\xi)=\left\{
 0&\mbox{else}
 \end{array}
 \right.
+\label{C1:fstar}
 \end{eqnarray}
-where $\alpha$ is the type of the incident wave.
+where $\alpha$ is the type of the incident wave. Note that equations \eqref{C1:LTsyst} to \eqref{C1:fstar} actually describe two systems of functional equations : one for the symmetric problem and one for the antisymmetric problem.
 
 As for the \acrshort{si} method, the solution $\hat{\mathbf{u}}$ can be decomposed into two parts : a singular part $\hat{\mathbf{u}}^{sing}$ containing the poles of $\hat{\mathbf{u}}$, which represent the \acrshort{ge} field and a regular part $\hat{\mathbf{u}}^{reg}$ :
 \begin{equation}
@@ -595,8 +596,10 @@ and, for $i=1,2$,
 \begin{equation}
 \hat{u}_i^{sing}=\sum_j \dfrac{res(\xi_i^j)}{\xi-\xi_i^j}
 \end{equation}
-where $\xi_i^j$ are the poles of $\hat{u}_i$ and $res(\xi_i^j$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is detailed in \cite{AKDthese} and will not be reproduced. Decomposition \eqref{C1:LTsingreg} is then substituted into \eqref{C1:LTsyst} and the resulting system is solved numerically using the scheme proposed by Gautesen and Fradkin \cite{GautesenFradkin}. The final expression of the \acrshort{gtd} diffraction coefficient is expressed in terms of $\hat{u}_1$ and $\hat{u}_2$. It is more complex than in the \acrshort{si} case and is not reproduced here. It can be found in \cite{GautesenFradkin}.
+where $\xi_i^j$ are the poles of $\hat{u}_i$ and $res(\xi_i^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is detailed in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:LTsingreg} is then substituted into \eqref{C1:LTsyst} and the resulting system is solved numerically using the scheme proposed by Gautesen and Fradkin \cite{GautesenFradkin}. The final expression of the \acrshort{gtd} diffraction coefficient is expressed in terms of $\hat{u}_1$ and $\hat{u}_2$. It is more complex than in the \acrshort{si} case and is not reproduced here. It can be found in \cite{GautesenFradkin}.
 
-Following the steps of Gautesen and Fradkin \cite{GautesenFradkin}, the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ can be computed. First, the extinction theorem is used to determine an integral formulation of the elastodynamic displacement field in the entire domain. Using this formulation, two functional systems of equations are derived (one for the symmetric problem and one for the antisymmetric problem) of which the components of the Laplace transform of the displacement field are the solution. These two systems are solved seperately by determining the poles and residues of the unknowns and computing the remaining regular functions numerically. Finally the \acrshort{gtd} diffraction coefficient is deduced.
+A second method for computing the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ has been presented, following the steps of Gautesen and Fradkin \cite{GautesenFradkin}. First, the extinction theorem is used to determine an integral formulation of the elastodynamic displacement field in the entire domain. Using this formulation, two functional systems of equations are derived (one for the symmetric problem and one for the antisymmetric problem) of which the components of the Laplace transform of the displacement field are the solution. These two systems are solved separately by determining the poles and residues of the unknowns and computing the remaining regular functions numerically. Finally the \acrshort{gtd} diffraction coefficient is deduced.
+
+The two semi-analytical models that have been presented here have been validated numerically \cite{GautesenFradkin} and experimentally \cite{ChapmanLTval}. They have been developed for stress-free wedges of angle $2\varphi<\pi$. Though they could probably be extended to wedges of angle higher than $\pi$, this has, to our knowledge, not been done yet in the general case of an L or T incident wave. Furthermore, these methods are valid for 2D configurations (when the incident wave vector is in the plane normal to the wedge edge). A third method, called the \acrfull{sf} method has been developed by Croisille and Lebeau \cite{CroisilleLebeau} in the case of an acoustic wave incident on an immersed solid wedge of angle lower than $\pi$ and has been used by Kamotski and Lebeau \cite{KamotskiLebeau} to prove existence and uniqueness of the solution to the problem of diffraction of an elastic wave by a wedge of arbitrary angle (lower or higher than $\pi$). However, the corresponding resolution scheme is not given. In this thesis, this method will be extended to the 2D cases of an acoustic wave or and elastic wave diffracted by a wedge of arbitrary angle and to the 3D case of an elastic wave diffracted by a wedge of arbitrary angle.
 
 \section*{Conclusion}
