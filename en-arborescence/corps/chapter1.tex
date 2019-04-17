@@ -8,11 +8,12 @@ These inspections often deal with high frequency ($f=2-5$ MHz) ultrasonic waves.
 The \acrfull{ka} was first developed in optics \cite{POoptics} before being used for \acrshort{ndt} applications \cite{Schmerr,Dorval}. It is a high-frequency uniform scattering model but can be inaccurate far from directions of geometrical reflection. To overcome this shortcoming, an ultrasonic system model based on the \acrfull{ptd} introduced by Ufmitsev \cite{Ufmi} has been developed for a half-plane by Zernov et al. \cite{Zernov} and extended to mimic ultrasonics with some head wave \cite{systmodel,FradkinDarmon}. Nevertheless, this ultrasonic \acrshort{ptd} model can be time consuming for large specimen surfaces. A third solution to this problem, called the \acrfull{uat} was proposed for elastic waves by Achenbach et aL. \cite{Achenbach}. This method models diffraction well but is difficult to implement for complex geometries. Finally, the \acrfull{utd} was proposed in elastodynamics by Kamta Djakou et al. \cite{Audrey} and developed for a half-plane scatterer. It combines the specular model with a diffraction model. Our future idea is to extend \acrshort{utd} to the wedge case, which needs the development of a robust wedge diffraction model. To apply the aforementioned \acrshort{utd} method, a generic and trustworthy wedge diffraction model is necessary.
 
 Section 1 of this chapter presents the two non-uniform scattering models : the \acrshort{ge} model and the \acrshort{gtd} model. Section 2 describes the proposed uniform corrections of these models. The advantages and inconveniences of each of these models are also discussed. Finally, section 3 details two semi-analytical computation methods for the problem of 2D elastic wave diffraction by a stress-free wedge.
+
 \section{Non-Uniform asymptotic methods}
 
-There exist many different high-frequency approximations of the field echoed by the surfaces and interfaces of an inspected specimen. Some of these models lead to a discontinuous scattered field (which is not physical) and are therefore called non-uniform methods, as opposed to uniform models, which lead to continuous solutions.
+There are various high-frequency approximations of the field echoed by the surfaces and interfaces of an inspected specimen. Some of these models lead to a discontinuous scattered field (which is not physical) and are therefore called non-uniform methods, as opposed to uniform models, which lead to continuous solutions.
 \subsection{\acrfull{ge}}
-The first approximation that can be applied to the study of wave propagation in a complex isotropic medium is the \acrfull{ge} model. It is a translation to elastodynamics of the geometrical optics theory. The field's propagation is described by ray tracing, each ray carrying a certain field value. At a given observation point, the field's value is the sum of the field values carried by each of the rays passing through this point. In the \acrshort{ge} theory, the incident, reflected and refracted rays are described. These rays are computed following Snell's laws of reflection and refraction :
+The first approximation that can be applied to the study of wave propagation in a complex isotropic medium is the \acrfull{ge} model. It is a translation to elastodynamics of the geometrical optics theory. The field's propagation is described by ray tracing, each ray carrying a certain field value. At a given observation point, the field's value is the sum of the values carried by each of the rays passing through this point. In the \acrshort{ge} theory, the incident, reflected and refracted rays are described. These rays are computed following Snell's laws of reflection and refraction :
 \begin{equation}
     \frac{1}{c_{\alpha}}\cos\theta_{\alpha} = \frac{1}{c_{\beta}} \cos\theta_{\beta}
     \label{Snellrefl}
@@ -23,14 +24,15 @@ When the incident wave meets a surface containing an edge, the propagation mediu
 \begin{itemize}
 	\item Zone I : the incident rays are "shadowed" by the scattering surface and therefore do not illuminate this zone, called the shadow zone. The boundary between zones I and II is called the incident shadow boundary.
     \item Zone II : only the incident rays propagate in this zone.
-    \item Zone III :  the incident rays are reflected by the scattering surface and mode occurs. This zone is illuminated by the incident rays and by the mode-converted reflected rays.
-    \item Zone IV : the incident rays are reflected and mode conversion may occur. This zone is illuminated by incident rays and by L and T reflected waves.
+    \item Zone III :  the incident rays are reflected by the scattering surface and mode conversion occurs (following Snell's law of reflection \eqref{Snellrefl}). This zone is illuminated by the incident rays and by the mode-converted reflected rays.
+    \item Zone IV : the incident rays are reflected. This zone is illuminated by incident rays and by L and T reflected waves.
 \end{itemize}
+
 The boundaries separating each of these zones are called the shadow boundaries. In the case where there is no mode conversion (determined by Snell's law of reflection \eqref{Snellrefl}), there is no Zone III. 
 
-The displacement fields carried by the reflected and refracted rays are proportional to the field incident of the reflecting or refracting interfaces. This proportionality is contained in multiplicative coefficient called reflection or transmission coefficients respectively, which depend on the properties of the propagation medium and on the directions of incidence and observation.
+The displacement fields carried by the reflected and refracted rays are proportional to the field incident of the reflecting or refracting interfaces. This proportionality is contained in multiplicative coefficients called reflection or transmission coefficients respectively, which depend on the properties of the propagation medium and on the directions of incidence and observation.
 
-In reality, part of the scattered wave propagates in Zone I. Indeed, part of the incident wave arrives on the edge and is diffracted. This diffracted wave propagates in all directions. The \acrshort{ge} model does not account for the diffracted wave, as they can not be predicted by ray tracing. To complete the \acrshort{ge} model, Keller \cite{GTD} has developed the \acrfull{gtd}.
+In reality, part of the incident wave is diffracted by the edge and propagates everywhere, including in Zone I. This diffracted wave propagates in all directions. The \acrshort{ge} model does not account for diffracted waves, as they can not be predicted by ray tracing. To complete the \acrshort{ge} model, Keller \cite{GTD} has developed the \acrfull{gtd}.
 
 \begin{figure}
     \centering
