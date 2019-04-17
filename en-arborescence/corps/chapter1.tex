@@ -196,7 +196,6 @@ The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all 
 
 \fill[color=gray!60] (0,0) --  (-2.39,6.5778) --(-2.9,6.4) -- (-0.5,-0.2) -- cycle; 
 
-
 \draw[color = black]  (0,0) -- (7,0) node[midway,below] {($\mathcal{S}_1$) bottom free surface};
 
 \draw[color = black]  (0,0) -- (-2.39,6.5778) node[midway,below,sloped] { ($\mathcal{S}_2$) top free surface};
@@ -271,11 +270,11 @@ The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all 
 \label{C1:wedge}
 \end{figure}
 
-As seen in the previous section, an accurate uniform scattering model requires a trust-worthy initial \acrshort{gtd} solution in order to be developed. The aim of this thesis will therefore be to develop a generic and trust-worthy wedge diffraction \acrshort{gtd} model. To our knowledge, there is no fully analytical resolution of the problem of elastic wedge diffraction available in scientific literature, and the preferred approach is semi-analytical. We begin this work by a review of the two main existing 2D wedge-diffraction models. These two models have been presented and compared by Gautesen and Fradkin \cite{GautesenFradkin}, who also discuss their numerical validation. Experimental validation  of these codes has been done by Chapman et al. \cite{ChapmanLTval}.
+As seen in the previous section, an accurate uniform scattering model requires a trust-worthy initial \acrshort{gtd} solution in order to be developed. The aim of this thesis will therefore be to develop a generic and trust-worthy wedge diffraction \acrshort{gtd} model. To our knowledge, there is no fully analytical resolution of the problem of elastic wedge diffraction available in scientific literature, and the preferred approach is semi-analytical. We begin this work by a review of the two main existing 2D elastic wedge-diffraction models. These two models have been presented and compared by Gautesen and Fradkin \cite{GautesenFradkin}, who also discuss their numerical validation. Experimental validation  of these codes has been done by Chapman et al. \cite{ChapmanLTval}.
 
 \subsection{Problem statement}
 \label{C1:PbStatement}
-The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ is illuminated by a a plane wave of which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{- i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to the system are $\mathbf{x}=(r,\theta)$ In this coordinate system, the incident wave vector is :
+The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ is illuminated by a a plane wave which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{- i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to this system are $\mathbf{x}=(r,\theta)$. In this coordinate system, the incident wave vector is :
 \begin{equation}
 \mathbf{k}^{inc}=-(\cos\theta_{inc},\sin\theta_{inc})_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}
 \end{equation}
@@ -306,7 +305,7 @@ In the case of an incident T wave, the polarization vector is normal to the wave
     \label{SymAntisym}
 \end{figure}
 
-Both of the semi-analytic resolutions that will be described in the following deal with the symmetric and antisymmetric problems separately, in order to reduce the size of the numerical part of the problem by half. The first approach presented is called the \acrfull{si} method. The main steps of the resolution will be given but the technical details are not given.
+Both of the semi-analytic resolutions that will be described in the following deal with the symmetric and antisymmetric problems separately, in order to reduce the numerical part of the resolution by half. The first approach presented is called the \acrfull{si} method. The main steps of the resolution are presented but the technical details are not given.
 
 \subsection{The \acrfull{si} Method}
 The \acrfull{si} method was first proposed by Budaev \cite{BudaevBook,Budaev1,Budaev2} and Budaev and Bogy \cite{Rayleigh,Rayleigh2,Rayleigh3} have proposed the corresponding numerical scheme. The theory was completed and clarified by Kamotski et al. \cite{KamotskiFradkin}.
@@ -404,11 +403,11 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
       postaction={decorate}]
       (-0.2,-3.5) -- (-0.2,-0.8) -- (pi+0.2,-0.8) -- (pi +0.2,-3.5);
 \end{tikzpicture}
-\label{C1:Somcontours}
 \caption{Sommerfeld contours of integration $\gamma_+$ and $\gamma_-$ in the complex plane $\lambda=\sigma+i\tau$.}
+\label{C1:Somcontours}
 \end{figure}
 
-Following the decomposition of the problem, the unknown amplitudes can be decomposed into symmetric and antisymmetric amplitudes. The superscript "+" refers to the symmetric problem and the superscript "-" refers to the antisymmetric one. We then have :
+Following the decomposition of the problem, the unknown amplitudes can be decomposed into symmetric and antisymmetric amplitudes. The superscript $"+"$ refers to the symmetric problem and the superscript $"-"$ refers to the antisymmetric one. We then have :
 \begin{equation}
 \Psi_*(\lambda)=\Psi_*^+(\lambda)+\Psi_*^-(\lambda)
 \end{equation}
@@ -465,7 +464,7 @@ and
 \begin{equation}
 \Psi_*^{\pm sing}(\lambda)=\sum_j \dfrac{res^\pm(\pm \lambda_*^j)}{2}\cot\left(\dfrac{\lambda\mp\lambda_*^j}{2}\right)
 \end{equation}
-$\pm\lambda_*^j$ are the poles of the Sommerfeld amplitudes $\Psi_*^{\pm sing}$ and  $res^\pm(\pm \lambda_*^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is explained in great detail in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:singreg} is then substituted into \eqref{C1:SIfunctional} and the resulting system is solved numerically, thanks to the scheme proposed by Kamotski et al. \cite{KamotskiFradkin}.
+$\pm\lambda_*^j$ are the poles of the Sommerfeld amplitudes $\Psi_*^{\pm sing}$ and  $res^\pm(\pm \lambda_*^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is explained in great detail by Kamta-Djakou in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:singreg} is then substituted into \eqref{C1:SIfunctional} and the resulting system is solved numerically, thanks to the scheme proposed by Kamotski et al. \cite{KamotskiFradkin}.
 
 The diffracted elastodynamic potentials $\psi_{\beta}^{GTD} $ can be expressed in terms of the Sommerfeld amplitudes by evaluating integral \eqref{C1:Sommerfeld} asymptotically with the steepest descent method (see appendix \ref{PhaseStationnaire}) :
 \begin{equation}
@@ -480,7 +479,7 @@ where
 D_{\beta}^{SI}=-k_{\beta}\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack
 \end{equation}
 
-Following the steps of Kamotski et al. \cite{KamotskiFradkin}, the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ can be computed. First, Sommerfeld's integral formulation of the elastodynamic potentials \eqref{C1:Sommerfeld} is used to determine two systems (one for the symmetric problem and once for the antisymmetric problem) of functional equations \eqref{C1:SIfunctional} of which the symmetric and antisymmetric Sommerfeld amplitudes are solution. These systems are then solved by determining the poles and residues of the Sommerfeld amplitudes analytically and computing the remaining regular function numerically. Finally, the \acrshort{gtd} diffraction coefficient is deduced. 
+To summarize, following the steps of Kamotski et al. \cite{KamotskiFradkin}, the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ can be computed. First, Sommerfeld's integral formulation of the elastodynamic potentials \eqref{C1:Sommerfeld} is used to determine two systems (one for the symmetric problem and once for the antisymmetric problem) of functional equations \eqref{C1:SIfunctional} of which the symmetric and antisymmetric Sommerfeld amplitudes are solution. These systems are then solved by determining the poles and residues of the Sommerfeld amplitudes analytically and computing the remaining regular function numerically. Finally, the \acrshort{gtd} diffraction coefficient is deduced. 
 
 An other semi-analytic resolution technique is called the \acrfull{lt} method and is presented in the following. Once again, the main steps of the resolution will be presented but the technical details are not given.
 
