@@ -7,37 +7,32 @@
 
 \begin{figure}[h]
 \centering
-\begin{subfigure}[b]{0.65\textwidth}
-	\includegraphics[width=\textwidth]{diedre3D.png}
-	\caption{Dièdre d'angle $\varphi$ et l'onde incidente $\textbf{k}^{inc}$}
-	\label{diedre}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.3\textwidth}
-	\includegraphics[width=\textwidth]{Spherical_Coordinates.png}
-	\caption{Système de coordonnées utilisé}
-	\label{coords}
-\end{subfigure}
-\caption{Géométrie du problème}
+	\includegraphics[width=\textwidth]{images/chapter4/wedge_3D.png}
+\caption{Geometry of the problem}
 \label{diedre_coords}
 \end{figure}
 
-On s'intéresse à la diffraction d'une onde élastique par un dièdre délimité par les faces $\mathcal{S}_1$ et $\mathcal{S}_2$ libres de contraintes. La géométrie du problème est donnée sur le schéma de la figure \ref{diedre_coords}. On définit alors l'intérieur du dièdre 
+Let us consider the problem of an elastic wave diffracted by a stress-free wedge delimited by faces $\mathcal{S}_1$ and $\mathcal{S}_2$. The geometry of the problem is shown on Fig.~\ref{diedre_coords}. The domain $\Omega$ is the inside of the wedge, defined by :
+\begin{equation}
+\Omega=\{ (r\cos \theta \cos \delta, r \sin \theta \cos \delta, r \sin \delta)\, \backslash \, \theta \in \rbrack 0, \varphi \lbrack, \, \delta \in \rbrack -\frac{\pi}{2}, \frac{\pi}{2} \lbrack \}
+\end{equation}
+%et sa surface
+%$$ \mathcal{S}=\mathcal{S}_1 \cup \mathcal{S}_2 $$
 
-$$\Omega=\{ (r\cos \theta \cos \delta, r \sin \theta \cos \delta, r \sin \delta)\, \backslash \, \theta \in \rbrack 0, \varphi \lbrack, \, \delta \in \rbrack -\frac{\pi}{2}, \frac{\pi}{2} \lbrack \} $$
-et sa surface
-$$ \mathcal{S}=\mathcal{S}_1 \cup \mathcal{S}_2 $$
-
-On suppose que le dièdre est irradié par une onde plane incidente de la forme
-$$ \mathbf{u}^{inc}(\mathbf{x},t)=\mathbf{A}_{\alpha}e^{i(\mathbf{k}_{\alpha}^{inc}\cdot \mathbf{x}-\omega t)}$$
-Où $\mathbf{A}_{\alpha}$ est le vecteur d'amplitude de l'onde incidente et $\mathbf{k}_{\alpha}^{inc}$ est le vecteur d'onde incident. On note $\alpha=L,TH,TV$ le type de l'onde incidente (L pour une onde longitudinale, TH pour une onde tranverse horizontale ou TV pour une onde transverse verticale). Dans le repère $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$, le vecteur d'onde incident est donné par :
-$$\mathbf{k}_{\alpha}^{inc}=\frac{\omega}{c_{\alpha}} \begin{pmatrix}
+The incident wave is a plane wave of the form
+\begin{equation}
+\mathbf{u}^{inc}(\mathbf{x},t)=\mathbf{A}_{\alpha}e^{i(\mathbf{k}_{\alpha}^{inc}\cdot \mathbf{x}-\omega t)}
+\end{equation}
+where $\mathbf{A}_{\alpha}$ is the amplitude vector of the incident wave and $\mathbf{k}_{\alpha}^{inc}$ is the incident wave vector. The type of the incident wave is denoted $\mathbf{k}_{\alpha}^{inc}$ (L for a longitudinal wave, TH for transverse horizontal and TV for transverse vertical). $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$ is a Cartesian coordinate system associated to face $\mathcal{S}_1$. In this system, the incident wave vector is given by :
+\begin{equation}
+\mathbf{k}_{\alpha}^{inc}=\frac{\omega}{c_{\alpha}} \begin{pmatrix}
 \cos\theta_{inc} \cos \delta_{inc} \\ \sin\theta_{inc} \cos \delta_{inc} \\
 \sin \delta_{inc}
-\end{pmatrix} $$
-La grandeur $c_L=\sqrt{(\underline{\lambda}+2\underline{\mu})/\rho}$ est la célérité des ondes longitudinales (c'est-à-dire les ondes dont l'amplitude est parallèle à la direction de propagation donnée par le vecteur d'onde) dans le matériau considéré st $c_T=\sqrt{\underline{\mu}/\rho}$ celle des ondes transversales (dont l'amplitude dans le plan normal à la direction de propagation) avec $\underline{\lambda}, \underline{\mu}$ les coefficients de Lamé. 
-\paragraph{}
-Le vecteur d'amplitude peut être dirigé suivant trois directions différentes et deux à deux orthogonales, selon la polarisation de l'onde incidente. Celle-ci peut-être longitudinale (notée L), transverse verticale (notée TV) ou transverse horizontale (notée TH). On note alors $\hat{i}_*$ avec $*=L, TH, TV$ le vecteur unitaire correspondant à chacune de ces polarisations. Il est donné par Achenbach \cite{Achenbach}, formule (1.39) :
+\end{pmatrix}
+\end{equation}
+As always, $c_L$ is the velocity of longitudinal waves and $c_T$ is the velocity of transverse waves.
+
+The amplitude vector can be directed by three different and two-by-two orthogonal vectors, depending on the incident wave's polarization. These unit polarization vectors are noted $\hat{i}_*$, where $*=L, TH, TV$ and are given by Achenbach \cite{Achenbach} :
 \begin{equation}
 \hat{i}_L = \begin{pmatrix}
 \cos\theta_{inc} \cos \delta_{inc} \\ \sin\theta_{inc} \cos \delta_{inc} \\
@@ -57,57 +52,44 @@ Le vecteur d'amplitude peut être dirigé suivant trois directions différentes 
 \end{pmatrix}
 \label{ivec}
 \end{equation}
-On a alors
-$$ \mathbf{A}_L \in \mbox{Vect}(\hat{i}_L) $$
-$$ \mathbf{A}_T \in \mbox{Vect}(\hat{i}_{TV}, \hat{i}_{TH})$$
-La notation Vect désigne l'espace engendré par un vecteur ou une famille de vecteurs.
-\paragraph{}
-%Dans toute la suite, on suppose que le repère utilisé est le repère $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$, sauf mention explicite du contraire.
- Rappellons l'équation de l'élasticité linéaire pour un matériau homogène isotrope dont est solution le champ de déplacement $\mathbf{u}$ :
+
+In all the following, vectors are expressed in the coordinate system $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$, except when explicitly mentioned otherwise. For a homogeneous, isotropic material, the linear elasticity equation solved by the displacement field $\mathbf{u}$ is 
 \begin{equation}
 \underline{\mu} \Delta \mathbf{u} + (\underline{\lambda}+\underline{\mu})\nabla \nabla \mathbf{u} = \rho \frac{\partial^2 \mathbf{u}}{\partial t^2}
-\label{Elasticitelin}
+\label{C4:Elasticitelin}
 \end{equation}
-Sur les faces du dièdre, ce champ vérifie la condition de surface libre (absence de contraintes normales) qui s'écrit :
+On each of the wedge faces, the displacement field verifies the zero-stress boundary conditions, expressed as :
 \begin{equation}
 (\underline{\lambda} \nabla \mathbf{u} .\mathbf{\mathbb{I}_3}+2\underline{\mu} \mathbf{\varepsilon} (\mathbf{u})).\mathbf{n}=0
+\label{C4:stressfree}
 \end{equation}
-On précise que $\mathbf{\mathbb{I}_3}$ est la matrice identité d'ordre 3, $n$ est la normale intérieure au dièdre (soit $n=\mathbf{y}_1$ sur $\mathcal{S}_1$  et $n=\mathbf{y}_2$ sur $\mathcal{S}_2$) et $\underline{\lambda}, \underline{\mu}$ sont les coefficients de Lamé, propres au matériau considéré. On rappelle également l'expression du tenseur des déformations :
-$$ \mathbf{\varepsilon}_{ij}(\mathbf{u})=\frac{1}{2} (\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}) $$
-%\paragraph{}
-%Kamotski et Lebeau \cite{Lebeau2} ont démontré l'existence et l'unicité d'une solution à ce problème dans le cas bidimensionnel. Cette démonstration reste valable dans le cas présent. Nous allons détailler ici une procédure de calcul de cette solution.
-\paragraph{}
- Désormais, les caractères gras seront réservés aux matrices afin de simplifier les notations. Les solutions cherchées sont harmoniques en temps, on ommettra dans la suite le facteur $e^{-i\omega t}$ commun à tous les termes de la solution. De plus, il n'y a aucun obstacle à la propagation dans la direction z, le facteur $e^{i\frac{\omega}{c_{\alpha}}\sin\delta_{inc}z}$ est donc lui aussi commun à tous les termes intervenant  dans l'écriture de la solution. 
-% On rappelle la loi de Snell :
-% \begin{equation}
-% \frac{1}{c_{\alpha}}\sin\delta_{\alpha}=\frac{1}{c_{\beta}}\sin\delta_{\beta}
-% \label{Snell}
-% \end{equation}
-\paragraph{}
-On suppose que le champ total u est la somme du champ incident $u^{inc}$ et d'un champ diffracté $u_0$.
+where $\mathbf{\mathbb{I}_3}$ is the identity matrix of the third order, $n$ is the inward facing normal to the wedge face ($n=\mathbf{y}_1$ on $\mathcal{S}_1$  and $n=\mathbf{y}_2$ on $\mathcal{S}_2$) and $\underline{\lambda}, \underline{\mu}$ are the Lamé coefficients of the considered elastic medium. The expression of the deformations tensor is :
+\begin{equation}
+\mathbf{\varepsilon}_{ij}(\mathbf{u})=\frac{1}{2} (\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}), \hspace{2em} 1\leq i,j \leq 3
+\end{equation}
+Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to this problem in the 2D the case. We will suppose that their demonstration is still valid in the 3D case.
+
+From hereon after, bold characters will be reserved to matrices in order to simplify notations. The solutions being time harmonic, the factor $e^{-i\omega t}$ will be implied but omitted everywhere. Furthermore, since there is no obstacle to propagation in the $z$ direction, $e^{i\frac{\omega}{c_{\alpha}}\sin\delta_{inc}z}$ is also a common factor to all the terms which appear in the solution.
+
+The total field is written as the sum of an incident field $u^{inc}$ and a scattered field $u_0$
 \begin{equation}
 u=u_0+u^{inc}
+\label{C4:scat}
 \end{equation}
-On adimensionne le problème en effectuant le changement de variables :
+
+The dimensionless problem is obtained by applying the following variable change :
 \begin{equation}
 u_0(x,y,z)=v\left( \frac{\omega}{c_L} x, \frac{\omega}{c_L} y \right)e^{i\nu_{\alpha}\sin\delta_{\alpha}z}
-\label{adiming}
+\label{C4:adiming}
 \end{equation}
-Les coefficients de Lamé adimensionnés sont donnés par :
-$$ \lambda=\frac{\underline{\lambda}}{\rho c_L^2}, \; \; \; \; \mu=\frac{\underline{\mu}}{\rho c_L^2}$$
-On définit également les paramètres sans dimension suivants :
-\begin{equation}
-\nu_L=1 \hspace{2em} \nu_T=\frac{c_L}{c_T} 
-\end{equation}
-Pour simplifier les notations, dans toute la suite on notera :
+where $\delta_{\alpha}=\delta_{inc}$, the dimensionless Lamé parameters $\lambda,\mu$ are given by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are defined by \eqref{nuLnuT}. To simplify notations, we define the following parameter $\tau$ is defined by :
 \begin{equation}
 \tau=\nu_{\alpha}\sin\delta_{\alpha}
 \label{deftau}
 \end{equation}
-Il est important de noter que l'on a $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. La dépendance en z de $u_0$ est donc contenue dans le facteur $e^{i\tau z}$ qui sera omis dans toute la suite.
+Note that we therefore always have $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. $u_0$'s $z$-dependence is entirely contained in the factor $e^{i\tau z}$ which will be implied but omitted in all the following.
 
-Le problème adimensionné que l'on cherche à résoudre s'écrit finalement:
-
+Substituting \eqref{C4:scat} and \eqref{C4:adiming} into \eqref{C4:Elasticitelin} and \eqref{C4:stressfree} yields the dimensionless problem
 \begin{eqnarray}
 (\mathcal{P}^*) \hspace{2em} \left\{
 \begin{array}{lr}
@@ -115,9 +97,9 @@ Le problème adimensionné que l'on cherche à résoudre s'écrit finalement:
 Bv=-Bv_{\alpha}^{inc} & (\mathcal{S})
 \end{array}
 \right.
-\label{Padim}
+\label{C4:Padim}
 \end{eqnarray}
-Avec,en notant $(v_1,v_2,v_3)$ les coordonnées de v :
+where $(v_1,v_2,v_3)$ are the components of vector $v$ :
 \begin{equation}
 Ev=\mu (\Delta v -\tau^2 v)+(\lambda+\mu)
 \begin{pmatrix}
@@ -125,15 +107,15 @@ Ev=\mu (\Delta v -\tau^2 v)+(\lambda+\mu)
 \frac{\partial^2 v_1}{\partial x \partial y}+\frac{\partial^2 v_2}{\partial y^2}+ i\tau\frac{\partial v_3}{\partial y}\\
 i\tau\left( \frac{\partial v_1}{\partial x}+\frac{\partial v_2}{\partial y}\right)-\tau^2 v_3
 \end{pmatrix}
-\label{Eadim}
+\label{C4:Eadim}
 \end{equation}
-et
+and
 \begin{equation}
 Bv=\begin{pmatrix}
 \mu \left(\frac{\partial v_x}{\partial y}+\frac{\partial v_y}{\partial x}\right) \\
 \frac{\partial v_y}{\partial y}+\lambda\left( \frac{\partial v_x}{\partial x}+i\tau v_z\right)\\
 \mu \left(\frac{\partial v_z}{\partial y}+i\tau v_y\right)
 \end{pmatrix}
-\label{Badim}
+\label{C4:Badim}
 \end{equation}
-Où on note $E$ et $B$  l'opérateur d'élasticité adimmensionné et de contraintes normales respectivement. La première équation du système correspond donc à la version adimensionnée des équations de l'élasticité linéaire vérifiées et la seconde correspond à la condition de surface libre adimmensionnée.
+where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator. The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
