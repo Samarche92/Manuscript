@@ -1,6 +1,6 @@
 \chapter{Computation details for the coefficients of matrix $\mathbb{T}(a,b)$}
 \label{matT}
-In each chapter of this manuscript, a matrix $\mathbb{T}(a,b)$ appears, the coefficients of which can be determined analytically. These coefficients are linear combinations of integrals $J_1^*$ to $J_8^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matric $\mathbb{T}(a,b)$ in the acoustic and 2D and 3D elastic case are given. In all the following, $\nuti \in \{1,\nu_T, \nuti_L,\nuti_T\}$.
+In each chapter of this manuscript, a matrix $\mathbb{T}(a,b)$ appears, the coefficients of which can be determined analytically. These coefficients are linear combinations of integrals $J_1^*$ to $J_8^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{T}(a,b)$ in the acoustic case and 2D and 3D elastic cases are given with respect to integrals $J_1^*$ to $J_8^*$. In all the following, $\nuti \in \{1,\nu_T, \nuti_L,\nuti_T\}$.
 
 \section{Integral $J_1^*$}
 \label{calcJ1}
@@ -62,13 +62,14 @@ The remaining terms are
 \begin{split}
 \frac{\eta_2 t+\psi_2}{P(t)}+&\frac{\lambda_2 t +\rho_2}{Q(t)}
 =\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})t-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
-&+\frac{1}{4(1-t^2)\nuti^3P(t)Q(t)}\Big( \lbrack 2\nuti^2t\sin\tilde{\varphi}+\nuti^2(1+t^2)i\cos\tilde{\varphi} \rbrack\lbrack2a\cos\tilde{\varphi}t+ai\sin\tilde{\varphi}(1+t^2)-2bt \rbrack\\
+&+\frac{1}{4(1-t^2)\nuti^3P(t)Q(t)}\Big( \lbrack 2\nuti^2t\sin\tilde{\varphi}+\nuti^2(1+t^2)i\cos\tilde{\varphi} \rbrack\\
+&\times\lbrack 2a\cos\tilde{\varphi}t+ai\sin\tilde{\varphi}(1+t^2)-2bt \rbrack\\
 &-(b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi})P(t)Q(t)\Big) \\
 ~\\
 =&-\frac{b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi}}{4\nuti^3P(t)Q(t)}\lbrack 2\nuti bt-iab(1-t^2)-2a\nuti\cos\tilde{\varphi}t\\
 &-a\nuti i\sin\tilde{\varphi}(1+t^2)\rbrack +\frac{1}{4\nuti(1-t^2)P(t)Q(t)}\Big( \lbrack 2t\sin\tilde{\varphi}+(1+t^2)i\cos\tilde{\varphi} \rbrack\lbrack 2a\cos\tilde{\varphi}t\\
-&+ai\sin\tilde{\varphi}(1+t^2)-2bt \rbrack- (b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi})(2\sin\tilde{\varphi}t(1+t^2)\\
-&-4i\cos\tilde{\varphi}t^2) \Big)+\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
+&+ai\sin\tilde{\varphi}(1+t^2)-2bt \rbrack- (b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi})\\
+&\times(2\sin\tilde{\varphi}t(1+t^2)-4i\cos\tilde{\varphi}t^2) \Big)+\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
 =&-\frac{b\cos(2\tilde{\varphi})t-at\cos\tilde{\varphi}-ib\sin(2\tilde{\varphi})+ia\sin\tilde{\varphi}}{4\nuti^3P(t)Q(t)}\lbrack 2\nuti bt-iab(1-t^2)-2a\nuti\cos\tilde{\varphi}t\\
 &-a\nuti i\sin\tilde{\varphi}(1+t^2)\rbrack+\frac{2iab\sin\tilde{\varphi}t-i\nuti^2\sin(2\tilde{\varphi})t-ab\cos\tilde{\varphi}(1+t^2)}{4\nuti^2P(t)Q(t)}\\
 &+\frac{2ia\cos^2\tilde{\varphi}t-a\cos\tilde{\varphi}\sin\tilde{\varphi}(1+t^2)+2b\sin\tilde{\varphi}\cos(2\tilde{\varphi})t^2-2ib\cos\tilde{\varphi}\cos(2\tilde{\varphi})t}{4\nuti P(t)Q(t)}
@@ -179,8 +180,8 @@ The remaining terms are
 =&\frac{\sin\tilde{\varphi}(1+t^2)+2i\cos\tilde{\varphi} t}{8\nuti^2(1-t^2)P(t)Q(t)}\Big( a\nuti(2\cos\tilde{\varphi}t+i\sin\tilde{\varphi}(1+t^2))-b(2\nuti t-ia(1-t^2))\Big)\\
 &+\frac{4t^3-(\sin\tilde{\varphi}(1+t^2)+2i\cos\tilde{\varphi} t)(\sin\tilde{\varphi}t(1+t^2)-2i\cos\tilde{\varphi} t^2)}{4(1-t^2)^2P(t)Q(t)}\\
 ~\\
-=&\frac{2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2}{4\nuti(1-t^2)P(t)Q(t)}+\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t}{8\nuti^2P(t)Q(t)}\\
-&-\frac{\sin^2\tilde{\varphi}.t}{4P(t)Q(t)}
+=&\frac{2ait^2-b\sin\tilde{\varphi}t(1+t^2)-2ib\cos\tilde{\varphi}t^2}{4\nuti(1-t^2)P(t)Q(t)}\\
+&+\frac{a\nuti i\sin^2\tilde{\varphi}(1-t^2)+iab\sin\tilde{\varphi}(1+t^2)-2ab\cos\tilde{\varphi}t}{8\nuti^2P(t)Q(t)}-\frac{\sin^2\tilde{\varphi}.t}{4P(t)Q(t)}
 \end{split}
 \end{equation}
 $\alpha_4$ is determined by multiplying the above decomposition by $(1-t)$ and evaluating the result at $t=1$. Similarly, $\beta_4$ is determined by multiplying the above equation by $(1+t)$ and evaluating the result at $t=-1$ :
@@ -353,7 +354,7 @@ J_8=&\frac{2i\eta_8 }{b-\nuti\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\var
 \end{equation}
 
 \section{Continuation and conclusion of the computation of the coefficients of $\mathbb{T}(a,b)$}
-\label{fincalculs}
+\label{fincalculsT}
 The final steps of the computation of the coefficients of matrices $\mathbb{T}_{lk}$ are given here. For each physical configuration presented in this manuscript, the coefficients can be expressed as linear combinations of integrals $J_1^*$ to $J_8^*$. These combinations are given case by case in the following.
 
 \subsection{Acoustic case}
@@ -389,9 +390,10 @@ Integrals $J_3^1$ and $J_5^1$ are computed in sections \ref{calculJ3} and \ref{c
 
 \subsection{2D elastic case}
 \label{finalT2D}
+In the third chapter of this manuscript, which deals with the 2D diffraction of an elastic wave, the coefficients of matrix $\mathbb{T}(a,b)$ are linear combinations of integrals $J_1^*$ to $J_5^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=1$ when $*=L$ and $\nuti=\nu_T$ when $*=T$.
 \subsection{3D elastic case}
 \label{finalT3D}
-
+In the fourth chapter of this manuscript, which deals with the 3D diffraction of an elastic wave, the coefficients of matrix $\mathbb{T}(a,b)$ are linear combinations of integrals $J_1^*$ to $J_8^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=\nuti_L$ when $*=L$ and $\nuti=\nuti_T$ when $*=T$.
 \subsubsection{L terms}
 We begin by computing the terms derived from $\mathbf{tm}_L$, defined by \eqref{tmL3D}.
 \begin{multline}
