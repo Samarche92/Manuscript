@@ -65,7 +65,11 @@ On each of the wedge faces, the displacement field verifies the zero-stress boun
 \end{equation}
 where $\mathbf{\mathbb{I}_3}$ is the identity matrix of the third order, $n$ is the inward facing normal to the wedge face ($n=\mathbf{y}_1$ on $\mathcal{S}_1$  and $n=\mathbf{y}_2$ on $\mathcal{S}_2$) and $\underline{\lambda}, \underline{\mu}$ are the Lamé coefficients of the considered elastic medium. The expression of the deformations tensor is :
 \begin{equation}
-\mathbf{\varepsilon}_{ij}(\mathbf{u})=\frac{1}{2} (\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial x_i}), \hspace{2em} 1\leq i,j \leq 3
+\mathbf{\varepsilon}(\mathbf{u})=\frac{1}{2} \begin{pmatrix}
+2\dfrac{\partial u_1}{\partial x_1} & \dfrac{\partial u_1}{\partial y_1}+\dfrac{\partial u_2}{\partial x_1}&\dfrac{\partial u_1}{\partial z}+\dfrac{\partial u_3}{\partial x_1} \\
+\dfrac{\partial u_1}{\partial y_1}+\dfrac{\partial u_2}{\partial x_1}&2\dfrac{\partial u_2}{\partial y_1}&\dfrac{\partial u_2}{\partial z}+\dfrac{\partial u_3}{\partial y_1} \\
+\dfrac{\partial u_1}{\partial z}+\dfrac{\partial u_3}{\partial x_1} &\dfrac{\partial u_2}{\partial z}+\dfrac{\partial u_3}{\partial y_1} & 2\dfrac{\partial u_3}{\partial z}
+\end{pmatrix}
 \end{equation}
 Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to this problem in the 2D the case. We will suppose that their demonstration is still valid in the 3D case.
 
@@ -119,3 +123,61 @@ Bv=\begin{pmatrix}
 \label{C4:Badim}
 \end{equation}
 where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator. The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
+
+\section{Integral formulation of the solution}
+As for the previous cases, the first step in solving problem $(\mathcal{P}^{\alpha})$ is to formulate the solution as an integral. 
+\subsection{Limiting absorption principle}
+The limiting absorption principle is applied to $(\mathcal{P}^{\alpha})$. This means that it is considered as a special case $(\varepsilon=0)$ of the problem
+\begin{eqnarray}
+(\mathcal{P}^*_{\epsilon}) \hspace{2em} \left\{
+\begin{array}{lr}
+(E+e^{-2i\epsilon})v^{\epsilon}=0 & (\Omega) \\
+Bv^{\epsilon}=-Bv_*^{inc} & (\mathcal{S})
+\end{array}
+\right.
+\label{C4:Pabs}
+\end{eqnarray}
+Following Kamotski and Lebeau \cite{KamotskiLebeau}, we will once again suppose that the solution can be expressed as the sum of two contributions, corresponding to each of the wedge faces :
+\begin{equation}
+v^{\epsilon}=v_1^{\epsilon}+v_2^{\epsilon}
+\label{C4:v1+v2}
+\end{equation}
+where functions $v_j^{\epsilon}$ are now defined on all of  $\mathbb{R}^3$ by
+\begin{equation}
+v_j^{\epsilon}=-(E+e^{-2i\epsilon})^{-1} \begin{bmatrix}
+\begin{pmatrix}
+\alpha_j \\
+\beta_j \\
+\gamma_j
+\end{pmatrix}
+\otimes \delta_{\mathcal{S}_j}
+\end{bmatrix}
+\label{C4:vjdef}
+\end{equation}
+Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are supposed to belong to the special call $\mathcal{A}$ defined in \ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
+\begin{definition}
+	 v is called an outgoing solution of equation \eqref{C4:Padim} if v is a solution of the form
+	\begin{equation}
+	\label{C4:decomposition}
+	v=v_1|_{\Omega}+v_2|_{\Omega}
+	\end{equation}
+	where, for $j=1,2$ :
+	\begin{equation}
+	\label{C4:inv_potentiels}
+	v_j=-\lim_{\epsilon \to 0} (E+e^{-2i\epsilon})^{-1} \begin{bmatrix}
+\begin{pmatrix}
+\alpha_j \\
+\beta_j \\
+\gamma_j
+\end{pmatrix}
+\otimes \delta_{\mathcal{S}_j}
+\end{bmatrix}
+	\end{equation}
+	where $\alpha_j,\beta_j,\gamma_j \in \mathcal{A}$. %and where $\delta_{\mathcal{S}_1}$ and $\delta_{\mathcal{S}_2}$ sont les distributions de Dirac associés aux faces $\mathcal{S}_1$ et $\mathcal{S}_2$ du dièdre respectivement.
+	%where $r$ is the distance from the wedge edge to the observation point which is on one face of the wedge. .	
+\end{definition}
+The following theorem was proved by Kamotski and Lebeau \cite{KamotskiLebeau} in the 2D case. We will suppose that their proof can be adapted to the 3D case and that the theorem is still true.
+\begin{theorem}
+Equation \eqref{C4:Padim} admits a unique outgoing solution.
+\end{theorem}
+Nous that the outgoing solution has been defined, we will derive an integral formulation of this solution.
