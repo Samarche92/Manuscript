@@ -182,17 +182,19 @@ Equation \eqref{C4:Padim} admits a unique outgoing solution.
 \end{theorem}
 Nous that the outgoing solution has been defined, we will derive an integral formulation of this solution.
 
-Commençons tout d'abord par appliquer une double transformée de Fourier à l'équation (\ref{vjdef}). Cela est licite car toutes les distributions qui interviennent dans cette équation sont tempérées et admettent donc une transformée de Fourier. On a alors :
+\subsection{Integral formulation}
+The two-sided Fourier transform and its inverse transform are defined by \eqref{fullfourierdef}. The first step in determining an integral formulation of the solution is to apply the two-sided Fourier transform to \eqref{C4:vjdef}. This possible because all the distributions that appear in this equation are tempered distributions and they therefore admit a Fourier transform. We then have :
 \begin{equation}
 \hat{v}^{\epsilon}_j(\xi,\eta)=(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}\Sigma_j(\xi)
-\label{matMvjeps}
+\label{C4:matMvjeps}
 \end{equation}
-où les $\Sigma_j$  sont des fonctions inconnues appelées fonctions spectrales, définies par :
-$$ \Sigma_j(\xi,)=\begin{pmatrix}
+where $\Sigma_j, j=1,2$  are the unknown spectral functions, definde by :
+\begin{equation}
+\Sigma_j(\xi,)=\begin{pmatrix}
 \hat{\alpha_j}(\xi)\\ \hat{\beta_j}(\xi) \\ \hat{\gamma_j}(\xi)
-\end{pmatrix}$$
-
-Et où \textbf{M} est la transformée de Fourier de l'opérateur $E$. En utilisant le fait que $\lambda+2\mu=1$, elle s'écrit : 
+\end{pmatrix}
+\end{equation}
+and where \textbf{M} is the two-sided Fourier transform of operator $E$. Its expression is :
 \begin{equation}
 \mathbf{M}(\xi,\eta)=
 \begin{pmatrix}
@@ -200,10 +202,9 @@ Et où \textbf{M} est la transformée de Fourier de l'opérateur $E$. En utilisa
  (\lambda+\mu)\xi \eta & \eta^2+\mu(\xi^2+\tau^2) & (\lambda+\mu)\eta\tau \\
 (\lambda+\mu)\xi\tau & (\lambda+\mu)\eta\tau & \tau^2+\mu(\xi^2+\eta^2) 
 \end{pmatrix}
-\label{matM}
+\label{C4:matM}
 \end{equation}
-
-En utilisant (\ref{matM}) et le fait que $\mu=\frac{1}{\nu_T^2} $, on obtient :
+Substituting $\lambda$ by $1-2\mu$ and $\mu$ by $1/\nu_T^2$, \eqref{C4:matM} yields
 \begin{multline}
 (\mathbf{M}-e^{-2i\epsilon}\mathbb{I}_3)^{-1}=\\
 \frac{\begin{pmatrix}
@@ -213,18 +214,8 @@ En utilisant (\ref{matM}) et le fait que $\mu=\frac{1}{\nu_T^2} $, on obtient :
 \end{pmatrix}}{(\xi^2+\eta^2+\tau^2-e^{-2i\epsilon})(\xi^2+\eta^2+\tau^2-\nu_T^2e^{-2i\epsilon})} 
 \end{multline}
 
-% \begin{equation}
-% a(\xi,\eta,\tau)=\frac{\xi^2+\nu_T^2(\eta^2+\tau^2)-\nu_T^2e^{-2i\epsilon}}{(\xi^2+\eta^2+\tau^2-e^{-2i\epsilon})(\xi^2+\eta^2+\tau^2-\nu_T^2e^{-2i\epsilon})}
-% \end{equation}
-% \begin{equation}
-% b(\xi,\eta,\tau)=\frac{(1-\nu_T^2)\xi \eta}{(\xi^2+\eta^2+\tau^2-e^{-2i\epsilon})(\xi^2+\eta^2+\tau^2-\nu_T^2e^{-2i\epsilon})}
-% \end{equation}
-
-\paragraph{}
-
-La formulation intégrale de chaque $v_j$ s'obtient finalement en inversant la double transformée de Fourier utilisée en (\ref{matMvjeps}) :
-
+Finally, the integral formulation of $v_j$ is obtained by inverting the two-sided Fourier transform applied in \eqref{C4:matMvjeps} :
 \begin{equation}
 v_j^{\epsilon}(x_j,y_j)=\frac{1}{4\pi^2}\int_{\mathbb{R}^2} e^{i x_j\xi}\left( \int_{-\infty}^{+\infty}e^{iy_j\eta} (\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1} \,d\eta \right) \Sigma_j(\xi) \,d\xi
- \label{invdouble}
+ \label{C4:invdouble}
 \end{equation}
