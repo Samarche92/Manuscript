@@ -219,3 +219,211 @@ Finally, the integral formulation of $v_j$ is obtained by inverting the two-side
 v_j^{\epsilon}(x_j,y_j)=\frac{1}{4\pi^2}\int_{\mathbb{R}^2} e^{i x_j\xi}\left( \int_{-\infty}^{+\infty}e^{iy_j\eta} (\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1} \,d\eta \right) \Sigma_j(\xi) \,d\xi
  \label{C4:invdouble}
 \end{equation}
+
+The poles of $(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}$ are located in $\eta=\pm \zeta_*^{\epsilon}(\xi)$, where $*=L,T$ and
+\begin{equation}
+\zeta_*^{\epsilon}(\xi)=\sqrt{e^{-2i\epsilon}\nu^2_*-(\xi^2+\tau^2)}
+\end{equation}
+Let us define $\nuti_*, *=L,T$ by
+\begin{equation}
+\nuti_*^{\epsilon}=\sqrt{e^{-2i\epsilon}\nu_*^2-\tau^2}
+\label{defnutieps}
+\end{equation}
+If the incident wave is longitudinal, then $\nuti \in \mathbb{R}$. However, if the incident wave is transversal, then two cases may occur :
+\begin{itemize}
+	\item if $|\sin\delta_{inc}| \leq \frac{\nu_L}{\nu_T}$, then $\nuti_L \in \mathbb{R}$
+	\item if $|\sin\delta_{inc}| >\frac{\nu_L}{\nu_T}$, then $\nuti_L \in i\mathbb{R}$ 
+\end{itemize} 
+In any case,
+\begin{equation}
+\zeta_*^{\epsilon}(\xi)=\sqrt{\tilde{\nu}_*^{\epsilon^2}-\xi^2}
+\end{equation}
+The chosen branch cut is the one for which the square root's imaginary part is positive. It is defined by
+ \begin{eqnarray}
+ \zeta_*(\xi)=
+ \left\{
+ \begin{array}{lr}
+ i\sqrt{\xi^2-\tilde{\nu}_*^2}& \mbox{si } |\xi| \geq |\nuti_*| \\
+ -\sqrt{\tilde{\nu}_*^2-\xi^2}& \mbox{si } |\xi| \leq |\nuti_*|
+ \end{array}
+ \right.
+ \label{defzeta}
+ \end{eqnarray}
+%La racine carrée complexe étant définie au signe près, $\sqrt{z}$ peut prendre deux valeurs distinctes pour $z$ fixé. C'est ce qu'on appelle les branches de coupure de la fonction. Les points de branchement sont les valeurs pour lesquelles ces branches se croisent (ici il s'agit de $\xi=\pm \tilde{\nu}_*^{\epsilon}$). Afin de bien définir $\zeta_*^{\epsilon}(\xi)$, on choisit la branche dont la partie imaginaire est positive. 
+
+The inner intergral of \eqref{C4:invdouble} is computed using Cauchy's residue theorem :
+\begin{equation}
+v_j^{\epsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\epsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*^{\epsilon}(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
+\label{C4:vjeps}
+\end{equation}
+where $\mathbf{M_*}(\xi,t),$ and $t=\mbox{sgn}( y_j)$ are defined by
+\begin{subequations}
+\begin{equation}
+\mathbf{M_L}(\xi,t)=\begin{pmatrix}
+\frac{\xi^2}{\zeta_L^{\epsilon}} &t\xi & \frac{\xi\tau}{\zeta_L^{\epsilon}} \\
+t\xi & \zeta_L^{\epsilon} & t\tau \\
+\frac{\xi\tau}{\zeta_L^{\epsilon}}& t\tau & \frac{\tau^2}{\zeta_L^{\epsilon}}
+\end{pmatrix}
+\label{C4:MLeps}
+\end{equation}
+\begin{equation}
+\mathbf{M_T^{\epsilon}}(\xi,t)=\begin{pmatrix}
+\zeta_T^{\epsilon} +\frac{\tau^2}{\zeta_T^{\epsilon}}& -t\xi &-\frac{\xi\tau}{\zeta_T^{\epsilon}}\\
+-t\xi & \frac{\xi^2+\tau^2}{\zeta_T^{\epsilon}}&-t\tau \\
+-\frac{\xi\tau}{\zeta_T^{\epsilon}}&-t\tau&\zeta_T^{\epsilon} +\frac{\xi^2}{\zeta_T^{\epsilon}}
+\end{pmatrix}
+\label{C4:MTeps}
+\end{equation}
+\label{C4:M*eps}
+\end{subequations}
+
+These matrices can be computed in two different manners, providing a way to test this result. the first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}$. The second option for computing these matrices is by computing the eigen vectors and eigen values of $\mathbf{M}$. %On trouve bien les mêmes résultats avec les deux méthodes.
+
+The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
+\begin{subequations}
+\begin{equation}
+    \mathbf{M}\begin{pmatrix}
+    \xi \\ \eta \\ \tau 
+    \end{pmatrix}
+    =(\xi^2+\eta^2+\tau^2)\begin{pmatrix}
+    \xi \\ \eta \\ \tau 
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+   \mathbf{M}\begin{pmatrix}
+    -\eta \\ \xi \\ 0
+    \end{pmatrix}
+    =\frac{\xi^2+\eta^2+\tau^2}{\nu_T^2}\begin{pmatrix}
+    \xi \\ \eta \\ \tau 
+    \end{pmatrix} 
+\end{equation}
+\begin{equation}
+   \mathbf{M}\begin{pmatrix}
+    -\xi\tau \\ \eta\tau \\ \xi^2+\eta^2
+    \end{pmatrix}
+    =\frac{\xi^2+\eta^2+\tau^2}{\nu_T^2}\begin{pmatrix}
+    -\xi\tau \\ \eta\tau \\ \xi^2+\eta^2
+    \end{pmatrix} 
+\end{equation}
+\end{subequations}
+These three vectors are linearly indepedent and constitute a vectorial basis of $\mathbb{C}^3$. This means that any vector of $\mathbb{C}^3$ can be expressed as a linear compination of these three vectors. Notably :
+\begin{equation}
+    \begin{pmatrix}
+    \hat{\alpha}_j\\ \hat{\beta}_j\\ \hat{\gamma}_j
+    \end{pmatrix}
+    = \frac{\xi\hat{\alpha}_j+\eta\hat{\beta}_j+\tau\hat{\gamma}_j}{\xi^2+\eta^2+\tau^2}\begin{pmatrix}
+    \xi \\ \eta \\ \tau 
+    \end{pmatrix} + \frac{\xi\hat{\beta}_j-\eta\hat{\alpha}_j}{\xi^2+\eta^2} \begin{pmatrix}
+    -\eta \\ \xi \\ 0
+    \end{pmatrix} + \frac{(\xi^2+\eta^2)\hat{\gamma}_j-\tau(\xi\hat{\alpha}_j+\eta\hat{\beta}_j)}{(\xi^2+\eta^2)(\xi^2+\eta^2+\tau^2)} \begin{pmatrix}
+    -\xi\tau \\ \eta\tau \\ \xi^2+\eta^2
+    \end{pmatrix}
+\end{equation}
+This second computation method thus yields
+\begin{equation}
+v_j^{\epsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\epsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,TH,TV}e^{i|y_j|\zeta_*^{\epsilon}(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
+\label{C4:vjeps2}
+\end{equation}
+where $\mathbf{M_L}(\xi,t),$ is given by \eqref{C4:MLeps} and
+\begin{subequations}
+\begin{equation}
+\mathbf{M_{TV}}(\xi,t)=\begin{pmatrix}
+\frac{\xi^2\tau^2}{\zeta_T(\xi^2+\zeta^2)}&\frac{t\xi\tau^2}{\xi^2+\zeta_T^2}&\frac{-\xi\tau}{\zeta_T}\\
+\frac{t\xi\tau^2}{\xi^2+\zeta_T^2}&\frac{\zeta_T\tau^2}{\xi^2+\zeta_T^2}&-t\tau\\
+\frac{-\xi\tau}{\zeta_T}&-t\tau&\frac{\xi^2+\zeta_T^2}{\zeta_T}
+\end{pmatrix}
+\label{C4:MTVeps}
+\end{equation}
+\begin{equation}
+\mathbf{M_{TH}}(\xi,t)=\left(1+\frac{\tau^2}{\xi^2+\zeta_T^2}\right)\begin{pmatrix}
+\zeta_T&-t\xi&0\\
+-t\xi&\frac{\xi^2}{\zeta_T}&0\\
+0&0&0
+\end{pmatrix}
+\label{C4:MTHeps}
+\end{equation}
+\label{C4:M*eps2}
+\end{subequations}
+Note that $ \mathbf{M_T}=\mathbf{M_{TH}}+\mathbf{M_{TV}}$. Expressions \eqref{C4:vjeps} and \eqref{C4:vjeps2} are equivalent.
+
+Integral \eqref{C4:vjeps} is well defined for all values of $\epsilon \in \rbrack 0, \pi \lbrack $, since for these values of $\epsilon$, the integration contour never crosses the branch points of the integrand, which are located at $\xi=\pm \tilde{\nu}_*^{\epsilon}$, outside of the real axis.
+
+According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\epsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The deformation contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L\in\mathbb{R}$ and on Fig.~\ref{C4:Gamma0_cr} in the other case. This way the branch points of the integrand are avoided.
+
+In all the following, superscipt $\epsilon=0$ will be omitted in order to alleviate notations. Finally:
+\begin{equation}
+v_j(x_j,y_j)=\frac{i}{4\pi}\int_{\Gamma_0} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
+\label{vj0}
+\end{equation}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\begin{tikzpicture}
+\node at (0,0) {$\times$};
+\node at (0.35,0.35) {$0$};
+\node at (2.25,0) {$\times$}; % Pole
+\node at (1.5,0) {$\times$}; %pole
+\node at (1.5,-0.45) {$\tilde{\nu}_L$};
+\node at (2.25,-0.45) {$\tilde{\nu}_T$};
+\node at (-1.5,0) {$\times$};
+\node at (-2.25,0) {$\times$};
+\node at (-1.5,0.45) {$-\tilde{\nu}_L$}; %pole
+\node at (-2.25,0.45) {$-\tilde{\nu}_T$}; %pole
+\node at (3.25,0.38) {$(\Gamma_0)$};
+\node at (3.7,-0.38) {$\xi_1$};
+\node at (0.38,2.25) {$\xi_2$};
+%\draw[ thick, ->] (-2.5,-0.5) arc (180:235:1);
+%\node at (-2.7,-0.9) {$F_1$};
+%\draw[ thick, ->] (2.5,0.5) arc (0:45:1); %ici c'est les fleches 
+%\node at (2.7,0.9) {$F_2$};
+\draw[thick,black,yshift=0pt,decoration={markings,
+mark=at position 1 with {\arrow{stealth}}},
+postaction={decorate}](0,-2.5) -- (0,2.5);
+\draw[thick,black,yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.6 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      mark=at position 1 with {\arrow{stealth}},
+      postaction={decorate}]
+      (-4,0) -- (-2.5,0)  arc (-180:0:0.25) -- (-1.75,0)  arc (-180:0:0.25)  -- (1.25,0)arc (180:0:0.25)  -- (2,0)arc (180:0:0.25) -- (3.75,0); % ca c'est l'axe
+\end{tikzpicture}
+\caption{Contour $\Gamma_0$ in the case where $\nuti_L \in \mathbb{R}$}
+\label{C4:Gamma0_noncr}
+\end{subfigure}
+\hfill
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\begin{tikzpicture}
+\node at (0,0) {$\times$};
+\node at (0.35,0.35) {$0$};
+\node at (2.25,0) {$\times$}; %pole
+\node at (2.25,-0.45) {$\tilde{\nu}_T$};
+\node at (-2.25,0) {$\times$};
+\node at (-2.25,0.45) {$-\tilde{\nu}_T$}; %pole
+\node at (3.5,0.38) {$(\Gamma_0)$};
+\node at (0,1.5) {$\times$};
+\node at (0.45, 1.5) {$\nuti_L$};
+\node at (0,-1.5) {$\times$};
+\node at (0.45,-1.5) {$-\nuti_L$};
+\node at (3.9,-0.38) {$\xi_1$};
+\node at (0.38,2.25) {$\xi_2$};
+\draw[thick,black,yshift=0pt,decoration={markings,
+mark=at position 1 with {\arrow{stealth}}},
+postaction={decorate}](0,-2.5) -- (0,2.5);
+\draw[thick,black,yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.6 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      mark=at position 1 with {\arrow{stealth}},
+     postaction={decorate}]
+      (-3.75,0) -- (-2.5,0)  arc (-180:0:0.25) -- (2,0)arc (180:0:0.25) -- (4,0); % ca c'est l'axe
+\end{tikzpicture}
+\caption{Contour $\Gamma_0$ in the case where $\nuti_L \in i\mathbb{R}$}
+\label{C4:Gamma0_cr}
+\end{subfigure}
+\caption{Contour $\Gamma_0$ in the complex plane $\xi=\xi_1+i\xi_2$}
+\label{C4:Gamma0}
+\end{figure}
