@@ -91,7 +91,9 @@ where $\delta_{\alpha}=\delta_{inc}$, the dimensionless Lamé parameters $\lambd
 \tau=\nu_{\alpha}\sin\delta_{\alpha}
 \label{deftau}
 \end{equation}
-Note that we therefore always have $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. $u_0$'s $z$-dependence is entirely contained in the factor $e^{i\tau z}$ which will be implied but omitted in all the following.
+Note that we therefore always have $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. $u_0$'s $z$-dependency is entirely contained in the factor $e^{i\tau z}$ which will be implied but omitted in all the following.
+
+\textcolor{red}{Snell's Law+fix (2.9) exp}
 
 Substituting \eqref{C4:scat} and \eqref{C4:adiming} into \eqref{C4:Elasticitelin} and \eqref{C4:stressfree} yields the dimensionless problem
 \begin{eqnarray}
@@ -410,14 +412,14 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \node at (3.9,-0.38) {$\xi_1$};
 \node at (0.38,2.25) {$\xi_2$};
 \draw[thick,black,yshift=0pt,decoration={markings,
-mark=at position 1 with {\arrow{stealth}}},
+mark=at position 0.99 with {\arrow{stealth}}},
 postaction={decorate}](0,-2.5) -- (0,2.5);
 \draw[thick,black,yshift=0pt,
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.6 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
-      mark=at position 1 with {\arrow{stealth}},
+      mark=at position 0.99 with {\arrow{stealth}},
      postaction={decorate}]
       (-3.75,0) -- (-2.5,0)  arc (-180:0:0.25) -- (2,0)arc (180:0:0.25) -- (4,0); % ca c'est l'axe
 \end{tikzpicture}
@@ -427,3 +429,145 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \caption{Contour $\Gamma_0$ in the complex plane $\xi=\xi_1+i\xi_2$}
 \label{C4:Gamma0}
 \end{figure}
+
+
+\subsection{Far field approximation}
+$x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta,r\sin\theta\cos\delta,r\sin\delta)$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. According to \eqref{C4:adiming},the scattered field at point $P$ is :
+\begin{equation}
+u_0(x_1,y_1,z)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta,\frac{\omega}{c_L}r\sin\theta\cos\delta)e^{ik_{\beta}\sin\delta_{\beta}z}
+\end{equation}
+The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behaviour of $v(R\cos\theta\cos\delta,R\sin\theta\cos\delta)$ when $R\rightarrow +\infty$.The first step is to apply the change following of variables in integral $v_1$ :
+\begin{equation}
+\begin{split}
+\xi&=\tilde{\nu}_*\cos\lambda \\
+d\xi&=-\tilde{\nu}_*\sin\lambda\, d\lambda
+\end{split}
+\label{changevar2}
+\end{equation}
+yielding
+\begin{equation}
+v_1(r,\theta,\delta)=\frac{i}{4\pi} \int_{C_0}\sum_{*=L,T}\tilde{\nu}_*^2 e^{i\tilde{\nu}_*R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_*}(\lambda,t)\Sigma_1(\tilde{\nu}_*\cos\lambda) \, d \lambda
+\end{equation}
+where 
+\begin{equation}
+\mathbf{P_L}(\lambda,t)=
+\begin{pmatrix}
+\cos^2\lambda & -t\cos\lambda\sin\lambda &\frac{\tau}{\tilde{\nu}_L} \cos\lambda \\
+-t\cos\lambda\sin\lambda & \sin^2\lambda&-t\frac{\tau}{\tilde{\nu}_L}\sin\lambda \\
+\frac{\tau}{\tilde{\nu}_L} \cos\lambda&-t\frac{\tau}{\tilde{\nu}_L}\sin\lambda&\frac{\tau^2}{\tilde{\nu}_L^2}
+\end{pmatrix}
+\end{equation}
+and
+\begin{equation}
+\mathbf{P_T}(\lambda,t)=
+\begin{pmatrix}
+\sin^2\lambda+\frac{\tau^2}{\tilde{\nu}_T^2} & t\cos\lambda\sin\lambda &-\frac{\tau}{\tilde{\nu}_T}\cos\lambda \\
+t\cos\lambda\sin\lambda & \cos^2\lambda+\frac{\tau^2}{\tilde{\nu}_T^2}&t\frac{\tau}{\tilde{\nu}_T}\sin\lambda \\
+-\frac{\tau}{\tilde{\nu}_T}\cos\lambda&t\frac{\tau}{\tilde{\nu}_T}\sin\lambda&1
+\end{pmatrix}
+\end{equation}
+$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}.
+
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+    \begin{tikzpicture}
+	\draw[step=1.5cm,gray,very thin,dashed](-5,-2.7)grid(-1,3.7);
+
+	\draw[thin] (-5,0)  -- (-1,0) node[above]{$\lambda_1$};
+	\draw[thin](-1.5,-2.5)--(-1.5,3.5) node[left]{$\lambda_2$};
+
+	\node at (-4.5,-0.2) {$-\pi$};
+	\node at (-1.3,0.2) {$0$};
+	\node at (-3.8,0.3) {$\lambda_s$};
+	\node at (-3.5,3.6) {$\mathcal{C}_0^L$};
+	\node at (-5.5,3) {$\gamma_{\theta}^L$};
+	
+	%% steepest descent
+	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+	postaction={decorate}][domain=-1:-4] plot({0.5+-pi*0.7-2*asin(1/sinh(-\x))*pi/180},\x+1);
+	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+	postaction={decorate}][domain=4:1] plot({0.5+-2*pi-2*asin(1/sinh(-\x))*pi/180},\x-1);
+	
+	%% Courbe C0L
+	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+	postaction={decorate}][domain=3.5:0] plot({-3 -acos(1/cosh(\x))/360},\x); 
+	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+	postaction={decorate}][domain=0:-2.8] plot({-3+acos(1/cosh(\x))/360},\x);
+
+	\end{tikzpicture}
+	\caption{Contours $C_0^L$ and $\gamma_{\theta}^L$ in the case $\nuti_L \in i\mathbb{R}$ }
+	\label{C0L}
+\end{subfigure}
+\hfill
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+    	\begin{tikzpicture}
+	\draw[step=1.5cm,gray,very thin,dashed](-1,-2.7)grid(3.7,3.7);
+	\draw[thin] (-1,0)  -- (3.7,0) node[above]{$\lambda_1$};
+	\draw[thin](0,-2.5)--(0,3.5) node[left]{$\lambda_2$};
+
+	\node at (2.8,-0.2) {$\pi$};
+	\node at (-0.2,0.2) {$0$};
+	\node at (0.92,0.5) {$\lambda_s$};
+	\node at (3,3.1) {$\mathcal{C}_0^T$};
+	\node at (1.9,3.1) {$\gamma_{\theta}^T$};
+	
+	\draw[black,very thick][domain=0:3.5] plot({2*pi/7 + acos(1/cosh(\x))*pi/180},\x);
+	\draw[black,very thick, decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.2 with {\arrow{latex}}},
+	postaction={decorate}][domain=0:-2.8] plot({2*pi/7 - acos(1/cosh(\x))*pi/180},\x);
+	
+	\draw[very thick,black,%xshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.8 with {\arrow{latex}}},
+	postaction={decorate}]
+	(0.2,0.2) arc (0:-90:0.4) -- (-0.2,-3); 
+	
+	\draw[very thick,black,%yshift=0pt,
+	decoration={ markings, mark=at position 0.5 with {\arrow{latex}}}, postaction={decorate}]
+	(pi-0.57,0.2) -- (0.2,0.2);
+
+	\draw[very thick,black,%xshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.5 with {\arrow{latex}}},
+	postaction={decorate}]
+	(pi-0.4,3.2) -- (pi-0.4,0.4) arc (0:-90:0.2) ;
+
+	\end{tikzpicture}
+	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the case $\nuti_L \in \mathbb{R}$}
+	\label{C0T}
+\end{subfigure}
+	\caption{Contours $C_0$ and $\gamma_{\theta}^*$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. The stationary phase points are noted $\lambda_s$.}
+	\label{C4:steepestcontour}
+\end{figure}
+
+The far-field evaluation of the integral is obtained by applying the steepest descent method, presented in appendix \ref{stationaryphase}. To do so, contour $C_0$ is deformed into contour $\gamma_{\theta}$, also visible in Fig.~\ref{C4:steepestcontour}. This leads to
+\begin{equation}
+v_1=v_1^{sing}+v_1^{diff}
+\end{equation}
+where $v_1^{sing}$ is the contribution of allthe singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary pahse point, corresponding to the reflected wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
+\begin{equation}
+v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
+\end{equation}
+Analogously,
+\begin{equation}
+v_2^{diff}(R\cos(\varphi-\theta),R\sin(\varphi-\theta))=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_1(-\tilde{\nu}_*\cos(\varphi-\theta))
+\end{equation}
+
+The diffraction coefficient is defined by
+\begin{equation}
+v_{\beta}^{diff}(R\cos\theta,R\sin\theta)=D_{\beta}^{\alpha}(\theta,\delta)\frac{e^{-i\nuti_{\beta}R\cos\delta_{\beta}}}{\sqrt{\nuti_{\beta}R\cos\delta_{\beta}}} v^{inc}(R\cos\theta,R\sin\theta) \hat{i}_{\beta}
+\label{coeffdiff}
+\end{equation}
+The total diffracted field is
+\begin{equation}
+v^{diff}=v_1^{diff}+v_2^{diff}
+\end{equation}
+
+Let us now isolate L, TH and TV diffracted waves in order to compute the corresponding diffraction coefficients. Using the expressions of the unit vectors given by \eqref{ivec}, the $beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
+\begin{equation}
+D_{\beta}^{\alpha}(\theta,\delta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\sum_{*=L,T}\nuti_*^2 \,{}^t \Sigma_j(-\nuti_*\cos\theta_j)\cdot\left(\mathbf{P}_*(\pi-\theta_j).\hat{i}_{\beta}\right)
+\end{equation}
+where $\theta_1=\theta$ and $\theta_2=\varphi-\theta$.
