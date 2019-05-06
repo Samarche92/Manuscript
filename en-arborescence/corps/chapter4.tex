@@ -189,7 +189,7 @@ The two-sided Fourier transform and its inverse transform are defined by \eqref{
 \hat{v}^{\epsilon}_j(\xi,\eta)=(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}\Sigma_j(\xi)
 \label{C4:matMvjeps}
 \end{equation}
-where $\Sigma_j, j=1,2$  are the unknown spectral functions, definde by :
+where $\Sigma_j, j=1,2$  are the unknown spectral functions, defined by :
 \begin{equation}
 \Sigma_j(\xi,)=\begin{pmatrix}
 \hat{\alpha_j}(\xi)\\ \hat{\beta_j}(\xi) \\ \hat{\gamma_j}(\xi)
@@ -230,7 +230,7 @@ Let us define $\nuti_*, *=L,T$ by
 \nuti_*^{\epsilon}=\sqrt{e^{-2i\epsilon}\nu_*^2-\tau^2}
 \label{defnutieps}
 \end{equation}
-If the incident wave is longitudinal, then $\nuti \in \mathbb{R}$. However, if the incident wave is transversal, then two cases may occur :
+If the incident wave is longitudinal, then $\nuti \in \mathbb{R}$. However, if the incident wave is transverse, then two cases may occur :
 \begin{itemize}
 	\item if $|\sin\delta_{inc}| \leq \frac{\nu_L}{\nu_T}$, then $\nuti_L \in \mathbb{R}$
 	\item if $|\sin\delta_{inc}| >\frac{\nu_L}{\nu_T}$, then $\nuti_L=i\eta_L \in i\mathbb{R}$ 
@@ -252,7 +252,7 @@ The chosen branch cut is the one for which the square root's imaginary part is p
  \end{eqnarray}
 %La racine carrée complexe étant définie au signe près, $\sqrt{z}$ peut prendre deux valeurs distinctes pour $z$ fixé. C'est ce qu'on appelle les branches de coupure de la fonction. Les points de branchement sont les valeurs pour lesquelles ces branches se croisent (ici il s'agit de $\xi=\pm \tilde{\nu}_*^{\epsilon}$). Afin de bien définir $\zeta_*^{\epsilon}(\xi)$, on choisit la branche dont la partie imaginaire est positive. 
 
-The inner intergral of \eqref{C4:invdouble} is computed using Cauchy's residue theorem :
+The inner integral of \eqref{C4:invdouble} is computed using Cauchy's residue theorem :
 \begin{equation}
 v_j^{\epsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\epsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*^{\epsilon}(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{C4:vjeps}
@@ -307,7 +307,7 @@ The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
     \end{pmatrix} 
 \end{equation}
 \end{subequations}
-These three vectors are linearly indepedent and constitute a vectorial basis of $\mathbb{C}^3$. This means that any vector of $\mathbb{C}^3$ can be expressed as a linear compination of these three vectors. Notably :
+These three vectors are linearly independent and constitute a vector basis of $\mathbb{C}^3$. This means that any vector of $\mathbb{C}^3$ can be expressed as a linear combination of these three vectors. Notably :
 \begin{equation}
     \begin{pmatrix}
     \hat{\alpha}_j\\ \hat{\beta}_j\\ \hat{\gamma}_j
@@ -351,7 +351,7 @@ Integral \eqref{C4:vjeps} is well defined for all values of $\epsilon \in \rbrac
 
 According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\epsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The deformation contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L\in\mathbb{R}$ and on Fig.~\ref{C4:Gamma0_cr} in the other case. This way the branch points of the integrand are avoided.
 
-In all the following, superscipt $\epsilon=0$ will be omitted in order to alleviate notations. Finally:
+In all the following, superscript $\epsilon=0$ will be omitted in order to alleviate notations. Finally:
 \begin{equation}
 v_j(x_j,y_j)=\frac{i}{4\pi}\int_{\Gamma_0} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{vj0}
@@ -435,7 +435,7 @@ $x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta,r\sin\theta\cos\delta,r\sin\delta)$ is a
 \begin{equation}
 u_0(x_1,y_1,z)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta,\frac{\omega}{c_L}r\sin\theta\cos\delta)e^{ik_{\beta}\sin\delta_{\beta}z}
 \end{equation}
-The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behaviour of $v(R\cos\theta\cos\delta,R\sin\theta\cos\delta)$ when $R\rightarrow +\infty$.The first step is to apply the change following of variables in integral $v_1$ :
+The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta,R\sin\theta\cos\delta)$ when $R\rightarrow +\infty$.The first step is to apply the change following of variables in integral $v_1$ :
 \begin{equation}
 \begin{split}
 \xi&=\tilde{\nu}_*\cos\lambda \\
@@ -467,7 +467,14 @@ t\cos\lambda\sin\lambda & \cos^2\lambda+\frac{\tau^2}{\tilde{\nu}_T^2}&t\frac{\t
 \end{equation}
 $t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}.
 
-Note that in the case $\nuti_L =i\eta_L \in \mathbb{R}$, variable change \eqref{C4:changevar2}
+Note that in the case $\nuti_L =i\eta_L \in i\mathbb{R}$, variable change \eqref{C4:changevar2} produces an evanescent term :
+\begin{equation}
+\begin{split}
+v_1(r,\theta,\delta)&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
+&+\frac{i}{4\pi} \int_{C_0}\tilde{\nu}_T^2 e^{i\eta_T R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_T}(\lambda,t)\Sigma_1(\tilde{\nu}_T\cos\lambda) \, d\lambda
+\end{split}
+\end{equation}
+where contour $C_0^L$ is visible on Fig.~\ref{C0L}.
 
 \begin{figure}
 \centering
@@ -511,8 +518,8 @@ Note that in the case $\nuti_L =i\eta_L \in \mathbb{R}$, variable change \eqref{
 	\node at (2.8,-0.2) {$\pi$};
 	\node at (-0.2,0.2) {$0$};
 	\node at (0.92,0.5) {$\lambda_s$};
-	\node at (3,3.1) {$\mathcal{C}_0^T$};
-	\node at (1.9,3.1) {$\gamma_{\theta}^T$};
+	\node at (3,3.1) {$\mathcal{C}_0$};
+	\node at (1.9,3.1) {$\gamma_{\theta}$};
 	
 	\draw[black,very thick][domain=0:3.5] plot({2*pi/7 + acos(1/cosh(\x))*pi/180},\x);
 	\draw[black,very thick, decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
@@ -543,11 +550,11 @@ Note that in the case $\nuti_L =i\eta_L \in \mathbb{R}$, variable change \eqref{
 	\label{C4:steepestcontour}
 \end{figure}
 
-The far-field evaluation of the integral is obtained by applying the steepest descent method, presented in appendix \ref{stationaryphase}. To do so, contour $C_0$ is deformed into contour $\gamma_{\theta}$, also visible in Fig.~\ref{C4:steepestcontour}. This leads to
+The far-field evaluation of the integral is obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}. To do so, contour $C_0$ is deformed into contour $\gamma_{\theta}$, also visible in Fig.~\ref{C4:steepestcontour}. In the case $\nuti_L \in \mathbb{R}$, this leads to
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
-where $v_1^{sing}$ is the contribution of allthe singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary pahse point, corresponding to the reflected wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary phase point, corresponding to the reflected wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
 \begin{equation}
 v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
 \end{equation}
@@ -555,6 +562,8 @@ Analogously,
 \begin{equation}
 v_2^{diff}(R\cos(\varphi-\theta),R\sin(\varphi-\theta))=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_1(-\tilde{\nu}_*\cos(\varphi-\theta))
 \end{equation}
+
+In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is also obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}
 
 The diffraction coefficient is defined by
 \begin{equation}

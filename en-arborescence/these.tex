@@ -1,5 +1,5 @@
 % Document de classe yathesis, en 12 points, interligne un et demi, et version finale
-\documentclass[12pt,version=inprogress,mainlanguage=english,%localtocs/depth=subsection,
+\documentclass[12pt,version=inprogress,mainlanguage=english,localtocs/depth=subsection,
 secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 ,fncychap=Sonny]{yathesis}
 %
@@ -8,6 +8,7 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{amsthm}
+\usepackage[final]{pdfpages}
 \usetikzlibrary{calc,decorations.markings}
 \usetikzlibrary{patterns}
 \usetikzlibrary{arrows}
@@ -99,8 +100,9 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 %
 % Production des pages de couverture et de titre
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\maketitle[nofrontcover=true,frametitle=none]
+%\maketitle[nofrontcover=true,frametitle=none]
 %
+\includepdf{images/these_upsaclay_2018-07-19/1ere.pdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Début de la partie liminaire de la thèse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,8 +113,7 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 % (Facultatif) Production de la page de mots clés
 \makekeywords
 %
-% (Facultatif) Production de la page affichant les logo, nom et coordonnées du
-% ou des laboratoires (ou unités de recherche) où la thèse a été préparée
+% (Facultatif) Production de la page affichant les logo, nom et coordonnées du ou des laboratoires (ou unités de recherche) où la thèse a été préparée
 \makelaboratory
 %
 % (Facultatif) Dédicace(s)
@@ -217,4 +218,6 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 % (Facultatif) Production de la 4e de couverture :
 %\makebackcover
 %
+\includepdf{images/these_upsaclay_2018-07-19/4eme.pdf}
+
 \end{document}
