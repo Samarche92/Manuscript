@@ -418,8 +418,8 @@ postaction={decorate}](0,-2.5) -- (0,2.5);
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.6 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      mark=at position 0.99 with {\arrow{stealth}},
+      mark=at position 0.9 with {\arrow{latex}},
+      mark=at position 0.99 with {\arrow{stealth}}},
      postaction={decorate}]
       (-3.75,0) -- (-2.5,0)  arc (-180:0:0.25) -- (2,0)arc (180:0:0.25) -- (4,0); % ca c'est l'axe
 \end{tikzpicture}
@@ -473,7 +473,7 @@ Note that in the case $\nuti_L =i\eta_L \in i\mathbb{R}$, variable change \eqref
 \begin{equation}
 \begin{split}
 v_1(r,\theta,\delta)&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
-&+\frac{i}{4\pi} \int_{C_0}\tilde{\nu}_T^2 e^{i\eta_T R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_T}(\lambda,t)\Sigma_1(\tilde{\nu}_T\cos\lambda) \, d\lambda
+&+\frac{i}{4\pi} \int_{C_0}\tilde{\nu}_T^2 e^{i\nuti_T R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_T}(\lambda,t)\Sigma_1(\tilde{\nu}_T\cos\lambda) \, d\lambda
 \end{split}
 \label{C4:v1C0evan}
 \end{equation}
@@ -481,41 +481,41 @@ where contour $C_0^L$ is visible on Fig.~\ref{C0L}.
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.45\textwidth}
-    \begin{tikzpicture}
-	\draw[step=1.5cm,gray,very thin,dashed](-5,-2.7)grid(-1,3.7);
-
-	\draw[thin] (-5,0)  -- (-1,0) node[above]{$\lambda_1$};
-	\draw[thin](-1.5,-2.5)--(-1.5,3.5) node[left]{$\lambda_2$};
-
-	\node at (-4.5,-0.2) {$-\pi$};
-	\node at (-1.3,0.2) {$0$};
-	\node at (-3.8,0.3) {$\lambda_s$};
-	\node at (-3.5,3.6) {$\mathcal{C}_0^L$};
-	\node at (-5.5,3) {$\gamma_{\theta}^L$};
-	
-	%% steepest descent
-	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-	postaction={decorate}][domain=-1:-4] plot({0.5+-pi*0.7-2*asin(1/sinh(-\x))*pi/180},\x+1);
-	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-	postaction={decorate}][domain=4:1] plot({0.5+-2*pi-2*asin(1/sinh(-\x))*pi/180},\x-1);
-	
-	%% Courbe C0L
-	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-	postaction={decorate}][domain=3.5:0] plot({-3 -acos(1/cosh(\x))/360},\x); 
-	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-	postaction={decorate}][domain=0:-2.8] plot({-3+acos(1/cosh(\x))/360},\x);
-
-	\end{tikzpicture}
-	\caption{Contours $C_0^L$ and $\gamma_{\theta}^L$ in the case $\nuti_L \in i\mathbb{R}$ }
-	\label{C0L}
-\end{subfigure}
-\hfill
-\centering
-\begin{subfigure}[b]{0.45\textwidth}
+%\begin{subfigure}[b]{0.45\textwidth}
+%    \begin{tikzpicture}
+%	\draw[step=1.5cm,gray,very thin,dashed](-5,-2.7)grid(-1,3.7);
+%
+%	\draw[thin] (-5,0)  -- (-1,0) node[above]{$\lambda_1$};
+%	\draw[thin](-1.5,-2.5)--(-1.5,3.5) node[left]{$\lambda_2$};
+%
+%	\node at (-4.5,-0.2) {$-\pi$};
+%	\node at (-1.3,0.2) {$0$};
+%	\node at (-3.8,0.3) {$\lambda_s$};
+%	\node at (-3.5,3.6) {$\mathcal{C}_0^L$};
+%	\node at (-5.5,3) {$\gamma_{\theta}^L$};
+%	
+%	%% steepest descent
+%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+%	postaction={decorate}][domain=-1:-4] plot({0.5+-pi*0.7-2*asin(1/sinh(-\x))*pi/180},\x+1);
+%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+%	postaction={decorate}][domain=4:1] plot({0.5+-2*pi-2*asin(1/sinh(-\x))*pi/180},\x-1);
+%	
+%	%% Courbe C0L
+%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+%	postaction={decorate}][domain=3.5:0] plot({-3 -acos(1/cosh(\x))/360},\x); 
+%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
+%	postaction={decorate}][domain=0:-2.8] plot({-3+acos(1/cosh(\x))/360},\x);
+%
+%	\end{tikzpicture}
+%	\caption{Contours $C_0^L$ and $\gamma_{\theta}^L$ in the case $\nuti_L \in i\mathbb{R}$ }
+%	\label{C0L}
+%\end{subfigure}
+%\hfill
+%\centering
+%\begin{subfigure}[b]{0.45\textwidth}
     	\begin{tikzpicture}
-	\draw[step=1.5cm,gray,very thin,dashed](-1,-2.7)grid(3.7,3.7);
-	\draw[thin] (-1,0)  -- (3.7,0) node[above]{$\lambda_1$};
+	\draw[step=1.5cm,gray,very thin,dashed](-2.5,-2.7)grid(3.7,3.7);
+	\draw[thin] (-2.5,0)  -- (3.7,0) node[above]{$\lambda_1$};
 	\draw[thin](0,-2.5)--(0,3.5) node[left]{$\lambda_2$};
 
 	\node at (2.8,-0.2) {$\pi$};
@@ -523,6 +523,11 @@ where contour $C_0^L$ is visible on Fig.~\ref{C0L}.
 	\node at (0.92,0.5) {$\lambda_s$};
 	\node at (3,3.1) {$\mathcal{C}_0$};
 	\node at (1.9,3.1) {$\gamma_{\theta}$};
+	
+	\draw[black,very thick, decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.8 with {\arrow{latex}}},
+	postaction={decorate}] (-1.5,3.5)--(-1.5,-2.5);
 	
 	\draw[black,very thick][domain=0:3.5] plot({2*pi/7 + acos(1/cosh(\x))*pi/180},\x);
 	\draw[black,very thick, decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
@@ -546,10 +551,10 @@ where contour $C_0^L$ is visible on Fig.~\ref{C0L}.
 	(pi-0.4,3.2) -- (pi-0.4,0.4) arc (0:-90:0.2) ;
 
 	\end{tikzpicture}
-	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the case $\nuti_L \in \mathbb{R}$}
-	\label{C0T}
-\end{subfigure}
-	\caption{Contours $C_0$ and $\gamma_{\theta}^*$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. The stationary phase points are noted $\lambda_s$.}
+%	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the case $\nuti_L \in \mathbb{R}$}
+%	\label{C0T}
+%\end{subfigure}
+	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. The stationary phase points are noted $\lambda_s$.}
 	\label{C4:steepestcontour}
 \end{figure}
 
@@ -570,19 +575,20 @@ In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}+v_1^{evan}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ and from $C_0^L$ to $\gamma_{\theta}^L$, $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the stationary phase point to the integral on $C_0^L$, corresponding to an evanescent wave. Contributions $v_1^{diff}$ and $v_1^{evan}$ are both computed using \eqref{steepformula}. The contribution of evanescent waves is 
-\begin{equation}
-v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
-\end{equation}
-and the contribution of diffracted waves is :
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the integral on $C_0^L$, which decays exponentially as the far-field parameter $R$ grows, making it an evanescent wave. Contribution $v_1^{diff}$ is computed using \eqref{steepformula} :
+%. The contribution of evanescent waves is 
+%\begin{equation}
+%v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
+%\end{equation}
+%and the contribution of diffracted waves is :
 \begin{equation}
 v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-\theta)\Sigma_1(-\tilde{\nu}_T\cos\theta)
 \end{equation}
 Analogously,
-\begin{equation}
-v^{evan}_2(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-(\varphi-\theta))\Sigma_1(i\eta_L\cos(\varphi-\theta))
-\end{equation}
-and
+%\begin{equation}
+%v^{evan}_2(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-(\varphi-\theta))\Sigma_1(i\eta_L\cos(\varphi-\theta))
+%\end{equation}
+%and
 \begin{equation}
 v_2^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-(\varphi-\theta))\Sigma_2(-\tilde{\nu}_T\cos(\varphi-\theta))
 \end{equation}
