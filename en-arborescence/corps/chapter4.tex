@@ -36,12 +36,12 @@ The amplitude vector can be directed by three different and two-by-two orthogona
 \begin{equation}
 \hat{i}_L = \begin{pmatrix}
 \cos\theta_{inc} \cos \delta_{inc} \\ \sin\theta_{inc} \cos \delta_{inc} \\
-\sin \delta_{inc}
+\pm \sin \delta_{inc}
 \end{pmatrix}
 \hfill
 \hfill
 \hat{i}_{TV} = \begin{pmatrix}
--\cos\theta_{inc} \sin \delta_{inc} \\ -\sin\theta_{inc} \sin \delta_{inc} \\
+\mp\cos\theta_{inc} \sin \delta_{inc} \\ \mp\sin\theta_{inc} \sin \delta_{inc} \\
 \cos \delta_{inc}
 \end{pmatrix}
 \hfill
@@ -52,6 +52,7 @@ The amplitude vector can be directed by three different and two-by-two orthogona
 \end{pmatrix}
 \label{ivec}
 \end{equation}
+where the top sign gives the polarization of an incident wave and the bottom sign gives the polarization of a diffracted wave.
 
 In all the following, vectors are expressed in the coordinate system $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$, except when explicitly mentioned otherwise. For a homogeneous, isotropic material, the linear elasticity equation solved by the displacement field $\mathbf{u}$ is 
 \begin{equation}
@@ -554,7 +555,7 @@ The far-field evaluation of the integral is obtained by applying the steepest de
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary phase point, corresponding to the reflected wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary phase point, corresponding to the diffracted wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
 \begin{equation}
 v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
 \end{equation}
@@ -563,20 +564,38 @@ Analogously,
 v_2^{diff}(R\cos(\varphi-\theta),R\sin(\varphi-\theta))=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_1(-\tilde{\nu}_*\cos(\varphi-\theta))
 \end{equation}
 
-In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is also obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}
-
-The diffraction coefficient is defined by
+In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is also obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}. contour $C_0$ is deformed into contour $\gamma_{\theta}$ and contour $C_0^L$ is deformed into contour $\gamma_{\theta}^L$. This leads to
+\begin{equation}
+v_1=v_1^{sing}+v_1^{diff}+v_1^{evan}
+\end{equation}
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ and from $C_0^L$ to $\gamma_{\theta}^L$, $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the stationary phase point to the integral on $C_0^L$, corresponding to an evanescent wave. Contributions $v_1^{diff}$ and $v_1^{evan}$ are both computed using \eqref{steepformula}. The contribution of evanescent waves is 
+\begin{equation}
+        v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-(\varphi-\theta))\Sigma_1(i\eta_L\cos(\varphi-\theta))
+\end{equation}
+and the contribution of diffracted waves is :
+\begin{equation}
+v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-\theta)\Sigma_1(-\tilde{\nu}_T\cos\theta)
+\end{equation}
+Analogously,
+\begin{equation}
+        v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
+\end{equation}
+and
+\begin{equation}
+v_2^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-(\varphi-\theta))\Sigma_2(-\tilde{\nu}_T\cos(\varphi-\theta))
+\end{equation}
+In both cases, the diffraction coefficient is defined by
 \begin{equation}
 v_{\beta}^{diff}(R\cos\theta,R\sin\theta)=D_{\beta}^{\alpha}(\theta,\delta)\frac{e^{-i\nuti_{\beta}R\cos\delta_{\beta}}}{\sqrt{\nuti_{\beta}R\cos\delta_{\beta}}} v^{inc}(R\cos\theta,R\sin\theta) \hat{i}_{\beta}
-\label{coeffdiff}
+\label{C4:coeffdiff}
 \end{equation}
 The total diffracted field is
 \begin{equation}
 v^{diff}=v_1^{diff}+v_2^{diff}
 \end{equation}
 
-Let us now isolate L, TH and TV diffracted waves in order to compute the corresponding diffraction coefficients. Using the expressions of the unit vectors given by \eqref{ivec}, the $beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
+Let us now isolate L, TH and TV diffracted waves in order to compute the corresponding diffraction coefficients. Using the expressions of the unit vectors given by \eqref{ivec}, the $\beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
 \begin{equation}
-D_{\beta}^{\alpha}(\theta,\delta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\sum_{*=L,T}\nuti_*^2 \,{}^t \Sigma_j(-\nuti_*\cos\theta_j)\cdot\left(\mathbf{P}_*(\pi-\theta_j).\hat{i}_{\beta}\right)
+D_{\beta}^{\alpha}(\theta,\delta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\nuti_{\beta}^2 \,{}^t \Sigma_j(-\nuti_{\beta}\cos\theta_j)\cdot\left(\mathbf{P}_{\beta}(\pi-\theta_j).\hat{i}_{\beta}\right)
 \end{equation}
 where $\theta_1=\theta$ and $\theta_2=\varphi-\theta$.
