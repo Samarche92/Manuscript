@@ -447,6 +447,7 @@ d\xi&=-\tilde{\nu}_*\sin\lambda\, d\lambda
 yielding
 \begin{equation}
 v_1(r,\theta,\delta)=\frac{i}{4\pi} \int_{C_0}\sum_{*=L,T}\tilde{\nu}_*^2 e^{i\tilde{\nu}_*R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_*}(\lambda,t)\Sigma_1(\tilde{\nu}_*\cos\lambda) \, d \lambda
+\label{C4:v1C0}
 \end{equation}
 where 
 \begin{equation}
@@ -466,7 +467,7 @@ t\cos\lambda\sin\lambda & \cos^2\lambda+\frac{\tau^2}{\tilde{\nu}_T^2}&t\frac{\t
 -\frac{\tau}{\tilde{\nu}_T}\cos\lambda&t\frac{\tau}{\tilde{\nu}_T}\sin\lambda&1
 \end{pmatrix}
 \end{equation}
-$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}.
+$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C0T}.
 
 Note that in the case $\nuti_L =i\eta_L \in i\mathbb{R}$, variable change \eqref{C4:changevar2} produces an evanescent term :
 \begin{equation}
@@ -474,6 +475,7 @@ Note that in the case $\nuti_L =i\eta_L \in i\mathbb{R}$, variable change \eqref
 v_1(r,\theta,\delta)&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
 &+\frac{i}{4\pi} \int_{C_0}\tilde{\nu}_T^2 e^{i\eta_T R\cos\delta\cos(\lambda+t\theta)}\mathbf{ P_T}(\lambda,t)\Sigma_1(\tilde{\nu}_T\cos\lambda) \, d\lambda
 \end{split}
+\label{C4:v1C0evan}
 \end{equation}
 where contour $C_0^L$ is visible on Fig.~\ref{C0L}.
 
@@ -551,7 +553,7 @@ where contour $C_0^L$ is visible on Fig.~\ref{C0L}.
 	\label{C4:steepestcontour}
 \end{figure}
 
-The far-field evaluation of the integral is obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}. To do so, contour $C_0$ is deformed into contour $\gamma_{\theta}$, also visible in Fig.~\ref{C4:steepestcontour}. In the case $\nuti_L \in \mathbb{R}$, this leads to
+The far-field evaluation of the integral is obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}, to \eqref{C4:v1C0}. To do so, contour $C_0$ is deformed into contour $\gamma_{\theta}$, also visible in Fig.~\ref{C0T}. In the case $\nuti_L \in \mathbb{R}$, this leads to
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
@@ -564,13 +566,13 @@ Analogously,
 v_2^{diff}(R\cos(\varphi-\theta),R\sin(\varphi-\theta))=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_1(-\tilde{\nu}_*\cos(\varphi-\theta))
 \end{equation}
 
-In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is also obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}. contour $C_0$ is deformed into contour $\gamma_{\theta}$ and contour $C_0^L$ is deformed into contour $\gamma_{\theta}^L$. This leads to
+In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}, to \eqref{C4:v1C0evan}. Contour $C_0$ is deformed into contour $\gamma_{\theta}$ and contour $C_0^L$ is deformed into contour $\gamma_{\theta}^L$. This leads to
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}+v_1^{evan}
 \end{equation}
 where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ and from $C_0^L$ to $\gamma_{\theta}^L$, $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the stationary phase point to the integral on $C_0^L$, corresponding to an evanescent wave. Contributions $v_1^{diff}$ and $v_1^{evan}$ are both computed using \eqref{steepformula}. The contribution of evanescent waves is 
 \begin{equation}
-        v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-(\varphi-\theta))\Sigma_1(i\eta_L\cos(\varphi-\theta))
+v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
 \end{equation}
 and the contribution of diffracted waves is :
 \begin{equation}
@@ -578,12 +580,13 @@ v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_
 \end{equation}
 Analogously,
 \begin{equation}
-        v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
+v^{evan}_2(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-(\varphi-\theta))\Sigma_1(i\eta_L\cos(\varphi-\theta))
 \end{equation}
 and
 \begin{equation}
 v_2^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-(\varphi-\theta))\Sigma_2(-\tilde{\nu}_T\cos(\varphi-\theta))
 \end{equation}
+
 In both cases, the diffraction coefficient is defined by
 \begin{equation}
 v_{\beta}^{diff}(R\cos\theta,R\sin\theta)=D_{\beta}^{\alpha}(\theta,\delta)\frac{e^{-i\nuti_{\beta}R\cos\delta_{\beta}}}{\sqrt{\nuti_{\beta}R\cos\delta_{\beta}}} v^{inc}(R\cos\theta,R\sin\theta) \hat{i}_{\beta}
