@@ -84,17 +84,20 @@ u=u_0+u^{inc}
 
 The dimensionless problem is obtained by applying the following variable change :
 \begin{equation}
-u_0(x,y,z)=v\left( \frac{\omega}{c_L} x, \frac{\omega}{c_L} y \right)e^{i\nu_{\alpha}\sin\delta_{\alpha}z}
+u_0(x,y,z)=v\left( \frac{\omega}{c_L} x, \frac{\omega}{c_L} y \right)e^{i\nu_{\beta}\sin\delta_{\beta}z}
 \label{C4:adiming}
 \end{equation}
-where $\delta_{\alpha}=\delta_{inc}$, the dimensionless Lamé parameters $\lambda,\mu$ are given by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are defined by \eqref{nuLnuT}. To simplify notations, we define the following parameter $\tau$ is defined by :
+where $\delta_{\beta}$ is the angle of Snell's cone of diffraction, the dimensionless Lamé parameters $\lambda,\mu$ are given by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are defined by \eqref{nuLnuT}. Since $e^{i\nu_{\alpha}\sin\delta_{inc}z}$ is a common factor to all the terms of the solution, we can deduce Snell's law of diffraction :
+\begin{equation}
+\nu_{\alpha}\sin\delta_{inc}=\nu_{\beta}\sin\delta_{\beta}
+\label{C4:Snelldiff}
+\end{equation}
+To simplify notations, we define the following parameter $\tau$ is defined by :
 \begin{equation}
 \tau=\nu_{\alpha}\sin\delta_{\alpha}
 \label{deftau}
 \end{equation}
 Note that we therefore always have $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. $u_0$'s $z$-dependency is entirely contained in the factor $e^{i\tau z}$ which will be implied but omitted in all the following.
-
-\textcolor{red}{Snell's Law+fix (2.9) exp}
 
 Substituting \eqref{C4:scat} and \eqref{C4:adiming} into \eqref{C4:Elasticitelin} and \eqref{C4:stressfree} yields the dimensionless problem
 \begin{eqnarray}
