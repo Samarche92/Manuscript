@@ -628,3 +628,64 @@ Let us now isolate L, TH and TV diffracted waves in order to compute the corresp
 D_{\beta}^{\alpha}(\theta,\delta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\nuti_{\beta}^2 \,{}^t \Sigma_j(-\nuti_{\beta}\cos\theta_j)\cdot\left(\mathbf{P}_{\beta}(\pi-\theta_j).\hat{i}_{\beta}\right)
 \end{equation}
 where $\theta_1=\theta$ and $\theta_2=\varphi-\theta$.
+
+In order to determine the field diffracted by a wedge illuminated by an incident plane wave, it is sufficient to compute the diffraction coefficient. This coefficient has been expressed in terms of two unknown functions called the spectral functions. The semi-analytical computation of these functions is presented in the following section
+
+\section{Semi-analytical evaluation of the spectral functions}
+The first step in computing the spectral functions is to determine a system of functional equations of which they are a solution. We will then show that these functions can be decomposed into two parts : a singular function, computed analytically, and a regular function, approached numerically.
+\subsection{Functional equations}
+In the previous section, the diffracted wave has been expressed in terms of two unknown functions called the spectral functions. In this subsection, a system of functional equations satisfied by these functions is determined. 
+
+The first step in determining a system of functional equations verified by the spectral functions, is to substitute decomposition \eqref{C4:v1+v2} into the boundary conditions :
+\begin{equation}
+\left\{
+\begin{matrix}
+B \big( v_1(x_1,0)+v_2(x_2 \cos \varphi, x_2 \sin \varphi) \big) = -B \rm v_{\alpha}^{inc}|_{\mathcal{S}_1} \\
+B \big( v_2(x_2,0)+v_1(x_1 \cos \varphi, x_1 \sin \varphi) \big) = -B \rm v_{\alpha}^{inc}|_{\mathcal{S}_2}
+\end{matrix}
+\right.
+\label{C4:Bivi}
+\end{equation}
+Let us note $(v_j^1,v_j^2,v_j^3)$ the coordinates of $v_j$ in the Cartesian coordinate system $(x_j,y_j,z_j)$, where $(x_1,y_1,z_1)$ is the coordinate system associated with face $\mathcal{S}_1$ and $(x_2,y_2,z_2)$ is the coordinate system associated with face $\mathcal{S}_2$. These two coordinate systems are linked by (for $j=1,2$):
+\begin{equation}
+    \left\{
+    \begin{matrix}
+    x_j=\cos\varphi .x_{3-j}+\sin\varphi. y_{3-j}\\
+    y_j=\sin\varphi .x_{3-j}-\cos\varphi .y_{3-j}\\
+    z_j=z_{3-j}
+    \end{matrix}
+    \right.
+    \label{C4:changerep}
+\end{equation}
+Applying \eqref{C4:changerep} to each line of \eqref{C4:Bivi} yields: 
+\begin{equation}
+\left\{
+\begin{matrix}
+B_1(v_1)+B_2(v_2)=-Bv_{\alpha}^{inc}|_{\mathcal{S}_1} \\
+B_1(v_2)+B_2(v_1)=-Bv_{\alpha}^{inc}|_{\mathcal{S}_2}
+\end{matrix}
+\right.
+\label{C4:b1v1+b2v2}
+\end{equation}
+where
+\begin{equation}
+B_1(v)=
+\begin{pmatrix}
+\mu \left( \frac{\partial v_1}{\partial y_1}+\frac{\partial v_2}{\partial x_1} \right) \\
+\frac{\partial v_2}{\partial y_1}+\lambda \left( \frac{\partial v_1}{\partial x_1}+i\tau v_3 \right)\\
+\mu \left( \frac{\partial v_2}{\partial z_1}+ \frac{\partial v_3}{\partial y_1}\right)
+\end{pmatrix}
+\label{C4:B1v1expl}
+\end{equation}
+and
+\begin{equation}
+B_2(v)=
+\begin{pmatrix}
+\mu \sin(2\varphi)\left( \frac{\partial v_1}{\partial x_2}-\frac{\partial v_2}{\partial y_2}\right)-\mu \cos(2\varphi)  \left( \frac{\partial v_1}{\partial y_2}+\frac{\partial v_2}{\partial x_2} \right)\\
+(\lambda+2\mu \sin^2\varphi) \frac{\partial v_1}{\partial x_2}+(\lambda+2\mu \cos^2 \varphi)\frac{\partial v_2}{\partial y_2}-\mu \sin(2\varphi)  \left( \frac{\partial v_1}{\partial y_2}+\frac{\partial v_2}{\partial x_2} \right)+\lambda \frac{\partial v_3}{\partial z_2} \\
+\mu\sin\varphi\left(\frac{\partial v_3}{\partial x_2}+\frac{\partial v_1}{\partial z_2} \right)-\mu\cos\varphi\left( \frac{\partial v_2}{\partial z_2} +\frac{\partial v_3}{\partial y_2} \right)
+\end{pmatrix}
+\label{C4:B2v2expl}
+\end{equation}
+Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained analogously to the first (operators are projected onto $\mathcal{S}_2$ instead of $\mathcal{S}_1$).
+
