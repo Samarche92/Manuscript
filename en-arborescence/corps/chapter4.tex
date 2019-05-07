@@ -358,7 +358,7 @@ According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D c
 In all the following, superscript $\epsilon=0$ will be omitted in order to alleviate notations. Finally:
 \begin{equation}
 v_j(x_j,y_j)=\frac{i}{4\pi}\int_{\Gamma_0} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
-\label{vj0}
+\label{C4:vj0}
 \end{equation}
 
 \begin{figure}
@@ -389,8 +389,8 @@ postaction={decorate}](0,-2.5) -- (0,2.5);
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.6 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      mark=at position 1 with {\arrow{stealth}},
+      mark=at position 0.9 with {\arrow{latex}},
+      mark=at position 1 with {\arrow{stealth}}},
       postaction={decorate}]
       (-4,0) -- (-2.5,0)  arc (-180:0:0.25) -- (-1.75,0)  arc (-180:0:0.25)  -- (1.25,0)arc (180:0:0.25)  -- (2,0)arc (180:0:0.25) -- (3.75,0); % ca c'est l'axe
 \end{tikzpicture}
@@ -542,7 +542,7 @@ The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} decr
 	\node at (0.92,0.5) {$\lambda_s$};
 	\node at (3,3.1) {$C_0$};
 	\node at (1.9,3.1) {$\gamma_{\theta}$};
-	\node at (-1.9,3.3) {$C_0^L$};
+	\node at (-2.0,3.3) {$C_0^L$};
 	
 	\draw[black,very thick, decoration={ markings,  
 		mark=at position 0.2 with {\arrow{latex}},
@@ -689,3 +689,148 @@ B_2(v)=
 \end{equation}
 Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained analogously to the first (operators are projected onto $\mathcal{S}_2$ instead of $\mathcal{S}_1$).
 
+The functional equations system solved by the spectral functions is obtained by substituting the integral formulation \eqref{C4:vj0} of $v_1$ and $v_2$ into \eqref{C4:b1v1+b2v2}, evaluating the first equation at $x_1\geq 0, y_1=0$ and the second at $x_2\geq 0, y_2=0$ and applying the Fourier transform to the result. This yields :
+\begin{equation}
+\begin{split}
+\int_0^{+\infty} e^{-ix\xi}B_1(v_1)(x)\,dx&=\frac{1}{2}\textbf{DM}(\Sigma_1)(\xi) \\
+&=\frac{1}{2} \int_{\Gamma_0}\textbf{DM}(\xi,\zeta)\Sigma_1(\zeta)\,d\zeta
+\end{split}
+\label{C4:B1DM}
+\end{equation}
+where
+\begin{equation}
+\begin{split}
+\textbf{DM}(\xi,\zeta)&=\frac{1}{2i\pi} \frac{1}{\xi-\zeta} \textbf{dm}(\zeta) \\
+&=\frac{1}{2i\pi} \frac{1}{\xi-\zeta} \begin{pmatrix}
+-1 & \frac{\zeta}{\zeta_T}(1-2\mu Q(\zeta)) & 0\\
+-\frac{\zeta}{\zeta_L}(1-2\mu Q(\zeta))  & -1&-\frac{\tau}{\zeta_L}(1-2\mu Q(\zeta)) \\
+0&\frac{\tau}{\zeta_T}(1-2\mu Q(\zeta)) &-1
+\end{pmatrix}
+ \end{split}
+\label{C4:defDM}
+\end{equation}
+and
+\begin{equation}
+Q(\zeta) =\zeta_L\zeta_T+\zeta^2+\tau^2
+\end{equation}
+Evaluating $B_2(v_2)$ at $x_1\geq 0, y_1=0$ means is equivalent to evaluating $B_2(v_2)$ at $x_2=x\cos\varphi, y_2=x\sin\varphi, x\geq 0$. The Fourier transform of the second term is therefore
+\begin{equation}
+\begin{split}
+\int_0^{+\infty} e^{-ix\xi}B_2(v_2)(x)\,dx&=\frac{1}{2}\textbf{TM}(\Sigma_2)(\xi) \\
+&=\frac{1}{2} \int_{\Gamma_0}\textbf{TM}(\xi,\zeta)\Sigma_2(\zeta)\,d\zeta
+\end{split}
+\label{C4:B2TM}
+\end{equation}
+where
+\begin{equation}
+\textbf{TM}(\xi,\zeta)=\frac{1}{2i\pi}\sum_{*=L,TH,TV}D_*(\xi,\zeta)\textbf{tm}_*(\zeta,\mbox{sgn } \sin \varphi),
+\label{C4:defTM}
+\end{equation}
+$t=$sgn sin $\varphi$,
+\begin{equation}
+D_*(\xi,\zeta)=\frac{1}{\xi-(\zeta \cos \varphi + \zeta_*(\zeta) |\sin \varphi|)},
+\end{equation}
+and the following matrices of rank 1 are defined :
+\begin{equation}
+\left\{
+\begin{matrix}
+\textbf{tm}_L(\zeta)=\left[ \frac{\zeta}{\zeta_L} f_L\,; \, tf_L\,;  \, \frac{\tau}{\zeta_L}f_L
+\right] \\
+f_L = \begin{pmatrix}
+\mu \lbrack \cos(2\varphi)(2t\zeta\zeta_L)-\sin(2\varphi)(\zeta^2-\zeta_L^2) \rbrack\\
+-\lambda+2\mu \lbrack \sin(2\varphi)(t\zeta\zeta_L)-\zeta^2\sin^2\varphi-\zeta^2_L\cos^2\varphi\rbrack\\
+-2\mu\tau\lbrack \zeta\sin\varphi -t\zeta_L\cos\varphi\rbrack
+\end{pmatrix}
+\end{matrix}
+\right. ,
+\label{C4:tmL}
+\end{equation}
+\begin{equation}
+\left\{
+\begin{matrix}
+\textbf{tm}_{TH}(\zeta)=\lbrack -tf_{TH}\,;\, \frac{\zeta}{\zeta_T}f_{TH}\,;\, 0 \rbrack\\
+f_{TH}=\mu\left(1+\frac{\tau^2}{\zeta^2+\zeta_T^2}\right) \begin{pmatrix}
+\sin(2\varphi)(2t\zeta\zeta_T)+\cos(2\varphi)(\zeta^2-\zeta_T^2)\\
+\sin(2\varphi)(\zeta^2-\zeta_T^2)-\cos(2\varphi)(2t\zeta\zeta_T)\\
+\tau\lbrack t\zeta_T\sin\varphi+\zeta\cos\varphi\rbrack 
+\end{pmatrix}
+\end{matrix}
+\right.
+\label{C4:tmTH}
+\end{equation}
+and
+\begin{equation}
+\left\{
+\begin{matrix}
+\textbf{tm}_{TV}(\zeta)=\lbrack \frac{\zeta\tau}{\zeta_T(\zeta^2+\zeta_T^2)}f_{TV}\,;\, \frac{t\tau}{\zeta^2+\zeta_T^2}f_{TV}\,;\, -\frac{1}{\zeta_T}f_{TV} \rbrack\\
+f_{TV}=\mu\begin{pmatrix}
+\tau\cos(2\varphi)(2t\zeta\zeta_T)-\tau\sin(2\varphi)(\zeta^2-\zeta_T^2)\\
+2\tau\lbrack \sin(2\varphi)(t\zeta\zeta_T)-\zeta^2\sin^2\varphi-\zeta_T^2\cos^2\varphi\rbrack\\
+\left(\tau^2-\zeta^2+\zeta_T^2\right)\lbrack t\zeta_T\cos\varphi-\zeta\sin\varphi \rbrack
+\end{pmatrix}
+\end{matrix}
+\right.
+\label{C4:tmTV}
+\end{equation}
+In the following, let us note for simplification:
+\begin{equation}
+\mathbf{tm}_T=\mathbf{tm}_{TH}+\mathbf{tm}_{TV}
+\end{equation}
+
+It has been checked that setting $\tau=0$ in the explicit expressions of $\mathbf{DM}$ and $\mathbf{TM}$ operators leads to the same expressions as those found in the previous chapter, concerning the 2D case.
+
+Finally, the Fourier transform of the boundary conditions on the wedge faces its obtained by summing \eqref{C4:B1DM} and \eqref{C4:B2TM}. The right-hand side of the system is obtained by taking the Fourier transform of $-Bv_{\alpha}^{inc}|_{\mathcal{S}_j}, \; j=1,2$. The final system of functional equations solved by the spectral functions is 
+\begin{equation}
+\left\{
+\begin{matrix}
+\textbf{DM}(\Sigma_1)+\textbf{TM}(\Sigma_2)=\dfrac{W_1^{\alpha}}{\xi-\nu_{\alpha} \cos \theta_{inc}\cos\delta_{inc}} 
+\\
+\textbf{TM}(\Sigma_1)+\textbf{DM}(\Sigma_2)=\dfrac{W_2^{\alpha}}{\xi-\nu_{\alpha}\cos(\varphi-\theta_{inc})\cos\delta_{inc}}
+\end{matrix}
+\right.
+\label{C4:equationsintegrales}
+\end{equation}
+where
+\begin{eqnarray}
+\begin{array}{lr}
+W_1^L=-2\begin{pmatrix}
+\mu\cos^2\delta_{inc}\sin(2\theta_{inc}) \\
+1-2\mu(\cos^2\theta_{inc}\cos^2\delta_{inc}+\sin^2\delta_{inc})\\
+\mu\sin(2\delta_{inc})\sin(\theta_{inc})
+\end{pmatrix}\\
+~\\
+ W_2^L=-2\begin{pmatrix}
+\mu\cos^2\delta_{inc}\sin(2\varphi-2\theta_{inc}) \\
+1-2\mu(\cos^2(\varphi-\theta_{inc})\cos^2\delta_{inc}+\sin^2\delta_{inc})\\
+\mu\sin(2\delta_{inc})\sin(\varphi-\theta_{inc})
+\end{pmatrix}\\ 
+~\\
+W_1^{TV}=2\nu_T\mu\begin{pmatrix}
+\frac{1}{2}\sin(2\theta_{inc})\sin(2\delta_{inc})
+\\
+\sin(2\delta_{inc})\sin^2\theta_{inc}\\
+-\sin\theta_{inc}\cos(2\delta_{inc})
+\end{pmatrix}~
+W_2^{TV}=2\nu_T\mu\begin{pmatrix}
+\frac{1}{2}\sin(2\varphi-2\theta_{inc})\sin(2\delta_{inc})
+\\
+\sin(2\delta_{inc})\sin^2(\varphi-\theta_{inc})\\
+-\sin(\varphi-\theta_{inc})\cos(2\delta_{inc})
+\end{pmatrix} \\
+~
+\\
+W_1^{TH}=-2 \nu_T\mu \begin{pmatrix}
+\cos\delta_{inc}\cos(2\theta_{inc})
+\\
+\sin(2\theta_{inc})\cos\delta_{inc}\\
+\cos\theta_{inc}\sin\delta_{inc}
+\end{pmatrix}
+~
+W_2^{TH}=2 \nu_T\mu \begin{pmatrix}
+\cos\delta_{inc}\cos(2\varphi-2\theta_{inc})\\
+\sin(2\varphi-2\theta_{inc})\cos\delta_{inc}\\
+\cos(\varphi-\theta_{inc})\sin\delta_{inc}
+\end{pmatrix}
+\end{array}
+\label{C4:Wj}
+\end{eqnarray}
