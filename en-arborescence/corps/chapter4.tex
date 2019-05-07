@@ -857,10 +857,9 @@ In order to determine the action of operator $\mathbf{DM}$ on a simple pole, con
 \end{equation}
 where
 \begin{equation}
-D_p(z,\xi)= \int_{\Gamma_1} \frac{\textbf{DM}(\xi,\zeta)}{\zeta-z}.V\,d\zeta
+D_p(z,\xi)= \int_{\Gamma_1} \frac{\textbf{DM}(\xi,\zeta)}{\zeta-z}\,d\zeta
 \label{C4:defDp}
 \end{equation}
-In the case where $\nuti_L \in \mathbb{R}$, \eqref{C4:GaussDM} is valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $ and in the case where $\nuti_L \in i\mathbb{R}$, \eqref{C4:GaussDM} is valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0$.
 
 \begin{figure}
 \centering
@@ -946,7 +945,15 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \caption{Contour $\Gamma_1$}
 \end{figure}
 
-Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\nuti_L \in \mathbb{R}$
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$ and in the case $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. In both cases, Cauchy's residue theorem is applied
+\begin{equation}
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{v}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).v}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).v
+\label{C4:GaussTM}
+\end{equation}
+where
+\begin{equation}
+\mathbf{T_p}(z,\xi)= \frac{1}{2i\pi} \sum_{*=L,T} \int_{\partial \Omega_*} D_*(\xi,\zeta) .\dfrac{\textbf{tm}_*(\zeta)}{\zeta-z}\, d\zeta
+\end{equation}
 
 \begin{figure}
 \centering
@@ -1019,3 +1026,4 @@ Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simpl
 \label{C4:domega0}
 \end{figure}
 
+In the case where $\noncr$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $ and $\xi \mapsto\mathbf{D_p}(z,\xi)$ and $\xi \mapsto\mathbf{T_p}(z,\xi)$ are analytical on $\mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$. In the case where $\crit$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0$ and $\xi \mapsto\mathbf{D_p}(z,\xi)$ and $\xi \mapsto\mathbf{T_p}(z,\xi)$ are analytical on $\mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,)$.
