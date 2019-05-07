@@ -834,3 +834,188 @@ W_2^{TH}=2 \nu_T\mu \begin{pmatrix}
 \end{array}
 \label{C4:Wj}
 \end{eqnarray}
+
+Thanks to these functional equations, the spectral functions can be decomposed into two parts : a singular function and a regular function. The evaluation of each of these parts is described in the following.
+
+\subsection{Singular part}
+The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using to a recursive procedure, in which the following translation appears (for $*=L,T$) :
+\begin{equation}
+\begin{split}
+T_*(\xi)&=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti \\
+&=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
+\end{split}
+\end{equation}
+where $\phiti$ is defined in \eqref{phitilde}. This translation operator is defined on subspace $\Omega_*$, represented on Fig.~\ref{C4:domega0} :
+\begin{equation}
+\xi \in \Omega_*^+= \{ \xi=\tilde{\nu}_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi} \}
+\label{C4:defOmega0}
+\end{equation}
+In order to determine the action of operator $\mathbf{DM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$, visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and in Fig.~\ref{C4:gamma1cr} for the case $\nuti_L \in i\mathbb{R}$. In both cases, Cauchy's residue theorem is applied, yielding
+\begin{equation}
+\int_{\Gamma_0} \textbf{DM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \frac{\textbf{dm}(z).V}{\xi-z}+D_p(z,\xi),
+\label{C4:GaussDM}
+\end{equation}
+where
+\begin{equation}
+D_p(z,\xi)= \int_{\Gamma_1} \frac{\textbf{DM}(\xi,\zeta)}{\zeta-z}.V\,d\zeta
+\label{C4:defDp}
+\end{equation}
+In the case where $\nuti_L \in \mathbb{R}$, \eqref{C4:GaussDM} is valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $ and in the case where $\nuti_L \in i\mathbb{R}$, \eqref{C4:GaussDM} is valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0$.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\begin{tikzpicture}[scale=0.55]
+\node at (0,0) {$\times$};
+\node at (0.4,0.4) {$0$};
+\node at (2,0) {$\times$}; % Pole
+\node at (4,0) {$\times$}; %pole
+\node at (2,-0.4) {$\tilde{\nu}_L$};
+\node at (4,-0.4) {$\tilde{\nu}_T$};
+
+\node at (-2,0) {$\times$};
+\node at (-4,0) {$\times$};
+\node at (-2,-0.4) {$-\tilde{\nu}_L$}; %pole
+\node at (-4,-0.4) {$-\tilde{\nu}_T$}; %pole
+\node at (-3,1.4) {$\Gamma_1$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (-1.5,0) -- (6,0);
+      
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (0,-2.5) -- (0,3.5);
+      
+\draw[ thick, ->] (3.0,0.3) arc (0:45:1); %ici c'est les fleches 
+  
+
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-6,0) -- (-4.25,0)  arc (-180:0:0.25) -- (-2.25,0)  arc (-180:0:0.25) -- (-1.75,0) arc(-90:90:0.5)  -- (-6,1);
+\end{tikzpicture}
+\caption{Contour $\Gamma_1$. The arrow shows the deformation of contour $\Gamma_0$ into $\Gamma_1$.}
+\label{C4:gamma1noncr}
+\end{subfigure}
+~
+\begin{subfigure}[b]{0.45\textwidth}
+\begin{tikzpicture}[scale=0.8]
+\node at (0,0) {$\times$};
+\node at (0.35,0.35) {$0$};
+\node at (0,1.5) {$\times$}; 
+\node at (3,0) {$\times$}; 
+\node at (-0.36,1) {$\tilde{\nu}_L$};
+\node at (3,-0.36) {$\tilde{\nu}_T$};
+
+\node at (0,-1.5) {$\times$};
+\node at (-3,0) {$\times$};
+\node at (-0.5,-1.5) {$-\tilde{\nu}_L$}; 
+\node at (-3,0.36) {$-\tilde{\nu}_T$};
+\node at (-3,-0.6) {$\Gamma_1^a$};
+\node at (1,3) {$\Gamma_1^b$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (-2.5,0) -- (4,0);
+      
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (0,-2.5) -- (0,3.5);
+
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-5,1);
+      
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-0.5,3.5) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,3.5);
+      
+\end{tikzpicture}
+\caption{Contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$.}
+\label{C4:gamma1cr}
+\end{subfigure}
+\caption{Contour $\Gamma_1$}
+\end{figure}
+
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\nuti_L \in \mathbb{R}$
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+   \begin{tikzpicture}[scale=0.9]
+% Remplissage espace Omega_0
+\fill [color=gray!20]
+(3,0) -- plot [domain=0:2] ({-cosh(\x)},{sinh(\x)}) -- (3,3.62) -- cycle;
+\fill[color=white] (2,3) circle (0.5);
+\fill [color=white] (2,0) circle (0.25);
+
+\node at (2,0) {$\times$};
+\node at (2,-0.35) {$\tilde{\nu}_T$};
+\node at (-2,0) {$\times$};
+\node at (-1,0) {$\times$};
+\node at (-2.1,0.35) {$-\tilde{\nu}_T$}; 
+\draw[dashed]
+      (-5.5,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (3,0); 
+\draw[black, very thick,decoration={ markings,  
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}][domain=-2:2] plot({-cosh(\x)}, {sinh(\x)});
+\node at (-1.1,1.5) {$\mathbf{\partial \Omega_T}$};
+\node at (0.05,-0.35) {$-\nuti_T\cos \varphi$};
+
+% Espace Omega_0
+\draw[thick] (2,3) circle (0.5);
+\node at (2,3) {$\mathbf{\Omega_T^+}$};
+
+\draw[ thick, ->] (0.8,0.3) arc (0:45:1); %ici c'est les fleches 
+\node at (1.2,0.8) {$\mathbf{\mathcal{F}_2}$}; 
+\end{tikzpicture}
+\caption{Contour $\partial \Omega_T$. La flèche $\mathcal{F}_2$ montre la déformation du contour $\Gamma_0$ en $\partial \Omega_T$.}
+\label{C4:domegaT}     
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+   \begin{tikzpicture}[scale=0.9]
+\fill [color=gray!20]
+(-3.6269,3.65) -- plot [domain=-2:2] ({sinh(\x)},{-cosh(\x)}) -- (3.6269,3.65) ;
+\fill[color=white] (3,2) circle (0.5);
+\node at (2,0) {$\times$}; 
+\node at (0,-1) {$\times$};
+\node at (0,1.7) {$\times$};
+\node at (0,-1.7) {$\times$};
+\node at (2,-0.35) {$\tilde{\nu}_T$};
+\node at (-2,0) {$\times$};
+\node at (-2.1,0.35) {$-\tilde{\nu}_T$}; 
+\draw[dashed]
+      (-3.6269,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (3.6269,0); % ca c'est l'axe
+\draw[dashed] (0,-4) -- (0,3.65);
+% Hyperbole (contour  partial_Omega_0 )
+\draw[black, very thick,decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}][domain=-2:2] plot({sinh(\x)},{-cosh(\x)});
+\node at (1,-0.8) {$-\nuti_L\cos\varphi$};
+\node at (0.5,1.7) {$\nuti_L$};
+\node at (0.5,-1.7) {$-\nuti_L$};
+\node at (-2.3,-3.3) {$\mathbf{\partial \Omega_L}$};
+
+% Espace Omega_0
+\draw[thick] (3,2) circle (0.5);
+\node at (3,2) {$\mathbf{\Omega_L^+}$};
+\end{tikzpicture}
+\caption{Contour $\partial \Omega_L$.}
+\label{C4:domegaL}
+\end{subfigure}
+\caption{Domaines de définition des opérateurs de translation}
+\label{C4:domega0}
+\end{figure}
+
