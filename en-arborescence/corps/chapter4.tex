@@ -1081,6 +1081,48 @@ $\mathcal{H}$ is the space of the functions f analytical in $\mathbb{C}\backslas
 \label{C4:defHcrit}
 $\tilde{\mathcal{H}}$ is the space of the functions f analytical in  $\mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,)$ such that $\forall \epsilon \in \rbrack0,\pi \lbrack, f(e^{i\epsilon} \cdot)\in H^+$, where $H^+$ is defined in Def.~\ref{defHpl}.
 \end{definition}
-\section{Validation}
-\section*{Conclusion}
+
+Let us now extract all the poles and corresponding residues of the spectral functions, using system \eqref{C4:equationsintegrales} and results \eqref{C4:GaussDM} and \eqref{C4:GaussTM}. We begin with the following decomposition, for Im $\xi \le 0$ : 
+\begin{equation}
+\Sigma_j(\xi)= \frac{V_j^{(0)}}{\xi-Z^{(0)}_j}+X'_j(\xi)
+\label{C4:extraction1}
+\end{equation}
+where $V_j^{(0)}$ are to be determined, $X'_j$ is an unknown function and
+\begin{subequations}
+\begin{equation}
+Z_1^{(0)}=\nu_{\alpha} \cos \theta_{inc}\cos\delta_{inc}=\nuti_{\alpha}\cos\theta_{inc},
+\end{equation}
+\begin{equation}
+Z_2^{(0)}=\nu_{\alpha} \cos(\varphi-\theta_{inc})\cos\delta_{inc}=\nuti_{\alpha}\cos(\varphi-\theta_{inc}).
+\end{equation}
+\end{subequations}
+Substituting \eqref{C4:extraction1} into \eqref{C4:equationsintegrales} and applying \eqref{C4:GaussDM} yields
+\begin{eqnarray}
+\left\{
+\begin{array}{l}
+\textbf{DM}(X'_1)+\textbf{TM}(X'_2)+\textbf{TM}(\frac{V_2^{(0)}}{\xi-Z_2^{(0)}})=\frac{W^1_{\alpha}}{\xi-Z_1^{(0)}}-\frac{\textbf{dm}(Z_1^{(0)}).V_1^{(0)}}{\xi-Z_1^{(0)}}-\mathbf{D_p}(Z_1^{(0)},\xi).V_1^{(0)} \\
+~
+\\
+\textbf{TM}(X'_1)+\textbf{DM}(X'_2)+\textbf{TM}(\frac{V_1^{(0)}}{\xi-Z_1^{(0)}})=\frac{W^2_{\alpha}}{\xi-Z_2^{(0)}}-\frac{\textbf{dm}(Z_2^{(0)}).V_2^{(0)}}{\xi-Z_2^{(0)}}-\mathbf{D_p}(Z_2^{(0)},\xi).V_2^{(0)} 
+\end{array}
+\right.
+\label{C4:mille}
+\end{eqnarray}
+The singular terms in the right-hand side of this system are eliminated by setting
+\begin{equation}
+V_j^{(0)}=\textbf{dm}^{-1}(Z_j^{(0)}).W_j^{\alpha}
+\end{equation}
+In all the following, we will suppose that we have det$(\mathbf{dm}) \neq 0$. Applying \eqref{C4:GaussTM} reveals two new poles, leading to a second decomposition 
+\begin{equation}
+X'_j=X''_j+\frac{V_{j,L}^{(1)}}{\xi-Z_{j,L}^{(1)}}+\frac{V_{j,T}^{(1)}}{\xi-Z_{j,T}^{(1)}}
+\end{equation}
+where, for $*=L,T$ 
+\begin{equation}
+Z_{j,*}^{(1)}=T_*(Z_{3-j}^{(0)})
+\end{equation}
+and $V_{j,*}^{(1)}$ remaine to be determined. 
+%\subsection{Regular Part}
+
+%\section{Validation}
+%\section*{Conclusion}
 
