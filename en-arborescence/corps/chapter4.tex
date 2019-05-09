@@ -910,8 +910,8 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \node at (-3,0) {$\times$};
 \node at (-0.5,-1.5) {$-\tilde{\nu}_L$}; 
 \node at (-3,0.36) {$-\tilde{\nu}_T$};
-\node at (-3,-0.6) {$\Gamma_1^a$};
-\node at (1,3) {$\Gamma_1^b$};
+%\node at (-3,-0.6) {$\Gamma_1^a$};
+%\node at (1,3) {$\Gamma_1^b$};
 
 \draw[dashed, decoration={markings,
  mark=at position 1.0 with {\arrow{>}}},
@@ -919,24 +919,30 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
       
 \draw[dashed, decoration={markings,
  mark=at position 1.0 with {\arrow{>}}},
-      postaction={decorate}] (0,-2.5) -- (0,3.5);
+      postaction={decorate}] (0,-2.5) -- (0,4);
 
 \draw[thick, black, yshift=0pt,
 decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
       postaction={decorate}]
-      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-5,1);
+      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-3.7,1);
       
 \draw[thick, black, yshift=0pt,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+decoration={ markings,  
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
       postaction={decorate}]
-      (-0.5,3.5) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,3.5);
+      (-0.5,3.0) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,4);
+
+\draw[ thick, ->] (-3,3)--(-3.7,3.7);
       
+\draw[thick, black, yshift=0pt, decoration={ markings,  
+      mark=at position 0.5 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-3.7,1)arc(180:64:2.2);
 \end{tikzpicture}
-\caption{Intermediate step in the deformation of contour $\Gamma_0$ into contour $\Gamma_1$.}
+\caption{Intermediate contour $\Gamma_1$. The arrow shows the deformation.}
 \end{subfigure}
 ~
 \begin{subfigure}[b]{0.45\textwidth}
@@ -978,10 +984,10 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
       (-0.5,3.5) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,3.5);
       
 \end{tikzpicture}
-\caption{Contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$.}
-\label{C4:gamma1cr}
+\caption{Final contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$}
 \end{subfigure}
-\caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_1$ in the case $\cr$.}
+\caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$ in the case $\crit$.}
+\label{C4:gamma1cr}
 \end{figure}
 
 Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$ and in the case $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. In both cases, Cauchy's residue theorem is applied
@@ -1005,27 +1011,27 @@ where
 \fill [color=white] (2,0) circle (0.25);
 
 \node at (2,0) {$\times$};
-\node at (2,-0.35) {$\tilde{\nu}_T$};
+\node at (2,-0.35) {$\tilde{\nu}_*$};
 \node at (-2,0) {$\times$};
 \node at (-1,0) {$\times$};
-\node at (-2.1,0.35) {$-\tilde{\nu}_T$}; 
+\node at (-2.1,0.35) {$-\tilde{\nu}_*$}; 
 \draw[dashed]
       (-5.5,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (3,0); 
 \draw[black, very thick,decoration={ markings,  
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
       postaction={decorate}][domain=-2:2] plot({-cosh(\x)}, {sinh(\x)});
-\node at (-1.1,1.5) {$\mathbf{\partial \Omega_T}$};
-\node at (0.05,-0.35) {$-\nuti_T\cos \varphi$};
+\node at (-1.1,1.5) {$\mathbf{\partial \Omega_*}$};
+\node at (0.05,-0.35) {$-\nuti_*\cos \varphi$};
 
 % Espace Omega_0
 \draw[thick] (2,3) circle (0.5);
 \node at (2,3) {$\mathbf{\Omega_T^+}$};
 
 \draw[ thick, ->] (0.8,0.3) arc (0:45:1); %ici c'est les fleches 
-\node at (1.2,0.8) {$\mathbf{\mathcal{F}_2}$}; 
+%\node at (1.2,0.8) {$\mathbf{\mathcal{F}_2}$}; 
 \end{tikzpicture}
-\caption{Contour $\partial \Omega_T$. La flèche $\mathcal{F}_2$ montre la déformation du contour $\Gamma_0$ en $\partial \Omega_T$.}
+\caption{Contour $\partial \Omega_*$ in the case $\noncr$. The curved arrow shows deformation of contour $\Gamma_0$ onto $\partial \Omega_*$.}
 \label{C4:domegaT}     
 \end{subfigure}
 \hfill
@@ -1058,11 +1064,13 @@ where
 \draw[thick] (3,2) circle (0.5);
 \node at (3,2) {$\mathbf{\Omega_L^+}$};
 \end{tikzpicture}
-\caption{Contour $\partial \Omega_L$.}
+\caption{Contour $\partial \Omega_L$ in the case $\crit$.}
 \label{C4:domegaL}
 \end{subfigure}
-\caption{Domaines de définition des opérateurs de translation}
+\caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
 \label{C4:domega0}
 \end{figure}
+Note that during deformation of $\Gamma_0$ onto $\partial \Omega_L$, branch points $\pm \nuti_L$ are avoided. In the case where $\crit$, points $\pm \nuti_T$ are crossed. however, since they are not branch points of the integrand $D_L(\xi,\zeta).\dfrac{\mathbf{tm}_L(\zeta)}{\zeta-z}$, this is not a problem.
 
-In the case where $\noncr$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $ and $\xi \mapsto\mathbf{D_p}(z,\xi)$ and $\xi \mapsto\mathbf{T_p}(z,\xi)$ are analytical on $\mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$. In the case where $\crit$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0$ and $\xi \mapsto\mathbf{D_p}(z,\xi)$ and $\xi \mapsto\mathbf{T_p}(z,\xi)$ are analytical on $\mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,)$.
+In the case where $\noncr$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $ and $\xi \mapsto\mathbf{D_p}(z,\xi)$ and $\xi \mapsto\mathbf{T_p}(z,\xi)$ are analytical on $\mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$. In the case where $\crit$, \eqref{C4:GaussDM}  is valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \mbox{Im} z \geq 0$, \eqref{C4:GaussTM} are and $\xi \mapsto\mathbf{D_p}(z,\xi)$ and $\xi \mapsto\mathbf{T_p}(z,\xi)$ are analytical on $\mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,)$.
+

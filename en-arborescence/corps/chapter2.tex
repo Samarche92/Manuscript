@@ -612,7 +612,7 @@ where the function $T_0$ is defined in \eqref{Trans_operator} and where
 0 \quad \text{else}
 \end{cases}
 \end{equation}
-and integrals $D_p$ and $T_p$ are holomorphic on $\mathbb{C}\setminus ]-\infty,-1]$. Such integrals are expressed as
+and integrals $D_p$ and $T_p$ are expressed as
 \begin{subequations}
 \label{holomorphic_functions}
 \begin{align}
@@ -622,7 +622,18 @@ D_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\Gamma_1} \dfrac{dm(\lambda)}{\xi-\lambda} 
 T_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\partial \Omega_0^+}  \dfrac{tm(\lambda)}{\xi-T_0(\lambda)} \cdot \dfrac{1}{\lambda - z} d\lambda.
 \end{align}
 \end{subequations}
-Contours $\Gamma_1$ and $\partial \Omega_0^+$ are illustrated on Figs.~\ref{chapter5:figure5} and \ref{chapter5:figure4} respectively.
+Contours $\Gamma_1$ and $\partial \Omega_0^+$ are illustrated on Figs.~\ref{chapter5:figure5} and \ref{chapter5:figure4} respectively. Croisille and Lebeau \cite{CroisilleLebeau} proved that $D_p(z,\cdot)$ and $T_p(z,\cdot)$ belong to a special class of functions $\mathcal{H}^2$ defined hereafter
+\begin{definition}
+\label{defHpl}
+$H^+$ is the space of functions f which are analytical in $\{z \in \mathbb{C}, \; \mbox{Im} z <0\}$  and verify :
+\begin{equation}
+\underset{c>0}{sup} \int_{-\infty}^{+\infty} |f(x-ic)|^2\,dx<+\infty
+\end{equation}
+\end{definition}
+\begin{definition}
+\label{defH}
+$\mathcal{H}$ is the space of the functions f analytical in $\mathbb{C}\backslash \rbrack -\infty,-1\rbrack$ such that $\forall \epsilon \in \rbrack0,\pi \lbrack, f(e^{i\epsilon} \cdot)\in H^+$.
+\end{definition}
 
 \begin{figure}[ht]
 \centering
