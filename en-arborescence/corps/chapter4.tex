@@ -942,7 +942,7 @@ decoration={ markings,
       postaction={decorate}]
       (-3.7,1)arc(180:63.8:2.2);
 \end{tikzpicture}
-\caption{Intermediate contour $\Gamma_1$. The arrow shows the deformation.}
+\caption{Intermediate contour $\Gamma_1$. The arrow shows the direction of the deformation.}
 \end{subfigure}
 ~
 \begin{subfigure}[b]{0.45\textwidth}
@@ -1301,10 +1301,155 @@ u_j(\xi)=-\frac{1}{2i\pi}\sum_{k}\sum_{*=L,T}\left(i\mathbb{D}(-Z_{j,*}^{(k)},\x
 \label{C4:uDT}
 \end{equation}
 
- Using these results, the linear system \eqref{systmat} is implemented and solved numerically using the C++ library Eigen, and an evaluation of the regular part of the spectral functions is obtained. However, for values of $\xi$ lying in certain parts of the complex plane, this evaluation is not sufficiently accurate. The technique used to solve this problem is called the propagation of the solution.
-
+ Using these results, the linear system \eqref{C4:systmat} is implemented and solved numerically using the C++ library Eigen, and an evaluation of the regular part of the spectral functions is obtained. However, for values of $\xi$ lying in certain parts of the complex plane, this evaluation is not sufficiently accurate. The technique used to solve this problem is called the propagation of the solution.
+ 
 \subsection{Propagation of the solution}
+The method called propagation of the solution is used to propagate the accuracy of the numerical approximation of the regular functions $X_1$ and $X_2$ from parts of the complex plane where they are evaluated accurately to parts of the complex plane where they are not.
 
-%\section{Validation}
-%\section*{Conclusion}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\node at (0,0) {$\times$};
+	\node at (0,0.35) {$0$};
+	\node at (2,0) {$\times$}; % Pole
+	\node at (2,-0.35) {$\nuti_L$};
+	\node at (4,0) {$\times$};
+	\node at (4,-0.35) {$\nuti_T$};
+	\node at (-2,0) {$\times$};
+	\node at (-2,0.35) {$-\nuti_L$};
+	\node at (-4,0) {$\times$};
+	\node at (-4,0.35) {$-\nuti_T$};
+	\node at (5.8,0.35) {$\Gamma_2$};
+	\node at (-5.8,0.35) {$\Gamma_0$};
+% 	\draw[ thick, ->] (2.5,-1.5) arc (0:-45:1);
+% 	\node at (2.7,-1.9) {$F_1$};
+% 	\draw[ thick, ->] (2.5,0.5) arc (0:45:1);
+% 	\node at (2.7,0.9) {$F_2$};
+	\draw[very thick, black,yshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}]
+	(6,-1) -- (1.5,-1)  arc (90:-90:-0.5) -- (1.8,0) arc (180:0:0.2) -- (3.8,0) arc (180:0:0.2) -- (6,0);
+	
+	\draw[dashed, line width = 1pt,yshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.1 with {\arrow{latex}}},
+	postaction={decorate}]
+	(-6,0) -- (-4.2,0) arc (-180:0:0.2) -- (-2.2,0)  arc (-180:0:0.2)  -- (1.5,0);
+	\end{tikzpicture}
+	\caption{Integration contour $\Gamma_2$.}
+	\label{C4:contour2}
+\end{figure}
+
+The first step of this procedure is to deform contour $\Gamma_0$ in \eqref{C4:regparteqn} into contour $\Gamma_2$, visible on Fig.~\ref{C4:contour2} for the case $\noncr$ and in Fig.~\ref{C4:contour2crit} for the case $\crit$.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+	\begin{tikzpicture}[scale=0.9]
+	\node at (0,0) {$\times$};
+	\node at (0.35,0.35) {$0$};
+	\node at (0,1.5) {$\times$}; % Pole
+	\node at (0.4,1.5) {$\nuti_L$};
+	\node at (2.5,0) {$\times$};
+	\node at (2.5,-0.35) {$\nuti_T$};
+	\node at (0,-1.5) {$\times$};
+	\node at (-0.5,-1) {$-\nuti_L$};
+	\node at (-2.5,0) {$\times$};
+	\node at (-2.5,0.35) {$-\nuti_T$};
+%	\node at (5.8,0.35) {$\Gamma_2^a$};
+%	\node at (1,-4) {$\Gamma_2^b$};
+%	\node at (-5.8,0.35) {$(\Gamma_0)$};
+	
+	\draw[very thick, black,yshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}]
+	(2.85,-1) -- (2.3,-1)  arc (90:-90:-0.5)  -- (2.3,0) arc (180:0:0.2) -- (4,0);
+	
+	\draw[very thick, black,yshift=0pt,
+	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}]
+	(-0.5,-4) -- (-0.5,-1.7) arc (0:-180:-0.5) -- (0.5,-3);
+	
+	\draw[very thick, black,yshift=0pt,
+	decoration={ markings,mark=at position 0.5 with {\arrow{latex}}},
+	postaction={decorate}]
+	(0.5,-3) arc (-90:-9.5:2.4);
+	
+	\draw[dashed, line width =1pt, yshift=0pt,
+	decoration={ markings,mark=at position 1 with {\arrow{>}}},
+	postaction={decorate}]
+	(0,-4)--(0,2.5);
+	
+%	\draw[dashed, line width = 1pt,yshift=0pt,
+%	decoration={ markings,mark=at position 0.1 with {\arrow{latex}}},
+%	postaction={decorate}]
+%	(-6,0) -- (-3.2,0) arc (-180:0:0.2) -- (2.8,0)arc (180:0:0.2);
+
+\draw[dashed, line width = 1pt,yshift=0pt]
+	(-4,0) -- (2.3,0);
+	
+	\draw[ thick, ->] (2.5,-2.5)--(3.2,-3.2);
+	
+	\end{tikzpicture}
+	\caption{Intermediate contour $\Gamma_2$. The arrow shows the direction of the deformation.}
+\end{subfigure}
+~
+\begin{subfigure}[b]{0.45\textwidth}
+	\begin{tikzpicture}[scale=0.9]
+	\node at (0,0) {$\times$};
+	\node at (0.35,0.35) {$0$};
+	\node at (0,1.5) {$\times$}; % Pole
+	\node at (0.4,1.5) {$\nuti_L$};
+	\node at (2.5,0) {$\times$};
+	\node at (2.5,-0.35) {$\nuti_T$};
+	\node at (0,-1.5) {$\times$};
+	\node at (-0.5,-1) {$-\nuti_L$};
+	\node at (-2.5,0) {$\times$};
+	\node at (-2.5,0.35) {$-\nuti_T$};
+	\node at (3.8,0.4) {$\Gamma_2^a$};
+	\node at (1,-3.8) {$\Gamma_2^b$};
+%	\node at (-4.8,0.35) {$(\Gamma_0)$};
+	
+	\draw[very thick, black,yshift=0pt,
+	decoration={ markings,  
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}]
+	(4,-1) -- (2.3,-1)  arc (90:-90:-0.5)  -- (2.3,0) arc (180:0:0.2) -- (4,0);
+	
+	\draw[very thick, black,yshift=0pt,
+	decoration={ markings, 
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}]
+	(-0.5,-4) -- (-0.5,-1.7) arc (0:-180:-0.5) -- (0.5,-4);
+	
+	\draw[dashed, line width =1pt, yshift=0pt,
+	decoration={ markings,mark=at position 1 with {\arrow{>}}},
+	postaction={decorate}]
+	(0,-4)--(0,2.5);
+	
+%	\draw[dashed, line width = 1pt,yshift=0pt,
+%	decoration={ markings,mark=at position 0.1 with {\arrow{latex}}},
+%	postaction={decorate}]
+%	(-6,0) -- (-3.2,0) arc (-180:0:0.2) -- (2.8,0)arc (180:0:0.2);
+
+	\draw[dashed, line width = 1pt,yshift=0pt]
+	(-4,0) -- (2.3,0);
+	
+	\end{tikzpicture}
+	\caption{Final contour $\Gamma_2=\Gamma_2^a\cup\Gamma_2^b$}
+\end{subfigure}
+\caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_2=\Gamma_2^a\cup\Gamma_2^b$ in the case $\crit$.}
+\label{C4:contour2crit}
+\end{figure}
+
+\section{Validation}
+\section*{Conclusion}
 
