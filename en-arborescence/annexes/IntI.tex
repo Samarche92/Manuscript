@@ -186,6 +186,7 @@ I_4^*=\frac{2}{\nuti(a+b)}\left(\rog{a/\nuti}+\rog{b/\nuti} \right)
 Integral $I_5^*$ is defined by :
 \begin{equation}
 I_5^*=\int_{-\infty}^{+\infty} \frac{y^2}{(y+ib)(y-ia)\sqrt{\nuti^2+y^2}}\,dy
+\label{defI5}
 \end{equation}
 Using decomposition \eqref{decomp1} we get
 \begin{equation}
@@ -203,8 +204,21 @@ These integrals have been computed at section \ref{calcI3}. Applying formula \eq
 % La formule \eqref{intQ} nous donne finalement :
 \begin{equation}
 I_5^*=2\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)-\frac{2}{\nuti(a+b)}\lbrack b^2\rog{b/\nuti}+a^2\rog{a/\nuti}\rbrack
-\label{intI5}
+\label{valI5}
 \end{equation}
+
+\section{Integral $I_6^*$}
+\label{calcI6}
+Integral $I_6^*$ is defined by :
+\begin{equation}
+I_6^*=\int_{-\infty}^{+\infty}\frac{\sqrt{\nuti_*^2+y^2}}{(y-ia)(y+ib)}\,dy
+\label{defI6}
+\end{equation}
+Note that
+\begin{equation}
+I_6^*=\nuti^2_* I_4^*+I_5^*
+\end{equation}
+where integrals $I_4^*$ and $I_5^*$ are defined by equations \eqref{defI4} and \eqref{defI5} and their expressions are given by \eqref{valI4} and \eqref{valI5}.
 
 \section{Continuation and conclusion of the computation of the coefficients of $\mathbb{D}(a,b)$}
 \label{fincalculsD}
@@ -241,6 +255,55 @@ The result can be computed directly, by using Cauchy's residue theorem, yielding
 \end{equation}
 
 \subsection{2D elastic case}
+In the third chapter of this manuscript, which deals with the 2D diffraction of an elastic wave, the coefficients of matrix $\mathbb{D}(a,b)$ are linear combinations of integrals $I_1^*$ to $I_3^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=1$ when $*=L$ and $\nuti=\nu_T$ when $*=T$.
 \label{finalD2D}
+The first coefficient can be computed using Gauss' integral formula :
+\begin{equation}
+\mathcal{D}_1(a,b)=\int_{-\infty}^{+\infty} \frac{dy}{(y+ib)(y-ia)}=\frac{2\pi}{a+b}
+\end{equation}
+The two other coefficients are linear combinations of $I_1^*$ to $I_3^*$ :
+\begin{equation}
+\mathcal{D}_2(a,b)=\int_{-\infty}^{+\infty} \frac{-iy(1-2\mu \zeta_L(iy) \zeta_T(iy)+2\mu y^2)}{(y+ib)(y-ia)\zeta_T(iy)} \,dy =i I_1^T-2i\mu(I_2^L-I_3^T)
+\label{D2}
+\end{equation}
+and
+\begin{equation}
+\mathcal{D}_3(a,b)=\int_{-\infty}^{+\infty} \frac{iy(1-2\mu \zeta_L(iy) \zeta_T(iy)+2\mu y^2)}{(y+ib)(y-ia)\zeta_L(iy)} \,dy=-iI_1^L+2i\mu(I_2^T-I_3^L)
+\label{D3}
+\end{equation}
+This concludes computation of matrix coefficients $\mathbb{D}_{lk}$ for the 2D elastic case.
+
 \subsection{3D elastic case}
 \label{finalD3D}
+In the fourth chapter of this manuscript, which deals with the 3D diffraction of an elastic wave, the coefficients of matrix $\mathbb{D}(a,b)$ are linear combinations of integrals $I_1^*$ and $I_6^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=\nuti_L$ when $*=L$ and $\nuti=\nuti_T$ when $*=T$.
+
+The first coefficient can be computed using Gauss' integral formula :
+\begin{equation}
+\mathcal{D}_1(a,b)=\int_{-\infty}^{+\infty} \frac{dy}{(y+ib)(y-ia)}=\frac{2\pi}{a+b}
+\end{equation}
+The other coefficients are linear combinations of $I_1^*$ to $I_6^*$ :
+\begin{equation}
+\begin{split}
+\mathcal{D}_2^L(a,b)&=\int_{-\infty}^{+\infty} \frac{iy\lbrack 1-2\mu (\zeta_L(iy) \zeta_T(iy)- y^2+\tau^2)\rbrack}{(y+ib)(y-ia)\zeta_L(iy)} \,dy \\
+&=-i(1-2\mu\tau^2)I_1^L+2i\mu(I_2^T-I_3^L)
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\mathcal{D}_2^T(a,b)&=\int_{-\infty}^{+\infty} \frac{iy\lbrack 1-2\mu (\zeta_L(iy) \zeta_T(iy)- y^2+\tau^2)\rbrack}{(y+ib)(y-ia)\zeta_T(iy)} \,dy \\
+&=-i(1-2\mu\tau^2)I_1^T+2i\mu(I_2^L-I_3^T)
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\mathcal{D}_3^L(a,b)&=\tau\int_{-\infty}^{+\infty} \frac{1-2\mu(\zeta_L(iy)\zeta_T(iy)-y^2+\tau^2)}{(y+ib)(y-ia)\zeta_L(iy)}\,dy \\
+&=-\tau(1-2\mu\tau^2)I_4^L-2\mu\tau I_5^L+2\mu\tau I_6^T
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\mathcal{D}_3^T(a,b)&=\tau\int_{-\infty}^{+\infty} \frac{1-2\mu(\zeta_L(iy)\zeta_T(iy)-y^2+\tau^2)}{(y+ib)(y-ia)\zeta_L(iy)}\,dy \\
+&=-\tau(1-2\mu\tau^2)I_4^T-2\mu\tau I_5^T+2\mu\tau I_6^L
+\end{split}
+\end{equation}
+This concludes computation of matrix coefficients $\mathbb{D}_{lk}$ for the 3D elastic case.

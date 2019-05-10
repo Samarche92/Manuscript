@@ -391,11 +391,51 @@ Integrals $J_3^1$ and $J_5^1$ are computed in sections \ref{calculJ3} and \ref{c
 \subsection{2D elastic case}
 \label{finalT2D}
 In the third chapter of this manuscript, which deals with the 2D diffraction of an elastic wave, the coefficients of matrix $\mathbb{T}(a,b)$ are linear combinations of integrals $J_1^*$ to $J_5^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=1$ when $*=L$ and $\nuti=\nu_T$ when $*=T$.
+\subsubsection{L terms}
+We begin by computing terms derived from $\mathbf{tm}_L$, defined by \eqref{C3:tmL}.
+\begin{multline}
+\hfill\mathcal{T}_1^L(a,b)=\int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon \cos(2\varphi).y\zeta_L(iy)+\sin (2\varphi)(y^2+\zeta_L^2(iy))\rbrack}{(y-ia)\zeta_L(iy)\lbrack b-(iy\cos \phiti+  \zeta_L(iy) \sin \phiti) \rbrack} \, dy \hfill\\
+\hfill=-2\epsilon\cos(2\varphi)J_2^L-i\sin(2\varphi)J_1^L-i\sin(2\varphi)J_4^L\hfill
+\end{multline}
+\begin{multline}
+\hfill\mathcal{T}_2^L(a,b)=\int_{-\infty}^{+\infty} \frac{2i\cos(2\varphi).y\zeta_L(iy)+\epsilon \sin (2\varphi)(y^2+\zeta_L^2(iy))}{(y-ia)\lbrack b-(iy\cos\phiti+ \zeta_L(iy) \sin \phiti) \rbrack} \, dy \hfill\\
+\hfill=-2i\cos(2\varphi)J_1^L+2\epsilon\sin(2\varphi)J_2^L+\epsilon\sin(2\varphi)J_3^L\hfill
+\end{multline}
+\begin{multline}
+\hfill\mathcal{T}_3^L(a,b)= 2 \int_{-\infty}^{+\infty} \frac{(1-\nu_T^2/2)iy+iy\lbrack i\epsilon\sin(2\varphi).y\zeta_L(iy)-\zeta_L^2(iy)\cos^2\varphi+y^2\sin^2\varphi  \rbrack}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin\phiti) \rbrack} \, dy \hfill \\
+\hfill=i(\nu_T^2-2\sin^2\varphi) J_5^L-2\epsilon\sin(2\varphi)J_2^L+2i\cos(2\varphi)J_4^L\hfill
+\end{multline}
+\begin{multline}
+\hfill \mathcal{T}_4^L(a,b)=  2 \int_{-\infty}^{+\infty} \frac{ (1-\nu_T^2/2)\epsilon + i\sin(2\varphi).y\zeta_L(iy)-\epsilon \zeta_L^2(iy)\cos^2\varphi+\epsilon y^2\sin^2\varphi }{(y-ia)\lbrack b- (iy\cos \varphi+\zeta_L(iy)\sin \phiti) \rbrack} \, dy \hfill \\
+\hfill =\epsilon(2\sin^2\phiti-\nu_T^2) J_3^L-2i\sin(2\varphi)J_1^L-2\epsilon\cos(2\varphi)J_2^L \hfill
+\end{multline}
+\subsubsection{T terms}
+Let us now compute terms derived from $\mathbf{tm}_T$, defined by \eqref{C3:tmT}.
+\begin{multline}
+\hfill\mathcal{T}_1^T(a,b)=\int_{-\infty}^{+\infty} \frac{-2i\sin(2\varphi).y\zeta_T(iy)+\epsilon \cos (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy\hfill\\
+\hfill=2i\sin(2\varphi)J_1^T+2\epsilon\cos(2\varphi)J_2^T+\epsilon\nu_T^2\cos(2\varphi)J_3^T\hfill
+\end{multline}
+\begin{multline}
+\hfill\mathcal{T}_2^T(a,b)=\int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon \sin(2\varphi).y\zeta_T(iy)- \cos (2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b-(iy\cos \tilde{\varphi}+ \zeta_T(iy)\sin \tilde{\varphi}) \rbrack} \, dy \hfill\\
+\hfill=-2\epsilon\sin(2\varphi)J_2^T+i\cos(2\varphi)J_1^T+i\cos(2\varphi)J_4^T\hfill
+\end{multline}
+\begin{multline}
+\hfill\mathcal{T}_3^T(a,b)=\int_{-\infty}^{+\infty} \frac{2i\cos(2\varphi).y\zeta_T(iy)+\epsilon \sin (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \hfill\\
+\hfill=-2i\cos(2\varphi)J_1^T+2\epsilon\sin(2\varphi)J_2^T+\epsilon\nu_T^2\sin(2\varphi)J_3^T\hfill
+\end{multline}
+\begin{multline}
+\hfill\mathcal{T}_4^T(a,b)=\int_{-\infty}^{+\infty} \frac{-iy\lbrack 2i\epsilon \cos(2\varphi).y\zeta_T(iy)+\sin (2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b-(iy\cos\tilde{ \varphi}+ \zeta_T(iy)\sin \tilde{\varphi}) \rbrack} \, dy \hfill\\
+\hfill=2\epsilon\cos(2\varphi)J_2^T+i\sin(2\varphi)J_1^T+i\sin(2\varphi)J_4^T \hfill
+\end{multline}
+
+This concludes computation of coefficients of matrix $\mathbb{T}_{kl}$ in the 2D elastic case. It has been verified that all diverging terms that appear in integrals $J_1^*$ to $J_5^*$ compensate each other when the L and T terms are summed.
+
+
 \subsection{3D elastic case}
 \label{finalT3D}
 In the fourth chapter of this manuscript, which deals with the 3D diffraction of an elastic wave, the coefficients of matrix $\mathbb{T}(a,b)$ are linear combinations of integrals $J_1^*$ to $J_8^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=\nuti_L$ when $*=L$ and $\nuti=\nuti_T$ when $*=T$.
 \subsubsection{L terms}
-We begin by computing the terms derived from $\mathbf{tm}_L$, defined by \eqref{tmL3D}.
+We begin by computing the terms derived from $\mathbf{tm}_L$, defined by \eqref{C4:tmL}.
 \begin{multline}
 \mathcal{T}_1^L(a,b)= \mu \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_L(iy)+\sin(2\varphi)(y^2+\zeta_L^2(iy))\rbrack}{(y-ia)\zeta_L(iy)\lbrack b- (iy\cos \varphi+ \zeta_L(iy)\sin\phiti) \rbrack} \, dy \\
 \hfill =-2\epsilon\mu\cos(2\varphi)J_2^L-i\mu\sin(2\varphi)(J_1^L+J_4^L) \hfill
@@ -437,7 +477,7 @@ We begin by computing the terms derived from $\mathbf{tm}_L$, defined by \eqref{
 \end{multline}
 
 \subsubsection{TH terms}
-Let us now compute terms derived from $\mathbf{tm}_{TH}$, defined by \eqref{tmTH}.
+Let us now compute terms derived from $\mathbf{tm}_{TH}$, defined by \eqref{C4:tmTH}.
 \begin{multline}
 \mathcal{T}_1^{TH}(a,b)=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right)\int_{-\infty}^{+\infty} \frac{-2i\sin(2\varphi).y\zeta_T(iy)+\epsilon \cos (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
 \hfill=\mu\left(1+\frac{\tau^2}{\nuti_T^2}\right) \lbrack 2i\sin(2\varphi)J_1^T+\epsilon\cos(2\varphi)(2J_2^T+\nuti_T^2 J_3^T)\rbrack \hfill
@@ -466,7 +506,7 @@ In addition, we have
 $$ \mathcal{T}_3^{TH}=\mathcal{T}_6^{TH}=\mathcal{T}_9^{TH}=0 $$
 
 \subsubsection{TV terms}
-Finally, we compute terms derived from $\mathbf{tm}_{TV}$, defined by \eqref{tmTV}.
+Finally, we compute terms derived from $\mathbf{tm}_{TV}$, defined by \eqref{C4:tmTV}.
 
 \begin{multline}
 \mathcal{T}_1^{TV}(a,b)= \mu\frac{\tau^2}{\nuti^2_T} \int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon\cos(2\varphi).y\zeta_T(iy)+\sin(2\varphi)(y^2+\zeta_T^2(iy))\rbrack}{(y-ia)\zeta_T(iy)\lbrack b- (iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy \\
@@ -505,4 +545,4 @@ Finally, we compute terms derived from $\mathbf{tm}_{TV}$, defined by \eqref{tmT
 \hfill=\mu(\nuti_T^2-\tau^2)\lbrack \epsilon\cos\varphi J_3^T+i\sin\varphi  J_5^T \rbrack \hfill
 \end{multline}
 
-This concludes computation of coefficients of matrix $\mathbb{T}_{kl}$. It has been verified that all diverging terms that appear in integral $J_1^*$ to $J_8^*$ compensate each other when the L, TH and TV terms are summed.
+This concludes computation of coefficients of matrix $\mathbb{T}_{kl}$ in the 3D elastic case. It has been verified that all diverging terms that appear in integrals $J_1^*$ to $J_8^*$ compensate each other when the L, TH and TV terms are summed.
