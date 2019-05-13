@@ -8,7 +8,7 @@ In the case of a plane elastic wave, it seems that the solution cannot be comput
 
 The problem of acoustic diffraction in a system of wedge-shaped regions was studied by Klem-Musatov \cite{Klem-Musatov}, but this system is too complex to be solved in general cases. For the very general problem of acoustic wave propagation in a homogeneous or inhomogeneous medium delimited by an arbitrary-shaped boundary, a mathematical model has been rigorously presented by Aizenberg and Ayzenberg \cite{Aizenberg}. Ayzenberg \cite{Ayzenberg} shows how this model can be numerically applied to the case of wedge diffraction. However, it appears that parallel programming is necessary to obtain a short computation time.
 
-Another method, in which the free-space Green's tensor is used to express the Fourier transform of the displacement on the edges, was first developed by Gautesen for the case of a longitudinal wave diffracted by an elastic quarter-space \cite{GautesenL4} and extended to the case of a scattered Rayleigh wave for wedge angles in the range $\lbrack 63^o, 180^o \rbrack$ for wedge angles lower than $\pi$ \cite{GautesenRayleigh3,GautesenRayleigh} and to $\lbrack 189^o, 327^o \rbrack$ for wedge angles higher than $\pi$ \cite{GautesenRayleigh2}. This method has also been applied to horizontally polarized shear waves scattered by a wedge-shaped interface between two different elastic materials \cite{GautesenSH}. The problem of elastic wave diffraction by a wedge has also been tackled by Budaev \cite{Budaev,BudaevInclusion,BudaevBook} and reduced to a singular integral equation. However, no clear numerical scheme of resolution has been proposed. Budaev and Bogy \cite{Rayleigh} have applied this method to the case of an incident Rayleigh wave and have proposed a corresponding numerical resolution. However, the theoretical development was incomplete and has been clarified by Kamotski et al. \cite{KamotskiFradkin}. Budaev and Bogy's method, called the Sommerfeld Integral (SI) method, and Gautesen's method, called the Laplace Transform (LT) method have both been extended by Gautesen and Fradkin \cite{GautesenFradkin} to the case of an elastic wave diffracted by a stress-free wedge of angle lower than $\pi$. They offer a comparison of the two methods and an experimental validation is given by Chapman et al. \cite{ChapmanBurch}.
+Another method, in which the free-space Green's tensor is used to express the Fourier transform of the displacement on the edges, was first developed by Gautesen for the case of a longitudinal wave diffracted by an elastic quarter-space \cite{GautesenLwave} and extended to the case of a scattered Rayleigh wave for wedge angles in the range $\lbrack 63^o, 180^o \rbrack$ for wedge angles lower than $\pi$ \cite{GautesenRayleigh3,GautesenRayleigh} and to $\lbrack 189^o, 327^o \rbrack$ for wedge angles higher than $\pi$ \cite{GautesenRayleigh2}. This method has also been applied to horizontally polarized shear waves scattered by a wedge-shaped interface between two different elastic materials \cite{GautesenSHwave}. The problem of elastic wave diffraction by a wedge has also been tackled by Budaev \cite{Budaev,BudaevInclusion,BudaevBook} and reduced to a singular integral equation. However, no clear numerical scheme of resolution has been proposed. Budaev and Bogy \cite{Rayleigh} have applied this method to the case of an incident Rayleigh wave and have proposed a corresponding numerical resolution. However, the theoretical development was incomplete and has been clarified by Kamotski et al. \cite{KamotskiFradkin}. Budaev and Bogy's method, called the Sommerfeld Integral (SI) method, and Gautesen's method, called the Laplace Transform (LT) method have both been extended by Gautesen and Fradkin \cite{GautesenFradkin} to the case of an elastic wave diffracted by a stress-free wedge of angle lower than $\pi$. They offer a comparison of the two methods and an experimental validation is given by Chapman et al. \cite{ChapmanBurch}.
 
 Another boundary integral approach was developed by Croisille and Lebeau \cite{CroisilleLebeau} in the case of an acoustic plane wave scattered by an immersed elastic wedge. This is called the spectral functions method and was described both theoretically and numerically for the case of an immersed wedge of angle lower than $\pi$ \cite{CroisilleLebeau}.  In the 2D case of an acoustic wave incident on a soft wedge, the method has been developed numerically by Chehade et al. \cite{article}. The spectral functions method was also used by Kamotski and Lebeau \cite{KamotskiLebeau} to prove existence and uniqueness of the solution to the 2D problem of a plane elastic wave diffracted by a stress free wedge of arbitrary angle. However, no numerical scheme of resolution was given. The aim of the current paper is to propose and implement the numerical aspects of the spectral functions method in the 2D case of a stress-free elastic wedge of any angle. The results are validated by comparison to Gautesen's LT code \cite{GautesenFradkin} for wedge angles lower than $\pi$ and to the spectral finite elements code of Imperiale et al. developed for the commercial software CIVA \cite{imperiale_ut_2016, imperiale_ut_2017} for wedge angles higher than $\pi$.
 
@@ -1351,49 +1351,49 @@ Fig.~\ref{8055} shows the absolute value of the diffraction coefficients  with r
 
 Fig.~\ref{16040} shows the absolute value of the diffraction coefficients with respect to the observation angle obtained for a wedge of angle $\varphi=160^o$ illuminated by a wave incident with an angle $\theta_{inc}=40^o$. The light blue line represents the diffraction coefficients obtained without applying the ``propagation of the solution'' technique for the SF code. The dark blue line is the diffraction coefficient obtained using the LT code and the red circles represent the result obtained using the SF code, including the ``propagation of the solution'' technique. These two plots are perfectly overlapping. Furthermore, the ``propagation of the solution'' technique is necessary in order to avoid coefficients which diverge near the wedge faces. %The run time to evaluate the diffraction coefficients every $0.2^o$ for incident L or T waves using an Intel(R) Xeon(R) CPU E3-1240 v3 is about 66s using the SF code and 138s using the LT code.
 
-%\begin{figure}%[h!]
-%\centering
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure8a.pdf}
-%        \caption{Diffracted and incident L waves}
-%    \end{subfigure}  
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure8b.pdf}
-%        \caption{Diffracted T wave and incident L wave}
-%     \end{subfigure} \\   
-%     \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure8c.pdf}
-%        \caption{Diffracted L wave and incident T wave}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure8d.pdf}
-%        \caption{Diffracted and incident T waves}
-%     \end{subfigure}
-%     \caption{Diffraction coefficients for $\varphi=80^o, \theta_{inc}=55^o$}
-%     \label{8055}
-%\end{figure}
-%
-%\begin{figure}
-%\centering
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure9a.pdf}
-%        \caption{Diffracted and incident L waves}
-%    \end{subfigure}  
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure9b.pdf}
-%        \caption{Diffracted T wave and incident L wave}
-%     \end{subfigure} \\   
-%     \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure9c.pdf}
-%        \caption{Diffracted L wave and incident T wave}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure9d.pdf}
-%        \caption{Diffracted and incident T waves}
-%     \end{subfigure}
-%     \caption{Diffraction coefficients for $\varphi=160^o, \theta_{inc}=40^o$}
-%     \label{16040}
-%\end{figure}
+\begin{figure}%[h!]
+\centering
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure8a.pdf}
+        \caption{Diffracted and incident L waves}
+    \end{subfigure}  
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure8b.pdf}
+        \caption{Diffracted T wave and incident L wave}
+     \end{subfigure} \\   
+     \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure8c.pdf}
+        \caption{Diffracted L wave and incident T wave}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure8d.pdf}
+        \caption{Diffracted and incident T waves}
+     \end{subfigure}
+     \caption{Diffraction coefficients for $\varphi=80^o, \theta_{inc}=55^o$}
+     \label{8055}
+\end{figure}
+
+\begin{figure}
+\centering
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure9a.pdf}
+        \caption{Diffracted and incident L waves}
+    \end{subfigure}  
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure9b.pdf}
+        \caption{Diffracted T wave and incident L wave}
+     \end{subfigure} \\   
+     \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure9c.pdf}
+        \caption{Diffracted L wave and incident T wave}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure9d.pdf}
+        \caption{Diffracted and incident T waves}
+     \end{subfigure}
+     \caption{Diffraction coefficients for $\varphi=160^o, \theta_{inc}=40^o$}
+     \label{16040}
+\end{figure}
 
 For all of the tested configurations (different wedge and incidence angles), the results are conclusive. The results using the spectral functions method are extremely close to those obtained using the LT code, which has been validated both numerically and experimentally \cite{GautesenFradkin, ChapmanBurch}. This constitutes a satisfying validation for wedge angles $\varphi \leq \pi$. Some additional numerical comparisons have been made in the next section for the case of a wedge of angle $\varphi>\pi$.
 
@@ -1411,49 +1411,49 @@ D_{\beta}^{\alpha}(\theta)=\frac{v^{diff}_{\beta}(r\cos\theta,r\sin\theta)}{v_{i
 \label{FEextract}
 \end{equation}
 For each of these snapshots, the distance $r$ from the edge to the wavefront of the considered (L or T) edge diffracted wave is computed using the wave velocity and the chosen propagation time, and the norm of the field $||v^{diff}_{\beta}||$ is extracted on the point of the FE mesh which is closest to the wavefront for each observation angle $\theta$. The diffraction coefficient is finally computed using formula \eqref{FEextract}. The results are shown in Fig.~\ref{270135}.
-%
-%\begin{figure}
-%\centering
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure10a.pdf}
-%        \caption{Incident L wave, $t=5ms$.}
-%        \label{snapLL}
-%    \end{subfigure}  
-%    ~
-%     \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure10b.pdf}
-%        \caption{Incident T wave, $t=6,5ms$. }
-%        \label{snapTL}
-%    \end{subfigure}
-%     \caption{Finite elements snapshots. Distances are given in millimeters. }
-%     \label{snap}
-%\end{figure}
-%
-%\begin{figure}%[H]
-%\centering
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure11a.pdf}
-%        \caption{Diffracted and incident L waves. $r=25,6 \rm mm$.}
-%        \label{DLL}
-%    \end{subfigure}  
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure11b.pdf}
-%        \caption{Diffracted T wave and incident L wave. $r=13,9 \rm mm$.}
-%        \label{DLT}
-%     \end{subfigure}   
-%     \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure11c.pdf}
-%        \caption{Diffracted L wave and incident T wave. $r=36,5 \rm mm$.}
-%        \label{DTL}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.44\textwidth}
-%        \includegraphics[width=\textwidth]{Figure11d.pdf}
-%        \caption{Diffracted and incident T waves. $r=19,8 \rm mm$.}
-%        \label{DTT}
-%     \end{subfigure}
-%     \caption{Diffraction coefficients for $\varphi=270^o, \theta_{inc}=135^o$}
-%     \label{270135}
-%\end{figure}
+
+\begin{figure}
+\centering
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure10a.pdf}
+        \caption{Incident L wave, $t=5ms$.}
+        \label{snapLL}
+    \end{subfigure}  
+    ~
+     \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure10b.pdf}
+        \caption{Incident T wave, $t=6,5ms$. }
+        \label{snapTL}
+    \end{subfigure}
+     \caption{Finite elements snapshots. Distances are given in millimeters. }
+     \label{snap}
+\end{figure}
+
+\begin{figure}%[H]
+\centering
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure11a.pdf}
+        \caption{Diffracted and incident L waves. $r=25,6 \rm mm$.}
+        \label{DLL}
+    \end{subfigure}  
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure11b.pdf}
+        \caption{Diffracted T wave and incident L wave. $r=13,9 \rm mm$.}
+        \label{DLT}
+     \end{subfigure}   
+     \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure11c.pdf}
+        \caption{Diffracted L wave and incident T wave. $r=36,5 \rm mm$.}
+        \label{DTL}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.44\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Figure11d.pdf}
+        \caption{Diffracted and incident T waves. $r=19,8 \rm mm$.}
+        \label{DTT}
+     \end{subfigure}
+     \caption{Diffraction coefficients for $\varphi=270^o, \theta_{inc}=135^o$}
+     \label{270135}
+\end{figure}
 
 Fig.~\ref{270135} shows the absolute value of the diffraction coefficients, obtained for a wedge of angle $\varphi=270^o$ illuminated by a wave incident with an angle $\theta_{inc}=135^o$, plotted with respect to the observation angle. The blue line is the diffraction coefficient extracted from the finite elements wave front and the dashed red line is the result obtained from the SF code. 
 
