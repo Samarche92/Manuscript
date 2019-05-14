@@ -1542,7 +1542,24 @@ where , for $j=1,2$
 g_j(\xi)=\textbf{dm}^{-1}(\xi)\left( u_j(\xi)- \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta- \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_{3-j}(\zeta)\, d\zeta \right) 
 \label{C4:g1g2}
 \end{equation}
+The same consideration as those made in \ref{C3:propag} lead to an expression of functions $g_j$ using operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$ :
+\begin{equation}
+\textbf{dm}(\xi).g_j(\xi)=u_j(\xi)-\sum_{k=1}^{2N} \sqrt{\frac{a_k}{\pi}}\left( \mathbb{ND}(a_k,\xi).\tilde{X}_j^k+\mathbb{NT}(a_k,\xi).\tilde{X}_{3-j}^k \right) ,
+\label{C4:gjfinal}
+\end{equation}
+where
+\begin{equation}
+\mathbb{ND}(a,b)=\frac{1}{2\pi}\mathbb{D}(a,b)-\frac{\textbf{dm}(b)}{a+b}
+\label{C4:defND}
+\end{equation}
+and
+\begin{equation}
+\mathbb{NT}(a,b)=\frac{1}{2i\pi}\mathbb{T}(a,b)-\sum_{*=L,T}\frac{\mathbf{M}_*(b)}{T^{-1}_*(b)+a} .
+\end{equation}
 
+In system \eqref{recur}, the value of the regular part of the spectral function in domain $\Omega_*^-$, visible Fig.~\ref{dOmegamoins}, is expressed using its value in the domain $\xi \notin \Omega_*^-$, where the numerical approximation \eqref{Xj} is valid. To do so, functions $g_j,\, j=1,2$ are evaluated using \eqref{gjfinal}. The accuracy of the numerical evaluation in domain $\xi \notin \Omega_*^-$ is therefore propagated to domain $\Omega_*^-$. 
+
+This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
 
 \section{Validation}
 \section*{Conclusion}

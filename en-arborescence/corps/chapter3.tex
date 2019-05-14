@@ -1160,7 +1160,7 @@ u_j(\xi)=-\frac{1}{2i\pi}\sum_{k}\sum_{*=L,T}\left(i\mathbb{D}(-Z_{j,*}^{(k)},\x
  Using these results, the linear system \eqref{systmat} can be implemented and solved numerically thanks to the C++ library Eigen, and an evaluation of the regular part of the spectral functions is obtained. However, for values of $\xi$ lying in certain parts of the complex plane, this evaluation is not sufficiently accurate. The technique used to solve this problem is called the propagation of the solution.
 
 \subsection{Propagation of the solution}
-\label{propag}
+\label{C3:propag}
 The method described hereafter is used to ``propagate''  the accuracy of the solution to \eqref{regparteqn} to the whole complex plane. This is done by determining a new system of recursive equations solved by $X_1, X_2$ in which the regular part $X_j$ is expressed using the value of $X_1, X_2$ in a domain where the numerical approximation is valid.
 
 By deforming $\Gamma_0$ into $\Gamma_2$, represented in Fig. \ref{contour2}, the half-plane Im $\xi<0$  is entirely crossed. Note that the branch points $\pm \nu_*, *=L,T$ are not crossed during this deformation, indicated by the curved arrow in Fig.~\ref{contour2}. The contribution of poles $\zeta=\xi, \, \rm Im \xi<0$, is given by Cauchy's integral formula :
