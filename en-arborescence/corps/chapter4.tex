@@ -1557,10 +1557,17 @@ and
 \mathbb{NT}(a,b)=\frac{1}{2i\pi}\mathbb{T}(a,b)-\sum_{*=L,T}\frac{\mathbf{M}_*(b)}{T^{-1}_*(b)+a} .
 \end{equation}
 
-In system \eqref{recur}, the value of the regular part of the spectral function in domain $\Omega_*^-$, visible Fig.~\ref{dOmegamoins}, is expressed using its value in the domain $\xi \notin \Omega_*^-$, where the numerical approximation \eqref{Xj} is valid. To do so, functions $g_j,\, j=1,2$ are evaluated using \eqref{gjfinal}. The accuracy of the numerical evaluation in domain $\xi \notin \Omega_*^-$ is therefore propagated to domain $\Omega_*^-$. 
+In system \eqref{C4:recur}, the value of the regular part of the spectral function in domain $\Omega_*^-$, visible Fig.~\ref{C4:dOmegamoins}, is expressed using its value in the domain $\xi \notin \Omega_*^-$, where the numerical approximation \eqref{C4:Xj} is valid. To do so, functions $g_j,\, j=1,2$ are evaluated using \eqref{C4:gjfinal}. The accuracy of the numerical evaluation in domain $\xi \notin \Omega_*^-$ is therefore propagated to domain $\Omega_*^-$. 
 
 This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
 
 \section{Validation}
+The longitudinal and transversal diffraction coefficients are computed using \eqref{C4:DL}, \eqref{C4:DTH} and \eqref{C4:DTV}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}, where the Galerkin parameters are set to:
+\begin{equation}
+a_k=1.0001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
+\end{equation}
+Finally, the solution is rendered accurate in the entire complex domain by applying the recursive procedure called the propagation of the solution described in subsection \ref{C4:propag}.
+
+Following these steps, the diffraction coefficients have been computed for a steel wedge in which $c_L=5700 m.s^{-1}, c_T=3100 m.s^{-1}$. The results are presented hereafter.
 \section*{Conclusion}
 
