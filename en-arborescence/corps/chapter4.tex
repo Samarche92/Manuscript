@@ -496,38 +496,6 @@ The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} decr
 
 \begin{figure}
 \centering
-%\begin{subfigure}[b]{0.45\textwidth}
-%    \begin{tikzpicture}
-%	\draw[step=1.5cm,gray,very thin,dashed](-5,-2.7)grid(-1,3.7);
-%
-%	\draw[thin] (-5,0)  -- (-1,0) node[above]{$\lambda_1$};
-%	\draw[thin](-1.5,-2.5)--(-1.5,3.5) node[left]{$\lambda_2$};
-%
-%	\node at (-4.5,-0.2) {$-\pi$};
-%	\node at (-1.3,0.2) {$0$};
-%	\node at (-3.8,0.3) {$\lambda_s$};
-%	\node at (-3.5,3.6) {$\mathcal{C}_0^L$};
-%	\node at (-5.5,3) {$\gamma_{\theta}^L$};
-%	
-%	%% steepest descent
-%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-%	postaction={decorate}][domain=-1:-4] plot({0.5+-pi*0.7-2*asin(1/sinh(-\x))*pi/180},\x+1);
-%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-%	postaction={decorate}][domain=4:1] plot({0.5+-2*pi-2*asin(1/sinh(-\x))*pi/180},\x-1);
-%	
-%	%% Courbe C0L
-%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-%	postaction={decorate}][domain=3.5:0] plot({-3 -acos(1/cosh(\x))/360},\x); 
-%	\draw[black,very thick,decoration={ markings, mark=at position 0.5 with {\arrow{latex}}},
-%	postaction={decorate}][domain=0:-2.8] plot({-3+acos(1/cosh(\x))/360},\x);
-%
-%	\end{tikzpicture}
-%	\caption{Contours $C_0^L$ and $\gamma_{\theta}^L$ in the case $\nuti_L \in i\mathbb{R}$ }
-%	\label{C0L}
-%\end{subfigure}
-%\hfill
-%\centering
-%\begin{subfigure}[b]{0.45\textwidth}
 \begin{tikzpicture}
 	\draw[step=1.5cm,gray,very thin,dashed](-2.5,-2.7)grid(3.7,3.7);
 	\draw[thin, decoration={ markings,  
@@ -571,9 +539,6 @@ The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} decr
 	(pi-0.4,3.2) -- (pi-0.4,0.4) arc (0:-90:0.2) ;
 
 	\end{tikzpicture}
-%	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the case $\nuti_L \in \mathbb{R}$}
-%	\label{C0T}
-%\end{subfigure}
 	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. The stationary phase points are noted $\lambda_s$.}
 	\label{C4:steepestcontour}
 \end{figure}
@@ -845,7 +810,7 @@ T_*(\xi)&=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti \\
 &=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
 \end{split}
 \end{equation}
-where $\phiti$ is defined in \eqref{phitilde}. This translation operator is defined on subspace $\Omega_*$, represented on Fig.~\ref{C4:domega0} :
+where $\phiti$ is defined in \eqref{phitilde}. This translation operator is defined on subspace $\Omega_*^+$, represented on Fig.~\ref{C4:domega0} :
 \begin{equation}
 \xi \in \Omega_*^+= \{ \xi=\tilde{\nu}_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi} \}
 \label{C4:defOmega0}
@@ -1006,9 +971,10 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) 
    \begin{tikzpicture}[scale=0.9]
 % Remplissage espace Omega_0
 \fill [color=gray!20]
-(3,0) -- plot [domain=0:2] ({-cosh(\x)},{sinh(\x)}) -- (3,3.62) -- cycle;
+(3,-3.62) -- plot [domain=-2:2] ({-cosh(\x)},{sinh(\x)}) -- (3,3.62);
+%(3,0) -- plot [domain=0:2] ({-cosh(\x)},{sinh(\x)}) -- (3,3.62) -- cycle;
 \fill[color=white] (2,3) circle (0.5);
-\fill [color=white] (2,0) circle (0.25);
+%\fill [color=white] (2,0) circle (0.25);
 
 \node at (2,0) {$\times$};
 \node at (2,-0.35) {$\tilde{\nu}_*$};
@@ -1026,12 +992,12 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) 
 
 % Espace Omega_0
 \draw[thick] (2,3) circle (0.5);
-\node at (2,3) {$\mathbf{\Omega_T^+}$};
+\node at (2,3) {$\mathbf{\Omega_*^+}$};
 
 \draw[ thick, ->] (0.8,0.3) arc (0:45:1); %ici c'est les fleches 
 %\node at (1.2,0.8) {$\mathbf{\mathcal{F}_2}$}; 
 \end{tikzpicture}
-\caption{Contour $\partial \Omega_*$ in the case $\noncr$. The curved arrow shows deformation of contour $\Gamma_0$ onto $\partial \Omega_*$.}
+\caption{Contour $\partial \Omega_*$ and domain $\Omega_*^+$ in the case $\noncr$. The curved arrow shows deformation of contour $\Gamma_0$ onto $\partial \Omega_*$.}
 \label{C4:domegaT}     
 \end{subfigure}
 \hfill
@@ -1064,7 +1030,7 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) 
 \draw[thick] (3,2) circle (0.5);
 \node at (3,2) {$\mathbf{\Omega_L^+}$};
 \end{tikzpicture}
-\caption{Contour $\partial \Omega_L$ in the case $\crit$.}
+\caption{Contour $\partial \Omega_L$ and domain $\Omega_L^+$ in the case $\crit$.}
 \label{C4:domegaL}
 \end{subfigure}
 \caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
@@ -1321,28 +1287,30 @@ The method called propagation of the solution is used to propagate the accuracy 
 	\node at (-4,0.35) {$-\nuti_T$};
 	\node at (5.8,0.35) {$\Gamma_2$};
 	\node at (-5.8,0.35) {$\Gamma_0$};
-% 	\draw[ thick, ->] (2.5,-1.5) arc (0:-45:1);
-% 	\node at (2.7,-1.9) {$F_1$};
-% 	\draw[ thick, ->] (2.5,0.5) arc (0:45:1);
-% 	\node at (2.7,0.9) {$F_2$};
 	\draw[very thick, black,yshift=0pt,
-	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+	decoration={ markings,
 		mark=at position 0.2 with {\arrow{latex}},
 		mark=at position 0.9 with {\arrow{latex}}},
 	postaction={decorate}]
 	(6,-1) -- (1.5,-1)  arc (90:-90:-0.5) -- (1.8,0) arc (180:0:0.2) -- (3.8,0) arc (180:0:0.2) -- (6,0);
 	
 	\draw[dashed, line width = 1pt,yshift=0pt,
-	decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+	decoration={ markings,
 		mark=at position 0.1 with {\arrow{latex}}},
 	postaction={decorate}]
 	(-6,0) -- (-4.2,0) arc (-180:0:0.2) -- (-2.2,0)  arc (-180:0:0.2)  -- (1.5,0);
+	
+	\draw[ thick, ->] (-1,-0.25) arc (180:320:1);
 	\end{tikzpicture}
-	\caption{Integration contour $\Gamma_2$.}
+	\caption{Integration contour $\Gamma_2$ in the case $\noncr$. The curved arrow indicates the contour deformation from $\Gamma_0$ to $\Gamma_2$.}
 	\label{C4:contour2}
 \end{figure}
 
-The first step of this procedure is to deform contour $\Gamma_0$ in \eqref{C4:regparteqn} into contour $\Gamma_2$, visible on Fig.~\ref{C4:contour2} for the case $\noncr$ and in Fig.~\ref{C4:contour2crit} for the case $\crit$.
+The first step of this procedure is to deform contour $\Gamma_0$ in operator $\mathbf{DM}$ into contour $\Gamma_2$ in \eqref{C4:regparteqn}. Contour $\Gamma_2$ is visible on Fig.~\ref{C4:contour2} for the case $\noncr$ and in Fig.~\ref{C4:contour2crit} for the case $\crit$. During this deformation, the half-plane Im$\xi<0$ is crossed (with the exception of branch $\lbrack -\nuti_L,-\infty \lbrack$ in the case $\crit$). The contribution of poles $\zeta=\xi$ crossed during this contour deformation is given by Cauchy's residue formula :
+\begin{equation}
+\int_{\Gamma_0} \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta + \textbf{dm}(\xi).X_j(\xi)
+\label{C4:DM2}
+\end{equation}
 
 \begin{figure}
 \centering
@@ -1449,6 +1417,132 @@ The first step of this procedure is to deform contour $\Gamma_0$ in \eqref{C4:re
 \caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_2=\Gamma_2^a\cup\Gamma_2^b$ in the case $\crit$.}
 \label{C4:contour2crit}
 \end{figure}
+
+The next step is to define the inverse translation operator $T_*^{-1}, *=L,T$ :
+\begin{equation}
+T_*^{-1}(\xi=\nu_*\cos\theta)=\xi \cos \phiti-\zeta_*(\xi)\sin\phiti=\nu_*\cos(\theta-\tilde{\varphi}).
+\end{equation}
+This operator is well defined on subspace $\Omega_*^-$, visible on Fig.~\ref{C4:dOmegamoins} and defined as 
+\begin{equation}
+\Omega_*^-=\{ \xi \in \mathbb{C}, \; \xi=\tilde{\nu}_* \cos \theta,  \tilde{\varphi}<\mbox{Re}(\theta)<\pi \}
+\end{equation}
+Using these definitions, contour $\Gamma_0$ in operator $\mathbf{TM}$ is deformed into contour $\partial \Omega_*$, visible on Fig.~\ref{C4:dOmegamoins}. Poles $\zeta=T_*^{-1}(\xi)$ are crossed if $\xi \in \Omega_*^-$ and $\nuti_*^2 \rm Im \xi<0$. Their contribution is determined thanks to Cauchy's residue theorem :
+\begin{equation}
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta+\sum_{*=L,T} \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
+\label{TM2}
+\end{equation}
+where $\textbf{1}_{\Omega_*^-}(\xi)=1$ when $\xi \in \Omega_*^-$ and $\nuti_*^2 \rm Im \xi<0$ and $\textbf{1}_{\Omega_*^-}(\xi)=0$ elsewhere and
+\begin{equation}
+\mathbf{M}_*(\xi=\nuti_*\cos\theta)=-\frac{\sin(\theta-\tilde{\varphi})}{\sin\theta} \textbf{tm}_*(T_*^{-1}(\xi))
+\end{equation}
+
+\begin{figure}[ht]%
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+	\begin{tikzpicture}
+	% Filling Omega_*^-
+	\fill [color=gray!20]
+	(-3,{-sinh(1.7)})
+	-- plot [domain= -1.7:1.7] ({cosh(\x)},{sinh(\x)})
+	-- (-3,{sinh(1.7)});
+	
+%	\fill [color=gray!20]
+%	({cosh(1.7)},{-sinh(1.7)})
+%	-- plot [domain= 0:-3] ({\x},{-sinh(1.7)})
+%	-- (-3,0)
+%	-- cycle;
+	
+%	\fill[color=white] (-2,0) circle (0.25);
+	
+	\draw[dashed, ->,>=stealth] (-3,0)  -- (-2.25,0) arc(-180:0:0.25)--(1.75,0) arc (180:0:0.25)--(4,0) node[above]{$\xi_1$};
+	\draw[dashed, ->,>=stealth](0,{-sinh(1.7)})--(0,{sinh(1.7)}) node[left]{$\xi_2$};
+	\node at (2,0) { $\times$}; 
+%	\node at (0,1.5) { $\times$}; 
+	\node at (2,-0.5) {$\nuti_T$};
+%	\node at (0.5,1.5) {$\nuti_L$};
+	\node at (-2,0) { $\times$};
+%	\node at (0,-1.5) { $\times$}; 
+	\node at (-2.1,0.35) {$-\nuti_T$};
+%	\node at (-0.5,-1.5) {$-\nuti_L$};
+	
+	% Hyperbola (contour  partial_Omega_0 )
+	\draw[black, thick,decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}][domain=-1.7:1.7] plot({cosh(\x)}, {sinh(\x)});
+	
+	\node at (3.5,-2.5) {$\partial \Omega_*^-$};
+	\draw[thin, ->,>=stealth](1.7,0.45) -- (1.1, 0.06);
+	\node at (2.2, 0.75) { $\nuti_*\cos \tilde{\varphi}$};
+
+	% Espace Omega_0
+\fill [color=white] (-2,-1.5) circle (0.5);
+\draw[thick] (-2,-1.5) circle (0.5);
+\node at (-2,-1.5) {$\Omega_*^-$};
+	\end{tikzpicture}
+	\caption{Domain $\Omega_*^-$ and contour $\partial\Omega_*^-$ in the case $\noncr$.}
+	%\label{C4:Omegamoinsnoncr}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+	    \begin{tikzpicture}
+	    	% Filling Omega_*^-
+	\fill [color=gray!20]
+	({-sinh(2)},-2)
+	-- plot [domain= -2:2] ({sinh(\x)},{cosh(\x)})
+	--({sinh(2)},-2);
+
+	\draw[dashed, ->,>=stealth] (-3.6269,0)  -- (-2.25,0) arc(-180:0:0.25)--(1.75,0) arc (180:0:0.25)--(3.6269,0) node[above]{$\xi_1$};
+	
+	\draw[dashed, ->,>=stealth](0,-2)--(0,{sinh(2)}) node[left]{$\xi_2$};
+	\node at (2,0) { $\times$}; 
+	\node at (0,1.5) { $\times$}; 
+	\node at (2,-0.5) {$\nuti_T$};
+	\node at (0.5,1.5) {$\nuti_L$};
+	\node at (-2,0) { $\times$};
+	\node at (0,-1.5) { $\times$}; 
+	\node at (-2.1,0.35) {$-\nuti_T$};
+	\node at (-0.5,-1.5) {$-\nuti_L$};
+	
+	% Hyperbola (contour  partial_Omega_0 )
+	\draw[black, thick,decoration={ markings,
+		mark=at position 0.2 with {\arrow{latex}},
+		mark=at position 0.9 with {\arrow{latex}}},
+	postaction={decorate}][domain=-2:2] plot({sinh(\x)},{cosh(\x)});
+	
+	\node at (2,3) {$\partial \Omega_*^-$};
+	\draw[thin, ->,>=stealth](1.2,0.8) -- (0.06,0.9);
+	\node at (2, 0.75) { $\nuti_L\cos \tilde{\varphi}$};
+
+	% Espace Omega_0
+\fill [color=white] (-2,-1.3) circle (0.5);
+\draw[thick] (-2,-1.3) circle (0.5);
+\node at (-2,-1.3) {$\Omega_L^-$};
+
+	    \end{tikzpicture}
+	    %\label{C4:OmegamoinsL}
+	    \caption{Domain $\Omega_L^-$ and contour $\partial\Omega_L^-$ in the case $\crit$.}
+	\end{subfigure}
+\caption{Domains $\Omega_*^-$ and contours $\partial \Omega_*^-$ in cases $\noncr$ and $\crit$.}
+\label{C4:dOmegamoins}
+\end{figure}
+
+The recursive system of functional equations solved by the regular part is obtained by substituting \eqref{DM2} and \eqref{TM2} into \eqref{regparteqn}:
+\begin{equation}
+\left\{
+\begin{matrix}
+X_1(\xi) =g_1(\xi)-\textbf{dm}^{-1}(\xi).\underset{*=L,T}{\sum} \mathbf{M}_*(\xi).X_2(T_*^{-1}(\xi))\textbf{1}_{\Omega_*^-}(\xi) \\
+X_2(\xi) =g_2(\xi)-\textbf{dm}^{-1}(\xi).\underset{*=L,T}{\sum} \mathbf{M}_*(\xi).X_1(T_*^{-1}(\xi))\textbf{1}_{\Omega_*^-}(\xi)
+\end{matrix}
+\right.,
+\label{recur}
+\end{equation}
+where , for $j=1,2$
+\begin{equation}
+g_j(\xi)=\textbf{dm}^{-1}(\xi)\left( u_j(\xi)- \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta- \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_{3-j}(\zeta)\, d\zeta \right) 
+\label{g1g2}
+\end{equation}
+
 
 \section{Validation}
 \section*{Conclusion}

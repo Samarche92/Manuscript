@@ -1221,7 +1221,7 @@ In order for the cosine in this translation operator to be well defined, it is n
 \end{equation}
 where $\Omega_*^-$ is represented in Fig.~\ref{dOmegamoins}. By deforming contour $\Gamma_0$ into contour $\partial \Omega_*^-$ (also represented in Fig.~\ref{dOmegamoins}), domain $\Omega_*^-$ is crossed. The contribution of poles $\zeta=T_*^{-1}(\xi)$, when $\xi\in\Omega_*^-$  is taken into account using Cauchy's integral formula :
 \begin{equation}
-\int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\Gamma_2}  \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta+\sum_{*=L,T} \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta+\sum_{*=L,T} \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
 \label{TM2}
 \end{equation}
 where $\textbf{1}_{\Omega_*^-}(\xi)=1$ when $\xi \in \Omega_*^-$ and $0$ elsewhere and
@@ -1295,7 +1295,7 @@ X_2(\xi) =g_2(\xi)-\textbf{dm}^{-1}(\xi).\underset{*=L,T}{\sum} \mathbf{M}_*(\xi
 \end{equation}
 where , for $j=1,2$
 \begin{equation}
-g_j(\xi)=\textbf{dm}^{-1}(\xi)\left( u_j(\xi)- \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta- \int_{\Gamma_2}  \textbf{TM}(\xi,\zeta)X_{3-j}(\zeta)\, d\zeta \right) 
+g_j(\xi)=\textbf{dm}^{-1}(\xi)\left( u_j(\xi)- \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta- \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_{3-j}(\zeta)\, d\zeta \right) 
 \label{g1g2}
 \end{equation}
 
@@ -1462,6 +1462,8 @@ Overall, both lines overlap quite well, though some differences are observed. Th
 On Figs.~\ref{DLT} and \ref{DTT} for diffracted T waves, the FE diffraction coefficient seems to have a slightly different behavior near the wedge edges than the SF diffraction coefficients. Since this discrepancy is only visible in the T diffraction coefficient, it seems unlikely that it is due to the branch points at angles $\theta=0$ and $\theta=\varphi$ mentioned in section \ref{farfield}, as these branch points would affect both L and T diffracted waves. The observed discrepancy is more probably due to interference of the diffracted T wavefront with the Rayleigh waves observed on Figs.~\ref{snapLL} and \ref{snapTL}, which modifies the observed FE field along the diffracted T wavefront.
 
 Away from shadow boundaries (where the non-uniform SF code diverges) and domain borders i.e. in regions where diffracted waves do not interfere with other waves and where the SF asymptotic evaluation is theoretically valid, the FE and SF codes give very similar results. %The run time to evaluate the diffraction coefficients for 200 observation angles for incident L or T waves using an Intel(R) Xeon(R) CPU E3-1240 v3 is about 21s using the SF code. %The FE simulation run time on the same computer is more than a day.
+
+\section{Experimental validation}
 
 \section*{Conclusion}
 The spectral functions method for modeling the diffraction of an elastic wave by a stress-free wedge is presented here. It extends the region of validity of previously existing semi-analytical methods for high-frequency computation to all wedge angles. The numerical aspects of the computation are fully detailed and the diffraction coefficient obtained using this method has been compared to the one obtained using the Laplace Transform (LT) code in the case of a wedge angle lower than $\pi$, and to a spectral finite elements code in the case of a wedge angle higher than $\pi$. 
