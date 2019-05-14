@@ -1429,7 +1429,7 @@ This operator is well defined on subspace $\Omega_*^-$, visible on Fig.~\ref{C4:
 Using these definitions, contour $\Gamma_0$ in operator $\mathbf{TM}$ is deformed into contour $\partial \Omega_*$, visible on Fig.~\ref{C4:dOmegamoins}. Poles $\zeta=T_*^{-1}(\xi)$ are crossed if $\xi \in \Omega_*^-$ and $\nuti_*^2 \rm Im \xi<0$. Their contribution is determined thanks to Cauchy's residue theorem :
 \begin{equation}
 \int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta+\sum_{*=L,T} \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
-\label{TM2}
+\label{C4:TM2}
 \end{equation}
 where $\textbf{1}_{\Omega_*^-}(\xi)=1$ when $\xi \in \Omega_*^-$ and $\nuti_*^2 \rm Im \xi<0$ and $\textbf{1}_{\Omega_*^-}(\xi)=0$ elsewhere and
 \begin{equation}
@@ -1527,7 +1527,7 @@ where $\textbf{1}_{\Omega_*^-}(\xi)=1$ when $\xi \in \Omega_*^-$ and $\nuti_*^2 
 \label{C4:dOmegamoins}
 \end{figure}
 
-The recursive system of functional equations solved by the regular part is obtained by substituting \eqref{DM2} and \eqref{TM2} into \eqref{regparteqn}:
+The recursive system of functional equations solved by the regular part is obtained by substituting \eqref{C4:DM2} and \eqref{C4:TM2} into \eqref{C4:regparteqn}:
 \begin{equation}
 \left\{
 \begin{matrix}
@@ -1535,12 +1535,12 @@ X_1(\xi) =g_1(\xi)-\textbf{dm}^{-1}(\xi).\underset{*=L,T}{\sum} \mathbf{M}_*(\xi
 X_2(\xi) =g_2(\xi)-\textbf{dm}^{-1}(\xi).\underset{*=L,T}{\sum} \mathbf{M}_*(\xi).X_1(T_*^{-1}(\xi))\textbf{1}_{\Omega_*^-}(\xi)
 \end{matrix}
 \right.,
-\label{recur}
+\label{C4:recur}
 \end{equation}
 where , for $j=1,2$
 \begin{equation}
 g_j(\xi)=\textbf{dm}^{-1}(\xi)\left( u_j(\xi)- \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta- \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_{3-j}(\zeta)\, d\zeta \right) 
-\label{g1g2}
+\label{C4:g1g2}
 \end{equation}
 
 
