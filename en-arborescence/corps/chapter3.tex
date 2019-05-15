@@ -2,7 +2,7 @@
 \label{chap-2D}
 
 \section*{Introduction}
-The problem of plane wave diffraction by a wedge has been of great interest to researchers for over a century. The first to solve this type of problem in the case of an electromagnetic wave was Sommerfeld \cite{Sommerfeld}, who expressed the solution analytically, in the form of an integral called the Sommerfeld integral. At the same time, Macdonald \cite{Macdo} also expressed the solution to diffraction of a scalar plane wave analytically, as a series.
+%The problem of plane wave diffraction by a wedge has been of great interest to researchers for over a century. The first to solve this type of problem in the case of an electromagnetic wave was Sommerfeld \cite{Sommerfeld}, who expressed the solution analytically, in the form of an integral called the Sommerfeld integral. At the same time, Macdonald \cite{Macdo} also expressed the solution to diffraction of a scalar plane wave analytically, as a series.
 
 In the case of a plane elastic wave, it seems that the solution cannot be computed analytically. Therefore, semi-analytical resolutions and far-field ($kr>>1$, $k$ being the wave number and $r$ being the distance of observation) asymptotics have become common approaches. In this regard, the Geometrical Theory of Diffraction (GTD) was first introduced in electromagnetics by Keller \cite{GTD} and applied to elastodynamics by Achenbach et al. in 2D (when the incident wave vector is in the plane normal to the edge)  and in 3D \cite{Achenbach, GTDAchenbach}. The total asymptotic fields obtained with this method are spatially non-uniform in the sense that they diverge at shadow boundaries of the Geometrical Elastodynamics (GE) field. To solve this problem, some uniform corrections of the GTD have been developed. The Physical Theory of Diffraction (PTD) has been developed in electromagnetics by Ufimtsev \cite{Ufmi} and extended to elastic waves \cite{Zernov,PTDdarmon} but it is computationally expensive for large scatterers. Another uniform correction is the Uniform Asymptotic Theory (UAT) developed in elastodynamics by Achenbach et al. \cite{Achenbach}. This method has been tested by Fradkin and Stacey \cite{Fradkinelliptic}, using a finite difference algorithm. It requires an artificial extension of the scattering surface and the construction of fictitious rays \cite{Bouche}. For these reasons, a more commonly used uniform correction of the GTD method is the Uniform Theory of Diffraction (UTD). It was developed in electromagnetics by Kouyoumjian and Pathak \cite{Kouyoumjian} using the Pauli-Clemmow \cite{Pauli} asymptotic approximation of integrals. Kamta Djakou et al. \cite{Audrey} have extended it to elastodynamics with application to the scattering from a half-plane. This method is computationally efficient but still requires a trustworthy diffraction model in order to be applied. For the scalar case of 2D wedge diffraction of a shear horizontally polarized incident wave, a comparison of asymptotic (GTD and uniform) and exact solutions has been carried out in elastodynamics by Aristizabal et al. \cite{Aristizabal}.
 
@@ -1341,15 +1341,15 @@ The longitudinal and transversal diffraction coefficients are computed using \eq
 \begin{equation}
 a_k=1.0001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
-Finally, the solution is rendered accurate in the entire complex domain by applying the recursive procedure called the propagation of the solution described in subsection \ref{propag}.
+Finally, the solution is rendered accurate in the entire complex domain by applying the recursive procedure called the propagation of the solution described in subsection \ref{C3:propag}.
 
 Following these steps, the diffraction coefficients have been computed every $0.2 ^o$ for a steel wedge in which $c_L=5700 m.s^{-1}, c_T=3100 m.s^{-1}$. The results are presented hereafter.
 \subsection{For $\varphi<\pi$}
 For wedge angles $\varphi<\pi$, the Laplace Transform (LT) code of Gautesen and Fradkin \cite{GautesenFradkin} has been used to validate the results of the Spectral Functions (SF) method. 
 
-Fig.~\ref{8055} shows the absolute value of the diffraction coefficients  with respect to the observation angle obtained for a wedge of angle $\varphi=80^o$ illuminated by a wave incident with an angle $\theta_{inc}=55^o$. The green line represents the diffraction coefficients obtained using only the singular parts $Y_j$ of the spectral functions. The dark blue line is the diffraction coefficient obtained using the LT code and the red circles represent the result obtained using the SF code. These two plots are perfectly overlapping. The singular part alone, however, is not sufficient to compute accurate coefficients. %The run time to evaluate the diffraction coefficients every $0.2^o$ for incident L or T waves using an Intel(R) Xeon(R) CPU E3-1240 v3 is about 115s using the SF code and 80s using the LT code.
+Fig.~\ref{8055} shows the absolute value of the diffraction coefficients  with respect to the observation angle obtained for a wedge of angle $\varphi=80^o$ illuminated by a wave incident with an angle $\theta_{inc}=55^o$. The green line represents the diffraction coefficients obtained using only the singular parts $Y_j$ of the spectral functions. The dark blue line is the diffraction coefficient obtained using the LT code and the red circles represent the result obtained using the SF code. These two plots are perfectly overlapping. The singular part alone, however, is not sufficient to compute accurate coefficients. 
 
-Fig.~\ref{16040} shows the absolute value of the diffraction coefficients with respect to the observation angle obtained for a wedge of angle $\varphi=160^o$ illuminated by a wave incident with an angle $\theta_{inc}=40^o$. The light blue line represents the diffraction coefficients obtained without applying the ``propagation of the solution'' technique for the SF code. The dark blue line is the diffraction coefficient obtained using the LT code and the red circles represent the result obtained using the SF code, including the ``propagation of the solution'' technique. These two plots are perfectly overlapping. Furthermore, the ``propagation of the solution'' technique is necessary in order to avoid coefficients which diverge near the wedge faces. %The run time to evaluate the diffraction coefficients every $0.2^o$ for incident L or T waves using an Intel(R) Xeon(R) CPU E3-1240 v3 is about 66s using the SF code and 138s using the LT code.
+Fig.~\ref{16040} shows the absolute value of the diffraction coefficients with respect to the observation angle obtained for a wedge of angle $\varphi=160^o$ illuminated by a wave incident with an angle $\theta_{inc}=40^o$. The light blue line represents the diffraction coefficients obtained without applying the ``propagation of the solution'' technique for the SF code. The dark blue line is the diffraction coefficient obtained using the LT code and the red circles represent the result obtained using the SF code, including the ``propagation of the solution'' technique. These two plots are perfectly overlapping. Furthermore, the ``propagation of the solution'' technique is necessary in order to avoid coefficients which diverge near the wedge faces. 
 
 \begin{figure}%[h!]
 \centering
@@ -1461,10 +1461,54 @@ Overall, both lines overlap quite well, though some differences are observed. Th
 
 On Figs.~\ref{DLT} and \ref{DTT} for diffracted T waves, the FE diffraction coefficient seems to have a slightly different behavior near the wedge edges than the SF diffraction coefficients. Since this discrepancy is only visible in the T diffraction coefficient, it seems unlikely that it is due to the branch points at angles $\theta=0$ and $\theta=\varphi$ mentioned in section \ref{farfield}, as these branch points would affect both L and T diffracted waves. The observed discrepancy is more probably due to interference of the diffracted T wavefront with the Rayleigh waves observed on Figs.~\ref{snapLL} and \ref{snapTL}, which modifies the observed FE field along the diffracted T wavefront.
 
-Away from shadow boundaries (where the non-uniform SF code diverges) and domain borders i.e. in regions where diffracted waves do not interfere with other waves and where the SF asymptotic evaluation is theoretically valid, the FE and SF codes give very similar results. %The run time to evaluate the diffraction coefficients for 200 observation angles for incident L or T waves using an Intel(R) Xeon(R) CPU E3-1240 v3 is about 21s using the SF code. %The FE simulation run time on the same computer is more than a day.
+Away from shadow boundaries (where the non-uniform SF code diverges) and domain borders i.e. in regions where diffracted waves do not interfere with other waves and where the SF asymptotic evaluation is theoretically valid, the FE and SF codes give very similar results. 
 
 \section{Experimental validation}
+The \acrshort{lt} code used to validate the \acrshort{sf} method for wedge angles lower than $\pi$ has been validated experimentally by Chapman et al. \cite{ChapmanBurch}. Their experimental set-up is thoroughly described in \cite{ChapmanBurch} and will only be summarized here. The results of their experimental measurements will be used to validate the \acrshort{sf} code experimentally.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{images/chapter3/wedge_schema.png}
+\caption{(Reproduced from \cite{ChapmanBurch}) Front and Top view of the wedge inspected in pulse-echo configuration.}
+\label{C3:wedge_schema}
+\end{figure}
+
+Two isotropic ferritic steel ($c_L=5800\,m.s^{-1}, \; c_T=3230\,m.s^{-1}$) cylindrical sectors of radius 150mm, thickness 100mm wedges and of angles $\varphi=80^o$ and $\varphi=100^o$ are inspected in pulse-echo configuration, meaning that the emitting transducer is also the receiving transducer. In terms of the diffraction coefficient, this means that the observation angle is equal to the incidence angle.
+
+\begin{figure}[h!]
+\centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_80_LL.png}
+        \caption{Incident and diffracted L wave, $\varphi=80^o$.}
+        \label{C3:DLL80}
+    \end{subfigure}
+    \hfill  
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_80_TT.png}
+        \caption{Incident and diffracted T wave, $\varphi=80^o$.}
+        \label{C3:DTT80}
+     \end{subfigure} \\  
+     \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_100_LL.png}
+        \caption{Incident and diffracted L wave, $\varphi=100^o$.}
+        \label{C3:DLL100}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_100_TT.png}
+        \caption{Incident and diffracted T wave, $\varphi=100^o$.}
+        \label{C3:DTT100}
+     \end{subfigure}
+     \caption{Backscattering diffraction coefficients for wedges $\varphi=80^o$ and $\varphi=100^o$.}
+     \label{C3:expcoeffs}
+\end{figure}
+
+The inspections have been done at frequencies 2MHz and 5MHz to check that the diffraction coefficients do not depend on the frequency.  The experimental set-up is shown in Fig.~\ref{C3:wedge_schema}. Since the diffraction coefficients measured at both frequencies are identical, only the results obtained at 2MHz are presented here. Fig.~\ref{C3:expcoeffs} presents the comparison between the backscattering coefficients computed using the \acrshort{lt} code, the coefficients computed using the \acrshort{sf} code and the values measured experimentally presented in \cite{ChapmanBurch}.
+
+Figs.~\ref{C3:DLL80} and \ref{C3:DTT80} show the absolute values of the L and T backscattering diffraction coefficients respectively, for a wedge of angle $\varphi=80^o$. Figs~\ref{C3:DLL100} and \ref{C3:DTT100} show the absolute values of the L and T backscattering diffraction coefficients respectively, for a wedge of angle $\varphi=100^o$. In each of these figures, the full blue line represents the results obtained using the \acrshort{lt} diffraction coefficients, the dashed red line represents the results obtained using the \acrshort{sf} diffraction coefficients and the black diamonds represent the results measured experimentally.
+
+In each of the tested configurations, the results are conclusive. There is a very good agreement between the experimental measurements and numerical results, thus providing and additional validation for the \acrshort{sf} code.
 
 \section*{Conclusion}
 The spectral functions method for modeling the diffraction of an elastic wave by a stress-free wedge is presented here. It extends the region of validity of previously existing semi-analytical methods for high-frequency computation to all wedge angles. The numerical aspects of the computation are fully detailed and the diffraction coefficient obtained using this method has been compared to the one obtained using the Laplace Transform (LT) code in the case of a wedge angle lower than $\pi$, and to a spectral finite elements code in the case of a wedge angle higher than $\pi$. 
-When compared to the LT semi-analytical computation method for wedge angles lower than $\pi$, the spectral functions code gives excellent results. For wedge angles higher than $\pi$, a finite elements code is used for validation and the spectral functions method gives very good results in the domain of validity of the far-field asymptotic model. %for a much shorter computation time.
+When compared to the LT semi-analytical computation method for wedge angles lower than $\pi$, the spectral functions code gives excellent results. For wedge angles higher than $\pi$, a finite elements code is used for validation and the spectral functions method gives very good results in the domain of validity of the far-field asymptotic model. Finally, the results of the code are compared to experimental measurement, and the results are also good.
