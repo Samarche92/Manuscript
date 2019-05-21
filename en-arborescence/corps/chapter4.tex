@@ -2,7 +2,10 @@
 \label{chap-3D}
 
 \section*{Introduction}
-In previous chapters of this manuscript, the spectral functions method has been presented in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries and in the case of an elastic wave incident on a stress-free wedge. Both of these problems have been treated in the case of 2D incidences, meaning that the incident ray is in the plane normal to the wedge edge. In this chapter, we will extend the spectral functions method to the case of 3D incidences. This extension will be done for elastic waves incident on stress-free wedges and it will be shown that the code developed for the elastic case can be applied to the case of an acoustic wave incident on a wedge with Dirichlet boundary conditions, as well as to the 2D elastic problem.
+
+In the previous chapters of this manuscript, the spectral functions method has been presented in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries and in the case of an elastic wave incident on a stress-free wedge. Both of these problems have been treated in the case of 2D incidences, meaning that the incident ray is in the plane normal to the wedge edge. In this chapter, we will extend the spectral functions method to the case of 3D incidences. This extension will be done for elastic waves incident on stress-free wedges and it will be shown that the code developed for the elastic case can be applied to the case of an acoustic wave incident on a wedge with Dirichlet boundary conditions, as well as to the 2D elastic problem.
+
+
 
 In the first part of this chapter, the problem is presented. In the second part, an integral formulation of the solution is derived, depending on two unknown functions, called the spectral functions. The 3D diffraction coefficient is defined and expressed with respect to these spectral functions. In the third part, the semi-analytical evaluation of these functions is detailed. Finally, the corresponding code is tested numerically in the fourth part.
 \section{Problem statement}
@@ -593,6 +596,7 @@ v^{diff}=v_1^{diff}+v_2^{diff}
 Let us now isolate L, TH and TV diffracted waves in order to compute the corresponding diffraction coefficients. Using the expressions of the unit vectors given by \eqref{ivec}, the $\beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
 \begin{equation}
 D_{\beta}^{\alpha}(\theta,\delta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\nuti_{\beta}^2 \,{}^t \Sigma_j(-\nuti_{\beta}\cos\theta_j)\cdot\left(\mathbf{P}_{\beta}(\pi-\theta_j).\hat{i}_{\beta}\right)
+\label{C4:Dbeta}
 \end{equation}
 where $\theta_1=\theta$ and $\theta_2=\varphi-\theta$.
 
@@ -1564,7 +1568,7 @@ In system \eqref{C4:recur}, the value of the regular part of the spectral functi
 This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
 
 \section{Validation}
-The longitudinal and transversal diffraction coefficients are computed using \eqref{C4:DL}, \eqref{C4:DTH} and \eqref{C4:DTV}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}, where the Galerkin parameters are set to:
+The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}, where the Galerkin parameters are set to:
 \begin{equation}
 a_k=1.0001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}

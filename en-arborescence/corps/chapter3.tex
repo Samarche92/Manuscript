@@ -916,7 +916,7 @@ In order to only have regular terms on the right-hand side of this system, we ch
 \begin{equation}
 V_j^{(0)}=\textbf{dm}^{-1}(Z_j^{(0)}).W^j
 \end{equation}
-We have $\mbox{det}(\textbf{dm}(z) )\neq 0$ as long as $z\neq \nu_R$. In the following, we will suppose that this is the case. Physically, this means that the incident wave is not a Rayleigh wave and neither are any of the waves reflected by the wedge faces.
+We have $\mbox{det}(\textbf{dm}(z) )\neq 0$ as long as $z\neq \nu_R$. In the following, we will suppose that this is the case. Physically, this means that the incident wave is not a Rayleigh wave and neither are any of the waves reflected by the wedge faces. Furthermore, we suppose that the hypothesis $z \notin \{ \nu_L, \nu_T\}$ that has been made in \eqref{GaussDM} and \eqref{GaussTM} remains true for all the poles. This means that neither the incident, nor any of the reflected waves is an incoming grazing one. Kamotski \cite{KamotskiCrit} proves existence and uniqueness of the solution in the case where this is not true.
 %We now have :
 %\begin{equation}
 %\left\{
@@ -927,6 +927,7 @@ We have $\mbox{det}(\textbf{dm}(z) )\neq 0$ as long as $z\neq \nu_R$. In the fol
 %\right.
 %\label{mille}
 %\end{equation}
+
 Applying \eqref{GaussTM}, two new poles appear :
 \begin{equation}
 Z^{(1)}_{j,L}=T_L(Z_j^{(0)}) \,\;\mbox{ et }\,\; Z^{(1)}_{j,T}=T_T(Z_j^{(0)})
@@ -1157,7 +1158,7 @@ u_j(\xi)=-\frac{1}{2i\pi}\sum_{k}\sum_{*=L,T}\left(i\mathbb{D}(-Z_{j,*}^{(k)},\x
 \label{uDT}
 \end{equation}
 
- Using these results, the linear system \eqref{systmat} can be implemented and solved numerically thanks to the C++ library Eigen, and an evaluation of the regular part of the spectral functions is obtained. However, for values of $\xi$ lying in certain parts of the complex plane, this evaluation is not sufficiently accurate. The technique used to solve this problem is called the propagation of the solution.
+Using these results, the linear system \eqref{systmat} can be implemented and solved numerically thanks to the C++ library Eigen, and an evaluation of the regular part of the spectral functions is obtained. However, for values of $\xi$ lying in certain parts of the complex plane, this evaluation is not sufficiently accurate. The technique used to solve this problem is called the propagation of the solution.
 
 \subsection{Propagation of the solution}
 \label{C3:propag}
