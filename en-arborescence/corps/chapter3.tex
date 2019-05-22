@@ -1474,7 +1474,7 @@ The \acrshort{lt} code used to validate the \acrshort{sf} method for wedge angle
 \label{C3:wedge_schema}
 \end{figure}
 
-Two isotropic ferritic steel ($c_L=5800\,m.s^{-1}, \; c_T=3230\,m.s^{-1}$) cylindrical sectors of radius 150mm, thickness 100mm wedges and of angles $\varphi=80^o$ and $\varphi=100^o$ are inspected in pulse-echo configuration, meaning that the emitting transducer is also the receiving transducer. In terms of the diffraction coefficient, this means that the observation angle is equal to the incidence angle.
+Two isotropic ferritic steel ($c_L=5900\,m.s^{-1}, \; c_T=3230\,m.s^{-1}$) cylindrical sectors of radius 150mm, thickness 100mm wedges and of angles $\varphi=80^o$ and $\varphi=100^o$ are inspected in pulse-echo configuration, meaning that the emitting transducer is also the receiving transducer. In terms of the diffraction coefficient, this means that the observation angle is equal to the incidence angle.
 
 \begin{figure}[h!]
 \centering
@@ -1500,13 +1500,43 @@ Two isotropic ferritic steel ($c_L=5800\,m.s^{-1}, \; c_T=3230\,m.s^{-1}$) cylin
         \caption{Incident and diffracted T wave, $\varphi=100^o$.}
         \label{C3:DTT100}
      \end{subfigure}
-     \caption{Backscattering diffraction coefficients for wedges $\varphi=80^o$ and $\varphi=100^o$.}
+     \caption{Absolute value of the backscattering diffraction coefficients for wedges $\varphi=80^o$ and $\varphi=100^o$.}
      \label{C3:expcoeffs}
 \end{figure}
 
-The inspections have been done at frequencies 2MHz and 5MHz to check that the diffraction coefficients do not depend on the frequency.  The experimental set-up is shown in Fig.~\ref{C3:wedge_schema}. Since the diffraction coefficients measured at both frequencies are identical, only the results obtained at 2MHz are presented here. Fig.~\ref{C3:expcoeffs} presents the comparison between the backscattering coefficients computed using the \acrshort{lt} code, the coefficients computed using the \acrshort{sf} code and the values measured experimentally presented in \cite{ChapmanBurch}.
+The inspections have been done at frequencies 2MHz and 5MHz to check that the diffraction coefficients do not depend on the frequency.  The experimental set-up is shown in Fig.~\ref{C3:wedge_schema} and. Since the diffraction coefficients measured at both frequencies are identical, only the results obtained at 2MHz are presented here. Figs.~\ref{C3:expcoeffs} and \ref{C3:expcoeffsph} present the comparison between the backscattering coefficients computed using the \acrshort{lt} code, the coefficients computed using the \acrshort{sf} code and the values measured experimentally presented in \cite{ChapmanBurch}.
 
 Figs.~\ref{C3:DLL80} and \ref{C3:DTT80} show the absolute values of the L and T backscattering diffraction coefficients respectively, for a wedge of angle $\varphi=80^o$. Figs~\ref{C3:DLL100} and \ref{C3:DTT100} show the absolute values of the L and T backscattering diffraction coefficients respectively, for a wedge of angle $\varphi=100^o$. In each of these figures, the full blue line represents the results obtained using the \acrshort{lt} diffraction coefficients, the dashed red line represents the results obtained using the \acrshort{sf} diffraction coefficients and the black diamonds represent the results measured experimentally.
+
+\begin{figure}[h!]
+\centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_phase_80_L.png}
+        \caption{Incident and diffracted L wave, $\varphi=80^o$.}
+        \label{C3:DphL80}
+    \end{subfigure}
+    \hfill  
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_phase_80_T.png}
+        \caption{Incident and diffracted T wave, $\varphi=80^o$.}
+        \label{C3:DphT80}
+     \end{subfigure} \\  
+	\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_phase_100_L.png}
+        \caption{Incident and diffracted L wave, $\varphi=100^o$.}
+        \label{C3:DphL100}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_phase_100_T.png}
+        \caption{Incident and diffracted T wave, $\varphi=100^o$.}
+        \label{C3:DphT100}
+     \end{subfigure}
+     \caption{Angular phase of the backscattering diffraction coefficients (in degrees) for wedges $\varphi=80^o$ and $\varphi=100^o$.}
+     \label{C3:expcoeffsph}
+\end{figure}
+
+Figs.~\ref{C3:DphL80} and \ref{C3:DphT80} show the angular phases of the L and T backscattering diffraction coefficients respectively, for a wedge of angle $\varphi=80^o$. Figs~\ref{C3:DphL100} and \ref{C3:DphT100} show the angular phases of the L and T backscattering diffraction coefficients respectively, for a wedge of angle $\varphi=100^o$. In each of these figures, the full blue line represents the results obtained using the \acrshort{lt} diffraction coefficients, the dashed red line represents the results obtained using the \acrshort{sf} diffraction coefficients and the black diamonds represent the results measured experimentally.
 
 In each of the tested configurations, the results are conclusive. There is a very good agreement between the experimental measurements and numerical results, thus providing and additional validation for the \acrshort{sf} code.
 

@@ -470,13 +470,13 @@ The diffracted elastodynamic potentials $\psi_{\beta}^{GTD} $ can be expressed i
 \begin{equation}
 \psi_{\beta}^{GTD}=(k_{\beta} r,\theta')=i\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack \dfrac{e^{ik_{\beta}r}}{\sqrt{k_{\beta}r}}
 \end{equation}
-Using \eqref{C1:elastopotentials}, the diffracted displacement field are given by :
+Using \eqref{C1:elastopotentials}, the diffracted displacement field is given by :
 \begin{equation}
-\mathbf{u}_{\beta}^{diff(SI)}(r,\theta')=D_L^{SI}(\theta')\dfrac{e^{ik_Lr}}{\sqrt{k_Lr}}\mathbf{e}_{r'}+D_T^{SI}(\theta')\dfrac{e^{ik_Tr}}{\sqrt{k_Tr}}\mathbf{e}_{\theta'}
+\mathbf{u}^{diff(SI)}(r,\theta')=D_L^{SI}(\theta')\dfrac{e^{ik_Lr}}{\sqrt{k_Lr}}\mathbf{e}_{r'}+D_T^{SI}(\theta')\dfrac{e^{ik_Tr}}{\sqrt{k_Tr}}\mathbf{e}_{\theta'}
 \end{equation}
 where
 \begin{equation}
-D_{\beta}^{SI}=-k_{\beta}\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack
+D_{\beta}^{SI}(\theta')=-k_{\beta}\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack
 \end{equation}
 
 To summarize, following the steps of Kamotski et al. \cite{KamotskiFradkin}, the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ can be computed. First, Sommerfeld's integral formulation of the elastodynamic potentials \eqref{C1:Sommerfeld} is used to determine two systems (one for the symmetric problem and once for the antisymmetric problem) of functional equations \eqref{C1:SIfunctional} of which the symmetric and antisymmetric Sommerfeld amplitudes are solution. These systems are then solved by determining the poles and residues of the Sommerfeld amplitudes analytically and computing the remaining regular function numerically. Finally, the \acrshort{gtd} diffraction coefficient is deduced. 
@@ -493,7 +493,7 @@ H(2\varphi-\theta)u_p(\mathbf{x})=u_p^{inc}(\mathbf{x})-\sum_{i=1}^2\int_0^{+\in
  +\sum_{j=1}^2\sum_{m=1}^2\sigma_{jm}^{(p)}(x_1-l\cos 2\varphi,x_2-l\sin 2\varphi)e_{x_2}^{(j)}e_{y_2}^{(m)}u^{(i)}(l) \Big] \, dl
  \label{C1:extthm}
 \end{multline}
-where $(0;\mathbf{e}_{x_2},\mathbf{e}_{y_2}, \mathbf{e}_z)$ is an orthonormal basis, shown on Fig.~\ref{C1:wedge} where the $x_2$-axis coincides with the top free surface and where $\mathbf{e}_{y_2}$ is directed towards the inside of the wedge, $G^{(p)}$ is Green's stress tensor, defined in section \ref{sectKA} and
+where H is the Heaviside function ($H(x)=1$ for $x>0$ and $0$ elswhere) $(0;\mathbf{e}_{x_2},\mathbf{e}_{y_2}, \mathbf{e}_z)$ is an orthonormal basis, shown on Fig.~\ref{C1:wedge} where the $x_2$-axis coincides with the top free surface and where $\mathbf{e}_{y_2}$ is directed towards the inside of the wedge, $G^{(p)}$ is Green's stress tensor, defined in section \ref{sectKA} and
 \begin{eqnarray}
 u^{(i)}(l)=
 \left\{
@@ -597,7 +597,35 @@ and, for $i=1,2$,
 \begin{equation}
 \hat{u}_i^{sing}=\sum_j \dfrac{res(\xi_i^j)}{\xi-\xi_i^j}
 \end{equation}
-where $\xi_i^j$ are the poles of $\hat{u}_i$ and $res(\xi_i^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is detailed in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:LTsingreg} is then substituted into \eqref{C1:LTsyst} and the resulting system is solved numerically using the scheme proposed by Gautesen and Fradkin \cite{GautesenFradkin}. The final expression of the \acrshort{gtd} diffraction coefficient is expressed in terms of $\hat{u}_1$ and $\hat{u}_2$. It is more complex than in the \acrshort{si} case and is not reproduced here. It can be found in \cite{GautesenFradkin}.
+where $\xi_i^j$ are the poles of $\hat{u}_i$ and $res(\xi_i^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is detailed in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:LTsingreg} is then substituted into \eqref{C1:LTsyst} and the resulting system is solved numerically using the scheme proposed by Gautesen and Fradkin \cite{GautesenFradkin}. Using a far-field approximation of the extinction theorem \eqref{C1:extthm}, Gautesen and Fradkin show that the diffracted field is given by :
+\begin{equation}
+H(2\varphi-\theta)\mathbf{u}^{diff(LT)}(r,\theta)=D_L^{LT}(\theta)\dfrac{e^{ik_Lr}}{\sqrt{k_Lr}}\mathbf{e}_{r}+D_T^{LT}(\theta)\dfrac{e^{ik_Tr}}{\sqrt{k_Tr}}\mathbf{e}_{\theta}
+\end{equation}
+where the diffraction coefficients of the symmetric and antisymmetric problems are :
+\begin{subequations}
+\begin{equation}
+\begin{split}
+D_L^{LT(\pm)}&=\sqrt{\frac{\pi}{2i}} \kappa_T^2 D_L^{LT(inc)\pm}+\sin(2\theta)\hat{u}_1(-\cos\theta)+(\kappa_T^2-2\cos^2\theta)\hat{u}_2(-\cos\theta) \\
+& \mp \lbrack \sin(4\varphi-2\theta)\hat{u}_1(-\cos(2\varphi-\theta))+(\kappa_T^2-2\cos^2(2\varphi-\theta))\hat{u}_2(-\cos(2\varphi-\theta))\rbrack
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+D_T^{LT(\pm)}&=\sqrt{\frac{\pi}{2i}} \kappa_T^2 D_T^{LT(inc)\pm}+\kappa_T\lbrack\cos(2\theta)\hat{u}_1(-\kappa_T\cos\theta)+\sin(2\theta)\hat{u}_2(-\kappa_T\cos\theta)\rbrack \\
+& \pm \lbrack \cos(4\varphi-2\theta)\hat{u}_1(-\kappa_T\cos(2\varphi-\theta))+\sin(4\varphi-2\theta)\hat{u}_2(-\kappa_T\cos(2\varphi-\theta))\rbrack
+\end{split}
+\end{equation}
+\end{subequations}
+where
+\begin{equation}
+D_{\beta}^{LT(inc)\pm}= \left\{
+\begin{matrix}
+\delta(\theta-\pi-\theta_{inc})\pm\delta(\theta-\pi-2\varphi+\theta_{inc}) & \rm if & \alpha=\beta \\
+0 & \rm else
+\end{matrix}
+\right.
+\end{equation}
+
 
 A second method for computing the \acrshort{gtd} diffraction coefficient of a stress-free wedge of angle $2\varphi<\pi$ has been presented, following the steps of Gautesen and Fradkin \cite{GautesenFradkin}. First, the extinction theorem is used to determine an integral formulation of the elastodynamic displacement field in the entire domain. Using this formulation, two functional systems of equations are derived (one for the symmetric problem and one for the antisymmetric problem) of which the components of the Laplace transform of the displacement field are the solution. These two systems are solved separately by determining the poles and residues of the unknowns and computing the remaining regular functions numerically. Finally the \acrshort{gtd} diffraction coefficient is deduced.
 
