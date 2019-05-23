@@ -7,9 +7,9 @@ In the previous chapters of this manuscript, the spectral functions method has b
 
 The problem of 3D wedge diffraction has been studied over the past century in acoustics, electromagnetics and elastodynamics. The problem was introduced by Sommerfeld \cite{Sommerfeld}, who gave an exact expression of the solution to the scattering problem of a plane acoustic wave by a wedge with Dirichlet or Neumann boundaries in the form of a contour integral. This integral can be used to obtain an analytical expression of the \acrfull{gtd} diffraction coefficient both in electromagnetics and in acoustics \cite{Bouche,Bo}. Independently, Macdonald \cite{Macdo} has expressed the solution to the same problem as an infinite series. Proof that the Sommerfeld and the Macdonald approaches are equivalent was developed by Carslaw \cite{Carslaw}.
 
-In the case of an incident acoustic wave, Rawlins \cite{Rawlins} determined an expression of the solution as a real integral for a spherical acoustic wave diffracted by a wedge with Dirichlet or Neumann boundaries when the aperture angle is a rational multiple of $\pi$. In the case of an electromagnetic wave, Rojas \cite{Rojas} derived a uniform asymptotic solution for a plane wave incident on an impedant wedge when the wedge angle is a multiple of $\frac{\pi}{2}$. By generalizing the Malyuzhinets technique \cite{SMtechnique}, Bernard \cite{Bernard} reduced the problem of a plane electromagnetic wave diffracted by an impedant wedge of arbitrary angle to a scalar functional equation with only one unknown and provides examples of numericalresolution of this equation in some special cases. Finally, an application of the Weiner-Hopf technique to the case of electromagnetic plane wave diffraction by impenetrable wedges of arbitrary angles was developed by Daniele in 2D \cite{Daniele} and exented to 3D cases by Daniele and Lombardi \cite{DanieleLombardi}.
+In the case of an incident acoustic wave, Rawlins \cite{Rawlins} determined an expression of the solution as a real integral for a spherical acoustic wave diffracted by a wedge with Dirichlet or Neumann boundaries when the aperture angle is a rational multiple of $\pi$. In the case of an electromagnetic wave, Rojas \cite{Rojas} derived a uniform asymptotic solution for a plane wave incident on an impedant wedge when the wedge angle is a multiple of $\frac{\pi}{2}$. By generalizing the Malyuzhinets technique \cite{SMtechnique}, Bernard \cite{Bernard} reduced the problem of a plane electromagnetic wave diffracted by an impedant wedge of arbitrary angle to a scalar functional equation with only one unknown and provides examples of numerical resolution of this equation in some special cases. Finally, an application of the Weiner-Hopf technique to the case of electromagnetic plane wave diffraction by impenetrable wedges of arbitrary angles was developed by Daniele in 2D \cite{Daniele} and extended to 3D cases by Daniele and Lombardi \cite{DanieleLombardi}.
 
-In elastodynamics, a \acrshort{gtd} solution to the 3D problem of plane wave diffraction by a stress-free half plane was developed by Achenbach and Gautesen \cite{Achenbach,AchenbachGautesen,GautesenNote} and Gautesen \cite{GautesenRayleigh4,GautesenRayleigh3} proposed a semi-analytical scheme of resolution of the far-field scattering problem of a skew incident Rayleigh wave diffracted by a quarter-space (i.e. a wedge of angle $\frac{\pi}{2}$ or $\frac{3\pi}{2}$). To our knowledge, no resolution scheme has been developed for a skew incident longitudinal or transversal plane elastic wave diffracted by an arbirtrary-angled wedge. Therefore, it is the aim of this chapter.
+In elastodynamics, a \acrshort{gtd} solution to the 3D problem of plane wave diffraction by a stress-free half plane was developed by Achenbach and Gautesen \cite{Achenbach,AchenbachGautesen,GautesenNote} and Gautesen \cite{GautesenRayleigh4,GautesenRayleigh3} proposed a semi-analytical scheme of resolution of the far-field scattering problem of a skew incident Rayleigh wave diffracted by a quarter-space (i.e. a wedge of angle $\frac{\pi}{2}$ or $\frac{3\pi}{2}$). To our knowledge, no resolution scheme has been developed for a skew incident longitudinal or transversal plane elastic wave diffracted by an arbitrary-angled wedge. Therefore, it is the aim of this chapter.
 
 In the first part of this chapter, the problem is presented. In the second part, an integral formulation of the solution is derived, depending on two unknown functions, called the spectral functions. The 3D diffraction coefficient is defined and expressed with respect to these spectral functions. In the third part, the semi-analytical evaluation of these functions is detailed. Finally, the corresponding code is tested numerically in the fourth part.
 \section{Problem statement}
@@ -813,6 +813,7 @@ W_2^{TH}=2 \nu_T\mu \begin{pmatrix}
 Thanks to these functional equations, the spectral functions can be decomposed into two parts : a singular function and a regular function. The evaluation of each of these parts is described in the following.
 
 \subsection{Singular part}
+\label{C4:singpart}
 The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using to a recursive procedure, in which the following translation appears (for $*=L,T$) :
 \begin{equation}
 \begin{split}
@@ -1166,6 +1167,7 @@ This is impossible. Therefore, the sequence $(z_l)_{l\geq 0}$ is necessarily fin
 We have thus extracted all the poles from the spectral functions and have computed them analytically, along with their corresponding residues.
 
 \subsection{Regular Part}
+\label{C4:regpart}
 The singular parts $Y_j$ of the spectral functions having been determined, two new functions $X_1$ and $X_2$ are defined by \eqref{C4:decomp}. In the following, a numerical approximation method for $X_j$ is proposed. In order to do so, a system of functional equations solved by $X_1, X_2$ is derived by subtracting vector
 \begin{equation}
 \begin{pmatrix}
@@ -1280,6 +1282,7 @@ u_j(\xi)=-\frac{1}{2i\pi}\sum_{k}\sum_{*=L,T}\left(i\mathbb{D}(-Z_{j,*}^{(k)},\x
  Using these results, the linear system \eqref{C4:systmat} is implemented and solved numerically using the C++ library Eigen, and an evaluation of the regular part of the spectral functions is obtained. However, for values of $\xi$ lying in certain parts of the complex plane, this evaluation is not sufficiently accurate. The technique used to solve this problem is called the propagation of the solution.
  
 \subsection{Propagation of the solution}
+\label{C4:propag}
 The method called propagation of the solution is used to propagate the accuracy of the numerical approximation of the regular functions $X_1$ and $X_2$ from parts of the complex plane where they are evaluated accurately to parts of the complex plane where they are not.
 
 \begin{figure}[h]
@@ -1571,15 +1574,35 @@ In system \eqref{C4:recur}, the value of the regular part of the spectral functi
 
 This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
 
-\section{Validation}
+\section{Numerical Tests}
 The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}, where the Galerkin parameters are set to:
 \begin{equation}
-a_k=1.0001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
+a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
 Finally, the solution is rendered accurate in the entire complex domain by applying the recursive procedure called the propagation of the solution described in subsection \ref{C4:propag}.
 
-Following these steps, the diffraction coefficients have been computed for a steel wedge in which $c_L=5700 m.s^{-1}, c_T=3100 m.s^{-1}$. The results are presented hereafter.
+Following these steps, the diffraction coefficients have been computed and tested numerically.
 
+\subsection{Comparison to 2D code}
+The first test that has been made on the 3D code is to check that when $\delta_{inc}=0$, the results of the 3D code are the same as those of the 2D code presented in the previous chapter. This has been checked for the theoretical computations and must also be verified numerically (to ensure that no mistakes were made in the code).
+
+\subsection{Verification of the regular part for an infinite plane}
+In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane and there is no diffracted wave. The regular part of the spectral functions, which is the part of the solution corresponding to the diffraction phenomena vanishes and we have, for $j=1,2$ :
+\begin{equation}
+||\mathbb{U}_j||=0 \hspace{1em} \rm and \hspace{1em} ||\mathbb{X}_j||=0
+\end{equation}
+Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$.
+
+\subsection{Acoustic limit}
+In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Sommerfeld} provides an analytical expression for the \acrshort{gtd} diffraction coefficient in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries. This is still true for 3D incidences, and the expression is provided by Keller \cite{GTD}. In the case of a wedge with Dirichlet boundaries, we have :
+\begin{equation}
+\begin{split}
+D^{(Dir)}(\theta)=\dfrac{e^{i\dfrac{\pi}{4}}}{2N\sin\delta_{\beta}\sqrt{2\pi}} &\left[ \cot\left(\dfrac{\pi+\theta+\theta_{inc}}{2N} \right) +\cot\left(\dfrac{\pi-\theta-\theta_{inc}}{2N} \right) \right.\\
+-&\left. \cot\left(\dfrac{\pi+\theta-\theta_{inc}}{2N} \right)-\cot\left(\dfrac{\pi-\theta+\theta_{inc}}{2N} \right)\right]
+\end{split}
+\end{equation}
+
+The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient behaves like the diffraction coefficient of an acoustic wave. Comparing our results to Sommerfeld's analytical formulation, provides an additional check on the results.
 
 
 \section*{Conclusion}
