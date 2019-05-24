@@ -967,7 +967,7 @@ V_{j,T}^{(k+1)}=-\textbf{dm}^{-1}(Z_{j,*}^{(k+1)}).\textbf{tm}_T(Z_{3-j,*}^{(k)}
 The recursive procedure stops when the poles $Z_{j,*}^{(k)}$ exit $\Omega_L^+\cup\Omega_T^+$ (\textit{i.e.} when the translation operators $T_L$ and $T_T$ can no longer be applied to them). Croisille and Lebeau \cite{CroisilleLebeau} have shown that this defines a finite number of poles. Physically, this means that an incident ray exits the wedge after a finite number of reflections and mode conversions. We have thus extracted all the poles from the spectral functions and have computed them analytically, along with their corresponding residues. 
 
 \subsection{Regular part}
-\label{regpart}
+\label{C3:regpart}
 The singular parts $Y_j$ of the spectral functions having been determined, two new functions $X_1$ and $X_2$ are defined by \eqref{decomp}. In the following, a numerical approximation method for $X_j$ is proposed. In order to do so, a system of functional equations solved by $X_1, X_2$ is derived by subtracting vector
 \begin{equation}
 \begin{pmatrix}
@@ -1222,7 +1222,7 @@ In order for the cosine in this translation operator to be well defined, it is n
 \end{equation}
 where $\Omega_*^-$ is represented in Fig.~\ref{dOmegamoins}. By deforming contour $\Gamma_0$ into contour $\partial \Omega_*^-$ (also represented in Fig.~\ref{dOmegamoins}), domain $\Omega_*^-$ is crossed. The contribution of poles $\zeta=T_*^{-1}(\xi)$, when $\xi\in\Omega_*^-$  is taken into account using Cauchy's integral formula :
 \begin{equation}
-\int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta+\sum_{*=L,T} \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \sum_{*=L,T}\int_{\partial \Omega_*^-}  \dfrac{\textbf{tm}_*(\zeta)}{\xi-T_*(\zeta)}.X_j(\zeta)\, d\zeta+ \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
 \label{TM2}
 \end{equation}
 where $\textbf{1}_{\Omega_*^-}(\xi)=1$ when $\xi \in \Omega_*^-$ and $0$ elsewhere and
