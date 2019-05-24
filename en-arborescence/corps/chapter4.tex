@@ -966,12 +966,12 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{C4:gamma1cr}
 \end{figure}
 
-Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$ and in the case $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. In both cases, Cauchy's residue theorem is applied
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$ and in the case $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. In both cases, Cauchy's residue theorem is applied, yielding, for $V \in \mathbb{C}^3$, Im$z\geq 0, \, z \notin \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \}$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$ if $\noncr$ and $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,)$ if $\crit$ :
 \begin{equation}
 \int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{v}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).v}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).v
 \label{C4:GaussTM}
 \end{equation}
-where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) \geq 0$ and $\textbf{1}_{\Omega_*}(z)=0$ elsewhere and
+where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}(z)=0$ elsewhere and
 \begin{equation}
 \mathbf{T_p}(z,\xi)= \frac{1}{2i\pi} \sum_{*=L,T} \int_{\partial \Omega_*} D_*(\xi,\zeta) .\dfrac{\textbf{tm}_*(\zeta)}{\zeta-z}\, d\zeta
 \end{equation}
@@ -1047,7 +1047,10 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) 
 \caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
 \label{C4:domega0}
 \end{figure}
-In the case where $\noncr$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $. In the case where $\crit$, \eqref{C4:GaussDM}  is valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}$. Note that if $\noncr$, during deformation of $\Gamma_0$ onto $\partial \Omega_*$, visible on Fig.~\ref{C4:domegaT}, branch points $\pm \nuti_L$ are avoided. In the case where $\crit$, visible on Fig.~\ref{C4:domegaL}, points $\pm \nuti_T$ are crossed. however, since they are not branch points of the integrand $D_L(\xi,\zeta).\dfrac{\mathbf{tm}_L(\zeta)}{\zeta-z}$, this is not a problem.
+
+
+
+ Note that if $\noncr$, during deformation of $\Gamma_0$ onto $\partial \Omega_*$, visible on Fig.~\ref{C4:domegaT}, branch points $\pm \nuti_L$ are avoided. In the case where $\crit$, visible on Fig.~\ref{C4:domegaL}, points $\pm \nuti_T$ are crossed. however, since they are not branch points of the integrand $D_L(\xi,\zeta).\dfrac{\mathbf{tm}_L(\zeta)}{\zeta-z}$, this is not a problem.
 
 It is assumed that Croisille and Lebeau's \cite{CroisilleLebeau} proof that $\mathbf{D_p}(z,\cdot)$ and $\mathbf{T_p}(z,\cdot)$ belong to a special class of functions $\mathcal{H}^3$ can be adapted to the 3D case. It will therefore be assumed that in the case $\noncr$, $\mathbf{D_p}(z,\cdot) \in \mathcal{H}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$ and in the case $\crit$, $\mathbf{D_p}(z,\cdot) \in \tilde{\mathcal{H}}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$. $\mathcal{H}$ and $\tilde{\mathcal{H}}$ are defined hereafter
 \begin{definition}
