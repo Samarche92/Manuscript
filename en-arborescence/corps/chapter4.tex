@@ -976,8 +976,6 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}
 \mathbf{T_p}(z,\xi)= \frac{1}{2i\pi} \sum_{*=L,T} \int_{\partial \Omega_*} D_*(\xi,\zeta) .\dfrac{\textbf{tm}_*(\zeta)}{\zeta-z}\, d\zeta
 \end{equation}
 
-In the case where $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$ is not crossed  and therefore does not contribute to the integral. However, if there exists $\zeta_{\xi} \in \Omega_L^+$ such that $T_L(\zeta_{\xi})=\xi$ and Im$\zeta_{\xi}<0$, then pole $\zeta_{\xi}$ is crossed during this deformation.
-
 \begin{figure}
 \centering
 \begin{subfigure}[b]{0.45\textwidth}
@@ -1049,6 +1047,17 @@ In the case where $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL
 \caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
 \label{C4:domega0}
 \end{figure}
+
+In the case where $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$ is not crossed  and therefore does not contribute to the integral. However, if there exists $\zeta_0 \in \Omega_L^+$ such that $T_L(\zeta_0)=\xi$ and Im$\zeta_0<0$, then pole $\zeta_0$ is crossed during this deformation. Let us now determine when this is possible. Suppose that $\zeta_0=\nuti_L\cos\theta_0=\nuti_L\cos(\theta_0'+i\theta_0'')$ and $\xi=T_L(\zeta_0)=\nuti_L\cos(\theta_0+\phiti)$ and $\nuti_L=i\eta_L \in i\mathbb{R}$, we then have :
+\begin{equation}
+\rm Im \zeta_0=\eta_L\cos\theta_0'\cosh\theta_0''  
+\end{equation}
+Combining the facts that Im$\zeta_0<0$ and $\zeta_0 \in \Omega_L^+$ gives
+\begin{equation}
+\dfrac{\pi}{2}<\theta_0'<\pi-\phiti
+\label{C4:condcr}
+\end{equation}
+Condition \eqref{C4:condcr} has solutions if and only if $\phit<\dfrac{\pi}{2}$. From hereon after, we will suppose that this is not the case. In practice, this is not too restrictive since, as explained in \ref{Chapter5:sing_part}, the spectral functions method is less accurate for small wedge angles.
 
 It is important to note that in all the aforementioned contour deformations, no branch points of the integrands are crossed. Therefore, it is assumed that Croisille and Lebeau's \cite{CroisilleLebeau} proof that $\mathbf{D_p}(z,\cdot)$ and $\mathbf{T_p}(z,\cdot)$ belong to a special class of functions $\mathcal{H}^3$ can be adapted to the 3D case. It will therefore be assumed that in the case $\noncr$, $\mathbf{D_p}(z,\cdot) \in \mathcal{H}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$ and in the case $\crit$, $\mathbf{D_p}(z,\cdot) \in \tilde{\mathcal{H}}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$. $\mathcal{H}$ and $\tilde{\mathcal{H}}$ are defined hereafter
 \begin{definition}
