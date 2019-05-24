@@ -817,7 +817,7 @@ Thanks to these functional equations, the spectral functions can be decomposed i
 The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using to a recursive procedure, in which the following translation appears (for $*=L,T$) :
 \begin{equation}
 \begin{split}
-T_*(\xi)&=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti \\
+T_*(\xi=\nuti\cos\theta)&=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti \\
 &=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
 \end{split}
 \end{equation}
@@ -826,7 +826,7 @@ where $\phiti$ is defined in \eqref{phitilde}. This translation operator is defi
 \xi \in \Omega_*^+= \{ \xi=\tilde{\nu}_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi} \}
 \label{C4:defOmega0}
 \end{equation}
-In order to determine the action of operator $\mathbf{DM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$, visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and in Fig.~\ref{C4:gamma1cr} for the case $\nuti_L \in i\mathbb{R}$. In both cases, Cauchy's residue theorem is applied, yielding
+In order to determine the action of operator $\mathbf{DM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$, visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and in Fig.~\ref{C4:gamma1cr} for the case $\nuti_L \in i\mathbb{R}$. In both cases, Cauchy's residue theorem is applied, yielding, for $V \in \mathbb{C}^3, \, z \notin \{\pm \tilde{\nu}_L,\pm \tilde{\nu}_T \}, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack $ if $\noncr$ and $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_T \lbrack \cup i \lbrack \nuti_L , +\infty \lbrack )$ if $\crit$, and Im$\xi <0 $ :
 \begin{equation}
 \int_{\Gamma_0} \textbf{DM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \frac{\textbf{dm}(z).V}{\xi-z}+D_p(z,\xi),
 \label{C4:GaussDM}
@@ -966,9 +966,9 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{C4:gamma1cr}
 \end{figure}
 
-Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$ and in the case $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. In both cases, Cauchy's residue theorem is applied
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of these are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$ and in the case $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. In both cases, Cauchy's residue theorem is applied, for $V \in \mathbb{C}^3, \, z \notin \{\pm \tilde{\nu}_L,\pm \tilde{\nu}_T \}, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack $ if $\noncr$ and $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_T \lbrack \cup i \lbrack \nuti_L , +\infty \lbrack )$ if $\crit$, and Im$\xi <0 $ :
 \begin{equation}
-\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{v}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).v}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).v
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).V}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).V
 \label{C4:GaussTM}
 \end{equation}
 where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) \geq 0$ and $\textbf{1}_{\Omega_*}(z)=0$ elsewhere and
@@ -1047,9 +1047,17 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and sgn$(\nuti_L^2).Im(z) 
 \caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
 \label{C4:domega0}
 \end{figure}
-In the case where $\noncr$, \eqref{C4:GaussDM} and \eqref{C4:GaussTM} are valid for $V \in \mathbb{C}^3, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack , \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}, \, \, \xi \in \Omega_*^+, \, \mbox{Im} \xi <0 $. In the case where $\crit$, \eqref{C4:GaussDM}  is valid for $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,), \,  z \notin \{\tilde{\nu}_L,\tilde{\nu}_T \}$. Note that if $\noncr$, during deformation of $\Gamma_0$ onto $\partial \Omega_*$, visible on Fig.~\ref{C4:domegaT}, branch points $\pm \nuti_L$ are avoided. In the case where $\crit$, visible on Fig.~\ref{C4:domegaL}, points $\pm \nuti_T$ are crossed. however, since they are not branch points of the integrand $D_L(\xi,\zeta).\dfrac{\mathbf{tm}_L(\zeta)}{\zeta-z}$, this is not a problem.
+Note that in the case $\crit$, the pole $z$, Im$z\geq 0$ is not crossed during deformation from contour $\Gamma_0$ to contour $\partial \Omega_L$ and therefore does not contribute to the integral. However, the pole $\xi$ contributes in the case where there exists $\zeta_L$ such that $T_L(\zeta_L)=\xi$. To avoid this complication, in the case $\crit$, instead of deforming contour $\Gamma_0$ into $\partial \Omega_L$ for the L terms of operator $\mathbf{TM}$, contour $\Gamma_0$ is deformed into contour $\partial \Omega_T\cup\Gamma_1^b$, where $\partial \Omega_T$ is visble on Fig.~\ref{C4:domegaT} and $\Gamma_1^b$ is visible on Fig.~\ref{C4:gamma1cr}. The direction of the contour deformation is similar to the one shown on Fig.~\ref{C4:gamma1noncr}. Application of Cauchy's residue theorem now yields, for $V \in \mathbb{C}^3, \, z \notin \{\pm \tilde{\nu}_L,\pm \tilde{\nu}_T \}, z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_T \lbrack \cup i \lbrack \nuti_L , +\infty \lbrack )$ and Im$\xi <0 $ :
+\begin{equation}
+\int_{\Gamma_0} \mathbf{TM}(\xi,\zeta).\dfrac{V}{\zeta-z}\, d\zeta=\sum_{*=L,T} \dfrac{\mathbf{tm}_*(z).V}{\xi-T_*(z)} \mathbf{1}_{\Omega_T}(z)+\mathbf{T'_p}(z,\xi).V
+\label{C4:GaussTMcr}
+\end{equation}
+where
+\begin{equation}
+T'_p(z,\xi)=\dfrac{1}{2i\pi}\left(\int_{\partial \Omega_T} D_T(\xi,\zeta).\dfrac{\mathbf{tm}_T(\zeta)}{\zeta-z}\,d\zeta+\int_{\partial \Omega_T\cup\Gamma_1^b} D_L(\xi,\zeta).\dfrac{\mathbf{tm}_L(\zeta)}{\zeta-z}\,d\zeta \right)
+\end{equation}
 
-It is assumed that Croisille and Lebeau's \cite{CroisilleLebeau} proof that $\mathbf{D_p}(z,\cdot)$ and $\mathbf{T_p}(z,\cdot)$ belong to a special class of functions $\mathcal{H}^3$ can be adapted to the 3D case. It will therefore be assumed that in the case $\noncr$, $\mathbf{D_p}(z,\cdot) \in \mathcal{H}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$ and in the case $\crit$, $\mathbf{D_p}(z,\cdot) \in \tilde{\mathcal{H}}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$. $\mathcal{H}$ and $\tilde{\mathcal{H}}$ are defined hereafter
+It is important to not that during all of the aforementioned contour deformations, none of the branch points of the integrands are crossed. Therefore, it is assumed that Croisille and Lebeau's \cite{CroisilleLebeau} proof that $\mathbf{D_p}(z,\cdot)$ and $\mathbf{T_p}(z,\cdot)$ belong to a special class of functions $\mathcal{H}^3$ can be adapted to the 3D case. It will therefore be assumed that in the case $\noncr$, $\mathbf{D_p}(z,\cdot) \in \mathcal{H}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$ and in the case $\crit$, $\mathbf{D_p}(z,\cdot) \in \tilde{\mathcal{H}}^3$ and $\mathbf{T_p}(z,\cdot) \in \mathcal{H}^3$. $\mathcal{H}$ and $\tilde{\mathcal{H}}$ are defined hereafter
 \begin{definition}
 \label{C4:defH}
 $\mathcal{H}$ is the space of the functions f analytical in $\mathbb{C}\backslash \rbrack -\infty,-\nuti_L\rbrack$ such that $\forall \epsilon \in \rbrack0,\pi \lbrack, f(e^{i\epsilon} \cdot)\in H^+$, where $H^+$ is defined in Def.~\ref{defHpl}.
