@@ -1628,6 +1628,15 @@ The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. T
 \begin{equation}
 a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
+when $\noncr$ and
+\begin{equation}
+\begin{matrix}
+a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, & b_k=a_k-0.1i, & 1\leq k\leq10\\
+a_k=-i\lbrack 1.001+0.05e^{(k-10)\frac{\log 10}{4}}-1\rbrack, & b_k=a_k+0.1, & 11\leq k\leq20
+\end{matrix}
+\end{equation}
+when $\crit$.
+
 Finally, the solution is rendered accurate in the entire complex domain by applying the recursive procedure called the propagation of the solution described in subsection \ref{C4:propag}.
 
 Following these steps, the diffraction coefficients have been computed and tested numerically.
