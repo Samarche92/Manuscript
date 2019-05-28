@@ -1624,11 +1624,11 @@ In system \eqref{C4:recur}, the value of the regular part of the spectral functi
 This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
 
 \section{Numerical Tests}
-The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}, where the Galerkin parameters are set to:
+The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}. In the case where $\noncr$, the Galerkin parameters are set to:
 \begin{equation}
 a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
-when $\noncr$ and
+And in the case where $\crit$, meaning for the case of an incident transversal wave with $|\delta_inc|>\delta_c$ (with $\delta_c \approx 33^o$ in steel), the Galerkin parameters are set to
 \begin{equation}
 \begin{matrix}
 a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, & b_k=a_k-0.1i, & 1\leq k\leq10\\
