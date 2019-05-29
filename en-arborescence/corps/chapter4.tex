@@ -444,7 +444,16 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 
 
 \subsection{Far field approximation}
-$x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta,r\sin\theta\cos\delta,r\sin\delta)$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. According to \eqref{C4:adiming},the scattered field at point $P$ is :
+$x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Snell's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{images/chapter4/Keller_annotated.png}
+        \caption{Keller's cone of diffraction}
+        \label{C4:Kellercone}
+\end{figure}
+
+According to \eqref{C4:adiming},the scattered field at point $P$ is :
 \begin{equation}
 u_0(x_1,y_1,z)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta,\frac{\omega}{c_L}r\sin\theta\cos\delta)e^{ik_{\beta}\sin\delta_{\beta}z}
 \end{equation}
@@ -1624,7 +1633,7 @@ In system \eqref{C4:recur}, the value of the regular part of the spectral functi
 This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
 
 \section{Numerical Tests}
-The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}. In the case where $\noncr$, the Galerkin parameters are set to:
+The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nuti_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}. In the case where $\noncr$, the Galerkin parameters are set to:
 \begin{equation}
 a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
@@ -1677,6 +1686,10 @@ The case of an acoustic wave incident on a wedge with Dirichlet boundary conditi
 \caption{Absolute value of the diffraction coefficient computed with the spectral functions and with the Sommerfeld method for a wave incident with and angle $\theta_{inc}=40^o$ on a wedge of angle $\varphi=160^o$}
 \label{C4:ac16040}
 \end{figure}
+
+In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T=10^{-7} m.s^{-1}$ and the incident wave is longitudinal. The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-8}$ every $0,5^o$ for $0\leq\theta\leq$ and $-90^o\leq \delta_{alpha} \leq 90^o$ and the L diffraction coefficient is computed using \eqref{C4:Dbeta}. Setting $\delta_{\alpha}$ also sets $\delta_{\beta}$, according to Snell's law of diffraction \eqref{C4:Snelldiff}.
+
+Fig.~\ref{C4:ac16040} shows the
 
 \begin{figure}
 \centering
