@@ -444,7 +444,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 
 
 \subsection{Far field approximation}
-$x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Snell's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
+$x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Keller's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
 
 \begin{figure}
 \centering
@@ -455,9 +455,9 @@ $x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\
 
 According to \eqref{C4:adiming},the scattered field at point $P$ is :
 \begin{equation}
-u_0(x_1,y_1,z)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta,\frac{\omega}{c_L}r\sin\theta\cos\delta)e^{ik_{\beta}\sin\delta_{\beta}z}
+u_0(x_1,y_1,z)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{ik_{\beta}\sin\delta_{\beta}z}
 \end{equation}
-The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta,R\sin\theta\cos\delta)$ when $R\rightarrow +\infty$.The first step is to apply the change following of variables in integral $v_1$ :
+The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$.The first step is to apply the change following of variables in integral $v_1$ :
 \begin{equation}
 \begin{split}
 \xi&=\tilde{\nu}_*\cos\lambda \\
@@ -467,7 +467,7 @@ d\xi&=-\tilde{\nu}_*\sin\lambda\, d\lambda
 \end{equation}
 yielding
 \begin{equation}
-v_1(r,\theta,\delta)=\frac{i}{4\pi} \int_{C_0}\sum_{*=L,T}\tilde{\nu}_*^2 e^{i\tilde{\nu}_*R\cos\delta\cos(\lambda+\bar{\theta})}\mathbf{ P_*}(\lambda,t)\Sigma_1(\tilde{\nu}_*\cos\lambda) \, d \lambda
+v_1(r,\theta,\delta_{\beta})=\frac{i}{4\pi} \int_{C_0}\sum_{*=L,T}\tilde{\nu}_*^2 e^{i\tilde{\nu}_*R\cos\delta_{\beta}\cos(\lambda+\bar{\theta})}\mathbf{ P_*}(\lambda,t)\Sigma_1(\tilde{\nu}_*\cos\lambda) \, d \lambda
 \label{C4:v1C0}
 \end{equation}
 where $\bar{\theta}$ has been defined by \eqref{obs} and
@@ -493,7 +493,7 @@ $t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestc
 Note that in the case $\nuti_L =i\eta_L \in i\mathbb{R}$, variable change \eqref{C4:changevar2} produces an evanescent term :
 \begin{equation}
 \begin{split}
-v_1(r,\theta,\delta)&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
+v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
 &+\frac{i}{4\pi} \int_{C_0}\tilde{\nu}_T^2 e^{i\nuti_T R\cos\delta\cos(\lambda+\bar{\theta)})}\mathbf{ P_T}(\lambda,t)\Sigma_1(\tilde{\nu}_T\cos\lambda) \, d\lambda
 \end{split}
 \label{C4:v1C0evan}
@@ -567,11 +567,11 @@ v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
 where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary phase point, corresponding to the diffracted wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
 \begin{equation}
-v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
+v_1^{diff}(r,\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta_{\beta}}}{\sqrt{\nuti_*R\cos\delta_{\beta}}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
 \end{equation}
 Analogously,
 \begin{equation}
-v_2^{diff}(R\cos(\varphi-\theta),R\sin(\varphi-\theta))=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta}}{\sqrt{\nuti_*R\cos\delta}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_1(-\tilde{\nu}_*\cos(\varphi-\theta))
+v_2^{diff}(r,\varphi-\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta_{\beta}}}{\sqrt{\nuti_*R\cos\delta_{\beta}}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_1(-\tilde{\nu}_*\cos(\varphi-\theta))
 \end{equation}
 
 In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is obtained by applying the steepest descent method, presented in appendix \ref{PhaseStationnaire}, to \eqref{C4:v1C0evan}. Contour $C_0$ is deformed into contour $\gamma_{\theta}$ and contour $C_0^L$ is deformed into contour $\gamma_{\theta}^L$. This leads to
@@ -585,7 +585,7 @@ where $v_1^{sing}$ is the contribution of all the singularities of the spectral 
 %\end{equation}
 %and the contribution of diffracted waves is :
 \begin{equation}
-v_1^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-\theta)\Sigma_1(-\tilde{\nu}_T\cos\theta)
+v_1^{diff}(r,\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta_{\beta}}}{\sqrt{\nuti_TR\cos\delta_{\beta}}}\mathbf{P_T}(\pi-\theta)\Sigma_1(-\tilde{\nu}_T\cos\theta)
 \end{equation}
 Analogously,
 %\begin{equation}
@@ -593,22 +593,21 @@ Analogously,
 %\end{equation}
 %and
 \begin{equation}
-v_2^{diff}(R\cos\theta,R\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta}}{\sqrt{\nuti_TR\cos\delta}}\mathbf{P_T}(\pi-(\varphi-\theta))\Sigma_2(-\tilde{\nu}_T\cos(\varphi-\theta))
+v_2^{diff}(r,\varphi-\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\tilde{\nu}_T^2\frac{e^{-i\tilde{\nu}_TR\cos\delta_{\beta}}}{\sqrt{\nuti_TR\cos\delta_{\beta}}}\mathbf{P_T}(\pi-(\varphi-\theta))\Sigma_2(-\tilde{\nu}_T\cos(\varphi-\theta))
 \end{equation}
-
-In both cases, the diffraction coefficient is defined by
-\begin{equation}
-v_{\beta}^{diff}(R\cos\theta,R\sin\theta)=D_{\beta}^{\alpha}(\theta,\delta)\frac{e^{-i\nuti_{\beta}R\cos\delta_{\beta}}}{\sqrt{\nuti_{\beta}R\cos\delta_{\beta}}} v^{inc}(R\cos\theta,R\sin\theta) \hat{i}_{\beta}
-\label{C4:coeffdiff}
-\end{equation}
-The total diffracted field is
+In any case, the total diffracted field is
 \begin{equation}
 v^{diff}=v_1^{diff}+v_2^{diff}
 \end{equation}
 
-Let us now isolate L, TH and TV diffracted waves in order to compute the corresponding diffraction coefficients. Using the expressions of the unit vectors given by \eqref{ivec}, the $\beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
+Let us now isolate L, TH and TV diffracted waves in order to compute the corresponding diffraction coefficients, defined by
 \begin{equation}
-D_{\beta}^{\alpha}(\theta,\delta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\nuti_{\beta}^2 \,{}^t \Sigma_j(-\nuti_{\beta}\cos\theta_j)\cdot\left(\mathbf{P}_{\beta}(\pi-\theta_j).\hat{i}_{\beta}\right)
+v_{\beta}^{diff}(r,\theta,\delta_{\beta})=D_{\beta}^{\alpha}(\theta)\frac{e^{-i\nuti_{\beta}R\cos\delta_{\beta}}}{\sqrt{\nuti_{\beta}R\cos\delta_{\beta}}} v^{inc}(R\cos\theta,R\sin\theta) \hat{i}_{\beta}
+\label{C4:coeffdiff}
+\end{equation}
+Using the expressions of the unit vectors given by \eqref{ivec}, the $\beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
+\begin{equation}
+D_{\beta}^{\alpha}(\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\nuti_{\beta}^2 \,{}^t \Sigma_j(-\nuti_{\beta}\cos\theta_j)\cdot\left(\mathbf{P}_{\beta}(\pi-\theta_j).\hat{i}_{\beta}\right)
 \label{C4:Dbeta}
 \end{equation}
 where $\theta_1=\theta$ and $\theta_2=\varphi-\theta$.
