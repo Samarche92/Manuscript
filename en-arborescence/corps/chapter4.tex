@@ -1652,15 +1652,15 @@ In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane an
 Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$.
 
 \subsection{Acoustic limit}
-In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Sommerfeld} provides an analytical expression for the \acrshort{gtd} diffraction coefficient in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries. This is still true for 3D incidences, and the expression is provided by Keller \cite{GTD}. In the case of a wedge with Dirichlet boundaries, we have :
+In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Sommerfeld} provides an analytical expression for the \acrshort{gtd} diffraction coefficient in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries. This expression is still valid for 3D incidences, and the expression is provided by Keller \cite{GTD}. In the case of a wedge with Dirichlet boundaries, we have :
 \begin{equation}
 \begin{split}
-D^{(Dir)}(\theta)=\dfrac{e^{i\dfrac{\pi}{4}}}{2N\sin\delta_{\beta}\sqrt{2\pi}} &\left[ \cot\left(\dfrac{\pi+\theta+\theta_{inc}}{2N} \right) +\cot\left(\dfrac{\pi-\theta-\theta_{inc}}{2N} \right) \right.\\
--&\left. \cot\left(\dfrac{\pi+\theta-\theta_{inc}}{2N} \right)-\cot\left(\dfrac{\pi-\theta+\theta_{inc}}{2N} \right)\right]
+v^{diff}(r,\theta)=D^{(Dir)}(\theta)\dfrac{e^{-ir}}{\sqrt{r\cos\delta_{\alpha}}}
 \end{split}
 \end{equation}
+where $v^{diff}$ is the acoustic diffracted field and $D^{(Dir)}$, is given by \eqref{GTDCoeff_Dir}. For an acoustic wave, the diffraction coefficient does not depend on the incident skew angle $\delta_{\alpha}$. The dependency of the diffracted field with respect to this parameter is fully contained in the term $\sqrt{r\cos\delta_{\alpha}}$.
 
-The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient behaves like the diffraction coefficient of an acoustic wave. Comparing our results to Sommerfeld's analytical formulation, provides an additional check on the results.
+The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behaves like the diffraction coefficient of an acoustic wave. Comparing our results to Sommerfeld's analytical formulation, provides an additional check on the results.
 
 \subsection{Case where $\crit$}
 In the case where $\crit$, the code developed according to the theory described in this chapter produces diverging results. Additional work is necessary in order to solve this problem. In the meantime, in order to obtain coherent results, the following approximation is applied :
