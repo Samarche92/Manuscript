@@ -1660,7 +1660,57 @@ v^{diff}(r,\theta)=D^{(Dir)}(\theta)\dfrac{e^{-ir}}{\sqrt{r\cos\delta_{\alpha}}}
 \end{equation}
 where $v^{diff}$ is the acoustic diffracted field and $D^{(Dir)}$, is given by \eqref{GTDCoeff_Dir}. For an acoustic wave, the diffraction coefficient does not depend on the incident skew angle $\delta_{\alpha}$. The dependency of the diffracted field with respect to this parameter is fully contained in the term $\sqrt{r\cos\delta_{\alpha}}$.
 
-The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behaves like the diffraction coefficient of an acoustic wave. Comparing our results to Sommerfeld's analytical formulation, provides an additional check on the results.
+The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behaves like the diffraction coefficient of an acoustic wave. 
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Xprop_160_40.png}
+        \caption{\acrshort{sf} diffraction coefficient}
+        \label{C4:acSF16040}
+    \end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Sommerfeld_160_40.png}
+        \caption{Sommerfeld diffraction coefficient}
+        \label{C4:Som16040}
+    \end{subfigure}
+\caption{Absolute value of the diffraction coefficient computed with the spectral functions and with the Sommerfeld method for a wave incident with and angle $\theta_{inc}=40^o$ on a wedge of angle $\varphi=160^o$}
+\label{C4:ac16040}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Xprop_280_239.png}
+        \caption{\acrshort{sf} diffraction coefficient}
+        \label{C4:ac280240}
+    \end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Sommerfeld_280_239.png}
+        \caption{Sommerfeld diffraction coefficient}
+        \label{C4:Som280240}
+    \end{subfigure}
+\caption{Absolute value of the diffraction coefficient computed with the spectral functions and with the Sommerfeld method for a wave incident with and angle $\theta_{inc}=240^o$ on a wedge of angle $\varphi=280^o$}
+\label{C4:ac280240}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/D_160_40_0.png}
+        \caption{$\theta_{inc}=40^o, \, \, \varphi=160^o$}
+        \label{C4:ac280240}
+    \end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/D_280_239_0.png}
+        \caption{$\theta_{inc}=240^o, \, \, \varphi=280^o$}
+        \label{C4:Som280240}
+    \end{subfigure}
+\caption{Absolute value of the diffraction coefficient computed with the spectral functions and with the Sommerfeld method for $\delta_{inc}=0^o$.}
+\label{C4:ac280240}
+\end{figure}
+
+Comparing our results to Sommerfeld's analytical formulation, provides an additional check on the results.
 
 \subsection{Case where $\crit$}
 In the case where $\crit$, the code developed according to the theory described in this chapter produces diverging results. Additional work is necessary in order to solve this problem. In the meantime, in order to obtain coherent results, the following approximation is applied :
