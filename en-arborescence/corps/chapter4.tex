@@ -59,7 +59,7 @@ The amplitude vector can be directed by three different and two-by-two orthogona
 -\sin\theta_{inc} \\ \cos\theta_{inc} \\
 0
 \end{pmatrix}
-\label{ivec}
+\label{C4:ivec}
 \end{equation}
 where the top sign gives the polarization of an incident wave and the bottom sign gives the polarization of a diffracted wave.
 
@@ -1649,8 +1649,10 @@ Finally, the solution is rendered accurate in the entire complex domain by apply
 
 Following these steps, the diffraction coefficients have been computed using \eqref{C4:Dbeta} and tested numerically.
 
-\subsection{Comparison to 2D code}
+\subsection{Comparison to the 2D code}
 The first test on the 3D code is to check that when $\delta_{\alpha}=0$, the results obtained using the 3D code are the same as those obtained using the 2D code presented in the previous chapter and which has been validated numerically and experimentally (see sections \ref{C3:numval} and \ref{C3:expval}). This has been checked for the theoretical computations and must also be verified numerically.
+
+The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid) every $0,5^o$ for $0\leq\theta\leq \varphi$ and for $\delta_{\alpha} =0^o$,  using the 3D code. The L and TH diffraction coefficients are computed using \eqref{C4:Dbeta}, for an elastic wave propagating in a steel wedge ($c_L=5700m.s^{-1}, \, \, c_T=3200m.s^{-1}$). For the 3D problem, TH waves defined by \eqref{C4:ivec} correspond to 2D T waves. The results are compared to the diffraction coefficients obtained using the 2D elastic code presented in the previous chapter.
 
 \begin{figure}
 \centering
@@ -1678,6 +1680,7 @@ The first test on the 3D code is to check that when $\delta_{\alpha}=0$, the res
      \label{C4:14070}
 \end{figure}
 
+Fig.~\ref{C4:14070} shows the absolute value of the diffraction coefficients obtained using the 2D and 3D \acrshort{sf} codes for a wedge of angle $\varphi=140^o$ illuminated by a wave incident with an angle $\theta_{inc}=70^o$. In Figs.~\ref{C4:DLL_14070} and \ref{C4:DTL_14070}, representing L diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed red line represents the results obtained using the 3D code. In Figs.~\ref{C4:DLT_14070} and \ref{C4:DTT_14070}, representing T diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed green line represents results obtained using the 3D code.
 
 \begin{figure}
 \centering
@@ -1705,6 +1708,10 @@ The first test on the 3D code is to check that when $\delta_{\alpha}=0$, the res
      \label{C4:25065}
 \end{figure}
 
+Fig.~\ref{C4:25065} shows the absolute value of the diffraction coefficients obtained using the 2D and 3D \acrshort{sf} codes for a wedge of angle $\varphi=250^o$ illuminated by a wave incident with an angle $\theta_{inc}=65^o$. In Figs.~\ref{C4:DLL_25065} and \ref{C4:DTL_25065}, representing L diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed red line represents the results obtained using the 3D code. In Figs.~\ref{C4:DLT_25065} and \ref{C4:DTT_25065}, representing T diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed green line represents results obtained using the 3D code.
+
+In all of these cases, the 2D and 3D plots are perfectly overlapping. When $\delta_{\alpha}=0^o$, the 3D code yields exactly the same results as the 2D code, which is in accord with the theoretical computations. This validates the computation of the "2D terms" (meaning the terms that are not canceled by setting $\delta_{\alpha}=0^o$)of the 3D code. The following numerical test, comparison of the 3D elastic code to Sommerfeld's analytical expression for an acoustic wave, validates a different set of terms computed by the spectral functions method.
+
 \subsection{Acoustic limit}
 In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Sommerfeld} provides an analytical expression for the \acrshort{gtd} diffraction coefficient in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries. This expression is still valid for 3D incidences, and the expression is provided by Keller \cite{GTD}. In the case of a wedge with Dirichlet boundaries, we have :
 \begin{equation}
@@ -1716,7 +1723,7 @@ where $v^{diff}$ is the acoustic diffracted field and $D^{(Dir)}$, is given by \
 
 The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behaves like the diffraction coefficient of an acoustic wave. 
 
-In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T=10^{-7} m.s^{-1}$ and the incident wave is longitudinal. The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid) every $0,5^o$ for $0\leq\theta\leq$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$ and the L diffraction coefficient is computed using \eqref{C4:Dbeta}. The results are compared to the analytical expression of the Sommerfeld diffraction coefficients for a wedge with Dirichlet boundary conditions.
+In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T=10^{-7} m.s^{-1}$ and the incident wave is longitudinal. The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid) every $0,5^o$ for $0\leq\theta\leq \varphi$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$ and the L diffraction coefficient is computed using \eqref{C4:Dbeta}. The results are compared to the analytical expression of the Sommerfeld diffraction coefficients for a wedge with Dirichlet boundary conditions.
 
 \begin{figure}
 \centering
@@ -1781,7 +1788,7 @@ In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane an
 \end{equation}
 Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$.
 
-\subsubsection{Case where $\crit$}
+\subsection{Case where $\crit$}
 In the case where $\crit$, the code developed according to the theory described in this chapter produces diverging results. Additional work is necessary in order to solve this problem. In the meantime, in order to obtain coherent results, the following approximation is applied :
 \begin{equation}
 X_j|_{\delta_{\beta}>\delta_C} \approx X_j|_{\delta_{\beta}=\delta_C-\epsilon}
