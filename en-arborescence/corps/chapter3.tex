@@ -1338,6 +1338,7 @@ This concludes the semi-analytical computation of the spectral functions. Numeri
 
 
 \section{Numerical validation}
+\label{C3:numval}
 The longitudinal and transversal diffraction coefficients are computed using \eqref{DL} and \eqref{DT}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{regparteqn} thanks to the Galerkin collocation method described in subsection \ref{regpart}, where the Galerkin parameters are set to:
 \begin{equation}
 a_k=1.0001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
@@ -1465,6 +1466,7 @@ On Figs.~\ref{DLT} and \ref{DTT} for diffracted T waves, the \acrshort{fe} diffr
 Away from shadow boundaries (where the non-uniform \acrshort{sf} code diverges) and domain borders i.e. in regions where diffracted waves do not interfere with other waves and where the \acrshort{sf} asymptotic evaluation is theoretically valid, the \acrshort{fe} and \acrshort{sf} codes give very similar results. 
 
 \section{Experimental validation}
+\label{C3:expval}
 The \acrshort{lt} code used to validate the \acrshort{sf} method for wedge angles lower than $\pi$ has been validated experimentally by Chapman et al. \cite{ChapmanBurch}. Their experimental set-up is thoroughly described in \cite{ChapmanBurch} and will only be summarized here. The results of their experimental measurements will be used to validate the \acrshort{sf} code experimentally.
 
 \begin{figure}[h!]

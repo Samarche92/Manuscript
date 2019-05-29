@@ -1629,10 +1629,10 @@ and
 
 In system \eqref{C4:recur}, the value of the regular part of the spectral function in domain $\Omega_*^-$, visible Fig.~\ref{C4:dOmegamoins}, is expressed using its value in the domain $\xi \notin \Omega_*^-$, where the numerical approximation \eqref{C4:Xj} is valid. To do so, functions $g_j,\, j=1,2$ are evaluated using \eqref{C4:gjfinal}. The accuracy of the numerical evaluation in domain $\xi \notin \Omega_*^-$ is therefore propagated to domain $\Omega_*^-$. 
 
-This concludes the semi-analytical computation of the spectral functions. Numerical testing is presented in the following.
+This concludes the semi-analytical computation of the spectral functions. The L, TH and TV diffraction coefficients can now be computed using \eqref{C4:Dbeta}. Numerical testing is presented in the following. 
 
 \section{Numerical Tests}
-The L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta}. The spectral functions are evaluated in $\xi=\nuti_*\cos\theta -i10^{-8}$ every $0,5^o$ for $0\leq\theta\leq$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}. In the case where $\noncr$, the Galerkin parameters are set to:
+The spectral functions are evaluated numerically using the semi-analytical scheme described in the previous sections. This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C4:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{C4:regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C4:regpart}. In the case where $\noncr$, the Galerkin parameters are set to:
 \begin{equation}
 a_k=1.001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
@@ -1650,14 +1650,7 @@ Finally, the solution is rendered accurate in the entire complex domain by apply
 Following these steps, the diffraction coefficients have been computed using \eqref{C4:Dbeta} and tested numerically.
 
 \subsection{Comparison to 2D code}
-The first test that has been made on the 3D code is to check that when $\delta_{inc}=0$, the results of the 3D code are the same as those of the 2D code presented in the previous chapter. This has been checked for the theoretical computations and must also be verified numerically (to ensure that no mistakes were made in the code).
-
-\subsection{Verification of the regular part for an infinite plane}
-In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane and there is no diffracted wave. The regular part of the spectral functions, which is the part of the solution corresponding to the diffraction phenomena vanishes and we have, for $j=1,2$ :
-\begin{equation}
-||\mathbb{U}_j||=0 \hspace{1em} \rm and \hspace{1em} ||\mathbb{X}_j||=0
-\end{equation}
-Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$.
+The first test on the 3D code is to check that when $\delta_{\alpha}=0$, the results obtained using the 3D code are the same as those obtained using the 2D code presented in the previous chapter and which has been validated numerically and experimentally (see sections \ref{C3:numval} and \ref{C3:expval}). This has been checked for the theoretical computations and must also be verified numerically.
 
 \subsection{Acoustic limit}
 In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Sommerfeld} provides an analytical expression for the \acrshort{gtd} diffraction coefficient in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries. This expression is still valid for 3D incidences, and the expression is provided by Keller \cite{GTD}. In the case of a wedge with Dirichlet boundaries, we have :
@@ -1670,7 +1663,7 @@ where $v^{diff}$ is the acoustic diffracted field and $D^{(Dir)}$, is given by \
 
 The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behaves like the diffraction coefficient of an acoustic wave. 
 
-In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T=10^{-7} m.s^{-1}$ and the incident wave is longitudinal. The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-8}$ every $0,5^o$ for $0\leq\theta\leq$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$ and the L diffraction coefficient is computed using \eqref{C4:Dbeta}. The results are compared to the analytical expression of the Sommerfeld diffraction coefficients for a wedge with Dirichlet boundary conditions.
+In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T=10^{-7} m.s^{-1}$ and the incident wave is longitudinal. The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid) every $0,5^o$ for $0\leq\theta\leq$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$ and the L diffraction coefficient is computed using \eqref{C4:Dbeta}. The results are compared to the analytical expression of the Sommerfeld diffraction coefficients for a wedge with Dirichlet boundary conditions.
 
 \begin{figure}
 \centering
@@ -1726,9 +1719,16 @@ Fig.~\ref{C4:ac280240} shows the absolute value of the diffraction coefficient o
 
 Fig.~\ref{C4:compac} shows the absolute value of the diffraction coefficient, plotted for $\delta_{\alpha}=0^o$ for a wave incident with an angle $\theta_{\alpha}=40^o$ on a wedge of angle $\varphi=160^o$ (see Fig.~\ref{C4:compac16040}) and for a wave incident with an angle $\theta_{\alpha}=240^o$ on a wedge of angle $\varphi=280^o$ (see Fig.~\ref{C4:compac280240}). In both figures, the thick blue line is the solution computed using Sommerfeld's analytical expression and the dashed red line is the result obtained using acoustic limit of the 3D \acrshort{sf} code. Both lines are perfectly overlapping.
 
-The "acoustic limit" of the 3D elastic code is thus validated for wedge angles lower and higher than $\pi$. This shows that the terms of the spectral functions that correspond to the contribution of L waves are computed correctly.
+The "acoustic limit" of the 3D elastic code is thus validated for wedge angles lower and higher than $\pi$. This shows that the terms appearing in the evaluation of the spectral functions that depend on $\nuti_T$ tend to $0$ when transversal wave velocity tends to $0$ and that the terms that depend on $\nuti_L$ are computed correctly. 
 
-\subsection{Case where $\crit$}
+\subsection{Verification of the regular part for an infinite plane}
+In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane and there is no diffracted wave. The regular part of the spectral functions, which is the part of the solution corresponding to the diffraction phenomena vanishes and we have, for $j=1,2$ :
+\begin{equation}
+||\mathbb{U}_j||=0 \hspace{1em} \rm and \hspace{1em} ||\mathbb{X}_j||=0
+\end{equation}
+Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$.
+
+\subsubsection{Case where $\crit$}
 In the case where $\crit$, the code developed according to the theory described in this chapter produces diverging results. Additional work is necessary in order to solve this problem. In the meantime, in order to obtain coherent results, the following approximation is applied :
 \begin{equation}
 X_j|_{\delta_{\beta}>\delta_C} \approx X_j|_{\delta_{\beta}=\delta_C-\epsilon}
