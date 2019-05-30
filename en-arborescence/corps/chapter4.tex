@@ -1719,7 +1719,7 @@ In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Som
 v^{diff}(r,\theta)=D^{(Dir)}(\theta)\dfrac{e^{-ir}}{\sqrt{r\cos\delta_{\alpha}}}
 \end{split}
 \end{equation}
-where $v^{diff}$ is the acoustic diffracted field and $D^{(Dir)}$, is given by \eqref{GTDCoeff_Dir}. For an acoustic wave, the diffraction coefficient does not depend on the incident skew angle $\delta_{\alpha}$. The dependency of the diffracted field with respect to this parameter is fully contained in the term $\sqrt{r\cos\delta_{\alpha}}$.
+where $v^{diff}$ is the acoustic diffracted field and $D^{(Dir)}$, is given by \eqref{GTDCoeff_Dir}. For an acoustic wave, the diffraction coefficient does not depend on the incident skew angle $\delta_{\alpha}$. The dependency of the diffracted field with respect to this parameter is fully contained in the term $(r\cos\delta_{\alpha})^{-1/2}$.
 
 The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behaves like the diffraction coefficient of an acoustic wave. 
 
@@ -1788,7 +1788,47 @@ In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane an
 \end{equation}
 Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$. Since the value of $||\mathbb{U}_j||$ does not depend on the observation angle $\theta$, only the skew incidence angle $\delta_{\alpha}$ varies.
 
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/U1L_180_50.png}
+        \caption{Incident L wave}
+        \label{Resultat_3D:U1L}
+    \end{subfigure}
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/U1TH_180_50.png}
+        \caption{Incident TH wave}
+        \label{Resultat_3D:U1TH}
+    \end{subfigure}
+   \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/U1TV_180_50.png}
+        \caption{Incident TV wave}
+        \label{Resultat_3D:U1TV}
+    \end{subfigure} 
+\caption{$||\mathbb{U}_j||, \, \, j=1,2$ for $\varphi=180^o$ and $\theta_{inc}=50^o$}
+\label{Resultat_3D:U1}
+\end{figure}
 
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/U1L_180_50.png}
+        \caption{Incident L wave}
+        \label{const_reg:U1L}
+    \end{subfigure}
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/const_reg/U1TH_180_50.png}
+        \caption{Incident TH wave}
+        \label{const_reg:U1TH}
+    \end{subfigure}
+   \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/const_reg/U1TV_180_50.png}
+        \caption{Incident TV wave}
+        \label{const_reg:U1TV}
+    \end{subfigure} 
+\caption{$||\mathbb{U}_j||, \, \, j=1,2$ for $\varphi=180^o$ and $\theta_{inc}=50^o$}
+\label{const_reg:U1}
+\end{figure}
 
 \subsection{Case where $\crit$}
 In the case where $\crit$, the code developed according to the theory described in this chapter produces diverging results. Additional work is necessary in order to solve this problem. In the meantime, in order to obtain coherent results, the following approximation is applied :
@@ -1802,4 +1842,4 @@ In the case where $\crit$, the code developed according to the theory described 
 \end{subequations}
 
 \section*{Conclusion}
-Using the spectral functions method, the elastic wave diffracted by a skew incident plane wave on as stress-free wedge has been studied. In cases where Snell's law of diffraction has a solution for both longitudinal and transversal diffracted waves, a semi-analytical computation method is developed theoretically and numerically. The corresponding code has been checked in three different manners, yielding promising results. In the case of an incident transversal wave, with a skew angle higher than the critical angle in diffraction, Snell's law of diffraction leads only to transversal diffracted waves. This case is also treated theoretically but the corresponding numerical code produces diverging results. Further investigations are necessary in order to solve this problem. In the meantime, an approximate solution is proposed, in order to obtain a less exact, yet physically meaningful result. This approximate solution still remains to be tested.
+Using the spectral functions method, the elastic wave diffracted by a skew incident plane wave on as stress-free wedge has been studied. In cases where Snell's law of diffraction has a solution for both longitudinal and transversal diffracted waves, a semi-analytical computation method is developed theoretically and numerically. The corresponding code has been tested in three different manners, yielding promising results. In the case of an incident transversal wave, with a skew angle higher than the critical angle in diffraction, Snell's law of diffraction leads only to transversal diffracted waves. This case is also treated theoretically but the corresponding numerical code produces diverging results. Further investigations are necessary in order to solve this problem. In the meantime, an approximate solution is proposed, in order to obtain a less exact, yet physically meaningful result. This approximate solution still remains to be tested.
