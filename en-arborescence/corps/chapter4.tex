@@ -1840,7 +1840,44 @@ In the meantime, in order to obtain physically coherent results, the following a
 \label{const_reg:U1}
 \end{figure}
 
-Fig.~\ref{const_reg:U1} shows $||\mathbb{U}_j||, \, \, j=1,2$ obtained with approximations \eqref{const_reg_approx} for incident TH (see Fig.~\ref{const_reg:U1TH}) and TV (see Fig.~\ref{const_reg:U1TV}) waves. with an angle $\theta_{inc}=50^o$ on an infinite plane. The thick blue line represents $||\mathbb{U}_1||$ and the dashed red line represents $||\mathbb{U}_2||$.
+Fig.~\ref{const_reg:U1} shows $||\mathbb{U}_j||, \, \, j=1,2$ obtained with approximations \eqref{const_reg_approx} for incident TH (see Fig.~\ref{const_reg:U1TH}) and TV (see Fig.~\ref{const_reg:U1TV}) waves. with an angle $\theta_{inc}=50^o$ on an infinite plane. The thick blue line represents $||\mathbb{U}_1||$ and the dashed red line represents $||\mathbb{U}_2||$. Using  approximation \eqref{const_reg_approx}, $||\mathbb{U}_1||$ and $||\mathbb{U}_2||$ now behave as expected, even when $\crit$ and are  of the order of the numerical computation error.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropL_140_70_TH.png}
+        \caption{Diffracted L wave}
+        \label{Resultat_3D:DL}
+    \end{subfigure}
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropTH_140_70_TH.png}
+        \caption{Diffracted TH wave}
+        \label{Resultat_3D:DTH}
+    \end{subfigure}
+   \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropTV_140_70_TH.png}
+        \caption{Diffracted TV wave}
+        \label{Resultat_3D:DTV}
+    \end{subfigure} 
+\caption{Absolute value of the diffraction coefficient computed without approximation \eqref{const_reg_approx} for an incident TH wave on a wedge of angle $\varphi=140^o$ with $\theta_{inc}=70^o$}
+\label{Resultat_3D:D}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/const_reg/XpropTH_140_70_TH.png}
+        \caption{Diffracted TH wave}
+        \label{const_reg:DTH}
+    \end{subfigure}
+   \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/const_reg/XpropTV_140_70_TH.png}
+        \caption{Diffracted TV wave}
+        \label{const_reg:DTV}
+    \end{subfigure} 
+\caption{Absolute value of the diffraction coefficient computed with approximation \eqref{const_reg_approx} for an incident TH wave on a wedge of angle $\varphi=140^o$ with $\theta_{inc}=70^o$}
+\label{Resultat_3D:D}
+\end{figure}
 
 \section*{Conclusion}
 Using the spectral functions method, the elastic wave diffracted by a skew incident plane wave on as stress-free wedge has been studied. In cases where Snell's law of diffraction has a solution for both longitudinal and transversal diffracted waves, a semi-analytical computation method is developed theoretically and numerically. The corresponding code has been tested in three different manners, yielding promising results. In the case of an incident transversal wave, with a skew angle higher than the critical angle in diffraction, Snell's law of diffraction leads only to transversal diffracted waves. This case is also treated theoretically but the corresponding numerical code produces diverging results. Further investigations are necessary in order to solve this problem. In the meantime, an approximate solution is proposed, in order to obtain a less exact, yet physically meaningful result. This approximate solution still remains to be tested.
