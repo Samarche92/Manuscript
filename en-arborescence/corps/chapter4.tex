@@ -1011,7 +1011,9 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}
 \node at (-2,0) {$\times$};
 \node at (-1,0) {$\times$};
 \node at (-2.1,0.35) {$-\tilde{\nu}_*$}; 
-\draw[dashed]
+\draw[dashed,decoration={ markings,
+      mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}]
       (-5.5,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (3,0); 
 \draw[black, very thick,decoration={ markings,  
       mark=at position 0.1 with {\arrow{latex}},
@@ -1043,11 +1045,15 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}
 \node at (2,-0.35) {$\tilde{\nu}_T$};
 \node at (-2,0) {$\times$};
 \node at (-2.1,0.35) {$-\tilde{\nu}_T$}; 
-\draw[dashed]
+\draw[dashed,decoration={ markings,
+      mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}]
       (-3.6269,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (3.6269,0); % ca c'est l'axe
-\draw[dashed] (0,-4) -- (0,3.65);
+\draw[dashed,decoration={ markings,
+      mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (0,-4) -- (0,3.65);
 % Hyperbole (contour  partial_Omega_0 )
-\draw[black, very thick,decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+\draw[black, very thick,decoration={ markings,
       mark=at position 0.1 with {\arrow{latex}},
       mark=at position 0.9 with {\arrow{latex}}},
       postaction={decorate}][domain=-2:2] plot({sinh(\x)},{-cosh(\x)});
@@ -1534,8 +1540,8 @@ When $\crit$, no poles are crossed during the deformation of contour $\Gamma_0$ 
 	
 %	\fill[color=white] (-2,0) circle (0.25);
 	
-	\draw[dashed, ->,>=stealth] (-3,0)  -- (-2.25,0) arc(-180:0:0.25)--(1.75,0) arc (180:0:0.25)--(4,0) node[above]{$\xi_1$};
-	\draw[dashed, ->,>=stealth](0,{-sinh(1.7)})--(0,{sinh(1.7)}) node[left]{$\xi_2$};
+	\draw[dashed, ->,>=stealth] (-3,0)  -- (-2.25,0) arc(-180:0:0.25)--(1.75,0) arc (180:0:0.25)--(4,0) ;%node[above]{$\xi_1$};
+	\draw[dashed, ->,>=stealth](0,{-sinh(1.7)})--(0,{sinh(1.7)}) ;%node[left]{$\xi_2$};
 	\node at (2,0) { $\times$}; 
 %	\node at (0,1.5) { $\times$}; 
 	\node at (2,-0.5) {$\nuti_T$};
@@ -1572,9 +1578,9 @@ When $\crit$, no poles are crossed during the deformation of contour $\Gamma_0$ 
 	-- plot [domain= -2:2] ({sinh(\x)},{cosh(\x)})
 	--({sinh(2)},-2);
 
-	\draw[dashed, ->,>=stealth] (-3.6269,0)  -- (-2.25,0) arc(-180:0:0.25)--(1.75,0) arc (180:0:0.25)--(3.6269,0) node[above]{$\xi_1$};
+	\draw[dashed, ->,>=stealth] (-3.6269,0)  -- (-2.25,0) arc(-180:0:0.25)--(1.75,0) arc (180:0:0.25)--(3.6269,0);% node[above]{$\xi_1$};
 	
-	\draw[dashed, ->,>=stealth](0,-2)--(0,{sinh(2)}) node[left]{$\xi_2$};
+	\draw[dashed, ->,>=stealth](0,-2)--(0,{sinh(2)});% node[left]{$\xi_2$};
 	\node at (2,0) { $\times$}; 
 	\node at (0,1.5) { $\times$}; 
 	\node at (2,-0.5) {$\nuti_T$};
@@ -1590,7 +1596,7 @@ When $\crit$, no poles are crossed during the deformation of contour $\Gamma_0$ 
 		mark=at position 0.9 with {\arrow{latex}}},
 	postaction={decorate}][domain=-2:2] plot({sinh(\x)},{cosh(\x)});
 	
-	\node at (2,3) {$\partial \Omega_*^-$};
+	\node at (2,3) {$\partial \Omega_L^-$};
 	\draw[thin, ->,>=stealth](1.2,0.8) -- (0.06,0.9);
 	\node at (2, 0.75) { $\nuti_L\cos \tilde{\varphi}$};
 
@@ -1600,8 +1606,8 @@ When $\crit$, no poles are crossed during the deformation of contour $\Gamma_0$ 
 \node at (-2,-1.3) {$\Omega_L^-$};
 
 	    \end{tikzpicture}
-	    \label{C4:OmegamoinsL}
 	    \caption{Domain $\Omega_L^-$ and contour $\partial\Omega_L^-$ in the case $\crit$.}
+    \label{C4:OmegamoinsL}
 	\end{subfigure}
 \caption{Domains $\Omega_*^-$ and contours $\partial \Omega_*^-$ in cases $\noncr$ and $\crit$.}
 \label{C4:dOmegamoins}
