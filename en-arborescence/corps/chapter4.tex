@@ -101,7 +101,7 @@ u_0(x',y',z')=v(x,y)e^{i\nu_{\beta}\sin\delta_{\beta}z}
 \end{equation}
 \label{C4:adiming}
 \end{subequations}
-where $\delta_{\beta}$ is the angle of Snell's cone of diffraction, the dimensionless Lamé parameters $\lambda,\mu$ are given by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are defined by \eqref{nuLnuT}. Since $e^{i\nu_{\alpha}\sin\delta_{inc}z}$ is a common factor to all the terms of the solution, we can deduce Snell's law of diffraction :
+where $\delta_{\beta}$ is the angle of Snell's cone of diffraction (determined by Snell's law of diffraction, given by \eqref{C4:Snelldiff}), the dimensionless Lamé parameters $\lambda,\mu$ are given in the previous chapter by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are also defined in the previous chapter, by \eqref{nuLnuT}. Since $e^{i\nu_{\alpha}\sin\delta_{inc}z}$ is a common factor to all the terms of the solution, we can deduce Snell's law of diffraction :
 \begin{equation}
 \nu_{\alpha}\sin\delta_{inc}=\nu_{\beta}\sin\delta_{\beta}
 \label{C4:Snelldiff}
@@ -149,22 +149,22 @@ As for the previous cases, the first step in solving problem $(\mathcal{P}^{\alp
 \subsection{Limiting absorption principle}
 The limiting absorption principle is applied to $(\mathcal{P}^{\alpha})$. This means that it is considered as a special case $(\varepsilon=0)$ of the problem
 \begin{eqnarray}
-(\mathcal{P}^*_{\epsilon}) \hspace{2em} \left\{
+(\mathcal{P}^*_{\varepsilon}) \hspace{2em} \left\{
 \begin{array}{lr}
-(E+e^{-2i\epsilon})v^{\epsilon}=0 & (\Omega) \\
-Bv^{\epsilon}=-Bv_*^{inc} & (\mathcal{S})
+(E+e^{-2i\epsilon})v^{\varepsilon}=0 & (\Omega) \\
+Bv^{\varepsilon}=-Bv_*^{inc} & (\mathcal{S})
 \end{array}
 \right.
 \label{C4:Pabs}
 \end{eqnarray}
 Following Kamotski and Lebeau \cite{KamotskiLebeau}, we will once again suppose that the solution can be expressed as the sum of two contributions, corresponding to each of the wedge faces :
 \begin{equation}
-v^{\epsilon}=v_1^{\epsilon}+v_2^{\epsilon}
+v^{\varepsilon}=v_1^{\varepsilon}+v_2^{\varepsilon}
 \label{C4:v1+v2}
 \end{equation}
-where functions $v_j^{\epsilon}$ are now defined on all of  $\mathbb{R}^3$ by
+where functions $v_j^{\varepsilon}$ are now defined on all of  $\mathbb{R}^3$ by
 \begin{equation}
-v_j^{\epsilon}=-(E+e^{-2i\epsilon})^{-1} \begin{bmatrix}
+v_j^{\varepsilon}=-(E+e^{-2i\varepsilon})^{-1} \begin{bmatrix}
 \begin{pmatrix}
 \alpha_j \\
 \beta_j \\
@@ -174,7 +174,7 @@ v_j^{\epsilon}=-(E+e^{-2i\epsilon})^{-1} \begin{bmatrix}
 \end{bmatrix}
 \label{C4:vjdef}
 \end{equation}
-Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are supposed to belong to the special call $\mathcal{A}$ defined in \ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
+Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are belong to the special call $\mathcal{A}$ defined in chapter 2 of this thesis, Def.~\ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
 \begin{definition}
 	 v is called an outgoing solution of equation \eqref{C4:Padim} if v is a solution of the form
 	\begin{equation}
@@ -184,7 +184,7 @@ Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are supposed to belo
 	where, for $j=1,2$ :
 	\begin{equation}
 	\label{C4:inv_potentiels}
-	v_j=-\lim_{\epsilon \to 0} (E+e^{-2i\epsilon})^{-1} \begin{bmatrix}
+	v_j=-\lim_{\varepsilon \to 0} (E+e^{-2i\varepsilon})^{-1} \begin{bmatrix}
 \begin{pmatrix}
 \alpha_j \\
 \beta_j \\
@@ -193,18 +193,18 @@ Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are supposed to belo
 \otimes \delta_{\mathcal{S}_j}
 \end{bmatrix}
 	\end{equation}
-	where $\alpha_j,\beta_j,\gamma_j \in \mathcal{A}$. %and where $\delta_{\mathcal{S}_1}$ and $\delta_{\mathcal{S}_2}$ sont les distributions de Dirac associés aux faces $\mathcal{S}_1$ et $\mathcal{S}_2$ du dièdre respectivement.
+	where $\alpha_j,\beta_j,\gamma_j \in \mathcal{A}$ and where $\delta_{\mathcal{S}_1}$ and $\delta_{\mathcal{S}_2}$ are the Dirac distributions associated to the wedge faces $\mathcal{S}_1$ and $\mathcal{S}_2$ respectively.
 \end{definition}
 The following theorem was proved by Kamotski and Lebeau \cite{KamotskiLebeau} in the 2D case. We will suppose that their proof can be adapted to the 3D case and that the theorem is still true.
 \begin{theorem}
 Equation \eqref{C4:Padim} admits a unique outgoing solution.
 \end{theorem}
-Nous that the outgoing solution has been defined, we will derive an integral formulation of this solution.
+Now that the outgoing solution has been defined, we will derive an integral formulation of this solution.
 
 \subsection{Integral formulation}
-The two-sided Fourier transform and its inverse transform are defined by \eqref{fullfourierdef}. The first step in determining an integral formulation of the solution is to apply the two-sided Fourier transform to \eqref{C4:vjdef}. This possible because all the distributions that appear in this equation are tempered distributions and they therefore admit a Fourier transform. We then have :
+The two-sided Fourier transform and its inverse transform are defined in chapter 2 of this manuscript by \eqref{fullfourierdef}. The first step in determining an integral formulation of the solution is to apply the two-sided Fourier transform to \eqref{C4:vjdef}. This is possible because all the distributions that appear in this equation are tempered distributions and they therefore admit a Fourier transform. We then have :
 \begin{equation}
-\hat{v}^{\epsilon}_j(\xi,\eta)=(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}\Sigma_j(\xi)
+\hat{v}^{\varepsilon}_j(\xi,\eta)=(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}\Sigma_j(\xi)
 \label{C4:matMvjeps}
 \end{equation}
 where $\Sigma_j, j=1,2$  are the unknown spectral functions, defined by :
@@ -212,6 +212,7 @@ where $\Sigma_j, j=1,2$  are the unknown spectral functions, defined by :
 \Sigma_j(\xi,)=\begin{pmatrix}
 \hat{\alpha_j}(\xi)\\ \hat{\beta_j}(\xi) \\ \hat{\gamma_j}(\xi)
 \end{pmatrix}
+\label{C4:sigmacomponents}
 \end{equation}
 and where \textbf{M} is the two-sided Fourier transform of operator $E$. Its expression is :
 \begin{equation}
@@ -225,78 +226,67 @@ and where \textbf{M} is the two-sided Fourier transform of operator $E$. Its exp
 \end{equation}
 Substituting $\lambda$ by $1-2\mu$ and $\mu$ by $1/\nu_T^2$, \eqref{C4:matM} yields
 \begin{multline}
-(\mathbf{M}-e^{-2i\epsilon}\mathbb{I}_3)^{-1}=\\
+(\mathbf{M}-e^{-2i\varepsilon}\mathbb{I}_3)^{-1}=\\
 \frac{\begin{pmatrix}
-\xi^2+\nu_T^2(\eta^2+\tau^2-e^{-2i\epsilon}) & (1-\nu_T^2)\xi \eta & (1-\nu_T^2)\xi \tau \\
-(1-\nu_T^2)\xi \eta & \eta^2+\nu_T^2(\xi^2+\tau^2-e^{-2i\epsilon}) & (1-\nu_T^2)\tau \eta \\
-(1-\nu_T^2)\xi \tau & (1-\nu_T^2)\tau \eta & \tau^2+\nu_T^2(\eta^2+\xi^2-e^{-2i\epsilon})
-\end{pmatrix}}{(\xi^2+\eta^2+\tau^2-e^{-2i\epsilon})(\xi^2+\eta^2+\tau^2-\nu_T^2e^{-2i\epsilon})} 
+\xi^2+\nu_T^2(\eta^2+\tau^2-e^{-2i\varepsilon}) & (1-\nu_T^2)\xi \eta & (1-\nu_T^2)\xi \tau \\
+(1-\nu_T^2)\xi \eta & \eta^2+\nu_T^2(\xi^2+\tau^2-e^{-2i\varepsilon}) & (1-\nu_T^2)\tau \eta \\
+(1-\nu_T^2)\xi \tau & (1-\nu_T^2)\tau \eta & \tau^2+\nu_T^2(\eta^2+\xi^2-e^{-2i\varepsilon})
+\end{pmatrix}}{(\xi^2+\eta^2+\tau^2-e^{-2i\varepsilon})(\xi^2+\eta^2+\tau^2-\nu_T^2e^{-2i\varepsilon})} 
 \end{multline}
 
 Finally, the integral formulation of $v_j$ is obtained by inverting the two-sided Fourier transform applied in \eqref{C4:matMvjeps} :
 \begin{equation}
-v_j^{\epsilon}(x_j,y_j)=\frac{1}{4\pi^2}\int_{\mathbb{R}^2} e^{i x_j\xi}\left( \int_{-\infty}^{+\infty}e^{iy_j\eta} (\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1} \,d\eta \right) \Sigma_j(\xi) \,d\xi
+v_j^{\varepsilon}(x_j,y_j)=\frac{1}{4\pi^2}\int_{\mathbb{R}^2} e^{i x_j\xi}\left( \int_{-\infty}^{+\infty}e^{iy_j\eta} (\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1} \,d\eta \right) \Sigma_j(\xi) \,d\xi
  \label{C4:invdouble}
 \end{equation}
 
-The poles of $(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}$ are located in $\eta=\pm \zeta_*^{\epsilon}(\xi)$, where $*=L,T$ and
+The poles of $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ are located in $\eta=\pm \zeta_*^{\varepsilon}(\xi)$, where $*=L,T$ and
 \begin{equation}
-\zeta_*^{\epsilon}(\xi)=\sqrt{e^{-2i\epsilon}\nu^2_*-(\xi^2+\tau^2)}
+\zeta_*^{\epsilon}(\xi)=\sqrt{e^{-2i\varepsilon}\nu^2_*-(\xi^2+\tau^2)}
 \end{equation}
 Let us define $\nuti_*, *=L,T$ by
 \begin{equation}
-\nuti_*^{\epsilon}=\sqrt{e^{-2i\epsilon}\nu_*^2-\tau^2}
+\nuti_*^{\varepsilon}=\sqrt{e^{-2i\varepsilon}\nu_*^2-\tau^2}
 \label{defnutieps}
 \end{equation}
-If the incident wave is longitudinal, then $\nuti \in \mathbb{R}$. However, if the incident wave is transverse, then two cases may occur :
+If the incident wave is longitudinal, then $\nuti_L^0, \nuti_T^0 \in \mathbb{R}$. However, if the incident wave is transverse, then two cases may occur :
 \begin{itemize}
-	\item if $|\sin\delta_{inc}| \leq \frac{\nu_L}{\nu_T}$, then $\nuti_L \in \mathbb{R}$
-	\item if $|\sin\delta_{inc}| >\frac{\nu_L}{\nu_T}$, then $\nuti_L=i\eta_L \in i\mathbb{R}$ 
+	\item if $|\sin\delta_{inc}| \leq \frac{\nu_L}{\nu_T}$, then $\nuti_L^0 \in \mathbb{R}$
+	\item if $|\sin\delta_{inc}| >\frac{\nu_L}{\nu_T}$, then $\nuti_L=i\eta_L^0 \in i\mathbb{R}$ 
 \end{itemize} 
 In any case,
 \begin{equation}
 \zeta_*^{\epsilon}(\xi)=\sqrt{\tilde{\nu}_*^{\epsilon^2}-\xi^2}
 \end{equation}
-The chosen branch cut is the one for which the square root's imaginary part is positive. It is defined by
- \begin{eqnarray}
- \zeta_*(\xi)=
- \left\{
- \begin{array}{lr}
- i\sqrt{\xi^2-\tilde{\nu}_*^2}& \mbox{si } |\xi| \geq |\nuti_*| \\
- -\sqrt{\tilde{\nu}_*^2-\xi^2}& \mbox{si } |\xi| \leq |\nuti_*|
- \end{array}
- \right.
- \label{defzeta}
- \end{eqnarray}
 %La racine carrée complexe étant définie au signe près, $\sqrt{z}$ peut prendre deux valeurs distinctes pour $z$ fixé. C'est ce qu'on appelle les branches de coupure de la fonction. Les points de branchement sont les valeurs pour lesquelles ces branches se croisent (ici il s'agit de $\xi=\pm \tilde{\nu}_*^{\epsilon}$). Afin de bien définir $\zeta_*^{\epsilon}(\xi)$, on choisit la branche dont la partie imaginaire est positive. 
 
 The inner integral of \eqref{C4:invdouble} is computed using Cauchy's residue theorem :
 \begin{equation}
-v_j^{\epsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\epsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*^{\epsilon}(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
+v_j^{\varepsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\varepsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*^{\varepsilon}(\xi)}\mathbf{M_*^{\varepsilon}}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{C4:vjeps}
 \end{equation}
-where $\mathbf{M_*}(\xi,t),$ and $t=\mbox{sgn}( y_j)$ are defined by
+where $t=\mbox{sgn}( y_j)$ and $\mathbf{M_*^{\varepsilon}}(\xi,t), *=L,T$ are defined by
 \begin{subequations}
 \begin{equation}
-\mathbf{M_L}(\xi,t)=\begin{pmatrix}
-\frac{\xi^2}{\zeta_L^{\epsilon}} &t\xi & \frac{\xi\tau}{\zeta_L^{\epsilon}} \\
-t\xi & \zeta_L^{\epsilon} & t\tau \\
-\frac{\xi\tau}{\zeta_L^{\epsilon}}& t\tau & \frac{\tau^2}{\zeta_L^{\epsilon}}
+\mathbf{M_L^{\varepsilon}}(\xi,t)=\begin{pmatrix}
+\frac{\xi^2}{\zeta_L^{\varepsilon}} &t\xi & \frac{\xi\tau}{\zeta_L^{\varepsilon}} \\
+t\xi & \zeta_L^{\varepsilon} & t\tau \\
+\frac{\xi\tau}{\zeta_L^{\varepsilon}}& t\tau & \frac{\tau^2}{\zeta_L^{\varepsilon}}
 \end{pmatrix}
 \label{C4:MLeps}
 \end{equation}
 \begin{equation}
-\mathbf{M_T^{\epsilon}}(\xi,t)=\begin{pmatrix}
-\zeta_T^{\epsilon} +\frac{\tau^2}{\zeta_T^{\epsilon}}& -t\xi &-\frac{\xi\tau}{\zeta_T^{\epsilon}}\\
--t\xi & \frac{\xi^2+\tau^2}{\zeta_T^{\epsilon}}&-t\tau \\
--\frac{\xi\tau}{\zeta_T^{\epsilon}}&-t\tau&\zeta_T^{\epsilon} +\frac{\xi^2}{\zeta_T^{\epsilon}}
+\mathbf{M_T^{\varepsilon}}(\xi,t)=\begin{pmatrix}
+\zeta_T^{\varepsilon} +\frac{\tau^2}{\zeta_T^{\varepsilon}}& -t\xi &-\frac{\xi\tau}{\zeta_T^{\varepsilon}}\\
+-t\xi & \frac{\xi^2+\tau^2}{\zeta_T^{\varepsilon}}&-t\tau \\
+-\frac{\xi\tau}{\zeta_T^{\varepsilon}}&-t\tau&\zeta_T^{\varepsilon} +\frac{\xi^2}{\zeta_T^{\varepsilon}}
 \end{pmatrix}
 \label{C4:MTeps}
 \end{equation}
 \label{C4:M*eps}
 \end{subequations}
 
-These matrices can be computed in two different manners, providing a way to test this result. the first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}$. The second option for computing these matrices is by computing the eigen vectors and eigen values of $\mathbf{M}$. %On trouve bien les mêmes résultats avec les deux méthodes.
+These matrices can be computed in two different manners, providing a way to test this result. the first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}$ at poles $\pm \zeta^{\epsilon}_*(\xi), *=L,T$. The second option for computing these matrices is by computing the eigen vectors and eigen values of $\mathbf{M}$. %On trouve bien les mêmes résultats avec les deux méthodes.
 
 The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
 \begin{subequations}
@@ -340,40 +330,56 @@ These three vectors are linearly independent and constitute a vector basis of $\
 \end{equation}
 This second computation method thus yields
 \begin{equation}
-v_j^{\epsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\epsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,TH,TV}e^{i|y_j|\zeta_*^{\epsilon}(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
+v_j^{\varepsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\varepsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,TH,TV}e^{i|y_j|\zeta_*^{\varepsilon}(\xi)}\mathbf{M_*^{\varepsilon}}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{C4:vjeps2}
 \end{equation}
-where $\mathbf{M_L}(\xi,t),$ is given by \eqref{C4:MLeps} and
+where $\mathbf{M_L^{\varepsilon}}(\xi,t),$ is given by \eqref{C4:MLeps} and
 \begin{subequations}
 \begin{equation}
-\mathbf{M_{TV}}(\xi,t)=\begin{pmatrix}
-\frac{\xi^2\tau^2}{\zeta_T(\xi^2+\zeta^2)}&\frac{t\xi\tau^2}{\xi^2+\zeta_T^2}&\frac{-\xi\tau}{\zeta_T}\\
-\frac{t\xi\tau^2}{\xi^2+\zeta_T^2}&\frac{\zeta_T\tau^2}{\xi^2+\zeta_T^2}&-t\tau\\
-\frac{-\xi\tau}{\zeta_T}&-t\tau&\frac{\xi^2+\zeta_T^2}{\zeta_T}
+\mathbf{M_{TV}^{\varepsilon}}(\xi,t)=\begin{pmatrix}
+\frac{\xi^2\tau^2}{\zeta_T^{\varepsilon}(\xi^2+\zeta^2)}&\frac{t\xi\tau^2}{\xi^2+\zeta_T^{\varepsilon 2}}&\frac{-\xi\tau}{\zeta_T^{\varepsilon}}\\
+\frac{t\xi\tau^2}{\xi^2+\zeta_T^{\varepsilon 2}}&\frac{\zeta_T^{\varepsilon}\tau^2}{\xi^2+\zeta_T^{\varepsilon 2}}&-t\tau\\
+\frac{-\xi\tau}{\zeta_T^{\varepsilon}}&-t\tau&\frac{\xi^2+\zeta_T^{\varepsilon 2}}{\zeta_T^{\varepsilon}}
 \end{pmatrix}
 \label{C4:MTVeps}
 \end{equation}
 \begin{equation}
-\mathbf{M_{TH}}(\xi,t)=\left(1+\frac{\tau^2}{\xi^2+\zeta_T^2}\right)\begin{pmatrix}
-\zeta_T&-t\xi&0\\
--t\xi&\frac{\xi^2}{\zeta_T}&0\\
+\mathbf{M_{TH}^{\varepsilon}}(\xi,t)=\left(1+\frac{\tau^2}{\xi^2+\zeta_T^{\varepsilon 2}}\right)\begin{pmatrix}
+\zeta_T^{\varepsilon}&-t\xi&0\\
+-t\xi&\frac{\xi^2}{\zeta_T^{\varepsilon}}&0\\
 0&0&0
 \end{pmatrix}
 \label{C4:MTHeps}
 \end{equation}
 \label{C4:M*eps2}
 \end{subequations}
-Note that $ \mathbf{M_T}=\mathbf{M_{TH}}+\mathbf{M_{TV}}$. Expressions \eqref{C4:vjeps} and \eqref{C4:vjeps2} are equivalent.
+Note that $ \mathbf{M_T^{\varepsilon}}=\mathbf{M_{TH}^{\varepsilon}}+\mathbf{M_{TV}^{\varepsilon}}$. Expressions \eqref{C4:vjeps} and \eqref{C4:vjeps2} are equivalent.
 
-Integral \eqref{C4:vjeps} is well defined for all values of $\epsilon \in \rbrack 0, \pi \lbrack $, since for these values of $\epsilon$, the integration contour never crosses the branch points of the integrand, which are located at $\xi=\pm \tilde{\nu}_*^{\epsilon}$, outside of the real axis.
+Integral \eqref{C4:vjeps} is well defined for all values of $\varepsilon \in \rbrack 0, \pi \lbrack $, since for these values of $\varepsilon$, the integration contour never crosses the branch points of the integrand, which are located at $\xi=\pm \tilde{\nu}_*^{\varepsilon}$, outside of the real axis.
 
-According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\epsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The deformation contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L\in\mathbb{R}$ and on Fig.~\ref{C4:Gamma0_cr} in the other case. This way the branch points of the integrand are avoided.
+According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\varepsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The integration contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L\in\mathbb{R}$ and on Fig.~\ref{C4:Gamma0_cr} in the other case. In both cases, the branch points of the integrand are avoided.
 
-In all the following, superscript $\epsilon=0$ will be omitted in order to alleviate notations. Finally:
+In all the following, superscript $\varepsilon=0$ will be omitted in order to alleviate notations. Finally:
 \begin{equation}
 v_j(x_j,y_j)=\frac{i}{4\pi}\int_{\Gamma_0} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*(\xi)}\mathbf{M_*}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{C4:vj0}
 \end{equation}
+
+The branch cut chosen for the definition of $\zeta_*, \, *=L,T$ is the one for which the square root's imaginary part is positive, in order to satisfy the following radiation condition at infinity :
+\begin{equation}
+\underset{y_j\rightarrow +\infty}{\rm lim}||v_j(x_j,y_j)||=0
+\end{equation}
+The branch cut is defined by 
+ \begin{eqnarray}
+ \zeta_*(\xi)=
+ \left\{
+ \begin{array}{lr}
+ i\sqrt{\xi^2-\tilde{\nu}_*^2}& \mbox{if } |\xi| \geq |\nuti_*| \\
+ -\sqrt{\tilde{\nu}_*^2-\xi^2}& \mbox{if } |\xi| \leq |\nuti_*|
+ \end{array}
+ \right.
+ \label{defzeta}
+ \end{eqnarray}
 
 \begin{figure}
 \centering
@@ -447,9 +453,10 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{C4:Gamma0}
 \end{figure}
 
+Integral formulation \eqref{C4:vj0} is an expression of the solution in terms of the unknown spectral function $\Sigma_j$. In the next section, a far-field approximation of this integral is derived and the diffraction coefficient is defined.
 
 \subsection{Far field approximation}
-$x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Keller's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
+$x=(x'_1,y'_1,z'_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Keller's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
 
 \begin{figure}
 \centering
@@ -460,9 +467,9 @@ $x=(x_1,y_1,z_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\
 
 According to \eqref{C4:adiming},the scattered field at point $P$ is :
 \begin{equation}
-u_0(x_1,y_1,z)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{ik_{\beta}\sin\delta_{\beta}z}
+u_0(x'_1,y'_1,z'_1)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{ik_{\beta}\sin\delta_{\beta}z'_1}
 \end{equation}
-The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$.The first step is to apply the change following of variables in integral $v_1$ :
+The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$.The first step is to apply the following change of variables in integral $v_1$ :
 \begin{equation}
 \begin{split}
 \xi&=\tilde{\nu}_*\cos\lambda \\
@@ -570,7 +577,7 @@ The far-field evaluation of the integral is obtained by applying the steepest de
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected and head waves, and $v_1^{diff}$ is the contribution of the stationary phase point, corresponding to the diffracted wave and computed using \eqref{steepformula}. Only the contribution of the diffracted waves will be computed here. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected waves (for the poles of the spectral functions) and head waves (for the branch points of the spectral functions), and $v_1^{diff}$ is the contribution of the stationary phase point $\lambda_s=\pi-\overline{\theta}$, corresponding to the edge-diffracted wave and computed using \eqref{steepformula}. In the following, it is assumed that the saddle point $\lambda_s$ does not coalesce with a branch point. In the case where this assumption fails, some possible solutions have been offered by Borovikov \cite{Borovikov} and by Zernov et al. \cite{Zernovcrit} for the case of a steel wedge. In the present work, only the contribution of the edge-diffracted waves will be computed. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$, using the fact that $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
 \begin{equation}
 v_1^{diff}(r,\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta_{\beta}}}{\sqrt{\nuti_*R\cos\delta_{\beta}}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
 \end{equation}
@@ -610,7 +617,7 @@ Let us now isolate L, TH and TV diffracted waves in order to compute the corresp
 v_{\beta}^{diff}(r,\theta,\delta_{\beta})=D_{\beta}^{\alpha}(\theta)\frac{e^{-i\nuti_{\beta}R\cos\delta_{\beta}}}{\sqrt{\nuti_{\beta}R\cos\delta_{\beta}}} v^{inc}(R\cos\theta,R\sin\theta) \hat{i}_{\beta}
 \label{C4:coeffdiff}
 \end{equation}
-Using the expressions of the unit vectors given by \eqref{ivec}, the $\beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
+Using the expressions of the unit vectors given by \eqref{C4:ivec}, the $\beta$ diffracted wave is given by $v^{diff}\cdot \hat{i}_{\beta}$. This yields :
 \begin{equation}
 D_{\beta}^{\alpha}(\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{j=1,2}\nuti_{\beta}^2 \,{}^t \Sigma_j(-\nuti_{\beta}\cos\theta_j)\cdot\left(\mathbf{P}_{\beta}(\pi-\theta_j).\hat{i}_{\beta}\right)
 \label{C4:Dbeta}
