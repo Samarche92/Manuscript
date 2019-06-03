@@ -32,7 +32,7 @@ The incident wave is a plane wave of the form
 \begin{equation}
 \mathbf{u}^{inc}(\mathbf{x},t)=\mathbf{A}_{\alpha}e^{i(\mathbf{k}_{\alpha}^{inc}\cdot \mathbf{x}-\omega t)}
 \end{equation}
-where $\mathbf{A}_{\alpha}$ is the amplitude vector of the incident wave and $\mathbf{k}_{\alpha}^{inc}$ is the incident wave vector. The type of the incident wave is denoted $\mathbf{k}_{\alpha}^{inc}$ (L for a longitudinal wave, TH for transverse horizontal and TV for transverse vertical). $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$ is a Cartesian coordinate system associated to face $\mathcal{S}_1$. In this system, the incident wave vector is given by :
+where $\mathbf{A}_{\alpha}$ is the amplitude vector of the incident wave and $\mathbf{k}_{\alpha}^{inc}$ is the incident wave vector. The type of the incident wave is denoted $\mathbf{k}_{\alpha}^{inc}$ (L for a longitudinal wave, TH for transverse horizontal and TV for transverse vertical). $(O; \mathbf{e}_{x_1}, \mathbf{e}_{y_1}, \mathbf{e}_{z_1})$ is a Cartesian coordinate system associated to face $\mathcal{S}_1$ and $(O; \mathbf{e}_{x_2}, \mathbf{e}_{y_2}, \mathbf{e}_{z_2})$ is a Cartesian coordinate system associated to face $\mathcal{S}_2$. In the following, all vectors are expressed in the coordinate system $\mathbf{x}=(x'_1,y'_1,z'_1)_{(\mathbf{e}_{x_1}, \mathbf{e}_{y_1}, \mathbf{e}_{z_1})}$, unless explicitly mentioned otherwise. In this system, the incident wave vector is given by :
 \begin{equation}
 \mathbf{k}_{\alpha}^{inc}=\frac{\omega}{c_{\alpha}} \begin{pmatrix}
 \cos\theta_{inc} \cos \delta_{inc} \\ \sin\theta_{inc} \cos \delta_{inc} \\
@@ -63,7 +63,7 @@ The amplitude vector can be directed by three different and two-by-two orthogona
 \end{equation}
 where the top sign gives the polarization of an incident wave and the bottom sign gives the polarization of a diffracted wave.
 
-In all the following, vectors are expressed in the coordinate system $(\mathbf{x}_1,\mathbf{y}_1, \mathbf{z}_1)$, except when explicitly mentioned otherwise. For a homogeneous, isotropic material, the linear elasticity equation solved by the displacement field $\mathbf{u}$ is 
+For a homogeneous, isotropic material, the linear elasticity equation solved by the displacement field $\mathbf{u}$ is 
 \begin{equation}
 \underline{\mu} \Delta \mathbf{u} + (\underline{\lambda}+\underline{\mu})\nabla \nabla \mathbf{u} = \rho \frac{\partial^2 \mathbf{u}}{\partial t^2}
 \label{C4:Elasticitelin}
@@ -76,14 +76,14 @@ On each of the wedge faces, the displacement field verifies the zero-stress boun
 where $\mathbf{\mathbb{I}_3}$ is the identity matrix of the third order, $n$ is the inward facing normal to the wedge face ($n=\mathbf{y}_1$ on $\mathcal{S}_1$  and $n=\mathbf{y}_2$ on $\mathcal{S}_2$) and $\underline{\lambda}, \underline{\mu}$ are the Lamé coefficients of the considered elastic medium. The expression of the deformations tensor is :
 \begin{equation}
 \mathbf{\varepsilon}(\mathbf{u})=\frac{1}{2} \begin{pmatrix}
-2\dfrac{\partial u_1}{\partial x_1} & \dfrac{\partial u_1}{\partial y_1}+\dfrac{\partial u_2}{\partial x_1}&\dfrac{\partial u_1}{\partial z}+\dfrac{\partial u_3}{\partial x_1} \\
-\dfrac{\partial u_1}{\partial y_1}+\dfrac{\partial u_2}{\partial x_1}&2\dfrac{\partial u_2}{\partial y_1}&\dfrac{\partial u_2}{\partial z}+\dfrac{\partial u_3}{\partial y_1} \\
-\dfrac{\partial u_1}{\partial z}+\dfrac{\partial u_3}{\partial x_1} &\dfrac{\partial u_2}{\partial z}+\dfrac{\partial u_3}{\partial y_1} & 2\dfrac{\partial u_3}{\partial z}
+2\dfrac{\partial u_1}{\partial x'_1} & \dfrac{\partial u_1}{\partial y'_1}+\dfrac{\partial u_2}{\partial x'_1}&\dfrac{\partial u_1}{\partial z'}+\dfrac{\partial u_3}{\partial x'_1} \\
+\dfrac{\partial u_1}{\partial y'_1}+\dfrac{\partial u_2}{\partial x'_1}&2\dfrac{\partial u_2}{\partial y'_1}&\dfrac{\partial u_2}{\partial z'}+\dfrac{\partial u_3}{\partial y'_1} \\
+\dfrac{\partial u_1}{\partial z'_1}+\dfrac{\partial u_3}{\partial x'_1} &\dfrac{\partial u_2}{\partial z'_1}+\dfrac{\partial u_3}{\partial y'_1} & 2\dfrac{\partial u_3}{\partial z'_1}
 \end{pmatrix}
 \end{equation}
 Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to this problem in the 2D the case. We will suppose that their demonstration is still valid in the 3D case.
 
-From hereon after, bold characters will be reserved to matrices in order to simplify notations. The solutions being time harmonic, the factor $e^{-i\omega t}$ will be implied but omitted everywhere. Furthermore, since there is no obstacle to propagation in the $z$ direction, $e^{i\frac{\omega}{c_{\alpha}}\sin\delta_{inc}z}$ is also a common factor to all the terms which appear in the solution.
+From hereon after, bold characters will be reserved to matrices in order to simplify notations. The solutions being time harmonic, the factor $e^{-i\omega t}$ will be implied but omitted everywhere. Furthermore, since there is no obstacle to propagation in the $z$ direction, $e^{i\frac{\omega}{c_{\alpha}}\sin\delta_{inc}z'}$ is also a common factor to all the terms which appear in the solution.
 
 The total field is written as the sum of an incident field $u^{inc}$ and a scattered field $u_0$
 \begin{equation}
@@ -92,16 +92,21 @@ u=u_0+u^{inc}
 \end{equation}
 
 The dimensionless problem is obtained by applying the following variable change :
+\begin{subequations}
 \begin{equation}
-u_0(x,y,z)=v\left( \frac{\omega}{c_L} x, \frac{\omega}{c_L} y \right)e^{i\nu_{\beta}\sin\delta_{\beta}z}
-\label{C4:adiming}
+x=\dfrac{\omega}{c_L}x', \hspace{1em} y=\dfrac{\omega}{c_L}y', \hspace{1em} z=\dfrac{\omega}{c_L}z'
 \end{equation}
+\begin{equation}
+u_0(x',y',z')=v(x,y)e^{i\nu_{\beta}\sin\delta_{\beta}z}
+\end{equation}
+\label{C4:adiming}
+\end{subequations}
 where $\delta_{\beta}$ is the angle of Snell's cone of diffraction, the dimensionless Lamé parameters $\lambda,\mu$ are given by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are defined by \eqref{nuLnuT}. Since $e^{i\nu_{\alpha}\sin\delta_{inc}z}$ is a common factor to all the terms of the solution, we can deduce Snell's law of diffraction :
 \begin{equation}
 \nu_{\alpha}\sin\delta_{inc}=\nu_{\beta}\sin\delta_{\beta}
 \label{C4:Snelldiff}
 \end{equation}
-To simplify notations, we define the following parameter $\tau$ is defined by :
+To simplify notations, the following parameter $\tau$ is defined by :
 \begin{equation}
 \tau=\nu_{\alpha}\sin\delta_{\alpha}
 \label{deftau}
