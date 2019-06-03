@@ -208,7 +208,7 @@ where $\delta_{\mathcal{S}_j}$ is the Dirac distribution associated to face $\ma
 \langle \delta_{\mathcal{S}_j},f\rangle=\int_0^{\infty}f((x_j,0)\, dx_j
 \label{defDirac}
 \end{equation}
-The distributions $\alpha_j$ and $\beta_j$ are unknown and are supposed to belong to the special class $\mathcal{A}$ given by definition \ref{defA}.
+The distributions $\alpha_j$ and $\beta_j$ are unknown and are supposed to belong to the special class $\mathcal{A}$ given by definition \ref{defClassA}.
 %\begin{mydef}
 %We say that $f \in \mathcal{A}$ if $f \in \mathcal{S}'(\mathbb{R}), \mbox{supp} f \subset \mathbb{R}_+$ and
 %\begin{gather}
@@ -365,7 +365,7 @@ i\sqrt{\xi^2-\nu_*^2}& \mbox{for } |\xi| \geq \nu_* \\
 -\sqrt{\nu_*^2-\xi^2}& \mbox{for } |\xi| \leq \nu_*
 \end{matrix}
 \right.
-\label{defzeta}
+\label{C3:defzeta}
 \end{equation}
 
 The integral formulation \eqref{vj0} is an expression of the solution in terms of an unknown function $\Sigma_j$ called the spectral function. In the next section, by computing a far-field asymptotic approximation of this integral, we define a function of the observation angle $\theta$ (see Fig. \ref{wedge}) called the diffraction coefficient and express this coefficient in terms of $\Sigma_1$ and $\Sigma_2$.
@@ -622,11 +622,18 @@ B(\zeta) & -1
 \label{defDM}
 \end{equation}
 and
+\begin{subequations}
 \begin{equation}
-A(\zeta)=\frac{z}{\zeta_T(z)}(1-2\mu Q(\zeta)) \hspace{3em} B(\zeta)=-\frac{\zeta}{\zeta_L(\zeta)}(1-2\mu Q(\zeta)) \hspace{3em}
+A(\zeta)=\frac{z}{\zeta_T(z)}(1-2\mu Q(\zeta))
+\end{equation}
+\begin{equation}
+B(\zeta)=-\frac{\zeta}{\zeta_L(\zeta)}(1-2\mu Q(\zeta))
+\end{equation}
+\begin{equation}
 Q(\zeta)=\zeta_L(\zeta) \zeta_T(\zeta)+\zeta^2,
 \end{equation}
-where $\zeta_*,\, *=L,T$ is given by \eqref{defzeta}.
+\end{subequations}
+where $\zeta_*,\, *=L,T$ is given by \eqref{C3:defzeta}.
 
 
 The Fourier transform of operator $B_2$ is obtained  through a similar process. The partial derivatives of $v_2$ are evaluated in $x_2=x\cos\varphi,y_2=x\sin\varphi,x\geq0$ and then substituted into \eqref{B2v2expl} before applying the Fourier transform to the results. Finally, by using the following formula
@@ -675,8 +682,8 @@ The Fourier transform of the normal stress operator on each face of the wedge is
 \begin{equation}
 \left\{
 \begin{matrix}
-\textbf{DM}(\Sigma_1)+\textbf{TM}(\Sigma_2)=\frac{W_1^{\alpha}}{\xi-\nu_{\alpha} \cos \theta_{inc}} \\
-\textbf{TM}(\Sigma_1)+\textbf{DM}(\Sigma_2)=\frac{W_2^{\alpha}}{\xi-\nu_{\alpha}\cos(\varphi-\theta_{inc})}
+\textbf{DM}(\Sigma_1)+\textbf{TM}(\Sigma_2)=\dfrac{W_1^{\alpha}}{\xi-\nu_{\alpha} \cos \theta_{inc}} \\
+\textbf{TM}(\Sigma_1)+\textbf{DM}(\Sigma_2)=\dfrac{W_2^{\alpha}}{\xi-\nu_{\alpha}\cos(\varphi-\theta_{inc})}
 \end{matrix}
 \right.,
 \label{equationsintegrales}
@@ -711,7 +718,7 @@ The poles and corresponding residues of the spectral functions, which lead to th
 \begin{equation}
 T_*(\xi=\nu_*\cos\theta)=\xi \cos \phiti+\zeta_*(\xi)\sin\phiti=\nu_*\cos(\theta+\tilde{\varphi}),
 \end{equation}
-where $\phiti$ is defined by \eqref{phitilde}. 
+where $\phiti$ is defined in the previous chapter by \eqref{phitilde}. 
 %\begin{equation}
 %\tilde{\varphi}=
 %\left\{
@@ -722,7 +729,8 @@ where $\phiti$ is defined by \eqref{phitilde}.
 %\right.
 %\label{phitilde}
 %\end{equation}
-This variable is useful for synthetically describing the spectral functions method for wedge angles lower and higher than $\pi$, using only one angular variable which is defined differently for each case. In order for the cosine in the translation operator to also be well defined, it is necessary to impose
+%This variable is useful for synthetically describing the spectral functions method for wedge angles lower and higher than $\pi$, using only one angular variable which is defined differently for each case. 
+In order for the cosine in the translation operator to also be well defined, it is necessary to impose
 \begin{equation}
 \xi \in \Omega_*^+= \{ \xi=\nu_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi}, \; \mbox{Im}\xi\geq0 \},
 \label{defOmega0}
@@ -731,7 +739,7 @@ where $\Omega_*^+$ is represented in Fig. \ref{domega0}.
 
 \begin{figure}
 \centering
-\resizebox{!}{0.15\textheight}{
+%\resizebox{!}{0.15\textheight}{
 \begin{tikzpicture}
 % Remplissage espace Omega_0
 \fill [color=gray!20]
@@ -783,7 +791,7 @@ where $\Omega_*^+$ is represented in Fig. \ref{domega0}.
 \node at (2,1.5) {$\Omega_*^+$};
 
 \end{tikzpicture}
-}
+%}
 \caption{Domain $\Omega_*^+$ and contour $\partial \Omega_*$ in the complex plane $\xi=\sigma+i\tau$. The curved arrows indicate the contour deformation from $\Gamma_0$ to $\partial \Omega_*$}
 \label{domega0}
 \end{figure}
@@ -797,7 +805,7 @@ $ V\in\mathbb{C}^2, \, z\in \mathbb{C} \backslash  \rbrack - \infty, -1 \rbrack 
 where
 \begin{equation}
 D_p(z,\xi)= \int_{\Gamma_1} \frac{\textbf{DM}(\xi,\zeta)}{\zeta-z}.V\,d\zeta
-\label{defDp}
+\label{C3:defDp}
 \end{equation}
 Similarly, we deform contour $\Gamma_0$ in \eqref{B2TM} into contour $\partial \Omega_*$, represented Fig. \ref{domega0} and apply once again Cauchy's residue theorem:
 \begin{equation}
@@ -807,12 +815,12 @@ Similarly, we deform contour $\Gamma_0$ in \eqref{B2TM} into contour $\partial \
 where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in\Omega_*^+$ and $0$ elsewhere and
 \begin{equation}
 T_p(z,\xi)= \frac{1}{2i\pi} \sum_{*=L,T} \int_{\partial \Omega_*} D_*(\xi,\zeta) .\frac{\textbf{tm}_*(\zeta)}{\zeta-z}.V\, d\zeta
-\label{defTp}
+\label{C3:defTp}
 \end{equation}
 
 \begin{figure}
 \centering
-\begin{tikzpicture}[scale=0.75]
+\begin{tikzpicture}%[scale=0.75]
 \node at (0,0) {$\times$};
 \node at (0.35,0.35) {$0$};
 \node at (2,0) {$\times$}; % Pole
@@ -850,7 +858,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{gamma1}
 \end{figure}
 
-Croisille and Lebeau \cite{CroisilleLebeau} proved that $D_p(z,\cdot)$ and $T_p(z,\cdot)$ belong to a special class of functions $\mathcal{H}^2$ defined hereafter
+Croisille and Lebeau \cite{CroisilleLebeau} proved that $D_p(z,\cdot)$ and $T_p(z,\cdot)$ belong to a special class of functions $\mathcal{H}^2$ defined in the previous chapter by Def.~\ref{defH}.
 
 %\begin{mydef}
 %\label{defHpl}
@@ -904,7 +912,7 @@ Let us now extract all the poles and corresponding residues from the spectral fu
 \Sigma_j(\xi)= \frac{V_j^{(0)}}{\xi-Z^{(0)}_j}+X'_j(\xi), \, \, \, j=1,2,
 \label{firstep}
 \end{equation}
-where $V_j^{(0)}$ is unknown and $Z_1^{(0)}=\nu_{\alpha} \cos \theta_{inc}, \, Z_2^{(0)}=\nu_{\alpha} \cos(\varphi-\theta_{inc})$. Substituting \eqref{firstep} into \eqref{equationsintegrales} and applying formula \eqref{GaussDM} yields :
+where $V_j^{(0)}$ is unknown and $Z_1^{(0)}=\nu_{\alpha} \cos \theta_{inc}$  and $Z_2^{(0)}=\nu_{\alpha} \cos(\varphi-\theta_{inc})$. Substituting \eqref{firstep} into \eqref{equationsintegrales} and applying formula \eqref{GaussDM} yields :
 \begin{equation}
 \left\{
 \begin{matrix}
@@ -1094,7 +1102,7 @@ where, for $1\leq l,k \leq N$ :
 \mathcal{D}_3(a_k,b_l) &\mathcal{D}_1(a_k,b_l)
 \end{pmatrix}=\frac{\sqrt{a_k}}{2\pi \sqrt{\pi}}\mathbb{D}(a_k,b_l)
 \end{split}
-\label{Dab}
+\label{C3:Dab}
 \end{equation}
 %Using \eqref{defDM}, we can define :
 %\begin{equation}
@@ -1106,12 +1114,12 @@ where, for $1\leq l,k \leq N$ :
 %\begin{equation}
 %\mathcal{D}_3(a,b)=\int_{-\infty}^{+\infty} \frac{iy(1-2\mu \zeta_L(iy) \zeta_T(iy)+2\mu y^2)}{(y+ib)(y-ia)\zeta_L(iy)} \,dy
 %\end{equation}
-The explicit expressions of operators $\mathcal{D}_i, 1\leq i\leq3$ and their values are computed in \ref{compD}.
+The explicit expressions of operators $\mathcal{D}_i, 1\leq i\leq3$ and their values are computed in appendix \ref{matD}.
 The other coefficients of the system are, for $1\leq l,k \leq N$
 \begin{equation}
 \begin{split}
-\mathbb{T}_{lk}=\int_{-\infty}^{+\infty} \textbf{TM}(b_l,iy)e_{a_k}(y) \, dy 
-&=\frac{1}{2i\pi} \int_{-\infty}^{+\infty} \sum_{*=L,T} \frac{\textbf{tm}_* (iy, \mbox{sgn} \sin \varphi)}{b_l-T_*(iy)} \sqrt{\frac{a_k}{\pi}}\frac{1}{y-ia_k}\,dy \\
+\mathbb{T}_{lk}&=\int_{-\infty}^{+\infty} \textbf{TM}(b_l,iy)e_{a_k}(y) \, dy 
+=\frac{1}{2i\pi} \int_{-\infty}^{+\infty} \sum_{*=L,T} \frac{\textbf{tm}_* (iy, \mbox{sgn} \sin \varphi)}{b_l-T_*(iy)} \sqrt{\frac{a_k}{\pi}}\frac{1}{y-ia_k}\,dy \\
 &=\frac{1}{2i\pi}\sqrt{\frac{a_k}{\pi}}\sum_{*=L,T} \int_{-\infty}^{+\infty} \frac{\textbf{tm}_*(iy,\epsilon)}{\lbrack b_l-(iy \cos \varphi +  \zeta_*(iy)| \sin \varphi|)\rbrack(y-ia_k)} \, dy,
 \end{split}
 \end{equation}
@@ -1123,9 +1131,9 @@ where $\epsilon= \mbox{sgn}( \sin \varphi)$. Let us define
  \mathcal{T}_3^L(a_k,b_l)+ \mathcal{T}_3^T(a_k,b_l) &\mathcal{T}_4^L(a_k,b_l)+ \mathcal{T}_4^T(a_k,b_l)
 \end{pmatrix}
 =\frac{1}{2i\pi}\sqrt{\frac{a_k}{\pi}}\mathbb{T}(a_k,b_l)
-\label{Tab}
+\label{C3:Tab}
 \end{equation}
-The explicit expressions of operators $\mathcal{T}_i^*, 1\leq i\leq4, *=L,T$ and their values are computed in \ref{compT}.
+The explicit expressions of operators $\mathcal{T}_i^*, 1\leq i\leq4, *=L,T$ and their values are computed in appendix \ref{matT}.
 
 Finally, for $j=1,2$ :
 \begin{equation}
@@ -1143,12 +1151,12 @@ u_j(b_N)
 u_j(b_k) \in \mathbb{C}^2
 \end{equation}
 where $u_j(\xi)$ is given by \eqref{scndmembre}. Applying variable change $\zeta=iy$ to the definition of $D_p$ given by 
-\eqref{GaussDM} and substituting \eqref{Dab} in the result gives
+\eqref{GaussDM} and substituting \eqref{C3:Dab} in the result gives
 \begin{equation}
 D_p(z,\xi)=\frac{1}{2\pi}\mathbb{D}(-z,\xi)-\frac{\textbf{dm}(z)}{\xi-z}
 \label{Dpscm}
 \end{equation}
-Similarly, applying variable change $\zeta=iy$ to \eqref{GaussTM} and substituting \eqref{Tab} in the result yields
+Similarly, applying variable change $\zeta=iy$ to \eqref{GaussTM} and substituting \eqref{C3:Tab} in the result yields
 \begin{equation}
 T_p(z,\xi)=\frac{1}{2i\pi}\mathbb{T}(-z,\xi)- \sum_{*=L,T}\frac{\textbf{tm}_*(z,\epsilon)}{b-T_*(z)}\textbf{1}_{\Omega_*}(z)
 \label{Tpscm}
@@ -1172,7 +1180,7 @@ By deforming $\Gamma_0$ into $\Gamma_2$, represented in Fig. \ref{contour2}, the
 \end{equation}
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[scale=0.75]
+	\begin{tikzpicture}%[scale=0.75]
 	\node at (0,0) {$\times$};
 	\node at (0.35,0.35) {$0$};
 	\node at (2,0) {$\times$}; 
@@ -1233,7 +1241,7 @@ where $\textbf{1}_{\Omega_*^-}(\xi)=1$ when $\xi \in \Omega_*^-$ and $0$ elsewhe
 
 \begin{figure}[ht]%
 \begin{center}
-	\begin{tikzpicture}[scale=0.75]
+	\begin{tikzpicture}%[scale=0.75]
 	% Filling Omega_*^-
 	\fill [color=gray!20]
 	(-1,0)
@@ -1305,12 +1313,12 @@ This new recursive system is used to evaluate the spectral functions in the doma
 
 Each of the integrals appearing in the definition of $g_j$ are evaluated separately using the approximation of the regular part \eqref{Xj} for the computation of terms $X_j(\zeta)$ and $X_{3-j}(\zeta)$. 
 
-Substituting \eqref{Dab} into \eqref{DM2} yields :
+Substituting \eqref{C3:Dab} into \eqref{DM2} yields :
 \begin{equation}
 \int_{\Gamma_2}\textbf{DM}(\xi,\zeta)\varphi_k(\zeta) \, d\zeta = \int_{\Gamma_0}\textbf{DM}(\xi,\zeta)\varphi_k(\zeta)\, d\zeta -\textbf{dm}(\xi).\varphi_k(\xi)=\frac{1}{2\pi}\sqrt{\frac{a_k}{\pi}} \mathbb{D}(a_k,\xi)-\textbf{dm}(\xi).\varphi_k(\xi) 
 \label{NDreg}
 \end{equation}
-and substituting \eqref{Tab} into \eqref{TM2} yields:
+and substituting \eqref{C3:Tab} into \eqref{TM2} yields:
 \begin{equation}
 \begin{split}
 \int_{\partial \Omega_*^-}  \textbf{TM}(\xi,\zeta)\varphi_k(\zeta)\, d\zeta&=\int_{\Gamma_0} \textbf{TM}(\xi,\zeta)\varphi_k(\zeta)\, d\zeta  -\sum_{*=L,T} \mathbf{M}_*(\xi).\varphi_k(T^{-1}_*(\xi)) \\
@@ -1340,7 +1348,7 @@ This concludes the semi-analytical computation of the spectral functions. Once t
 
 \section{Numerical validation}
 \label{C3:numval}
-The longitudinal and transversal diffraction coefficients are computed using \eqref{DL} and \eqref{DT}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{regparteqn} thanks to the Galerkin collocation method described in subsection \ref{regpart}, where the Galerkin parameters are set to:
+The longitudinal and transversal diffraction coefficients are computed using \eqref{DL} and \eqref{DT}. The spectral functions are evaluated in $\xi=\nu_*\cos\theta -i10^{-8}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{recur} are valid). This is achieved by, first, computing the poles and residues of the spectral functions analytically using the recursive algorithm described in subsection \ref{C3:singpart}. Then, the regular parts of the spectral functions are approached numerically by solving \eqref{regparteqn} thanks to the Galerkin collocation method described in subsection \ref{C3:regpart}, where the Galerkin parameters are set to:
 \begin{equation}
 a_k=1.0001+0.05e^{k\frac{\log 10}{4}}-1, \hspace{3em} b_k=a_k-0.1i, \hspace{3em} 1\leq k\leq20
 \end{equation}
@@ -1357,22 +1365,22 @@ Fig.~\ref{16040} shows the absolute value of the diffraction coefficients with r
 
 \begin{figure}%[h!]
 \centering
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure8a.pdf}
         \caption{Diffracted and incident L waves}
         \label{8055LL}
     \end{subfigure}  
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure8b.pdf}
         \caption{Diffracted T wave and incident L wave}
         \label{8055LT}
      \end{subfigure} \\   
-     \begin{subfigure}[b]{0.44\textwidth}
+     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure8c.pdf}
         \caption{Diffracted L wave and incident T wave}
         \label{8055TL}
     \end{subfigure}
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure8d.pdf}
         \caption{Diffracted and incident T waves}
         \label{8055TT}
@@ -1383,22 +1391,22 @@ Fig.~\ref{16040} shows the absolute value of the diffraction coefficients with r
 
 \begin{figure}
 \centering
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure9a.pdf}
         \caption{Diffracted and incident L waves}
         \label{16040LL}
     \end{subfigure}  
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure9b.pdf}
         \caption{Diffracted T wave and incident L wave}
         \label{16040LT}
      \end{subfigure} \\   
-     \begin{subfigure}[b]{0.44\textwidth}
+     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure9c.pdf}
         \caption{Diffracted L wave and incident T wave}
         \label{16040TL}
     \end{subfigure}
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure9d.pdf}
         \caption{Diffracted and incident T waves}
         \label{16040TT}
@@ -1426,13 +1434,12 @@ For each of these snapshots, the distance $r$ from the edge to the wavefront of 
 
 \begin{figure}
 \centering
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure10a.pdf}
         \caption{Incident L wave, $t=5ms$.}
         \label{snapLL}
     \end{subfigure}  
-    ~
-     \begin{subfigure}[b]{0.44\textwidth}
+     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure10b.pdf}
         \caption{Incident T wave, $t=6,5ms$. }
         \label{snapTL}
@@ -1443,24 +1450,24 @@ For each of these snapshots, the distance $r$ from the edge to the wavefront of 
 
 \begin{figure}%[H]
 \centering
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure11a.pdf}
-        \caption{Diffracted and incident L waves. $r=25,6 \rm mm$.}
+        \caption{Diffracted and incident L waves. \\$r=25,6 \rm mm$.}
         \label{DLL}
     \end{subfigure}  
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure11b.pdf}
-        \caption{Diffracted T wave and incident L wave. $r=13,9 \rm mm$.}
+        \caption{Diffracted T wave and incident L wave. \\$r=13,9 \rm mm$.}
         \label{DLT}
      \end{subfigure}   
-     \begin{subfigure}[b]{0.44\textwidth}
+     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure11c.pdf}
-        \caption{Diffracted L wave and incident T wave. $r=36,5 \rm mm$.}
+        \caption{Diffracted L wave and incident T wave.\\ $r=36,5 \rm mm$.}
         \label{DTL}
     \end{subfigure}
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Figure11d.pdf}
-        \caption{Diffracted and incident T waves. $r=19,8 \rm mm$.}
+        \caption{Diffracted and incident T waves.\\ $r=19,8 \rm mm$.}
         \label{DTT}
      \end{subfigure}
      \caption{Diffraction coefficients for $\varphi=270^o, \theta_{inc}=135^o$}
@@ -1471,7 +1478,7 @@ Fig.~\ref{270135} shows the absolute value of the diffraction coefficients, obta
 
 Overall, both lines overlap quite well, though some differences are observed. The most obvious difference between the plots is that the \acrshort{fe} diffraction coefficient always remains finite, whereas the \acrshort{sf} diffraction coefficient possesses poles (except for Fig.~\ref{DLT} where there are no reflected L waves). This is due to the fact that the \acrshort{sf} diffraction coefficient is a \acrshort{gtd}-like coefficient obtained from a far-field asymptotic evaluation \eqref{defcoeffdiff} and it diverges at shadow boundaries \cite{GTD,Audrey}. The \acrshort{fe} code notably computes the reflected waves as well as the diffracted waves in angular regions surrounding the reflected poles ; consequently, reflected waves give a contribution to the \acrshort{fe} diffraction coefficient. The contribution of these reflected plane waves to the \acrshort{fe} diffraction coefficient, computed using \eqref{FEextract}, grows with the distance $r$, since it contains the factor $\sqrt{\nu_{\beta}r}$ and the reflected plane waves have theoretically constant amplitudes. Interference between these plane reflected waves and the cylindrical diffracted waves explain the spikes that can be observed in the \acrshort{fe} diffraction coefficients, near the poles of the \acrshort{gtd} diffraction coefficients in Figs.~\ref{DLL}, \ref{DLT} and \ref{DTT}. Some uniform methods have been proposed to handle the divergence of \acrshort{gtd} diffraction coefficients and build a spatially uniform total field and some of them have been applied to elastodynamic half-plane scattering \cite{Audrey, Zernov, PTDdarmon}.
 
-On Figs.~\ref{DLT} and \ref{DTT} for diffracted T waves, the \acrshort{fe} diffraction coefficient seems to have a slightly different behavior near the wedge edges than the \acrshort{sf} diffraction coefficients. Since this discrepancy is only visible in the T diffraction coefficient, it seems unlikely that it is due to the branch points at angles $\theta=0$ and $\theta=\varphi$ mentioned in section \ref{C3:farfield}, as these branch points would affect both L and T diffracted waves. The observed discrepancy is more probably due to interference of the diffracted T wavefront with the Rayleigh waves observed on Figs.~\ref{snapLL} and \ref{snapTL}, which modifies the observed \acrshort{fe} amplitude along the diffracted T wavefront. In addition, on these figures, the very slight spikes at $\theta=57^o$ and $\theta=213^o$ in the SF diffraction coefficient correspond to head waves and associated branch points when $\theta=\theta_c$ and $\theta=\varphi-\theta_c$. Regarding the diffraction coefficients calculated from the FE simulation, since the value of the diffracted wave field is extracted along the cylindrical diffracted wavefront, the head waves are accounted in the FE diffraction coefficient when they interfere with both diffracted and reflected waves (location at the intersection of the HW, rTW and dTW in the FE snapshot). 
+On Figs.~\ref{DLT} and \ref{DTT} for diffracted T waves, the \acrshort{fe} diffraction coefficient seems to have a slightly different behavior near the wedge edges than the \acrshort{sf} diffraction coefficients. Since this discrepancy is only visible in the T diffraction coefficient, it seems unlikely that it is due to the branch points at angles $\theta=0$ and $\theta=\varphi$ mentioned in section \ref{C3:farfield}, as these branch points would affect both L and T diffracted waves. The observed discrepancy is more probably due to interference of the diffracted T wavefront with the Rayleigh waves observed on Figs.~\ref{snapLL} and \ref{snapTL}, which modifies the observed \acrshort{fe} amplitude along the diffracted T wavefront. In addition, on these figures, the very slight spikes at $\theta=57^o$ and $\theta=213^o$ in the \acrshort{sf} diffraction coefficient correspond to head waves and associated branch points when $\theta=\theta_c$ and $\theta=\varphi-\theta_c$. Regarding the diffraction coefficients calculated from the \acrshort{fe} simulation, since the value of the diffracted wave field is extracted along the cylindrical diffracted wavefront, the head waves are accounted in the \acrshort{fe} diffraction coefficient when they interfere with both diffracted and reflected waves (location at the intersection of the HW, rTW and dTW in the \acrshort{fe} snapshot). 
 
 Away from shadow boundaries (where the non-uniform \acrshort{sf} code diverges) and domain borders i.e. in regions where diffracted waves do not interfere with other waves and where the \acrshort{sf} asymptotic evaluation is theoretically valid, the \acrshort{fe} and \acrshort{sf} codes give very similar results. 
 
@@ -1490,24 +1497,23 @@ Two isotropic ferritic steel ($c_L=5900\,m.s^{-1}, \; c_T=3230\,m.s^{-1}$) cylin
 
 \begin{figure}[h!]
 \centering
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_80_LL.png}
         \caption{Incident and diffracted L wave, $\varphi=80^o$.}
         \label{C3:DLL80}
     \end{subfigure}
-    \hfill  
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_80_TT.png}
         \caption{Incident and diffracted T wave, $\varphi=80^o$.}
         \label{C3:DTT80}
      \end{subfigure} %\\  
-     \begin{subfigure}[b]{0.45\textwidth}
+     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_100_LL.png}
         \caption{Incident and diffracted L wave, $\varphi=100^o$.}
         \label{C3:DLL100}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter3/Retrodiff_D_100_TT.png}
         \caption{Incident and diffracted T wave, $\varphi=100^o$.}
         \label{C3:DTT100}
