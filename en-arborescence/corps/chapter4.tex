@@ -682,7 +682,7 @@ B_2(v)=
 \end{pmatrix}
 \label{C4:B2v2expl}
 \end{equation}
-Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained analogously to the first (operators are projected onto $\mathcal{S}_2$ instead of $\mathcal{S}_1$).
+Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained in a similar manner, by reversing the roles of $v_1$ and $v_2$.
 
 The functional equations system solved by the spectral functions is obtained by substituting the integral formulation \eqref{C4:vj0} of $v_1$ and $v_2$ into \eqref{C4:b1v1+b2v2}, evaluating the first equation at $x_1\geq 0, y_1=0$ and the second at $x_2\geq 0, y_2=0$ and applying the Fourier transform to the result. This yields :
 \begin{equation}
@@ -708,7 +708,7 @@ and
 \begin{equation}
 Q(\zeta) =\zeta_L\zeta_T+\zeta^2+\tau^2
 \end{equation}
-Evaluating $B_2(v_2)$ at $x_1\geq 0, y_1=0$ means is equivalent to evaluating $B_2(v_2)$ at $x_2=x\cos\varphi, y_2=x\sin\varphi, x\geq 0$. The Fourier transform of the second term is therefore
+The evaluation of $B_2(v_2)$ at $x_1\geq 0, y_1=0$ is the evaluation of  $B_2(v_2)$ at $x_2=x\cos\varphi, y_2=x\sin\varphi, x\geq 0$. The Fourier transform of the second term is therefore
 \begin{equation}
 \begin{split}
 \int_0^{+\infty} e^{-ix\xi}B_2(v_2)(x)\,dx&=\frac{1}{2}\textbf{TM}(\Sigma_2)(\xi) \\
@@ -774,12 +774,13 @@ In the following, let us note for simplification:
 
 It has been checked that setting $\tau=0$ in the explicit expressions of $\mathbf{DM}$ and $\mathbf{TM}$ operators leads to the same expressions as those found in the previous chapter, concerning the 2D case.
 
-Finally, the Fourier transform of the boundary conditions on the wedge faces its obtained by summing \eqref{C4:B1DM} and \eqref{C4:B2TM}. The right-hand side of the system is obtained by taking the Fourier transform of $-Bv_{\alpha}^{inc}|_{\mathcal{S}_j}, \; j=1,2$. The final system of functional equations solved by the spectral functions is 
+Finally, the Fourier transform of the boundary conditions on the wedge faces is obtained by summing \eqref{C4:B1DM} and \eqref{C4:B2TM}. The right-hand side of the system is obtained by taking the Fourier transform of $-Bv_{\alpha}^{inc}|_{\mathcal{S}_j}, \; j=1,2$. The final system of functional equations solved by the spectral functions is 
 \begin{equation}
 \left\{
 \begin{matrix}
 \textbf{DM}(\Sigma_1)+\textbf{TM}(\Sigma_2)=\dfrac{W_1^{\alpha}}{\xi-\nu_{\alpha} \cos \theta_{inc}\cos\delta_{inc}} 
 \\
+~\\
 \textbf{TM}(\Sigma_1)+\textbf{DM}(\Sigma_2)=\dfrac{W_2^{\alpha}}{\xi-\nu_{\alpha}\cos(\varphi-\theta_{inc})\cos\delta_{inc}}
 \end{matrix}
 \right.
@@ -834,14 +835,11 @@ Thanks to these functional equations, the spectral functions can be decomposed i
 
 \subsection{Singular part}
 \label{C4:singpart}
-The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using to a recursive procedure, in which the following translation appears (for $*=L,T$) :
+The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using to a recursive procedure, in which the following translation function appears (for $*=L,T$) :
 \begin{equation}
-\begin{split}
-T_*(\xi)&=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti \\
-&=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
-\end{split}
+T_*(\xi=\nuti_*\cos\theta)=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
 \end{equation}
-where $\phiti$ is defined in \eqref{phitilde}. This translation operator is defined on subspace $\Omega_*^+$, represented on Fig.~\ref{C4:domega0} :
+where $\phiti$ is defined in the second chaptzer of this manuscript, by \eqref{phitilde}. This translation operator is defined on subspace $\Omega_*^+$, represented on Fig.~\ref{C4:domega0} :
 \begin{equation}
 \xi \in \Omega_*^+= \{ \xi=\tilde{\nu}_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi} \}
 \label{C4:defOmega0}
