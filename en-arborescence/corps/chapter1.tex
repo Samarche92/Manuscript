@@ -14,19 +14,19 @@ Section 1 of this chapter presents two non-uniform scattering models : the \acrs
 There are various high-frequency approximations of the field echoed by the surfaces and interfaces of an inspected specimen. Some of these models lead to a discontinuous scattered field (which is not physical) and are therefore called non-uniform methods, as opposed to uniform models, which lead to continuous solutions.
 \subsection{\acrfull{ge}}
 \label{sectGE}
-The first approximation that can be applied to the study of wave propagation in a complex isotropic medium is the \acrfull{ge} model. It is a translation to elastodynamics of the geometrical optics theory. The field's propagation is described by ray tracing, each ray carrying a certain field value. At a given observation point, the field's value is the sum of the values carried by each of the rays passing through this point. In the \acrshort{ge} theory, the incident, reflected and refracted rays are described. These rays are computed following Snell's laws of reflection and refraction :
+The first approximation that can be applied to the study of wave propagation in a complex isotropic medium is the \acrfull{ge} model. It is a translation to elastodynamics of the geometrical optics theory. The field's propagation is described by ray tracing, each ray carrying a certain field value. At a given observation point, the field's value is the sum of the values carried by each of the rays passing through this point. In all this thesis, $\alpha=L,TH$ or $TV$ represents the type of the incident wave (L for Longitudinal, TH for Transverse Horizontal and TV for Transverse Vertical) and $\beta$ is the type of the reflected, transmitted or diffracted wave. In the \acrshort{ge} theory, the incident, reflected and refracted rays are described. These rays are computed following Snell's laws of reflection and refraction :
 \begin{equation}
     \frac{1}{c_{\alpha}}\cos\theta_{\alpha} = \frac{1}{c_{\beta}} \cos\theta_{\beta}
     \label{Snellrefl}
 \end{equation}
-In all this thesis, $\alpha=L,TH$ or $TV$ represents the type of the incident wave (L for Longitudinal, TH for Transverse Horizontal and TV for Transverse Vertical) and $\beta$ is the type of the reflected, transmitted of diffracted wave.
+where $\theta_{\alpha}$ is the incident angle and $\theta_{\beta}$ is the reflection or refraction angle.
 
-When the incident wave meets a surface containing an edge, the propagation medium can be decomposed into four zones (see Fig.~\ref{illuzones}) :
+According to \acrshort{ge}, when the incident plane wave meets a surface containing an edge, the propagation medium can be decomposed into four zones (see Fig.~\ref{illuzones}) :
 \begin{itemize}
 	\item Zone I : the incident rays are "shadowed" by the scattering surface and therefore do not illuminate this zone, called the shadow zone. The boundary between zones I and II is called the incident shadow boundary.
     \item Zone II : only the incident rays propagate in this zone.
     \item Zone III :  the incident rays are reflected by the scattering surface and mode conversion occurs (following Snell's law of reflection \eqref{Snellrefl}). This zone is illuminated by the incident rays and by the mode-converted reflected rays.
-    \item Zone IV : the incident rays are reflected. This zone is illuminated by incident rays and by L and T reflected waves.
+    \item Zone IV : the incident rays are reflected both with and without mode conversion. This zone is illuminated by incident rays and by L and T reflected waves.
 \end{itemize}
 
 The boundaries separating each of these zones are called the shadow boundaries. In the case where there is no mode conversion (determined by Snell's law of reflection \eqref{Snellrefl}), there is no Zone III (and the space occupied by Zone III becomes part of Zone II). 
