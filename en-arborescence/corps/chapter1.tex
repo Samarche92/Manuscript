@@ -94,12 +94,12 @@ u_p(\mathbf{x})=\int_{S^+}\lbrack u_i(\mathbf{x'})\rbrack G_{ij}^{(p)}(\mathbf{x
 \end{equation}
 where $u_p$ is the $p$-th coordinate of the displacement scattered field, $S^+$ is the lit side of the scattering surface, $n$ is the outward normal to $S^+$ and $G_{ij}^{(p)}(\mathbf{x},\mathbf{x'})$ is the $(ij)$ component of Green's stress tensor $G^{(p)}(\mathbf{x},\mathbf{x'})$, which is the stress produced at $\mathbf{x}$ by a unit traction acting along the $p$-axis at point $\mathbf{x'}$ on $S^+$ and its expression is given in \cite{POChapman}. In this integral, Green's tensor is used to propagate the local solution $\lbrack \mathbf{u}(\mathbf{x'}) \rbrack$ to the whole propagation domain.
 
-The \acrshort{ka} scattered field models diffraction and reflection and is continuous in the whole space. Comparisons between \acrshort{ka}, \acrshort{gtd} and the exact solution have been made for a strip-like crack illuminated by a transversal wave \cite{POChapman,systmodel}. \acrshort{ka} gives good results close to the geometrical reflections, as can be expected since the model is based on the \acrshort{ge} field. However, further away from these regions, it is inaccurate, as opposed to the \acrshort{gtd} which models diffraction correctly.
+The \acrshort{ka} scattered field models diffraction and reflection and is continuous in the whole space. Comparisons between \acrshort{ka}, \acrshort{gtd} and the exact solution have been made for a strip-like crack illuminated by a transversal wave \cite{POChapman,systmodel}. \acrshort{ka} gives good results for observation directions close to the geometrical reflections, as can be expected since the model is based on the \acrshort{ge} field. However, further away from these regions, it is inaccurate, as opposed to the \acrshort{gtd} which models diffraction correctly.
 
 The \acrshort{gtd} solution, which models diffraction well, is non-uniform in the sense that it diverges at shadow boundaries. The \acrshort{ka} on the other hand, is uniform but doesn't model diffraction correctly. Furthermore, it requires meshing of the scattering surface. To overcome inaccuracies of the \acrshort{gtd} and \acrshort{ka} models, an other model has been developed, called the \acrfull{ptd}.
 
 \subsection{\acrfull{ptd}}
-The \acrfull{ptd} was first developed for acoustic and electromagnetic waves by Ufmitsev \cite{Ufmi} and was extended to elastodynamics in the case of a half-plane by Zernov et al. \cite{Zernov}. It is also applied to ultrasonic scattering near critical angles \cite{systmodel,FradkinDarmon}. The idea is to combine \acrshort{gtd} and \acrshort{ka} models to overcome their shortcomings. This is done by adding a corrective term to the \acrshort{ka} diffracted field which is the difference between the \acrshort{gtd} and the \acrshort{ka} diffracted fields :
+The \acrfull{ptd} was first developed for acoustic and electromagnetic waves by Ufimtsev \cite{Ufmi} and was extended to elastodynamics in the case of a half-plane by Zernov et al. \cite{Zernov}. It is also applied to ultrasonic scattering near critical angles \cite{systmodel,FradkinDarmon}. An ultrasonic \acrshort{ndt} system has been  developed by Darmon et al. \cite{systmodel} for simulating the response of cracks. The idea is to combine \acrshort{gtd} and \acrshort{ka} models to overcome their shortcomings. This is done by adding a corrective term to the \acrshort{ka} diffracted field which is the difference between the \acrshort{gtd} and the \acrshort{ka} diffracted fields :
 \begin{equation}
 \mathbf{u}^{tot (PTD)}=\mathbf{u}_{\alpha}(\mathbf{x})+\mathbf{u}^{sc (PTD)}(\mathbf{x})
 \end{equation}
@@ -116,7 +116,7 @@ Far from the incident and specular directions, we have :
 \end{equation}
 Substituting this into \eqref{eqPTD}, we find that in these regions, the \acrshort{ka} contribution vanishes and only the \acrshort{gtd} field remains, which models diffraction accurately.
 
-The Physical theory of diffraction has been developed in the \acrshort{ndt} software platform CIVA \cite{systmodel}. It provides a good description of the scattered field in the directions of specular reflection, as well as far from the shadow boundaries. However, it requires meshing of the scattering surface for the \acrshort{ka} model as well as meshing of the flaw contour for the \acrshort{gtd} model, which can render it computationally expensive for large scatterers. Another uniform model has been developed, which does not required meshing of the scattering surface, called the \acrfull{uat}.
+The \acrfull{ptd} has been developed in the \acrshort{ndt} software platform CIVA and the \acrshort{ptd}, \acrshort{ka} and \acrshort{gtd} models have been compared to each-other and to a finite elements model for the response of cracks \cite{systmodel}. It provides a good description of the scattered field in the directions of specular reflection, as well as far from the shadow boundaries, where the main contribution is diffraction from the edge. However, it requires meshing of the scattering surface for the \acrshort{ka} model as well as meshing of the flaw contour for the \acrshort{gtd} model, which can render it computationally expensive for large scatterers. Another uniform model has been developed, which does not required meshing of the scattering surface, called the \acrfull{uat}.
 
 \subsection{\acrfull{uat}}
 The \acrfull{uat} was first developed for two-dimensional acoustics and electromagnetics by Lewis and Boersma \cite{Lewis} and was extended to three-dimensional problems by Ahluwalia \cite{Ahluwalia} and to a curved wedge by Lee and Deschamps \cite{LeeDeschamps} before being applied to elastodynamics by Achenbach et al. \cite{Achenbach}. It is a correction of the \acrshort{gtd} model where the \acrshort{ge} field is modified to compensate the divergence in the \acrshort{gtd} field and smooth the discontinuity in the \acrshort{ge} field. The total field \eqref{GTDtot} becomes :
@@ -155,14 +155,14 @@ $\mathbf{u}^{ref}_{\beta}$ is the reflected field of type $\beta$, $\mathbf{u}_{
 \end{figure}
 
 \subsection{\acrfull{utd}}
-The \acrfull{utd} was initially developed for acoustic and electromagnetic waves by Kouyoumjian and Pathak \cite{Kouyoumjian,PathakKouyou} and was extended to elastodynamics by Kamta-Djakou during her PhD thesis \cite{Audrey,AKDthese}. This method consists of correcting the \acrshort{gtd} diffraction coefficient using a transition function $F$. For the problem of diffraction by a wedge of angle $\varphi$, this is expressed as :
+The \acrfull{utd} was initially developed for acoustic and electromagnetic waves by Kouyoumjian and Pathak \cite{Kouyoumjian,PathakKouyou} and was extended to elastodynamics by Kamta-Djakou during her PhD thesis \cite{Audrey,AKDthese}. This method consists of correcting the \acrshort{gtd} diffraction coefficient in the vicinity of shadow boundaries using a transition function $F$. For the problem of diffraction by a wedge of angle $\varphi$, this is expressed by Kamta-Djakou \cite{AKDthese} as :
 \begin{equation}
     D_{\beta}^{\alpha(UTD)}(\zeta,\theta)=(-1)^{M_{\beta}+1}D_{\beta}^{\alpha(GTD)}(\theta)\left[ \sum_{j=1}^{M_{\beta}} F(\zeta a^j_{\beta})\prod_{\underset{k\neq j}{k=1}}^{M_{\beta}} \dfrac{s_\beta^{k}}{(s_\beta^{j}-s_\beta^{k})}\right]
     \label{DUTDGTD}
 \end{equation}
 where $\theta$ is the direction of observation, $(\lambda^j_{\beta}), 1\leq j\leq M_{\beta}$ are the poles of the diffraction coefficient mentioned in section \ref{C1:GTD} (methods of computation of these poles will be given in the following chapters) and 
 \begin{equation}
-    a_{\beta}^j=-i(s_{\beta}^j)^2=2\cos^2\left(\frac{\lambda_{\beta}^j-\theta+\varphi/2}{2}\right)
+    a_{\beta}^j=-i(s_{\beta}^j)^2=2\cos^2\left(\frac{\lambda_{\beta}^j-\theta}{2}\right)
 \end{equation}
 $\zeta$ is a far-field parameter which can be defined as
 \begin{equation}
@@ -170,7 +170,7 @@ $\zeta$ is a far-field parameter which can be defined as
 \end{equation}
 Finally, $F$ is a transition function defined as the complex conjugate of the Kouyoumjian function \cite{Kouyoumjian}
 \begin{equation}
-    F(X)=-2i\sqrt{i\pi X}e^{-iX}\overline{F}(\sqrt{X})
+    F(X)=-2i\sqrt{i\pi X}e^{-iX}\overline{F}\left(\sqrt{X}\right), \hspace{1em} -\frac{\pi}{2}< \rm arg X < \frac{3\pi}{2},
 \end{equation}
 $\overline{F}$ is the Fresnel function defined by \eqref{defFresnel}.
 
@@ -185,6 +185,16 @@ The \acrfull{utd} has been validated numerically in far-field configurations in 
 The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all uniform \textit{corrections} of the \acrshort{gtd} field. This means that they all rely on a preexisting \acrshort{gtd} solution, which must therefore be accurate. In the following, the two main existing \acrshort{gtd} approaches to the problem of diffraction of an elastic wave by a stress-free wedge are presented.
 
 \section{Principal \acrshort{gtd} elastic wedge diffraction models}
+
+As seen in the previous section, an accurate uniform scattering model requires a trust-worthy initial \acrshort{gtd} solution in order to be developed. The aim of this thesis will therefore be to develop a generic and trust-worthy wedge diffraction \acrshort{gtd} model. To our knowledge, there is no fully analytical resolution of the problem of elastic wedge diffraction available in scientific literature, and the preferred approach is semi-analytical. We begin this work by a review of the two main existing 2D elastic wedge-diffraction models. These two models have been presented and compared by Gautesen and Fradkin \cite{GautesenFradkin}, who also discuss their numerical validation. Experimental validation  of these codes has been done by Chapman et al. \cite{ChapmanBurch}.
+
+\subsection{Problem statement}
+\label{C1:PbStatement}
+The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ and infinite in the direction of its edge is illuminated by a a plane wave which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{- i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to this system are $\mathbf{x}=(r,\theta)$. In this coordinate system, the incident wave vector is :
+\begin{equation}
+\mathbf{k}^{inc}=-(\cos\theta_{inc},\sin\theta_{inc})_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}
+\end{equation}
+$(0;\mathbf{e}_x,\mathbf{e}_y,\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $x$-axis coincides with the wedge bisector and the polar coordinates associated to this system are $\mathbf{x}=(r,\theta')$.
 
 \begin{figure}
 \centering
@@ -270,21 +280,11 @@ The \acrshort{ptd}, \acrshort{uat} and \acrshort{utd} methods presented are all 
 \label{C1:wedge}
 \end{figure}
 
-As seen in the previous section, an accurate uniform scattering model requires a trust-worthy initial \acrshort{gtd} solution in order to be developed. The aim of this thesis will therefore be to develop a generic and trust-worthy wedge diffraction \acrshort{gtd} model. To our knowledge, there is no fully analytical resolution of the problem of elastic wedge diffraction available in scientific literature, and the preferred approach is semi-analytical. We begin this work by a review of the two main existing 2D elastic wedge-diffraction models. These two models have been presented and compared by Gautesen and Fradkin \cite{GautesenFradkin}, who also discuss their numerical validation. Experimental validation  of these codes has been done by Chapman et al. \cite{ChapmanBurch}.
-
-\subsection{Problem statement}
-\label{C1:PbStatement}
-The geometry of the problem is visible in Fig.~\ref{C1:wedge}. A stress-free wedge of angle $2\varphi<\pi$ is illuminated by a a plane wave which forms an angle $\theta_{inc}$ with the bottom face of the wedge. The problem is two-dimensional in the sense that the incident wave vector is in the plane normal to wedge edge. In all the following, the harmonic time-dependency factor $e^{- i\omega t}$ (where $\omega$ is the circular frequency and $t$ is time) will be omitted. $(0;\mathbf{e}_{x_1},\mathbf{e}_{y_1},\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $z$-axis coincides with the wedge edge and the $x_1$ axis coincides with the bottom face of the wedge. The polar coordinates associated to this system are $\mathbf{x}=(r,\theta)$. In this coordinate system, the incident wave vector is :
-\begin{equation}
-\mathbf{k}^{inc}=-(\cos\theta_{inc},\sin\theta_{inc})_{(\mathbf{e}_{x_1},\mathbf{e}_{y_1})}
-\end{equation}
-$(0;\mathbf{e}_x,\mathbf{e}_y,\mathbf{e}_z)$ is the orthonormal basis of a Cartesian coordinate system where the $x$-axis coincides with the wedge bisector and the polar coordinates associated to the system are $\mathbf{x}=(r,\theta')$.
-
-In both of the following approaches, the the symmetry of the problem with respect to the wedge bisector is used and the problem is split in two : a symmetric problem (regarding the polarization of the incident wave) and an antisymmetric problem. This is done by introducing a wave vector symmetric to $\mathbf{k}^{inc}$ with respect to the bisector :
+In both of the following approaches, the symmetry of the problem with respect to the wedge bisector is used and the problem is split in two : a symmetric problem (regarding the polarization of the incident wave) and an antisymmetric problem. This is done by introducing a wave vector symmetric to $\mathbf{k}^{inc}$ with respect to the bisector :
 \begin{equation}
 \mathbf{k}_{sym}=(-\cos\theta'_{inc},\sin\theta'_{inc})_{(\mathbf{e}_x,\mathbf{e}_y)}
 \end{equation}
-In the case of an incident L wave, the symmetric problem is constructed by considering that the incident wave is the sum of two plane waves of which the wave vectors are $\mathbf{k}^{inc}$ and $\mathbf{k}_{sym}$, see Fig.~\ref{Sym}. In this case, the polarization vectors $\mathbf{p}^{inc}=\mathbf{k}^{inc}$ and $\mathbf{p}_{sym}=\mathbf{k}_{sym}$ are symmetric. The antisymmetric problem is constructed by setting the incident wave to be the sum of two plane waves of which the wave vectors are $\mathbf{k}^{inc}$ and $-\mathbf{k}_{sym}$, see Fig.~\ref{Antisym}. In this case the polarization vectors $\mathbf{p}^{inc}$ and $-\mathbf{p}_{sym}$ are antisymmetric.
+In the case of an incident L wave, the symmetric problem is constructed by considering that the incident wave for this problem is the sum of two plane waves of which the wave vectors are $\mathbf{k}^{inc}$ and $\mathbf{k}_{sym}$, see Fig.~\ref{Sym}. In this case, the polarization vectors $\mathbf{p}^{inc}=\mathbf{k}^{inc}$ and $\mathbf{p}_{sym}=\mathbf{k}_{sym}$ are symmetric. The antisymmetric problem is constructed by setting the incident wave to be the sum of two plane waves of which the wave vectors are $\mathbf{k}^{inc}$ and $-\mathbf{k}_{sym}$, see Fig.~\ref{Antisym}. In this case the polarization vectors $\mathbf{p}^{inc}$ and $-\mathbf{p}_{sym}$ are antisymmetric.
 
 In the case of an incident T wave, the polarization vector is normal to the wave vector. Therefore, symmetric problem is constructed by setting $\mathbf{k}^{inc}$ and $-\mathbf{k}_{sym}$ as the incident wave vectors, see Fig.~\ref{Antisym} and the antisymmetric problem is constructed by setting $\mathbf{k}^{inc}$ and $\mathbf{k}_{sym}$ as the incident wave vectors, see Fig.~\ref{Sym}.
 
@@ -305,7 +305,7 @@ In the case of an incident T wave, the polarization vector is normal to the wave
     \label{SymAntisym}
 \end{figure}
 
-Both of the semi-analytic resolutions that will be described in the following deal with the symmetric and antisymmetric problems separately, in order to reduce the numerical part of the resolution by half. The first approach presented is called the \acrfull{si} method. The main steps of the resolution are presented but the technical details are not given.
+Both of the semi-analytic resolutions that will be described in the following deal with the symmetric and antisymmetric problems separately, in order to reduce the numerical part of the resolution by half. The first approach presented is called the \acrfull{si} method. The main steps of the resolution are presented but the technical details are not given here and can be found in \cite{AKDthese}.
 
 \subsection{The \acrfull{si} Method}
 The \acrfull{si} method was first proposed by Budaev \cite{BudaevBook,Budaev1,Budaev2} and Budaev and Bogy \cite{Rayleigh,Rayleigh2,Rayleigh3} have proposed the corresponding numerical scheme. The theory was completed and clarified by Kamotski et al. \cite{KamotskiFradkin}.
