@@ -332,7 +332,7 @@ Sommerfeld \cite{Sommerfeld} has given an exact expression of these potentials i
 \end{equation}
 where $*=L,T$,$\lambda$ is a complex angle, $\Psi_*$ are unknown amplitudes and contours $\gamma_+$ and $\gamma_-$ are represented on Fig.~\ref{C1:Somcontours}.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{tikzpicture}
 \fill[color=gray!20] (0,0) -- (0,3.5)  -- (pi,3.5) -- (pi,0);
@@ -443,6 +443,7 @@ r_T^L(\lambda)&r_T^T(\lambda)
 where $\kappa=c_L/c_T$,
 \begin{equation}
 g(\lambda)=\arccos(\kappa\cos\lambda),
+\label{C1:gfct}
 \end{equation}
 the potential reflection coefficients $r_L^L,r_L^T,r_T^L$ and $r_T^T$ for the traction-free elastic half-space are known explicitly and are given in \cite{KamotskiFradkin}, function $\mathcal{R}$ is called the Rayleigh function :
 \begin{equation}
@@ -458,17 +459,18 @@ Representation \eqref{C1:Sommerfeld} gives the total elastodynamic potentials, i
 \end{equation}
 where $\Psi_*^{\pm \, reg}$ is regular in the strip 
 \begin{equation}
-\{ \lambda \in \mathbb{C},\, \pi/2-\varphi \leq \rm Re \lambda \leq \pi/2+\varphi \}
+\{ \lambda \in \mathbb{C},\, \pi/2-\varphi \leq \rm Re \lambda \leq \pi/2+\varphi \}.
+\label{C1:SIstrip}
 \end{equation}
-and
+The choice of this strip is explained by Budaev and Bogy \cite{Rayleigh}. In order to determine the unknown functions $\Psi_L^\pm$ and $\Psi_T^\pm$ in the whole complex plane, it is sufficient to determine them in any strip of width $2\varphi$. System \eqref{C1:SIfunctional} then provides an analytic continuation of these functions to the rest of the complex plane. Resolution of \eqref{C1:SIfunctional} is simplified in the strip \eqref{C1:SIstrip}, notably because the function $g$ defined by \eqref{C1:gfct} maps the axis Re$\lambda=\frac{\pi}{2}$ to itself. The "singular part" of the Sommerfeld amplitudes is given by
 \begin{equation}
-\Psi_*^{\pm sing}(\lambda)=\sum_j \dfrac{res^\pm(\pm \lambda_*^j)}{2}\cot\left(\dfrac{\lambda\mp\lambda_*^j}{2}\right)
+\Psi_*^{\pm sing}(\lambda)=\sum_j \dfrac{res^\pm(\pm \lambda_*^j)}{2}\cot\left(\dfrac{\lambda\mp\lambda_*^j}{2}\right),
 \end{equation}
-$\pm\lambda_*^j$ are the poles of the Sommerfeld amplitudes $\Psi_*^{\pm sing}$ and  $res^\pm(\pm \lambda_*^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is explained in great detail by Kamta-Djakou in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:singreg} is then substituted into \eqref{C1:SIfunctional} and the resulting system is solved numerically, thanks to the scheme proposed by Kamotski et al. \cite{KamotskiFradkin}.
+$\pm\lambda_*^j$ are the poles of the Sommerfeld amplitudes $\Psi_*^{\pm sing}$ and  $res^\pm(\pm \lambda_*^j)$ are the corresponding residues. These poles and residues are determined analytically thanks to a recursive pole propagation algorithm, which is explained in great detail by Kamta-Djakou in \cite{AKDthese} and will not be reproduced here. Decomposition \eqref{C1:singreg} is then substituted into \eqref{C1:SIfunctional} and the resulting system is solved numerically, thanks to the scheme proposed by Kamotski et al. \cite{KamotskiFradkin}, to obtain the regular functions $\Psi_*^{\pm reg}$ for wedge angles lower than $\pi$.
 
 The diffracted elastodynamic potentials $\psi_{\beta}^{GTD} $ can be expressed in terms of the Sommerfeld amplitudes by evaluating integral \eqref{C1:Sommerfeld} asymptotically with the steepest descent method (see appendix \ref{PhaseStationnaire}) :
 \begin{equation}
-\psi_{\beta}^{GTD}=(k_{\beta} r,\theta')=i\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack \dfrac{e^{ik_{\beta}r}}{\sqrt{k_{\beta}r}}
+\psi_{\beta}^{GTD}(k_{\beta} r,\theta')=i\sqrt{2i\pi}\lbrack \Psi_{\beta}(\theta'-\pi)-\Psi_{\beta}(\pi+\theta')\rbrack \dfrac{e^{ik_{\beta}r}}{\sqrt{k_{\beta}r}}
 \end{equation}
 Using \eqref{C1:elastopotentials}, the diffracted displacement field is given by :
 \begin{equation}
