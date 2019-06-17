@@ -1176,10 +1176,10 @@ The \acrfull{sf} method can be summarized in the following manner : first, follo
 \label{Chapter5:results}
 
 In this section, a far-field ($k_0r>>1$) asymptotic evaluation of the diffraction coefficient is computed using the stationary phase method (see section \ref{CoeffDiffAc}):
-\begin{equation*}
+\begin{equation}
 D^{GTD}(\theta) = \dfrac{e^{-i\frac{\pi}{4}}}{\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( \varphi - \theta))]
-\end{equation*}
-(where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are the spectral functions) is compared to the analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void as expressed by Sommerfeld \cite{Sommerfeld}. Keller \cite{GTD} gives an analytical expression of the GTD approximation of the coefficient in the case of the diffraction of a scalar plane wave by a wedge with Dirichlet boundary conditions which can be used in the case of a stress-free wedge immersed in a fluid :
+\end{equation}
+(where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are the spectral functions). This asymptotic evaluation is compared to the analytic expression of the diffraction coefficient of the scattering of a plane wave with a wedge at interfaces fluid/void as expressed by Sommerfeld \cite{Sommerfeld}. Keller \cite{GTD} gives an analytical expression of the GTD approximation of the coefficient in the case of the diffraction of a scalar plane wave by a wedge with Dirichlet boundary conditions which can be used in the case of a stress-free (soft) wedge immersed in a fluid :
 \begin{align}
 \label{GTDCoeff_Dir}
 D^{\rm (Dir)}(\theta) = \dfrac{e^{i\frac{\pi}{4}}}{2\mathcal{N} \sqrt{2\pi}}  \, \left[ \cot \left( \dfrac{\pi + (\theta + \theta_{\rm inc})}{2\mathcal{N}} \right) + \cot \left( \dfrac{\pi - (\theta + \theta_{\rm inc})}{2\mathcal{N}} \right) \right.   \nonumber \\
@@ -1194,7 +1194,7 @@ To apply the recursive procedure described in \ref{propag_sol}, calculation poin
 \end{equation}
 where $\theta$ is the observation angle in the wedge (see Fig.~\ref{chapter5:figure1}).
 
-For the Galerkin basis defined in \eqref{Galerkin_basis}, the parameters $a_k \in [1,\infty[$ are chosen as an exponential law :
+For the Galerkin basis defined in \eqref{Galerkin_basis}, the parameters $a_k$ are chosen as an exponential law, so that they are distributed along the axis $\lbrack 1,\+\infty\lbrack$. The parameters $b_k$ are chosen close to the $a_k$ collocation points but in the lower half of the complex plane :
 \begin{equation}
 \begin{split}
 \label{bas_Gal}
@@ -1203,7 +1203,7 @@ b_k &= a_k  - i 0.1, \quad 1\leq k\leq 20 .
 \end{split}
 \end{equation}
 
-The module of the diffraction coefficients computed using the spectral functions and the Sommerfeld integral method for various wedge angles are plotted in terms of the observation angle $\theta, \quad 0\leq \theta\leq \varphi$ and presented on Fig.~\ref{chapter5:figure12}. 
+The module of the diffraction coefficients computed using the spectral functions and the Sommerfeld integral method for various wedge angles and various incidence angles are plotted in terms of the observation angle $\theta, \quad 0\leq \theta\leq \varphi$ and presented on Fig.~\ref{chapter5:figure12} (commented in the following). 
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.49\textwidth}
@@ -1278,4 +1278,4 @@ The results are presented on Fig ~\ref{chapter5:figure13}.
 On Figs.~\ref{chapter5:figure12a},~\ref{chapter5:figure12b},~\ref{chapter5:figure13a} and ~\ref{chapter5:figure13b} the wedge angles are lower than $\pi$ and on figs.~\ref{chapter5:figure12c},~\ref{chapter5:figure12d},~\ref{chapter5:figure13c} and ~\ref{chapter5:figure13d} the wedge angles are greater than $\pi$. In all cases, it appears clearly that both the regular part of the solution and the recursive method are necessary to obtain optimal results. When both of these are included, diffraction coefficients obtained with Spectral functions are close to those of the Sommerfeld method. In addition, the run time to evaluate the diffraction coefficients in 250 different observation points, in each of the presented configurations, using an Intel(R) Xeon(R) CPU E3-1240 v3 is under 0.1 seconds for both methods. 
 
 \section*{Conclusion}
-The spectral functions method is shown here to model diffraction of an acoustic wave by stress-free wedges. The diffraction coefficient obtained using the spectral functions method has been compared to the analytic one obtained from the asymptotic evaluation of the Sommerfeld integral. The numerical results obtained thanks to the spectral functions method are very close to those given by the analytical solution and the result is obtained at a very low computational cost. The acoustic wave diffraction by a wedge with Neumann boundary conditions has also been modeled and successfully validated. This proves the applicability and feasibility of the spectral functions method, as well as its efficiency and its precision. It may therefore be extended to more complex wedge diffraction cases such as 2D and 3D elastic wave diffraction, as will be shown in the following chapters. 
+The spectral functions method is devloped here to model diffraction of an acoustic wave by stress-free (soft or hard) wedges. The main steps of the method have been summarized at the end of section \ref{propag_sol}. The diffraction coefficient obtained using the spectral functions method has been compared to the analytic one obtained from the asymptotic evaluation of the Sommerfeld integral. The numerical results obtained thanks to the spectral functions method are very close to those given by the analytical solution and the result is obtained at a very low computational cost. The acoustic wave diffraction by a wedge with Neumann boundary conditions has also been modeled and successfully validated. This proves the applicability and feasibility of the spectral functions method, as well as its efficiency and its precision. It may therefore be extended to more complex wedge diffraction cases such as 2D and 3D elastic wave diffraction, as will be shown in the following chapters. 
