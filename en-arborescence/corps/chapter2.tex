@@ -403,6 +403,7 @@ One of the aims of this chapter is to compute the spectral functions $\hat{\alph
 
 To compute the spectral functions, the functional equations satisfied by these spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ first have to be determined.
 \subsection{Functional equations of spectral functions}
+\label{C2:functional_system}
 
 The velocity potential in the boundary conditions of the system \eqref{Chapter5:waveMotion_epsilon} is substituted by its expression \eqref{initial_sol}. It then leads to the following system of equations for the boundary conditions on each wedge face:
 \begin{equation}
@@ -1169,7 +1170,7 @@ dm(\xi)\, g_j(\xi) -  u_j(\xi)=
 N\mathcal T(a_k,\xi) \Big) \nonumber
 \end{eqnarray}
 
-Some numerical results are presented in the sequel.
+The \acrfull{sf} method can be summarized in the following manner : first, following Croisille and Lebeau \cite{CroisilleLebeau}, the solution of the acoustic scattering problem is expressed as a complex integral \eqref{champ}, using a version of the limiting absorption principle which guarantees the physical correctness of the solution (see section \ref{integral_representation}). This integral expression is given with respect to two unknown functions (one for each wedge face) called the spectral functions. The integral formulation is then used in section \ref{CoeffDiffAc} to determine a far-field approximation of the wedge's edge diffracted field, which is fully determined by the value of a coefficient called the diffraction coefficient \eqref{GTDCoeff_SF}, which is also expressed with respect to the spectral functions. The rest of the method is therefore devoted to the semi-analytic computation of these spectral functions. To this aim, a system of functional equations solved by the spectral function is determined in section \ref{C2:functional_system} using the Fourier transform of the wedge scattering problem's boundary conditions. This system is used to decompose the spectral functions as the sum of two parts: a singular part $y_j$, determined analytically thanks to a recursive algorithm in section \ref{Chapter5:sing_part}, and a regular part $X_j$ approximated numerically using a Galerkin collocation method in section \ref{Chapter5:regular_part}. Finally, in section \ref{propag_sol}, a recursive method called the "propagation of the solution" is used to improve the accuracy of the evaluation of the regular part in the entire complex plane. Some numerical results are presented in the sequel.
 
 \section{Numerical results}
 \label{Chapter5:results}
