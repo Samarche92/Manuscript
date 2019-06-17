@@ -974,86 +974,14 @@ Once all matrix terms have been calculated, system \eqref{Syst_lineaire} is reso
 
 \subsection{Propagation of the solution}
 \label{propag_sol}
-The regular part approximation described previously is not accurate in the entire complex plane. There exists a procedure, called "propagation of the solution", which allows to propagate the accuracy of the regular part $X_j(\xi)$ of the spectral functions from $\xi \notin \Omega_0^-$, ${\rm Im} (\xi) <0$ where the approximation is valid to the domain $\Omega_0^-$ where it is not. The space $\Omega_0^-$ defined by
+The regular part approximation described previously is not accurate in the entire complex plane. There exists a procedure, called "propagation of the solution", which allows to propagate the accuracy of the regular part $X_j(\xi)$ of the spectral functions from $\xi \notin \Omega_0^-$, ${\rm Im} (\xi) <0$, near the Galerkin collocation points $a_k, 1\leq k \leq N \in \lbrack 1, +\infty \lbrack$ (domain $\Omega_0^-$ is defined hereafter in \eqref{defomegamoins}) where the numerical approximation is valid, to the domain $\Omega_0^-$ where it is not. The sub-space $\Omega_0^-$ is defined by
 \begin{equation}
 \label{defomegamoins}
 \Omega_0^- = \{\xi \in \mathbb C, \ {\rm Im}(\xi) <0, \  \xi=\cos(\theta), \ \phiti < {\rm Re}(\theta)<\pi\}
 \end{equation}
-is represented in Fig.~\ref{chapter5:figure11}. 
-The procedure consists in deriving new recursive equations by deforming the  contour $\Gamma_0$ in the integrals of the right-hand side of \eqref{sys_regular} into a new contour $\Gamma_2$ and taking into account the poles crossed in the process.
+is represented in Fig.~\ref{chapter5:figure11}. The procedure consists in deriving new recursive equations by deforming the  contour $\Gamma_0$ in the integrals of the right-hand side of \eqref{sys_regular} into a new contour $\Gamma_2$ and taking into account the poles crossed in the process.
 
 To begin, the contour $\Gamma_0$ in the $DM$ integral operator is deformed into contour $\Gamma_2$, visible Fig.~\ref{chapter5:figure8}. The half-space $\{ \lambda, {\rm Im} \ \lambda < 0 \}$ is then crossed during this contour deformation as shown by the curved arrow on Fig.~\ref{chapter5:figure8}.
-
-\begin{figure}[ht]%
-\centering
-\begin{tikzpicture}
-%\node at (-0.5,0) {  $\times$};
-\node at (-0.2,-0.35) { $0$};
-\node at (2,0) { $\times$}; % Pole
-\node at (2,-0.36) { $1$};
-
-\node at (-2,0) { $\times$};
-\node at (-2,0.36) {  $-1$}; %pole
-\node at (4,-1.35) { $\Gamma_2$};
-
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{latex}}},
-      postaction={decorate}] (-4,0) -- (-2.25,0) arc (-180:0:0.25)-- (1.75,0);
-      
-\node at (4,0.35) {$\sigma$};
-
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{latex}}},
-      postaction={decorate}] (0,-1.5) -- (0,1);
-\node at (-0.3,1) {$\tau$};      
-
-%\node at (2.5,-0.4) {$(\Gamma_0)$};
-      
-\draw[ thick, ->] (-0.75,-0.5) arc (0:135:-0.75); 
-  
-
-\draw[very thick, black, yshift=0pt,
-decoration={ markings,  
-      mark=at position 0.1 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      postaction={decorate}]
-      (4,-1) -- (1.75,-1)  arc (90:-90:-0.5) -- (1.75,0) arc(180:0:0.25)  -- (4,0);
-\end{tikzpicture}
-\caption
-[Contour $\Gamma_2$]
-{Contour $\Gamma_2$. The curved arrow shows the deformation of $\Gamma_0$ into $\Gamma_2$.}
-\label{chapter5:figure8}
-\end{figure}
-
-During this contour deformation, only the poles
-\begin{equation}
-\lambda = \xi, \quad \text{with } {\rm Im}(\xi) <0 
-\end{equation}
-of the $DM$ function \eqref{DM_operator} are crossed and therefore, applying the residue theorem, we have for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$, 
-\begin{equation}
-\label{DM_propag_sol}
-DM(X_j)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) X_j(\lambda) \, d \lambda  = \int_{\Gamma_2} DM(\xi,\lambda) X_j(\lambda) \, d \lambda + dm(\xi) X_j(\xi).
-\end{equation}
-
-The poles of the $TM$ function \eqref{TM_operator} are
-$$ \lambda = T_0^{-1}(\xi) = \xi \, \cos \phiti  - \sin \phiti \, \zeta_0(\xi) = \cos (\theta - \phiti) \quad \text{if} \quad \xi = \cos \theta $$
-$T_0^{-1}$ operates in the domain $\Omega_0^-$, therefore these poles are crossed during this contour deformation if and only if $\xi \in \Omega_0^-$ (see dotted area on Fig.~\ref{chapter5:figure11}).
-The domain $\Omega_0^-$ is delineated by the hyperbola 
-\begin{equation}
-\partial \Omega_0^- = \{   \xi \in \mathbb{C}, \ {\rm Im}(\xi) <0,  \xi = \cos \theta, {\rm Re} \, \theta = \phiti \}.
-\end{equation}
-Domain $\Omega_0^-$ and contour $\partial \Omega_0^-$ are illustrated on Fig.~\ref{chapter5:figure11}.   
-
-Applying the residue theorem to the $TM$ integral operator then gives for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$,
-\begin{equation}
-\label{TM_propag_sol}
-\int_{\Gamma_0} TM(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\Gamma_2}  TM(\xi,\zeta)X_j(\zeta)\, d\zeta+M_0(\xi).X_j(T^{-1}_0(\xi)),
-\end{equation}
-where the transfer operator $M_0$ is defined as :
-\begin{equation}
-\label{defM0}
-M_0(\xi=\cos\theta)=-\frac{\sin(\theta-\tilde{\varphi})}{\sin\theta} tm(T_0^{-1}(\xi))1_{\Omega_0^-}(\xi)
-\end{equation}
 
 \begin{figure}[ht]%
 \begin{center}
@@ -1103,6 +1031,77 @@ M_0(\xi=\cos\theta)=-\frac{\sin(\theta-\tilde{\varphi})}{\sin\theta} tm(T_0^{-1}
 \label{chapter5:figure11}
 \end{figure}
 
+During this contour deformation, only the poles
+\begin{equation}
+\lambda = \xi, \quad \text{with } {\rm Im}(\xi) <0 
+\end{equation}
+of the $DM$ function \eqref{DM_operator} are crossed and therefore, applying the residue theorem, we have for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$, 
+\begin{equation}
+\label{DM_propag_sol}
+DM(X_j)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) X_j(\lambda) \, d \lambda  = \int_{\Gamma_2} DM(\xi,\lambda) X_j(\lambda) \, d \lambda + dm(\xi) X_j(\xi).
+\end{equation}
+
+The poles of the $TM$ function \eqref{TM_operator} are
+$$ \lambda = T_0^{-1}(\xi) = \xi \, \cos \phiti  - \sin \phiti \, \zeta_0(\xi) = \cos (\theta - \phiti) \quad \text{if} \quad \xi = \cos \theta $$
+$T_0^{-1}$ operates in the domain $\Omega_0^-$, therefore these poles are crossed during this contour deformation if and only if $\xi \in \Omega_0^-$ (see dotted area on Fig.~\ref{chapter5:figure11}).
+The domain $\Omega_0^-$ is delineated by the hyperbola 
+\begin{equation}
+\partial \Omega_0^- = \{   \xi \in \mathbb{C}, \ {\rm Im}(\xi) <0,  \xi = \cos \theta, {\rm Re} \, \theta = \phiti \}.
+\end{equation}
+Domain $\Omega_0^-$ and contour $\partial \Omega_0^-$ are illustrated on Fig.~\ref{chapter5:figure11}.   
+
+Applying the residue theorem to the $TM$ integral operator then gives for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$,
+\begin{equation}
+\label{TM_propag_sol}
+\int_{\Gamma_0} TM(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\Gamma_2}  TM(\xi,\zeta)X_j(\zeta)\, d\zeta+M_0(\xi).X_j(T^{-1}_0(\xi)),
+\end{equation}
+where the transfer operator $M_0$ is defined as :
+\begin{equation}
+\label{defM0}
+M_0(\xi=\cos\theta)=-\frac{\sin(\theta-\tilde{\varphi})}{\sin\theta} tm(T_0^{-1}(\xi))1_{\Omega_0^-}(\xi)
+\end{equation}
+
+\begin{figure}[ht]%
+\centering
+\begin{tikzpicture}
+%\node at (-0.5,0) {  $\times$};
+\node at (-0.2,-0.35) { $0$};
+\node at (2,0) { $\times$}; % Pole
+\node at (2,-0.36) { $1$};
+
+\node at (-2,0) { $\times$};
+\node at (-2,0.36) {  $-1$}; %pole
+\node at (4,-1.35) { $\Gamma_2$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{latex}}},
+      postaction={decorate}] (-4,0) -- (-2.25,0) arc (-180:0:0.25)-- (1.75,0);
+      
+\node at (4,0.35) {$\sigma$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{latex}}},
+      postaction={decorate}] (0,-1.5) -- (0,1);
+\node at (-0.3,1) {$\tau$};      
+
+%\node at (2.5,-0.4) {$(\Gamma_0)$};
+      
+\draw[ thick, ->] (-0.75,-0.5) arc (0:135:-0.75); 
+  
+
+\draw[very thick, black, yshift=0pt,
+decoration={ markings,  
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (4,-1) -- (1.75,-1)  arc (90:-90:-0.5) -- (1.75,0) arc(180:0:0.25)  -- (4,0);
+\end{tikzpicture}
+\caption
+[Contour $\Gamma_2$]
+{Contour $\Gamma_2$. The curved arrow shows the deformation of $\Gamma_0$ into $\Gamma_2$.}
+\label{chapter5:figure8}
+\end{figure}
+
 
 Using \eqref{DM_propag_sol} and \eqref{TM_propag_sol} in the system of functional equations \eqref{sys_regular}, a new equivalent system is obtained for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$:
 \begin{equation}
@@ -1117,7 +1116,17 @@ where
 \begin{equation}
 g_j(\xi) = dm(\xi)^{-1} \left[ u_j(\xi) - \int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) \, {\rm d} \lambda - \int_{\Gamma_2} TM(\xi,\lambda) \, X_{3-j}(\lambda) \, {\rm d} \lambda \right] \\
 \end{equation}
-Formula \eqref{propag_sol_sys} is called the recursive formula because it uses the value of the regular function $X_2$ at point $T_0^{-1}(\xi)$ to compute the value of $X_1$ at the point $\xi$ where the approximation is not valid (and vice-versa). If the translation from $\xi$ to $T_0^{-1}(\xi)$ is not sufficient to reach the domain $\mathbb{C} \backslash \Omega_0^-$ where the approximation is valid, then the use of the formula is repeated as many times as necessary (computing $X_2(T_0^{-1}(\xi))$ using the value of $X_1(T_0^{-2}(\xi))$, etc.). This recursive evaluation can be summed up in one concise formula, for $j=1,2$ :
+Formula \eqref{propag_sol_sys} is called the recursive formula because it uses the value of the regular function $X_2$ at point $T_0^{-1}(\xi)$, where the numerical approximation for the regular part may be valid, to compute the value of $X_1$ at the point $\xi$ where the approximation is not valid (and vice-versa). If the translation from $\xi$ to $T_0^{-1}(\xi)$ is not sufficient to reach the domain $\mathbb{C} \backslash \Omega_0^-$ where the approximation is valid, then the use of the formula is repeated as many times as necessary (computing $X_2(T_0^{-1}(\xi))$ using the value of $X_1(T_0^{-2}(\xi))$, etc.), until domain $\mathbb{C} \backslash \Omega_0^-$ is reached. This recursive evaluation can be summed up in one concise formula, using a newly defined operator $\mathcal{G}_j^{(k)}, \, \, k \in \mathbb{N}$ :
+\begin{eqnarray}
+\mathcal{G}_j(\xi^{(k)})=
+\left\{
+\begin{array}{l}
+g_j(\xi^{(k)}) \mbox{ if }k \mbox{ is even } \\
+g_{3-j}(\xi^{(k)}) \mbox{ if }k \mbox{ is odd}\\
+\end{array}
+\right.
+\end{eqnarray}
+Using this definition, the recursive evaluation of the regular parts of the spectral functions if given for $j=1,2$ :
 \begin{equation}
 X_j(\xi)= \sum_{k} R^{(k)}\mathcal{G}_j^{(k)}(\xi^{(k)}),
 \label{prop_concise_ac}
@@ -1130,38 +1139,32 @@ are the generated evaluation points with the corresponding coefficients
 \begin{equation}
 R^{(k+1)}=-R^{(k)}.dm^{-1}(\xi^{(k)}).M_0(\xi^{(k)})
 \end{equation}
-The term $1_{\Omega_0^-}$ appears in the expression \eqref{defM0} of the transfer operator $M_0$, ensuring that the process stops when the generated evaluation points are no longer in $\Omega_0^-$. Finally, the operator $\mathcal{G}_j^{(k)}$ is defined in the following manner :
-\begin{eqnarray}
-\mathcal{G}_j(\xi^{(k)})=
-\left\{
-\begin{array}{l}
-g_j(\xi^{(k)}) \mbox{ if }k \mbox{ is even } \\
-g_{3-j}(\xi^{(k)}) \mbox{ if }k \mbox{ is odd}\\
-\end{array}
-\right.
-\end{eqnarray}
-In practice, formulation \eqref{prop_concise_ac} is implemented to evaluate the regular part of the system numerically. In order to do so, the points $\xi^{(k)}$  and the corresponding coefficients $R^{(k)}$ are determined recursively, using an algorithm similar to the one used to determine the poles and residues of the spectral functions. To calculate $g_j$ functions, we need to compute
-\begin{equation*}
-\int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda \approx \sum_k \tilde{X}_j^k \int_{\Gamma_2} DM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda 
-\end{equation*}
-and
-\begin{equation*}
-\int_{\Gamma_2} TM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda \approx \sum_k \tilde{X}_j^k \int_{\Gamma_2} TM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda
-\end{equation*}
+The term $1_{\Omega_0^-}$ appears in the expression \eqref{defM0} of the transfer operator $M_0$, ensuring that the process stops when the generated evaluation points are no longer in $\Omega_0^-$.
 
-If ${\rm Im}(\xi) < 0$, the residue theorem combined with the variable change $\lambda = iy$  yields
+In practice, formulation \eqref{prop_concise_ac} is implemented to evaluate the regular part of the system numerically. In order to do so, the points $\xi^{(k)}$  and the corresponding coefficients $R^{(k)}$ are determined recursively, using an algorithm similar to the one used to determine the poles and residues of the spectral functions. To calculate $g_j$ functions, we need to compute
 \begin{equation}
-\int_{\Gamma_2} DM(\xi,\lambda) \,  \dfrac{1}{\lambda+a} \, \, {\rm d} \lambda =  \dfrac{1}{2\pi} \, \mathcal{D}(a,\xi) - \dfrac{m(\xi)}{\xi +a} = \mathcal{ND}(a,\xi). 
+\int_{\Gamma_2} DM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda \approx \sum_k \tilde{X}_j^k \int_{\Gamma_2} DM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda 
+\label{C2:Gamma2DM}
+\end{equation}
+and
+\begin{equation}
+\int_{\Gamma_2} TM(\xi,\lambda) \, X_j(\lambda) {\rm d} \lambda \approx \sum_k \tilde{X}_j^k \int_{\Gamma_2} TM(\xi,\lambda) \, \varphi_k(\lambda) \, {\rm d} \lambda
+\label{C2:Gamma2TM}
 \end{equation}
 
-For the $TM$ contributions, the poles $\lambda = T_0^{-1}(\xi)$ are taken into account if and only if $\xi \in \Omega_0^-$. Thus, for $\xi \in \Omega_0^-$, ${\rm Im}(\xi) < 0$, the residue theorem combined with the variable change $\lambda = iy$ gives
+If ${\rm Im}(\xi) < 0$, substituting the explicit expression of $\varphi_k$, given by \eqref{Gal_basis}, into \eqref{C2:Gamma2DM} and using the residue theorem combined with the variable change $\lambda = iy$ yields the definition of a new operator $\mathcal{ND}$ :
 \begin{equation}
-\int_{\Gamma_2} TM(\xi,\lambda) \,  \dfrac{1}{\lambda +a} \, \, {\rm d} \lambda = \frac{1}{2i\pi} \mathcal{T}(a,\xi)- \dfrac{m(\xi)}{T_0^-(\xi) +a}   =  \mathcal{NT}(a,\xi)
+\int_{\Gamma_2} DM(\xi,\lambda) \,  \dfrac{1}{\lambda+a} \, \, {\rm d} \lambda =  \dfrac{1}{2\pi} \, \mathcal{D}(a,\xi) - \dfrac{dm(\xi)}{\xi +a} = \mathcal{ND}(a,\xi). 
+\end{equation}
+
+For the $TM$ contributions, the poles $\lambda = T_0^{-1}(\xi)$ are taken into account if and only if $\xi \in \Omega_0^-$. Thus, for $\xi \in \Omega_0^-$, ${\rm Im}(\xi) < 0$, the residue theorem combined with the variable change $\lambda = iy$ yields the definition of a new operator $\mathcal{NT}$ :
+\begin{equation}
+\int_{\Gamma_2} TM(\xi,\lambda) \,  \dfrac{1}{\lambda +a} \, \, {\rm d} \lambda = \frac{1}{2i\pi} \mathcal{T}(a,\xi)- \dfrac{dm(\xi)}{T_0^-(\xi) +a}   =  \mathcal{NT}(a,\xi)
 \end{equation}
 
 Formula \eqref{regular_part_decomp} finally leads to, for $\xi \in \Omega_0^-$ and $j=1,2$,
 \begin{eqnarray}
-m(\xi)\, g_j(\xi) -  u_j(\xi)=
+dm(\xi)\, g_j(\xi) -  u_j(\xi)=
 -\Big( \sum_k \tilde X_j^{k}\, d_k \, N\mathcal D(a_k,\xi)+\sum_k \tilde X_{3-j}^{k} \, d_k \,
 N\mathcal T(a_k,\xi) \Big) \nonumber
 \end{eqnarray}
