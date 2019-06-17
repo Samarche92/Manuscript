@@ -345,8 +345,8 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \end{tikzpicture}
 \end{center}
 \caption
-[Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\lambda = \sigma + i\tau$]
-{Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\lambda = \sigma + i\tau$. $\bar{\theta}_s$ is the phase stationary point.}
+[Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\beta = \sigma + i\tau$]
+{Integration path $\mathcal{C}_0$ and the steepest descent path $\gamma_0$ in the complex plane $\beta = \sigma + i\tau$. $\bar{\theta}_s$ is the phase stationary point.}
 \label{chapter5:figure3}
 \end{figure}
 
@@ -363,12 +363,14 @@ Let us introduce the variable $\bar{\theta}$ defined as
 Finally, using \eqref{obs} in \eqref{face1_solution_exacte}, we have
 \begin{equation}
 v_1^0(r \cos \theta,r \sin \theta) = \dfrac{i}{4 \pi} \int_{C_0}  e^{i r \cos ( \beta + \bar{\theta})} \hat{\alpha}_1(\cos \beta)  \, {\rm d}\beta.
+\label{C2:v1ff}
 \end{equation}
 The same process is applied to \eqref{champ} for $j=2$ and leads to
 \begin{equation}
 v_2^0(r \cos (\varphi - \theta),r \sin (\varphi - \theta)) = \dfrac{i}{4 \pi} \int_{C_0}  e^{i r \cos ( \beta \, + \, \overline{\varphi - \theta})}  \hat{\alpha}_2( \cos \beta) \, {\rm d}\beta
+\label{C2:v2ff}
 \end{equation}
-with $\overline{\varphi - \theta}$ defined in the same way as \eqref{obs}. The saddle points of the phase functions in these two equations are respectively $\beta = \bar{\theta}_s = \pi - \bar{\theta} $ and $\beta = \bar{\theta}_s = \pi - \overline{\varphi-\theta}$. These saddle points are always in the interval $[0,\pi]$. Poles of the spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ may be crossed during the deformation of contour $C_0$ into the steepest descent path $\gamma_0$ (see Fig.~\ref{chapter5:figure3}). These poles and their corresponding residues are determined in section \ref{Chapter5:sing_part}. They contribute to the integrals \eqref{champ} and lead to the geometrical field, noted $v^{(GE)}$. Their contribution can be computed using the residue theorem. The resulting integral after the contour deformation is approximated using the steepest descent method (see appendix \ref{PhaseStationnaire}). The contribution of the saddle points $  \bar{\theta}_s $ are respectively:
+with $\overline{\varphi - \theta}$ defined in the same way as \eqref{obs}. The saddle points of the phase functions in equations \eqref{C2:v1ff} and \eqref{C2:v2ff} are respectively $\beta = \bar{\theta}_s = \pi - \bar{\theta} $ and $\beta = \bar{\theta}_s = \pi - \overline{\varphi-\theta}$. These saddle points are always in the interval $[0,\pi]$. Poles of the spectral functions $\hat{\alpha}_1$ and $\hat{\alpha}_2$ may be crossed during the deformation of contour $C_0$ into the steepest descent path $\gamma_0$ (see Fig.~\ref{chapter5:figure3}). These poles and their corresponding residues are determined in section \ref{Chapter5:sing_part}. They contribute to the integrals \eqref{champ} and lead to the geometrical field, noted $v^{(GE)}$. Their contribution can be computed using the residue theorem. The resulting integral after the contour deformation is approximated using the steepest descent method (see appendix \ref{PhaseStationnaire}). The contribution of the saddle points $  \bar{\theta}_s $ are respectively:
 \begin{equation}
 \label{diffracted_field1}
 v_1^{0 \rm (diff)}(x_1,y_1) = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}}\dfrac{e^{-ir}}{\sqrt{r}} \hat{\alpha}_1( - \cos \theta)   
@@ -385,12 +387,12 @@ v^{\rm tot} = v^{\rm (GE)} + v^{\rm diff}
 where $v^{diff}$ is the field diffracted by the wedge edge
 \begin{equation}
 \label{Chapter5:diff_field}
-v^{ diff} = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}} \dfrac{e^{-ir}}{\sqrt{r}} [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( 2\varphi - \theta))].
+v^{ diff} = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}} \dfrac{e^{-ir}}{\sqrt{r}} [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( \varphi - \theta))].
 \end{equation}
 Using \eqref{Chapter5:dimensionless} and \eqref{Chapter5:diff_field}, the \acrshort{gtd} diffraction coefficient is defined as
 \begin{equation}
 \label{GTDCoeff_SF}
-D^{GTD} = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( 2\varphi - \theta))]
+D^{GTD} = \dfrac{e^{-i\frac{\pi}{4}}}{2\sqrt{2\pi}} \, [\hat{\alpha}_1( - \cos \theta) + \hat{\alpha}_2( - \cos ( \varphi - \theta))]
 \end{equation}
 where $\hat{\alpha}_1$ and $\hat{\alpha}_2$ are unknown spectral functions. 
 
@@ -524,7 +526,7 @@ with
  \label{phitilde}
 \end{cases}
 \end{equation}
-Function $T_0$ is therefore called the translation operator, since it translates the complex angle $\theta$ to $\theta+\phiti$. By using this angular variable, defined differently for wedge angles lower and higher than $\pi$, the description of the spectral functions method can be written the same way for wedge angles lower and higher than $\pi$, even if the final results (the diffraction coefficients) are different for wedge angles $\pi<\varphi<2\pi$ and $2\pi-\varphi$. Indeed, the variable $\varphi$ appears in all the resolution, whereas the variable $\phiti$ appears only in the definition of the function $T_0$ in \eqref{Trans_operator} and of the domain $\Omega_0$ in which $T_0$ operates, defined as
+Function $T_0$ is therefore called the translation operator, since it translates the complex angle $\theta$ to $\theta+\phiti$. By using this angular variable $\phiti$, defined differently for wedge angles lower and higher than $\pi$, the description of the spectral functions method can be written the same way for wedge angles $\varphi$ lower and higher than $\pi$, even if the final results (the diffraction coefficients) are different for wedge angles $\pi<\varphi<2\pi$ and $2\pi-\varphi$. Indeed, the variable $\varphi$ appears in all the resolution (for example, it appears in the expression of pole $Z_2$), whereas the variable $\phiti$ appears only in the definition of the function $T_0$ in \eqref{Trans_operator} and of the domain $\Omega_0$ in which $T_0$ operates, defined as
 \begin{equation}
 \label{Domain_Omega0}
 \Omega_0 =\{\xi\in\mathbb C, \ \xi=\cos \theta, \ 0< {\rm Re } \, \theta < \pi -\phiti \}.
@@ -579,7 +581,7 @@ Domain $\Omega_0$ and its upper boundary $\partial \Omega_0^+$ are illustrated o
 \end{tikzpicture}
 \caption
 [Contour $\partial \Omega_0^+$]
-{Domain $\Omega_0$ (the grey area) and its upper boundary $\partial \Omega_0^+$. The lower boundary of $\Omega_0$ is the semi-axis $[-\cos \phiti,+\infty[$.}
+{Domain $\Omega_0$ (the grey area) and its upper boundary $\partial \Omega_0^+$ in the complex plane $\xi=\sigma+i\tau$. The lower boundary of $\Omega_0$ is the semi-axis $[-\cos \phiti,+\infty[$.}
 \label{chapter5:figure4}
 \end{figure}
 Having found the system of functional equations, it is now resolved following the methodology of Croisille and Lebeau \cite{CroisilleLebeau}.
@@ -589,12 +591,12 @@ Having found the system of functional equations, it is now resolved following th
 
 The resolution of the system of functional equations \eqref{functional_eq} is necessary in order to find the values of the spectral functions $\hat{\alpha}_1 $ and $\hat{\alpha}_2 $. With these values, the diffraction coefficients can be computed using equation \eqref{GTDCoeff_SF}. 
 
-It is shown in \cite{CroisilleLebeau} that $DM$ and $TM$ integral operators are constituted of a "singular term" and of a "regular term". For a singular function 
+It is shown in \cite{CroisilleLebeau} that the actions of $DM$ and $TM$ integral operators onto a singular function are constituted of a "singular term" and of a "regular term". For a singular function 
 \begin{equation}
 \label{Chapter5:arbitrary_function}
 \phi(\xi) = \dfrac{1}{\xi - z},  \quad z \in \mathbb{C}\setminus ]-\infty,-1] \text{ with } {\rm Im} \, z \geqslant 0,
 \end{equation}
-$DM$ and $TM$ integral operators defined respectively in \eqref{DM_operator} and \eqref{TM_operator} can be decomposed using the residue theorem as
+contour $\Gamma_0$ is deformed into contour $\Gamma_1$ (thus crossing the wole upper half of the complex plane, as illustrated in Fig.~\ref{chapter5:figure5}) in integral operator $DM$ defined by \eqref{DM_operator}, and into contour $\partial \Omega_0^+$ (thus crossing sub-domain $\Omega_0$, as illustrated in Fig.~\ref{chapter5:figure4}) in integral operator $TM$ defined by \eqref{TM_operator}. Using the residue theorem, the result can be decomposed as
 \begin{subequations}
 \label{Int_op_decomp}
 \begin{align}
@@ -612,7 +614,7 @@ where the function $T_0$ is defined in \eqref{Trans_operator} and where
 0 \quad \text{else}
 \end{cases}
 \end{equation}
-and integrals $D_p$ and $T_p$ are expressed as
+and integrals $D_p$ and $T_p$ are the regular terms, expressed as
 \begin{subequations}
 \label{holomorphic_functions}
 \begin{align}
@@ -622,7 +624,7 @@ D_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\Gamma_1} \dfrac{dm(\lambda)}{\xi-\lambda} 
 T_p(\xi,z) &= \dfrac{1}{2\pi i}\int_{\partial \Omega_0^+}  \dfrac{tm(\lambda)}{\xi-T_0(\lambda)} \cdot \dfrac{1}{\lambda - z} d\lambda.
 \end{align}
 \end{subequations}
-Contours $\Gamma_1$ and $\partial \Omega_0^+$ are illustrated on Figs.~\ref{chapter5:figure5} and \ref{chapter5:figure4} respectively. Croisille and Lebeau \cite{CroisilleLebeau} proved that $D_p(z,\cdot)$ and $T_p(z,\cdot)$ belong to a special class of functions $\mathcal{H}^2$ defined hereafter
+Croisille and Lebeau \cite{CroisilleLebeau} proved that $D_p(z,\cdot)$ and $T_p(z,\cdot)$ belong to a special class of functions $\mathcal{H}$ defined hereafter
 \begin{definition}
 \label{defHpl}
 $H^+$ is the space of functions f which are analytical in $\{z \in \mathbb{C}, \; \mbox{Im} z <0\}$  and verify :
@@ -681,17 +683,17 @@ In the sequel, using the decomposition of the $DM$ and $TM$ operators for a func
 
 It is well known that poles of the spectral functions lead to the reflections of the incident field on the wedge faces (these reflections can be multiple), and to the fictitious fields that compensate the incident wave in the shadow zones. The sum of these reflections with the fictitious compensating fields constitute the aforementioned GE field. The singular part of the spectral functions contains these poles. The goal of this subsection is to calculate the poles and the corresponding residues and then to determine the expression of the singular part of the spectral functions, by employing a recursive algorithm. 
 
-Knowing the incident field on the wedge faces, the spectral function  $\hat{\alpha}_j$ can be written as
+Knowing the incident field on the wedge faces, which corresponds to the right-hand side of system \eqref{functional_eq}, the spectral function  $\hat{\alpha}_j$ can be written as
 \begin{equation}
 \label{Chapter5:ini_pol_propag}
 \hat{\alpha}_j(\xi) = \dfrac{V_j}{\xi - Z_j} + X_j'(\xi), \quad j=1,2
 \end{equation}
-where $Z_1,Z_2$ are the initial poles, given in (\ref{functional_eq}) with unknown residues $V_1$ and $V_2$ and the functions $X_j'$ are unknown, $j=1,2$. From \eqref{Int_op_decomp_DM}, it is known that
+where $Z_1,Z_2$ are the initial poles, given in \eqref{functional_eq} with unknown residues $V_1$ and $V_2$ and the functions $X_j'$ are unknown, $j=1,2$. Replacing \eqref{Chapter5:ini_pol_propag} in \eqref{Int_op_decomp_DM}, it is found that
 \begin{equation}
 \label{Chapter5:pole_propag_DM_1}
 DM(\hat{\alpha}_j)(\xi) = \dfrac{dm(Z_j) \cdot V_j}{\xi - Z_j} + D_p(\xi,Z_j)\cdot V_j + DM( X_j')(\xi).
 \end{equation}
-By choosing $V_j =  dm^{-1}(Z_j).W_j$, the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. The resulting system's unknown functions are $X'_j, \, j=1,2$ :
+By choosing $V_j =  dm^{-1}(Z_j).W_j$, the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. A new version of the system can be written on a single line with new unknown functions $X'_j, \, j=1,2$ :
 \begin{equation}
 DM  (X_j' )(\xi)+ TM (X_{3-j}' )(\xi) = - TM  \left(  \dfrac{V_{3-j}}{\xi - Z_{3-j}} \right) (\xi)  - D_p(V_j,Z_j)(\xi) \qquad j=1,2
 \end{equation}
@@ -719,7 +721,7 @@ At the end of this process, the spectral functions have the following decomposit
 where  $Y_j$ is the singular part, $X_j$ is the regular part  and $j=1,2$ is the face index. The singular part is expressed as
 \begin{equation}
 \label{sing_part}
- Y_j(\xi) = \sum_i \dfrac{{V_j^{(i)}}{\xi - Z_j^{(i)}}},
+ Y_j(\xi) = \sum_i \dfrac{{V_j^{(i)}}}{{\xi - Z_j^{(i)}}},
 \end{equation}
 where $i \in \mathbb{N}$, $Z_j^{(0)} = Z_j$ defined in \eqref{functional_eq} is the initial pole on each face of the wedge, $V_j^{(0)}=V_j$ is the corresponding initial residue on each face of the wedge, 
 \begin{equation}
