@@ -6,12 +6,12 @@ Inspection of industrial components, from the production phase to their use is e
 The feasibility of ultrasonic inspections is predicted thanks to numerical modeling. Numerical modeling also helps with the analysis of the received signals. This is why CEA-LIST (Commissariat à l’Énergie Atomique et aux Énergies nouvelles - Laboratoire d’Intégration des Systèmes et Technologies) offers an \acrshort{ndt} simulation tool via the CIVA software platform. This software uses semi-analytical models to reduce computation time, which can be of limited validity. CIVA is therefore in constant evolution to extend its scope.
 %%
 
-
-
+The aim of this thesis is to develop a generic and reliable elastodynamic wedge-diffraction model, valid for all wedge angles and for 3D incidences.
+%%
 This manuscript is divided into 4 chapters.
 
 In chapter \ref{chap-biblio}, a review of high frequency wedge scattering models is presented. The first section of this chapter describes non-uniform asymptotic methods (non-uniform in the sense that the resulting scattered field is not spatially continuous), namely \acrfull{ge}, which models specular reflection but non diffraction and the \acrfull{gtd}, which models reflection and diffraction but diverges in certain directions. The second section presents uniform corrections of these non-uniform models : the \acrfull{ka}, the \acrfull{ptd}, the \acrfull{uat} and finally the \acrfull{utd}. All of these models require a reliable preexisting wedge-diffraction \acrshort{gtd} solution in order to be accurate. The third and final section therefore presents the two main existing \acrshort{gtd} wedge diffraction models : the \acrfull{si} method and the \acrfull{lt} method.
 
-In chapter \ref{chap-acoustic}, the \acrfull{sf} method is developed as a first step for the simpler case of an acoustic wave scattered by a soft (Dirichlet boundary conditions) or hard (Neumann boundary conditions) wedge. A \acrshort{gtd} diffraction coefficient is obtained semi-analytically for both boundary types and it is successfully compared to the corresponding exact solutions given by Sommerfeld.
+In chapter \ref{chap-acoustic}, the \acrfull{sf} method is developed as a first step for the simpler case of a (scalar) acoustic wave scattered by a soft (Dirichlet boundary conditions) or hard (Neumann boundary conditions) wedge. This is done by first, determining an integral formulation of the scattering problem. This formulation is given with respect to two unknown functions called the spectral functions. A functional system of equations of which these spectral functions are solution is then determined using the problem's boundary conditions. Thanks to this system, the spectral functions are decomposed into two terms : a singular function, determined analytically using a recursive algorithm and a regular function which is approached numerically using a Galerkin collocation method. The accuracy of this numerical approximation is improved by a method called "propagation of the solution". Finally, the solution computed using the \acrlong{sf} method is validated by comparison to the exact solution given by Sommerfeld.
 
-Chapter \ref{chap-2D} deals with the 2D of an elastic wave scattered by a stress-free wedge.
+Chapter \ref{chap-2D} deals with the 2D case of an elastic wave scattered by a stress-free wedge.
