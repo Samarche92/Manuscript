@@ -69,11 +69,6 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 % Importation manuelle du fichier de macros personnelles
 \input{configuration/macros}
 %
-% Commande permettant de faire figurer d'un seul coup toutes les références des
-% ressources bibliographiques ci-dessus, même si elles ne sont pas citées
-% explicitement (à proscrire dans un vrai mémoire de thèse !)
-%\nocite{*}
-%
 %%%%%%%%%%% Defining Enunciations  %%%%%%%%%%%
 \newtheorem{theorem}{\bf Theorem}[section]
 \newtheorem{condition}{\bf Condition}[section]
@@ -109,14 +104,11 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 % Début de la partie liminaire de la thèse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% (Facultatif) Production de la page de clause de non-responsabilité
-%\makedisclaimer
-%
 % (Facultatif) Production de la page de mots clés
-%\makekeywords
+\makekeywords
 %
 % (Facultatif) Production de la page affichant les logo, nom et coordonnées du ou des laboratoires (ou unités de recherche) où la thèse a été préparée
-%\makelaboratory
+\makelaboratory
 %
 % (Facultatif) Dédicace(s)
 %\input{liminaires/dedicaces}
@@ -125,35 +117,22 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 %\input{liminaires/epigraphes}
 %
 % Résumés succincts
-%\input{liminaires/resumes}
+\input{liminaires/resumes}
 %
 % (Facultatif) Chapitre de remerciements
 %\include{liminaires/remerciements}
 %
-% (Facultatif) Chapitre d'avertissement
-%\include{liminaires/avertissement}
+% Resume de la these en français
+\include{liminaires/avant-propos}
 %
 % (Facultatif) Liste des acronymes
 \printacronyms
 %
-% (Facultatif) Liste des symboles
-%\printsymbols
-%
-% Resume de la these en français
-%\include{liminaires/avant-propos}
-%
 % Sommaire
 \tableofcontents[depth=section,name=Table of Contents]
 %
-% (Facultatif) Liste des tableaux
-%\listoftables
-%
 % (Facultatif) Table des figures
 \listoffigures
-%
-% (Facultatif) Table des listings (nécessite que le package « listings » soit
-% chargé)
-% \lstlistoflistings
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Début de la partie principale (du « corps ») de la thèse
@@ -181,7 +160,7 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 %
 % Chapitre  de conclusion (générale)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\include{corps/conclusion}
+\include{corps/conclusion}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Début de la partie annexe éventuelle
@@ -202,12 +181,6 @@ secnumdepth=subsubsection,output=screen,xcolor=dvipsnames
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \backmatter
-%
-% (Facultatif) Glossaire (si souhaité distinct de la liste des acronymes) :
-%\printglossary
-%
-% (Facultatif) Index :
-%\printindex
 %
 % Table des matières
 %\tableofcontents
