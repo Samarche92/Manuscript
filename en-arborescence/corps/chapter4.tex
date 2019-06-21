@@ -21,7 +21,7 @@ In the first part of this chapter, the problem is presented. In the second part,
 \label{diedre_coords}
 \end{figure}
 
-Let us consider the problem of an elastic wave diffracted by a stress-free wedge delimited by faces $\mathcal{S}_1$ and $\mathcal{S}_2$. The geometry of the problem is shown on Fig.~\ref{diedre_coords}. The domain $\Omega$ is the inside of the wedge, defined by :
+Let us consider the problem of an elastic wave diffracted by a stress-free infinite wedge delimited by faces $\mathcal{S}_1$ and $\mathcal{S}_2$. The geometry of the problem is shown on Fig.~\ref{diedre_coords}. Vector $\mathbf{x}=(r,\theta,\delta)$ is an observation point in the propagation domain indexed by its spherical coordinates and the domain $\Omega$ is the inside of the wedge, defined by :
 \begin{equation}
 \Omega=\{ (r\cos \theta \cos \delta, r \sin \theta \cos \delta, r \sin \delta)\, \backslash \, \theta \in \rbrack 0, \varphi \lbrack, \, \delta \in \rbrack -\frac{\pi}{2}, \frac{\pi}{2} \lbrack \}
 \end{equation}
@@ -76,14 +76,15 @@ On each of the wedge faces, the displacement field verifies the zero-stress boun
 where $\mathbf{\mathbb{I}_3}$ is the identity matrix of the third order, $n$ is the inward facing normal to the wedge face ($n=\mathbf{y}_1$ on $\mathcal{S}_1$  and $n=\mathbf{y}_2$ on $\mathcal{S}_2$) and $\underline{\lambda}, \underline{\mu}$ are the Lamé coefficients of the considered elastic medium. The expression of the deformations tensor is :
 \begin{equation}
 \mathbf{\varepsilon}(\mathbf{u})=\frac{1}{2} \begin{pmatrix}
-2\dfrac{\partial u_1}{\partial x'_1} & \dfrac{\partial u_1}{\partial y'_1}+\dfrac{\partial u_2}{\partial x'_1}&\dfrac{\partial u_1}{\partial z'}+\dfrac{\partial u_3}{\partial x'_1} \\
-\dfrac{\partial u_1}{\partial y'_1}+\dfrac{\partial u_2}{\partial x'_1}&2\dfrac{\partial u_2}{\partial y'_1}&\dfrac{\partial u_2}{\partial z'}+\dfrac{\partial u_3}{\partial y'_1} \\
+2\dfrac{\partial u_1}{\partial x'_1} & \dfrac{\partial u_1}{\partial y'_1}+\dfrac{\partial u_2}{\partial x'_1}&\dfrac{\partial u_1}{\partial z'_1}+\dfrac{\partial u_3}{\partial x'_1} \\
+\dfrac{\partial u_1}{\partial y'_1}+\dfrac{\partial u_2}{\partial x'_1}&2\dfrac{\partial u_2}{\partial y'_1}&\dfrac{\partial u_2}{\partial z'_1}+\dfrac{\partial u_3}{\partial y'_1} \\
 \dfrac{\partial u_1}{\partial z'_1}+\dfrac{\partial u_3}{\partial x'_1} &\dfrac{\partial u_2}{\partial z'_1}+\dfrac{\partial u_3}{\partial y'_1} & 2\dfrac{\partial u_3}{\partial z'_1}
 \end{pmatrix}
+\label{C4:mateps}
 \end{equation}
 Kamotski and Lebeau \cite{KamotskiLebeau} have proven existence and uniqueness of the solution to this problem in the 2D the case. We will suppose that their demonstration is still valid in the 3D case.
 
-From hereon after, bold characters will be reserved to matrices in order to simplify notations. The solutions being time harmonic, the factor $e^{-i\omega t}$ will be implied but omitted everywhere. Furthermore, since there is no obstacle to propagation in the $z$ direction, $e^{i\frac{\omega}{c_{\alpha}}\sin\delta_{inc}z'}$ is also a common factor to all the terms which appear in the solution.
+From hereon after, bold characters will be reserved to matrices in order to simplify notations. The solutions being time harmonic, the factor $e^{-i\omega t}$ will be implied but omitted everywhere. Furthermore, since there is no obstacle to propagation in the $z$ direction, $e^{i\frac{\omega}{c_{\alpha}}\sin\delta_{inc}z^{\prime}_1}$ is also a common factor to all the terms which appear in the solution.
 
 The total field is written as the sum of an incident field $u^{inc}$ and a scattered field $u_0$
 \begin{equation}
@@ -113,7 +114,7 @@ To simplify notations, the following parameter $\tau$ is defined by :
 \end{equation}
 Note that we therefore always have $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. $u_0$'s $z$-dependency is entirely contained in the factor $e^{i\tau z}$ which will be implied but omitted in all the following.
 
-Substituting \eqref{C4:scat} and \eqref{C4:adiming} into \eqref{C4:Elasticitelin} and \eqref{C4:stressfree} yields the dimensionless problem
+Substituting \eqref{C4:scat} and \eqref{C4:adiming} into \eqref{C4:Elasticitelin} and \eqref{C4:stressfree} and using \eqref{C4:mateps} yields the dimensionless problem
 \begin{eqnarray}
 (\mathcal{P}^*) \hspace{2em} \left\{
 \begin{array}{lr}
@@ -142,7 +143,7 @@ Bv=\begin{pmatrix}
 \end{pmatrix}
 \label{C4:Badim}
 \end{equation}
-where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator. The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
+where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator and $\lambda,\mu$ are the dimensionless Lamé parameters, defined by \eqref{LameAdim}. The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
 
 \section{Integral formulation of the solution}
 As for the previous cases, the first step in solving problem $(\mathcal{P}^{\alpha})$ is to formulate the solution as an integral. 
