@@ -104,7 +104,7 @@ u_0(x',y',z')=v(x,y)e^{i\nu_{\beta}\sin\delta_{\beta}z}
 \end{subequations}
 where $\delta_{\beta}$ is the angle of Snell's cone of diffraction (determined by Snell's law of diffraction, given by \eqref{C4:Snelldiff}), the dimensionless Lamé parameters $\lambda,\mu$ are given in the previous chapter by \eqref{LameAdim} and parameters $\nu_L$ and $\nu_T$ are also defined in the previous chapter, by \eqref{nuLnuT}. Since $e^{i\nu_{\alpha}\sin\delta_{inc}z}$ is a common factor to all the terms of the solution, we can deduce Snell's law of diffraction :
 \begin{equation}
-\nu_{\alpha}\sin\delta_{inc}=\nu_{\beta}\sin\delta_{\beta}
+\nu_{\alpha}\sin\delta_{inc}=-\nu_{\beta}\sin\delta_{\beta}
 \label{C4:Snelldiff}
 \end{equation}
 To simplify notations, the following parameter $\tau$ is defined by :
@@ -175,7 +175,7 @@ v_j^{\varepsilon}=-(E+e^{-2i\varepsilon})^{-1} \begin{bmatrix}
 \end{bmatrix}
 \label{C4:vjdef}
 \end{equation}
-Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are belong to the special call $\mathcal{A}$ defined in chapter 2 of this thesis, Def.~\ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
+Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are belong to the special class $\mathcal{A}$ defined in chapter 2 of this thesis, Def.~\ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
 \begin{definition}
 	 v is called an outgoing solution of equation \eqref{C4:Padim} if v is a solution of the form
 	\begin{equation}
@@ -241,7 +241,7 @@ v_j^{\varepsilon}(x_j,y_j)=\frac{1}{4\pi^2}\int_{\mathbb{R}^2} e^{i x_j\xi}\left
  \label{C4:invdouble}
 \end{equation}
 
-The poles of $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ are located in $\eta=\pm \zeta_*^{\varepsilon}(\xi)$, where $*=L,T$ and
+The poles of $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ (which are the poles of the integrand of the inner integral on $\eta$ in \eqref{C4:invdouble}) are located in $\eta=\pm \zeta_*^{\varepsilon}(\xi)$, where $*=L,T$ and
 \begin{equation}
 \zeta_*^{\epsilon}(\xi)=\sqrt{e^{-2i\varepsilon}\nu^2_*-(\xi^2+\tau^2)}
 \end{equation}
@@ -250,14 +250,27 @@ Let us define $\nuti_*, *=L,T$ by
 \nuti_*^{\varepsilon}=\sqrt{e^{-2i\varepsilon}\nu_*^2-\tau^2}
 \label{defnutieps}
 \end{equation}
-If the incident wave is longitudinal, then $\nuti_L^0, \nuti_T^0 \in \mathbb{R}$. However, if the incident wave is transverse, then two cases may occur :
-\begin{itemize}
-	\item if $|\sin\delta_{inc}| \leq \frac{\nu_L}{\nu_T}$, then $\nuti_L^0 \in \mathbb{R}$
-	\item if $|\sin\delta_{inc}| >\frac{\nu_L}{\nu_T}$, then $\nuti_L=i\eta_L^0 \in i\mathbb{R}$ 
-\end{itemize} 
-In any case,
+If the incident wave is longitudinal, then, according to \eqref{deftau}, $\tau=\sin\delta_{inc}$ and
+\begin{subequations}
 \begin{equation}
-\zeta_*^{\epsilon}(\xi)=\sqrt{\tilde{\nu}_*^{\epsilon^2}-\xi^2}
+\nuti_L^0=\sqrt{1-\sin^2\delta_{inc}}=\cos\delta_{inc} \quad \in \mathbb{R}
+\end{equation}
+\begin{equation}
+\nuti_T^0=\sqrt{\nu_T^2-\sin^2\delta_{inc}} \quad \in \mathbb{R},
+\end{equation}
+\end{subequations}
+since $\nu_L=1$ and $\nu_T=\frac{c_L}{c_T}>1$. However, if the incident wave is transverse, then we have
+\begin{equation}
+\nuti_T^0=\sqrt{\nu_T^2-\nu_T^2\sin^2\delta_{inc}}=\nu_T\cos\delta_{inc} \quad \in \mathbb{R},
+\end{equation}
+and for $\nuti_L^0$, two cases may occur :
+\begin{flalign}
+	&\bullet \mbox{ if } |\sin\delta_{inc}| \leq \frac{\nu_L}{\nu_T}, \mbox{then } \nuti_L^0=\sqrt{\nu_L-\nu_T^2\sin^2\delta_{inc}} \quad \in \mathbb{R} \label{noncr}\\
+&\bullet \mbox{ if } |\sin\delta_{inc}| >\frac{\nu_L}{\nu_T},\mbox{ then } \nuti_L^0=\sqrt{1-\nu_T^2\sin^2\delta_{inc}}=i\sqrt{\nu_T^2\sin^2\delta_{inc}-1} \quad \in i\mathbb{R} \label{crit}
+\end{flalign}
+As we will see, in the case described by \eqref{noncr}, the computations made in the 3D case are analogous to those described in the previous chapter. On the other hand, in the case described by \eqref{crit}, the presence of an imaginary branch point modifies and complicates all the occurring complex integral contour deformations. In any case,
+\begin{equation}
+\zeta_*^{\varepsilon}(\xi)=\sqrt{\tilde{\nu}_*^{\varepsilon^2}-\xi^2}
 \end{equation}
 %La racine carrée complexe étant définie au signe près, $\sqrt{z}$ peut prendre deux valeurs distinctes pour $z$ fixé. C'est ce qu'on appelle les branches de coupure de la fonction. Les points de branchement sont les valeurs pour lesquelles ces branches se croisent (ici il s'agit de $\xi=\pm \tilde{\nu}_*^{\epsilon}$). Afin de bien définir $\zeta_*^{\epsilon}(\xi)$, on choisit la branche dont la partie imaginaire est positive. 
 
@@ -287,9 +300,7 @@ t\xi & \zeta_L^{\varepsilon} & t\tau \\
 \label{C4:M*eps}
 \end{subequations}
 
-These matrices can be computed in two different manners, providing a way to test this result. the first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\epsilon}\mathbf{\mathbb{I}_3})^{-1}$ at poles $\pm \zeta^{\epsilon}_*(\xi), *=L,T$. The second option for computing these matrices is by computing the eigen vectors and eigen values of $\mathbf{M}$. %On trouve bien les mêmes résultats avec les deux méthodes.
-
-The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
+These matrices can be computed in two different manners, providing a way to test this result. The first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ at poles $\pm \zeta^{\varepsilon}_*(\xi), *=L,T$. The second option for computing these matrices starts by computing the eigen vectors and eigen values of $\mathbf{M}$. The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
 \begin{subequations}
 \begin{equation}
     \mathbf{M}\begin{pmatrix}
@@ -304,7 +315,7 @@ The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
     -\eta \\ \xi \\ 0
     \end{pmatrix}
     =\frac{\xi^2+\eta^2+\tau^2}{\nu_T^2}\begin{pmatrix}
-    \xi \\ \eta \\ \tau 
+    -\eta \\ \xi \\ 0
     \end{pmatrix} 
 \end{equation}
 \begin{equation}
@@ -318,6 +329,7 @@ The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
 \end{subequations}
 These three vectors are linearly independent and constitute a vector basis of $\mathbb{C}^3$. This means that any vector of $\mathbb{C}^3$ can be expressed as a linear combination of these three vectors. Notably :
 \begin{equation}
+\Sigma_j=
     \begin{pmatrix}
     \hat{\alpha}_j\\ \hat{\beta}_j\\ \hat{\gamma}_j
     \end{pmatrix}
@@ -329,7 +341,20 @@ These three vectors are linearly independent and constitute a vector basis of $\
     -\xi\tau \\ \eta\tau \\ \xi^2+\eta^2
     \end{pmatrix}
 \end{equation}
-This second computation method thus yields
+This allows us to write the term $(\mathbf{M}-e^{-2i\varepsilon}\mathbb{I}_3)^{-1} \Sigma_j$ as the sum of three contributions :
+\begin{multline}
+(\mathbf{M}-e^{-2i\epsilon}\mathbb{I}_3)^{-1} \Sigma_j=\frac{\xi\hat{\alpha}_j+\eta\hat{\beta}_j+\tau\hat{\gamma}_j}{\xi^2+\eta^2+\tau^2}\lbrack(\xi^2+\eta^2+\tau^2)-e^{-2i\varepsilon} \rbrack^{-1} \begin{pmatrix}
+    \xi \\ \eta \\ \tau 
+    \end{pmatrix} \\
++\frac{\xi\hat{\beta}_j-\eta\hat{\alpha}_j}{\xi^2+\eta^2} \lbrack \frac{\xi^2+\eta^2+\tau^2}{\nu_T^2}-e^{-2i\varepsilon} \rbrack^{-1} \begin{pmatrix}
+    -\eta \\ \xi \\ 0
+    \end{pmatrix}\\
+    +\frac{(\xi^2+\eta^2)\hat{\gamma}_j-\tau(\xi\hat{\alpha}_j+\eta\hat{\beta}_j)}{(\xi^2+\eta^2)(\xi^2+\eta^2+\tau^2)} \lbrack \frac{\xi^2+\eta^2+\tau^2}{\nu_T^2}-e^{-2i\varepsilon} \rbrack^{-1} \begin{pmatrix}
+    -\xi\tau \\ \eta\tau \\ \xi^2+\eta^2
+    \end{pmatrix}
+    \label{invspectre}
+\end{multline}
+Expression \eqref{invspectre} therefore simplifies the evaluation of the residues of the integral on $\eta$ in \eqref{C4:invdouble} at poles $\pm \zeta^{\varepsilon}_*(\xi)$. This second computation method thus yields
 \begin{equation}
 v_j^{\varepsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\varepsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,TH,TV}e^{i|y_j|\zeta_*^{\varepsilon}(\xi)}\mathbf{M_*^{\varepsilon}}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{C4:vjeps2}
@@ -356,9 +381,20 @@ where $\mathbf{M_L^{\varepsilon}}(\xi,t),$ is given by \eqref{C4:MLeps} and
 \end{subequations}
 Note that $ \mathbf{M_T^{\varepsilon}}=\mathbf{M_{TH}^{\varepsilon}}+\mathbf{M_{TV}^{\varepsilon}}$. Expressions \eqref{C4:vjeps} and \eqref{C4:vjeps2} are equivalent.
 
-Integral \eqref{C4:vjeps} is well defined for all values of $\varepsilon \in \rbrack 0, \pi \lbrack $, since for these values of $\varepsilon$, the integration contour never crosses the branch points of the integrand, which are located at $\xi=\pm \tilde{\nu}_*^{\varepsilon}$, outside of the real axis.
+Integral \eqref{C4:vjeps} or \eqref{C4:vjeps2} is well defined for Im$\zeta_*^{\varepsilon}>0$, so that the exponential in the integral decreases with the distance $y_j$. The branch cut for the square root in the definition of $\zeta_*^{\varepsilon}$ \eqref{defzeta} is therefore defined by:
+\begin{equation}
+\zeta_*^{\varepsilon}=\left\{
+\begin{matrix}
+i \sqrt{\xi^2-\nuti_*^{\epsilon 2}} & \rm if & |\xi|\geq |\nuti_*^{\epsilon}|
+\\
+-\sqrt{\nuti_*^{\epsilon 2}-\xi^2} & \rm if & |\xi|< |\nuti_*^{\epsilon}|
+\end{matrix}
+\right.
+\label{C4:zetabranchcut}
+\end{equation}
+For all values of $\varepsilon \in \rbrack 0, \pi \lbrack $, the integration contour never crosses the branch points of $\zeta_*^{\varepsilon}$, which are located at $\pm \tilde{\nu}_*^{\varepsilon}$ ($\nuti_*^{\varepsilon}$ is given by \eqref{defnutieps}), outside of the real axis.
 
-According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\varepsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The integration contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L\in\mathbb{R}$ and on Fig.~\ref{C4:Gamma0_cr} in the other case. In both cases, the branch points of the integrand are avoided.
+According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\varepsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The integration contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L^0\in\mathbb{R}$, described in \eqref{noncr} and on Fig.~\ref{C4:Gamma0_cr} in the other case, described in \eqref{crit}. Physically, if we define a critical angle for diffraction $\delta_c$ by $\sin\delta_c=\frac{\nu_L}{\nu_T}$, then the case described in \eqref{noncr} corresponds to the case where the incident skew angle (the angle between the incident wave vector and the plane normal to the wedge edge) is lower than the critical angle. On the contrary, the case described by \eqref{crit} corresponds to the case where the incident skew angle is higher than this critical angle and, according to Snell's law of diffraction \eqref{C4:Snelldiff}, there is no diffracted longitudinal wave. In both cases, the branch points of the integrand are avoided.
 
 In all the following, superscript $\varepsilon=0$ will be omitted in order to alleviate notations. Finally:
 \begin{equation}
@@ -366,21 +402,21 @@ v_j(x_j,y_j)=\frac{i}{4\pi}\int_{\Gamma_0} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta
 \label{C4:vj0}
 \end{equation}
 
-The branch cut chosen for the definition of $\zeta_*, \, *=L,T$ is the one for which the square root's imaginary part is positive, in order to satisfy the following radiation condition at infinity :
-\begin{equation}
-\underset{y_j\rightarrow +\infty}{\rm lim}||v_j(x_j,y_j)||=0
-\end{equation}
-The branch cut is defined by 
- \begin{eqnarray}
- \zeta_*(\xi)=
- \left\{
- \begin{array}{lr}
- i\sqrt{\xi^2-\tilde{\nu}_*^2}& \mbox{if } |\xi| \geq |\nuti_*| \\
- -\sqrt{\tilde{\nu}_*^2-\xi^2}& \mbox{if } |\xi| \leq |\nuti_*|
- \end{array}
- \right.
- \label{defzeta}
- \end{eqnarray}
+%The branch cut chosen for the definition of $\zeta_*, \, *=L,T$ is the one for which the square root's imaginary part is positive, in order to satisfy the following radiation condition at infinity :
+%\begin{equation}
+%\underset{y_j\rightarrow +\infty}{\rm lim}||v_j(x_j,y_j)||=0
+%\end{equation}
+%The branch cut is defined by 
+% \begin{eqnarray}
+% \zeta_*(\xi)=
+% \left\{
+% \begin{array}{lr}
+% i\sqrt{\xi^2-\tilde{\nu}_*^2}& \mbox{if } |\xi| \geq |\nuti_*| \\
+% -\sqrt{\tilde{\nu}_*^2-\xi^2}& \mbox{if } |\xi| \leq |\nuti_*|
+% \end{array}
+% \right.
+% \label{defzeta}
+% \end{eqnarray}
 
 \begin{figure}
 \centering
