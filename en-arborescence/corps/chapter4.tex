@@ -515,7 +515,7 @@ d\xi&=-\tilde{\nu}_*\sin\lambda\, d\lambda
 \end{split}
 \label{C4:changevar2}
 \end{equation}
-yielding
+yielding, when $\noncr$
 \begin{equation}
 v_1(r,\theta,\delta_{\beta})=\frac{i}{4\pi} \int_{C_0}\sum_{*=L,T}\tilde{\nu}_*^2 e^{i\tilde{\nu}_*R\cos\delta_{\beta}\cos(\lambda+\bar{\theta})}\mathbf{ P_*}(\lambda,t)\Sigma_1(\tilde{\nu}_*\cos\lambda) \, d \lambda
 \label{C4:v1C0}
@@ -610,6 +610,8 @@ C_0^L= -\dfrac{\pi}{2}-i\mathbb{R}
 	\node at (3,3.1) {$C_0$};
 	\node at (1.9,3.1) {$\gamma_{\theta}$};
 	\node at (-2.0,3.3) {$C_0^L$};
+	\node at (2.1,-0.005) {$\times$};
+	\node at (2.1,-0.4) {$\lambda_c$};
 	
 	\draw[black,very thick, decoration={ markings,  
 		mark=at position 0.2 with {\arrow{latex}},
@@ -640,7 +642,7 @@ C_0^L= -\dfrac{\pi}{2}-i\mathbb{R}
 	(pi-0.4,3.2) -- (pi-0.4,0.4) arc (0:-90:0.2) ;
 
 	\end{tikzpicture}
-	\caption{Contours $C_0$ and $\gamma_{\theta}$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. The stationary phase points are noted $\lambda_s$.}
+	\caption{Contours $C_0, C_0^L$ and $\gamma_{\theta}$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. The stationary phase points are noted $\lambda_s$.}
 	\label{C4:steepestcontour}
 \end{figure}
 
@@ -648,7 +650,7 @@ The far-field evaluation of the integral is obtained by applying the steepest de
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected waves (for the poles of the spectral functions) and head waves (for the branch points of the spectral functions), and $v_1^{diff}$ is the contribution of the stationary phase point $\lambda_s=\pi-\overline{\theta}$, corresponding to the edge-diffracted wave and computed using \eqref{steepformula}. In the following, it is assumed that the saddle point $\lambda_s$ does not coalesce with a branch point. In the case where this assumption fails, some possible solutions have been offered by Borovikov \cite{Borovikov} and by Zernov et al. \cite{Zernovcrit} for the case of a steel wedge. In the present work, only the contribution of the edge-diffracted waves will be computed. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$, using the fact that $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected waves (for the poles of the spectral functions) and head waves (for the branch points $\lambda_c$ of the spectral functions), and $v_1^{diff}$ is the contribution of the stationary phase point $\lambda_s=\pi-\overline{\theta}$, corresponding to the edge-diffracted wave and computed using \eqref{steepformula}. In the following, it is assumed that the saddle point $\lambda_s$ does not coalesce with a branch point. Borovikov \cite{Borovikov} gives some clues as to how to treat the case where the stationary phase point coincides with another singularity of the integrand but no high-frequency asymptotics prove satisfactory in some situations of practical interest \cite{Gridin} and are neither available when the critical transition zones overlap penumbras, that is when all three critical points (stationary, critical and pole) coalesce \cite{KamotskiCrit}. In the present work, only the contribution of the edge-diffracted waves will be computed. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$, using the fact that $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
 \begin{equation}
 v_1^{diff}(r,\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta_{\beta}}}{\sqrt{\nuti_*R\cos\delta_{\beta}}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
 \end{equation}
