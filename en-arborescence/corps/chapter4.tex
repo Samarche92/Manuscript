@@ -493,7 +493,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 Integral formulation \eqref{C4:vj0} is an expression of the solution in terms of the unknown spectral function $\Sigma_j$. In the next section, a far-field approximation of this integral is derived and the diffraction coefficient is defined.
 
 \subsection{Far field approximation}
-$x=(x'_1,y'_1,z'_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Keller's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
+$x=(x'_1,y'_1,z'_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta},-r\sin\delta_{\beta})$ is an observation point, indexed by its spherical coordinates, visible on Fig.~\ref{diedre_coords}. In order for the diffracted field to be observable at this point, $x$ is located on one of Keller's cones of diffraction, visible on Fig.~\ref{C4:Kellercone}. The observation skew angle $\delta_{\beta}$ is set by Snell's law of diffraction \eqref{C4:Snelldiff}.
 
 \begin{figure}
 \centering
@@ -504,9 +504,9 @@ $x=(x'_1,y'_1,z'_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta}
 
 According to \eqref{C4:adiming},the scattered field at point $P$ is :
 \begin{equation}
-u_0(x'_1,y'_1,z'_1)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{ik_{\beta}\sin\delta_{\beta}z'_1}
+u_0(x'_1,y'_1,z'_1)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{-ik_{\beta}\sin\delta_{\beta}z'_1}
 \end{equation}
-The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$.The first step is to apply the following change of variables in integral $v_1$ :
+The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$. The first step is to apply the following change of variables in integral $v_1$ :
 \begin{equation}
 \begin{split}
 \xi&=\tilde{\nu}_*\cos\lambda \\
