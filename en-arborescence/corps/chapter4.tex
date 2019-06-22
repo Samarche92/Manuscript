@@ -614,7 +614,9 @@ C_0^L= -\dfrac{\pi}{2}-i\mathbb{R}
 	\draw[black,very thick, decoration={ markings,  
 		mark=at position 0.2 with {\arrow{latex}},
 		mark=at position 0.8 with {\arrow{latex}}},
-	postaction={decorate}] (-1.7,3.5)--(-1.7,-2.5);
+	postaction={decorate}] (-1.5,3.5)--(-1.5,-2.5);
+	
+	\node at (-1.9,-0.5) {$-\dfrac{\pi}{2}$};
 	
 	\draw[black,very thick][domain=0:3.5] plot({2*pi/7 + acos(1/cosh(\x))*pi/180},\x);
 	\draw[black,very thick, decoration={ markings,  
