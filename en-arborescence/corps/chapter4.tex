@@ -271,6 +271,7 @@ and for $\nuti_L^0$, two cases may occur :
 As we will see, in the case described by \eqref{noncr}, the computations made in the 3D case are analogous to those described in the previous chapter. On the other hand, in the case described by \eqref{crit}, the presence of an imaginary branch point modifies and complicates all the occurring complex integral contour deformations. In any case,
 \begin{equation}
 \zeta_*^{\varepsilon}(\xi)=\sqrt{\tilde{\nu}_*^{\varepsilon^2}-\xi^2}
+\label{C4:defzeta}
 \end{equation}
 %La racine carrée complexe étant définie au signe près, $\sqrt{z}$ peut prendre deux valeurs distinctes pour $z$ fixé. C'est ce qu'on appelle les branches de coupure de la fonction. Les points de branchement sont les valeurs pour lesquelles ces branches se croisent (ici il s'agit de $\xi=\pm \tilde{\nu}_*^{\epsilon}$). Afin de bien définir $\zeta_*^{\epsilon}(\xi)$, on choisit la branche dont la partie imaginaire est positive. 
 
@@ -381,7 +382,7 @@ where $\mathbf{M_L^{\varepsilon}}(\xi,t),$ is given by \eqref{C4:MLeps} and
 \end{subequations}
 Note that $ \mathbf{M_T^{\varepsilon}}=\mathbf{M_{TH}^{\varepsilon}}+\mathbf{M_{TV}^{\varepsilon}}$. Expressions \eqref{C4:vjeps} and \eqref{C4:vjeps2} are equivalent.
 
-Integral \eqref{C4:vjeps} or \eqref{C4:vjeps2} is well defined for Im$\zeta_*^{\varepsilon}>0$, so that the exponential in the integral decreases with the distance $y_j$. The branch cut for the square root in the definition of $\zeta_*^{\varepsilon}$ \eqref{defzeta} is therefore defined by:
+Integral \eqref{C4:vjeps} or \eqref{C4:vjeps2} is well defined for Im$\zeta_*^{\varepsilon}>0$, so that the exponential in the integral decreases with the distance $y_j$. The branch cut for the square root in the definition of $\zeta_*^{\varepsilon}$ \eqref{C4:defzeta} is therefore defined by:
 \begin{equation}
 \zeta_*^{\varepsilon}=\left\{
 \begin{matrix}
@@ -506,7 +507,7 @@ According to \eqref{C4:adiming},the scattered field at point $P$ is :
 \begin{equation}
 u_0(x'_1,y'_1,z'_1)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{-ik_{\beta}\sin\delta_{\beta}z'_1}
 \end{equation}
-The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$. The first step is to apply the following change of variables in integral $v_1$ :
+The far field parameter is $R=\frac{\omega r}{c_L}$. The aim is to determine the asymptotic behavior of $v(R\cos\theta\cos\delta_{\beta},R\sin\theta\cos\delta_{\beta})$ when $R\rightarrow +\infty$. The first step is to apply the following change of variables in integral $v_1$, given by \eqref{C4:vjeps} :
 \begin{equation}
 \begin{split}
 \xi&=\tilde{\nu}_*\cos\lambda \\
@@ -593,11 +594,11 @@ The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} decr
 	decoration={ markings,  
 		mark=at position 0.8 with {\arrow{latex}}},
 	postaction={decorate}]
-	(0.2,0.2) arc (0:-90:0.4) -- (-0.2,-3); 
+	(0.4,0.2) arc (90:180:0.2) -- (0.2,-3); 
 	
 	\draw[very thick,black,%yshift=0pt,
 	decoration={ markings, mark=at position 0.5 with {\arrow{latex}}}, postaction={decorate}]
-	(pi-0.57,0.2) -- (0.2,0.2);
+	(pi-0.57,0.2) -- (0.4,0.2);
 
 	\draw[very thick,black,%xshift=0pt,
 	decoration={ markings,  
