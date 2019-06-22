@@ -538,9 +538,27 @@ t\cos\lambda\sin\lambda & \cos^2\lambda+\frac{\tau^2}{\tilde{\nu}_T^2}&t\frac{\t
 -\frac{\tau}{\tilde{\nu}_T}\cos\lambda&t\frac{\tau}{\tilde{\nu}_T}\sin\lambda&1
 \end{pmatrix}
 \end{equation}
-$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}. Note that contour $C_0$ does not fit exactly on the $pi$-spaced grid in represented in the complex plane. This corresponds to adding an infinitely small imaginary part to the axis $\Gamma_0$ represented in Fig.~\ref{C4:Gamma0}, in order to avoid the branch points $\pm \nuti_*$ located at $\lambda=0$ and $\lambda=\pi$.
+$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}. Note that contour $C_0$ does not fit exactly on the $\frac{\pi}{2}$-spaced grid in represented in the complex plane. This corresponds to adding an infinitely small imaginary part to the axis $\Gamma_0$ represented in Fig.~\ref{C4:Gamma0}, in order to avoid the branch points $\pm \nuti_*$ located at $\lambda=0$ and $\lambda=\pi$.
 
-Note that in the case $\nuti_L =i\eta_L \in i\mathbb{R}$, variable change \eqref{C4:changevar2} produces an evanescent term :
+In the case defined by \eqref{crit}, let us define $\eta_L$ in the following manner :
+\begin{equation}
+\nuti_L=i\eta_L, \quad \eta_L \in \mathbb{R}
+\label{defetaL}
+\end{equation}
+Variable change \eqref{C4:changevar2} then yields :
+\begin{equation}
+\begin{split}
+\xi&=\nuti_L\cos\lambda=i\eta_L\cos(\lambda_1+i\lambda_2)\\
+&=\eta_L(\sin\lambda_1\sinh\lambda_2+i\cos\lambda_1\cosh\lambda_2)
+\end{split}
+\label{changevar2L}
+\end{equation}
+The new contour integration contour $C_0^L$ on $\lambda$, thus verifies :
+\begin{equation}
+\rm Im(\xi)=0 \iff \cos\lambda_1=0 \iff \lambda_1=\pm \frac{\pi}{2}
+\label{pisur2}
+\end{equation}
+When $\xi$ travels along $\Gamma_0$, going from $-\infty$ to $+\infty$, then, according to \eqref{changevar2L} and \eqref{pisur2}, $\lambda_2$ goes from $-\infty$ to $+\infty$ or vice-versa, depending on the sign of $\lambda_1$. The final step to determining contour $C_0^L$ is therefore to determine the sign of $\lambda_1$. Suppose that $\lambda_1=-\frac{\pi}{2}$, then applying variable change \eqref{C4:changevar2} in integral formulation \eqref{C4:vjeps} produces an evanescent term :
 \begin{equation}
 \begin{split}
 v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
@@ -548,19 +566,32 @@ v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\
 \end{split}
 \label{C4:v1C0evan}
 \end{equation}
-where contour $C_0^L$ is visible on Fig.~\ref{C4:steepestcontour}. The exponential term in the first integral of \eqref{C4:v1C0evan} is $e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}$, where $\eta_L>0$, $R>0$ and $\cos\delta>0$. Furthermore, for $\lambda :\in C_0^L$, we have :
+where contour $C_0^L$ is visible on Fig.~\ref{C4:steepestcontour}. The exponential term in the first integral of \eqref{C4:v1C0evan} is $e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}$, where $\eta_L>0$, $R>0$ and $\cos\delta>0$. Furthermore, for $\lambda \in C_0^L$, we have :
 \begin{equation}
-\lambda=-\left(\dfrac{\pi}{2}^+\right)+i\lambda_2
+\lambda=-\dfrac{\pi}{2}+i\lambda_2
 \end{equation}
-where the notation $\dfrac{\pi}{2}^+$ refers to a real number which tends to $\frac{\pi}{2}$ with superior values and $\lambda_2=\rm Im(\lambda)$. This yields
+%where the notation $\dfrac{\pi}{2}^+$ refers to a real number which tends to $\frac{\pi}{2}$ with superior values and $\lambda_2=\rm Im(\lambda)$. 
+This yields
 \begin{equation}
 \cos(\lambda+\bar{\theta})=\cos(\bar{\theta}-\dfrac{\pi}{2})\cosh\lambda_2-i\sin(\bar{\theta}-\dfrac{\pi}{2})\sinh\lambda_2
 \end{equation}
-Having $\bar{\theta} \in \lbrack 0,\pi \rbrack$, we have $\cos(\bar{\theta}-\dfrac{\pi}{2})=\sin\bar{\theta}\leq 0$ and 
+Having $\bar{\theta} \in \lbrack 0,\pi \rbrack$, we have $\cos(\bar{\theta}-\dfrac{\pi}{2})=\sin\bar{\theta}\geq 0$ and 
 \begin{equation}
 |e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}|=e^{-\eta_L R\cos\delta\sin\bar{\theta}\cosh\lambda_2}
 \end{equation}
-The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} decreases exponentially as the distance from the edge grows. %This means that it is an evanescent term.
+The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} decreases exponentially as the distance from the edge grows. On the contrary, if $\lambda_1=\frac{\pi}{2}$, then we would have :
+\begin{equation}
+\cos(\lambda+\bar{\theta})=\cos(\bar{\theta}+\dfrac{\pi}{2})\cosh\lambda_2-i\sin(\bar{\theta}+\dfrac{\pi}{2})\sinh\lambda_2
+\end{equation}
+and
+\begin{equation}
+|e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}|=e^{\eta_L R\cos\delta\sin\bar{\theta}\cosh\lambda_2}
+\end{equation}
+The amplitude of the integrand in the first integral of \eqref{C4:v1C0evan} would then increase exponentially as the distance from the edge grows, which is physically impossible. Therefore, $C_0^L$, visible on Fig.~\ref{C4:steepestcontour}, is defined by
+\begin{equation}
+C_0^L= -\dfrac{\pi}{2}-i\mathbb{R}
+\end{equation}
+%This means that it is an evanescent term.
 
 \begin{figure}
 \centering
