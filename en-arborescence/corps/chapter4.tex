@@ -149,19 +149,19 @@ where $E$ and $B$ are respectively the dimensionless linear elasticity operator 
 \cos \theta_{inc}\cos\delta_{inc} \\
 \sin \theta_{inc}\cos\delta_{inc} \\
 \sin\delta_{inc}
-\end{pmatrix} e^{ir\nu_L \cos(\theta-\theta_{inc})}
+\end{pmatrix} e^{ir\nu_L \cos(\theta-\theta_{inc})\cos\delta_{inc}}
 \hspace{2em}
 \rm v_{TH}^{inc}(r,\theta)=\begin{pmatrix}
 -\sin \theta_{inc} \\
 \cos \theta_{inc} \\
 0
-\end{pmatrix} e^{ir\nu_T \cos(\theta-\theta_{inc})} 
+\end{pmatrix} e^{ir\nu_T \cos(\theta-\theta_{inc})\cos\delta_{inc}} 
 \\
 \rm v_{TV}^{inc}(r,\theta)=\begin{pmatrix}
 -\cos\theta_{inc}\sin\delta_{inc} \\
 -\sin\theta_{inc}\sin\delta_{inc} \\
 \cos\delta_{inc}
-\end{pmatrix} e^{ir\nu_T \cos(\theta-\theta_{inc})} 
+\end{pmatrix} e^{ir\nu_T \cos(\theta-\theta_{inc})\cos\delta_{inc}} 
 \label{C4:vinc}
 \end{multline}
  The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
