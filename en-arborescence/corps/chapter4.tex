@@ -1008,11 +1008,15 @@ where $\phiti$ is defined in the second chapter of this manuscript, by \eqref{ph
 \node at (0.5,-1.7) {$-\nuti_L$};
 \node at (-2.3,-3.3) {$\mathbf{\partial \Omega_L}$};
 
+\draw[ thick, ->] (3,-0.3) arc (0:-45:1); 
+
+\draw[ thick, ->] (-2.6,-0.5) arc (0:45:-1); 
+
 % Espace Omega_0
 \draw[thick] (3,2) circle (0.5);
 \node at (3,2) {$\mathbf{\Omega_L^+}$};
 \end{tikzpicture}
-\caption{Contour $\partial \Omega_L$ and domain $\Omega_L^+$ in the case $\crit$.}
+\caption{Contour $\partial \Omega_L$ and domain $\Omega_L^+$ in the case $\crit$. The curved arrows show deformation of contour $\Gamma_0$ onto $\partial \Omega_L$.}
 \label{C4:domegaL}
 \end{subfigure}
 \caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
@@ -1163,9 +1167,9 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{C4:gamma1cr}
 \end{figure}
 
-Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of which are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$. Cauchy's residue theorem is applied, yielding, for $V \in \mathbb{C}^3$, Im$z\geq 0, \, z \notin \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \}$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$ :
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole noted $z$ in the following, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of which are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$. Cauchy's residue theorem is applied in that case, yielding, for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_L \rbrack \cup \{\pm \nuti_L,\pm \nuti_T \})$ :
 \begin{equation}
-\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).V}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).V
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{1}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z)}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi)
 \label{C4:GaussTM}
 \end{equation}
 where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}(z)=0$ elsewhere and
@@ -1174,7 +1178,7 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}
 \label{C4:defTp}
 \end{equation}
 
-In the case where $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$ is not crossed  and therefore does not contribute to the integral. However, if there exists $\zeta_0 \in \Omega_L^+$ such that $T_L(\zeta_0)=\xi$ and Im$\zeta_0<0$, then pole $\zeta_0$ is crossed during this deformation. Suppose that $\zeta_0=\nuti_L\cos\theta_0=\nuti_L\cos(\theta_0'+i\theta_0'')$ and $\xi=T_L(\zeta_0)=\nuti_L\cos(\theta_0+\phiti)$ with $\nuti_L=i\eta_L \in i\mathbb{R}$, we then have :
+In the case where $\crit$, $\partial \Omega_L$ is visible in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$, which verifies Im$z\geq 0$ is not crossed by the contour deformation, which only crosses part of the lower half of the complex plane, and therefore does not contribute to the integral. However, if there exists $\zeta_0 \in \Omega_L^+$ such that $T_L(\zeta_0)=\xi$ and Im$\zeta_0<0$, then pole $\zeta_0$ is crossed during this deformation. Suppose that $\zeta_0=\nuti_L\cos\theta_0=\nuti_L\cos(\theta_0'+i\theta_0'')$ and $\xi=T_L(\zeta_0)=\nuti_L\cos(\theta_0+\phiti)$ with $\nuti_L=i\eta_L \in i\mathbb{R}$, we then have :
 \begin{equation}
 \rm Im \zeta_0=\eta_L\cos\theta_0'\cosh\theta_0''  
 \end{equation}
@@ -1183,9 +1187,9 @@ Combining the facts that Im$\zeta_0<0$ and $\zeta_0 \in \Omega_L^+$ gives
 \dfrac{\pi}{2}<\theta_0'<\pi-\phiti
 \label{C4:condcr}
 \end{equation}
-Condition \eqref{C4:condcr} makes sense if and only if $\phiti<\dfrac{\pi}{2}$. From hereon after, we will suppose that this is not the case (this restriction is only made when $\crit$). In practice, this is not too restrictive since, as explained in \ref{Chapter5:sing_part}, the spectral functions method is less accurate for small values of $\phiti$. Therefore, when $\crit$, Cauchy's residue theorem yields, for $V \in \mathbb{C}^3$, Im$z\geq 0, \, z \notin \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \}$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash ( \rbrack - \infty, -\nuti_L \rbrack\cup \lbrack \nuti_L,+i\infty\lbrack)$ :
+Condition \eqref{C4:condcr} makes sense if and only if $\phiti<\dfrac{\pi}{2}$. From hereon after, we will suppose that this is not the case (this restriction is only made when $\crit$). In practice, this is not too restrictive since, as explained in \ref{Chapter5:sing_part}, the spectral functions method is less accurate for small values of $\phiti$. Therefore, when $\crit$, Cauchy's residue theorem yields, for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash ( \rbrack - \infty, -\nuti_L \rbrack\cup \lbrack \nuti_L,+i\infty\lbrack \d, \cup \, \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \})$ :
 \begin{equation}
-\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \frac{\textbf{tm}_T(z).V}{\xi-T_T(V)}\textbf{1}_{\Omega_T}(z)+\mathbf{T_p}(z,\xi).V
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{1}{\zeta-z}\,d\zeta = \frac{\textbf{tm}_T(z)}{\xi-T_T(z)}\textbf{1}_{\Omega_T}(z)+\mathbf{T_p}(z,\xi)
 \label{C4:GaussTMcr}
 \end{equation}
 with $\mathbf{T_p}$ defined by \eqref{C4:defTp}.
