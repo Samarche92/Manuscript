@@ -817,6 +817,7 @@ where
 \end{equation}
 \begin{equation}
 D_*(\xi,\zeta)=\frac{1}{\xi-(\zeta \cos \varphi + \zeta_*(\zeta) |\sin \varphi|)},
+\label{C4:defDstar}
 \end{equation}
 $\epsilon=$sgn sin $\varphi$, and the following matrices of rank 1 are defined :
 \begin{equation}
@@ -867,7 +868,7 @@ In the following, let us note for simplification:
 
 It has been checked that setting $\tau=0$ in the explicit expressions of $\mathbf{DM}$ and $\mathbf{TM}$ operators leads to the same expressions as those found in the previous chapter, concerning the 2D case.
 
-Finally, the Fourier transform of the boundary conditions on the wedge faces is obtained by summing \eqref{C4:B1DM} and \eqref{C4:B2TM}. The right-hand side of the system is obtained by taking the Fourier transform of $-Bv_{\alpha}^{inc}|_{\mathcal{S}_j}, \; j=1,2$. The final system of functional equations solved by the spectral functions is 
+Finally, the Fourier transform of the boundary conditions on the wedge faces is obtained by summing \eqref{C4:B1DM} and \eqref{C4:B2TM}. The right-hand side of the system is obtained by taking the Fourier transform of $-Bv_{\alpha}^{inc}|_{\mathcal{S}_j}, \; j=1,2$, where B is defined by \eqref{C4:Badim} and the incident field is given by \eqref{C4:vinc}. The final system of functional equations solved by the spectral functions is 
 \begin{equation}
 \left\{
 \begin{matrix}
@@ -879,7 +880,7 @@ Finally, the Fourier transform of the boundary conditions on the wedge faces is 
 \right.
 \label{C4:equationsintegrales}
 \end{equation}
-where the right-hand side is obtained by applying operator $B$ defined by \eqref{C4:Badim} to the incident wave given by 
+where
 \begin{eqnarray}
 \begin{array}{lr}
 W_1^L=-2\begin{pmatrix}
@@ -928,7 +929,7 @@ Thanks to these functional equations, the spectral functions can be decomposed i
 
 \subsection{Singular part}
 \label{C4:singpart}
-The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using to a recursive procedure, in which the following translation function appears (for $*=L,T$) :
+The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using a recursive procedure, using the following translation function which appears in \eqref{C4:defDstar} (for $*=L,T$) :
 \begin{equation}
 T_*(\xi=\nuti_*\cos\theta)=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
 \end{equation}
@@ -937,158 +938,8 @@ where $\phiti$ is defined in the second chapter of this manuscript, by \eqref{ph
 \xi \in \Omega_*^+= \{ \xi=\tilde{\nu}_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi} \}
 \label{C4:defOmega0}
 \end{equation}
-In order to determine the action of operator $\mathbf{DM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$, visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and in Fig.~\ref{C4:gamma1cr} for the case $\nuti_L \in i\mathbb{R}$. In both cases, Cauchy's residue theorem is applied, yielding for $V \in \mathbb{C}^3$, Im$z\geq 0, \, z \notin \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \}$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$ if $\noncr$ and $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \,)$ if $\crit$ :
-\begin{equation}
-\int_{\Gamma_0} \textbf{DM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \frac{\textbf{dm}(z).V}{\xi-z}+\mathbf{D_p}(z,\xi),
-\label{C4:GaussDM}
-\end{equation}
-where
-\begin{equation}
-\mathbf{D_p}(z,\xi)= \int_{\Gamma_1} \frac{\textbf{DM}(\xi,\zeta)}{\zeta-z}\,d\zeta
-\label{C4:defDp}
-\end{equation}
 
-\begin{figure}
-\centering
-\begin{tikzpicture}
-\node at (0,0) {$\times$};
-\node at (0,0.35) {$0$};
-\node at (2,0) {$\times$}; % Pole
-\node at (4,0) {$\times$}; %pole
-\node at (2,-0.36) {$\tilde{\nu}_L$};
-\node at (4,-0.36) {$\tilde{\nu}_T$};
-
-\node at (-2,0) {$\times$};
-\node at (-4,0) {$\times$};
-\node at (-2,0.36) {$-\tilde{\nu}_L$}; %pole
-\node at (-4,0.36) {$-\tilde{\nu}_T$}; %pole
-\node at (-3,-0.6) {$\Gamma_1$};
-
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{latex}}},
-      postaction={decorate}] (-1.5,0) -- (6,0);
-      
-\draw[ thick, ->] (3.0,0.3) arc (0:45:1); %ici c'est les fleches 
-  
-
-\draw[thick, black, yshift=0pt,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-6,0) -- (-4.25,0)  arc (-180:0:0.25) -- (-2.25,0)  arc (-180:0:0.25) -- (-1.75,0) arc(-90:90:0.5)  -- (-6,1);
-\end{tikzpicture}
-\caption{Contour $\Gamma_1$ in the case $\noncr$. The arrow shows the deformation of contour $\Gamma_0$ into $\Gamma_1$.}
-\label{C4:gamma1noncr}
-\end{figure}
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.45\textwidth}
-\begin{tikzpicture}[scale=0.8]
-\node at (0,0) {$\times$};
-\node at (0.35,0.35) {$0$};
-\node at (0,1.5) {$\times$}; 
-\node at (3,0) {$\times$}; 
-\node at (-0.36,1) {$\tilde{\nu}_L$};
-\node at (3,-0.36) {$\tilde{\nu}_T$};
-
-\node at (0,-1.5) {$\times$};
-\node at (-3,0) {$\times$};
-\node at (-0.5,-1.5) {$-\tilde{\nu}_L$}; 
-\node at (-3,0.36) {$-\tilde{\nu}_T$};
-%\node at (-3,-0.6) {$\Gamma_1^a$};
-%\node at (1,3) {$\Gamma_1^b$};
-
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{>}}},
-      postaction={decorate}] (-2.5,0) -- (4,0);
-      
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{>}}},
-      postaction={decorate}] (0,-2.5) -- (0,4);
-
-\draw[thick, black, yshift=0pt,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-3.7,1);
-      
-\draw[thick, black, yshift=0pt,
-decoration={ markings,  
-      mark=at position 0.1 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-0.5,3.0) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,4);
-
-\draw[ thick, ->] (-3,3)--(-3.7,3.7);
-      
-\draw[thick, black, yshift=0pt, decoration={ markings,  
-      mark=at position 0.5 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-3.7,1)arc(180:63.8:2.2);
-\end{tikzpicture}
-\caption{Intermediate contour $\Gamma_1$. The arrow shows the direction of the deformation.}
-\end{subfigure}
-~
-\begin{subfigure}[b]{0.45\textwidth}
-\begin{tikzpicture}[scale=0.8]
-\node at (0,0) {$\times$};
-\node at (0.35,0.35) {$0$};
-\node at (0,1.5) {$\times$}; 
-\node at (3,0) {$\times$}; 
-\node at (-0.36,1) {$\tilde{\nu}_L$};
-\node at (3,-0.36) {$\tilde{\nu}_T$};
-
-\node at (0,-1.5) {$\times$};
-\node at (-3,0) {$\times$};
-\node at (-0.5,-1.5) {$-\tilde{\nu}_L$}; 
-\node at (-3,0.36) {$-\tilde{\nu}_T$};
-\node at (-3,-0.6) {$\Gamma_1^a$};
-\node at (1,3) {$\Gamma_1^b$};
-
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{>}}},
-      postaction={decorate}] (-2.5,0) -- (4,0);
-      
-\draw[dashed, decoration={markings,
- mark=at position 1.0 with {\arrow{>}}},
-      postaction={decorate}] (0,-2.5) -- (0,3.5);
-
-\draw[thick, black, yshift=0pt,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-5,1);
-      
-\draw[thick, black, yshift=0pt,
-decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
-      mark=at position 0.1 with {\arrow{latex}},
-      mark=at position 0.9 with {\arrow{latex}}},
-      postaction={decorate}]
-      (-0.5,3.5) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,3.5);
-      
-\end{tikzpicture}
-\caption{Final contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$}
-\end{subfigure}
-\caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$ in the case $\crit$.}
-\label{C4:gamma1cr}
-\end{figure}
-
-Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of which are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$. Cauchy's residue theorem is applied, yielding, for $V \in \mathbb{C}^3$, Im$z\geq 0, \, z \notin \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \}$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$ :
-\begin{equation}
-\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).V}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).V
-\label{C4:GaussTM}
-\end{equation}
-where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}(z)=0$ elsewhere and
-\begin{equation}
-\mathbf{T_p}(z,\xi)= \frac{1}{2i\pi} \sum_{*=L,T} \int_{\partial \Omega_*} D_*(\xi,\zeta) .\dfrac{\textbf{tm}_*(\zeta)}{\zeta-z}\, d\zeta
-\label{C4:defTp}
-\end{equation}
-
-\begin{figure}
+\begin{figure}[h]
 \centering
 \begin{subfigure}[b]{0.45\textwidth}
    \begin{tikzpicture}[scale=0.9]
@@ -1165,6 +1016,161 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}
 \caption{Domains $\Omega_*$ and contours $\partial \Omega_*$ in cases $\noncr$ and $\crit$.}
 \label{C4:domega0}
 \end{figure}
+
+In order to determine the action of operator $\mathbf{DM}$ on a simple pole (as it has been done in previous chapters in equations \eqref{Int_op_decomp_DM} and \eqref{GaussDM}) contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$. Contour $\Gamma_1$ is visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and Cauchy's residue theorem can then be applied for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_L \rbrack \cup \{\pm \nuti_L,\pm \nuti_T \})$.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\node at (0,0) {$\times$};
+\node at (0,0.35) {$0$};
+\node at (2,0) {$\times$}; % Pole
+\node at (4,0) {$\times$}; %pole
+\node at (2,-0.36) {$\tilde{\nu}_L$};
+\node at (4,-0.36) {$\tilde{\nu}_T$};
+
+\node at (-2,0) {$\times$};
+\node at (-4,0) {$\times$};
+\node at (-2,0.36) {$-\tilde{\nu}_L$}; %pole
+\node at (-4,0.36) {$-\tilde{\nu}_T$}; %pole
+\node at (-3,-0.6) {$\Gamma_1$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{latex}}},
+      postaction={decorate}] (-1.5,0) -- (6,0);
+      
+\draw[ thick, ->] (3.0,0.3) arc (0:45:1); %ici c'est les fleches 
+  
+
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-6,0) -- (-4.25,0)  arc (-180:0:0.25) -- (-2.25,0)  arc (-180:0:0.25) -- (-1.75,0) arc(-90:90:0.5)  -- (-6,1);
+\end{tikzpicture}
+\caption{Contour $\Gamma_1$ in the case $\noncr$. The arrow shows the deformation of contour $\Gamma_0$ into $\Gamma_1$.}
+\label{C4:gamma1noncr}
+\end{figure}
+
+In the case $\crit$, contour $\Gamma_1$ is visible in Fig.~\ref{C4:gamma1cr}. Fig.~\ref{gamma1crinter} shows an intermediate step in the contour deformation from $\Gamma_0$ to $\Gamma_1$ : the arrow shows the direction of deformation of the quarter-cycle which links both pieces of $\Gamma_1$ in Fig.~\ref{gamma1crinter}. The radius of this quarter-cycle tends to infinity during the deformation, resulting in the final contour, which is the reunion of contours $\Gamma_1^a$ and $\Gamma_1^b$, represented in Fig.~\ref{gamma1crfinal}. Cauchy's residue theorem can then be applied for $z\geq 0$, Im$\xi <0 $ and $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \cup \{\pm \nuti_L,\pm \nuti_T \} \,)$. In both cases ($\noncr$ and $\crit$), application of the residue theorem yields :
+\begin{equation}
+\int_{\Gamma_0} \textbf{DM}(\xi,\zeta).\frac{1}{\zeta-z}\,d\zeta = \frac{\textbf{dm}(z)}{\xi-z}+\mathbf{D_p}(z,\xi),
+\label{C4:GaussDM}
+\end{equation}
+where
+\begin{equation}
+\mathbf{D_p}(z,\xi)= \int_{\Gamma_1} \frac{\textbf{DM}(\xi,\zeta)}{\zeta-z}\,d\zeta
+\label{C4:defDp}
+\end{equation}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+\begin{tikzpicture}[scale=0.8]
+\node at (0,0) {$\times$};
+\node at (0.35,0.35) {$0$};
+\node at (0,1.5) {$\times$}; 
+\node at (3,0) {$\times$}; 
+\node at (-0.36,1) {$\tilde{\nu}_L$};
+\node at (3,-0.36) {$\tilde{\nu}_T$};
+
+\node at (0,-1.5) {$\times$};
+\node at (-3,0) {$\times$};
+\node at (-0.5,-1.5) {$-\tilde{\nu}_L$}; 
+\node at (-3,0.36) {$-\tilde{\nu}_T$};
+%\node at (-3,-0.6) {$\Gamma_1^a$};
+%\node at (1,3) {$\Gamma_1^b$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (-2.5,0) -- (4,0);
+      
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (0,-2.5) -- (0,4);
+
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-3.7,1);
+      
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-0.5,3.0) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,4);
+
+\draw[ thick, ->] (-3,3)--(-3.7,3.7);
+      
+\draw[thick, black, yshift=0pt, decoration={ markings,  
+      mark=at position 0.5 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-3.7,1)arc(180:63.8:2.2);
+\end{tikzpicture}
+\caption{Intermediate contour $\Gamma_1$. The arrow shows the direction of the deformation.}
+\label{gamma1crinter}
+\end{subfigure}
+~
+\begin{subfigure}[b]{0.45\textwidth}
+\begin{tikzpicture}[scale=0.8]
+\node at (0,0) {$\times$};
+\node at (0.35,0.35) {$0$};
+\node at (0,1.5) {$\times$}; 
+\node at (3,0) {$\times$}; 
+\node at (-0.36,1) {$\tilde{\nu}_L$};
+\node at (3,-0.36) {$\tilde{\nu}_T$};
+
+\node at (0,-1.5) {$\times$};
+\node at (-3,0) {$\times$};
+\node at (-0.5,-1.5) {$-\tilde{\nu}_L$}; 
+\node at (-3,0.36) {$-\tilde{\nu}_T$};
+\node at (-3,-0.6) {$\Gamma_1^a$};
+\node at (1,3) {$\Gamma_1^b$};
+
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (-2.5,0) -- (4,0);
+      
+\draw[dashed, decoration={markings,
+ mark=at position 1.0 with {\arrow{>}}},
+      postaction={decorate}] (0,-2.5) -- (0,3.5);
+
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-5,0) -- (-3.25,0)  arc (-180:0:0.25) -- (-2.75,0) arc(-90:90:0.5)  -- (-5,1);
+      
+\draw[thick, black, yshift=0pt,
+decoration={ markings,  % This schema allows for fine-tuning the positions of arrows 
+      mark=at position 0.1 with {\arrow{latex}},
+      mark=at position 0.9 with {\arrow{latex}}},
+      postaction={decorate}]
+      (-0.5,3.5) -- (-0.5,1.6) arc(0:180:-0.5)  -- (0.5,3.5);
+      
+\end{tikzpicture}
+\caption{Final contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$}
+\label{gamma1crfinal}
+\end{subfigure}
+\caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_1=\Gamma_1^a \cup \Gamma_1^b$ in the case $\crit$.}
+\label{C4:gamma1cr}
+\end{figure}
+
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of which are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$. Cauchy's residue theorem is applied, yielding, for $V \in \mathbb{C}^3$, Im$z\geq 0, \, z \notin \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \}$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  \rbrack - \infty, -\nuti_L \rbrack$ :
+\begin{equation}
+\int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{V}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z).V}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi).V
+\label{C4:GaussTM}
+\end{equation}
+where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}(z)=0$ elsewhere and
+\begin{equation}
+\mathbf{T_p}(z,\xi)= \frac{1}{2i\pi} \sum_{*=L,T} \int_{\partial \Omega_*} D_*(\xi,\zeta) .\dfrac{\textbf{tm}_*(\zeta)}{\zeta-z}\, d\zeta
+\label{C4:defTp}
+\end{equation}
 
 In the case where $\crit$, $\partial \Omega_L$ is visble in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$ is not crossed  and therefore does not contribute to the integral. However, if there exists $\zeta_0 \in \Omega_L^+$ such that $T_L(\zeta_0)=\xi$ and Im$\zeta_0<0$, then pole $\zeta_0$ is crossed during this deformation. Suppose that $\zeta_0=\nuti_L\cos\theta_0=\nuti_L\cos(\theta_0'+i\theta_0'')$ and $\xi=T_L(\zeta_0)=\nuti_L\cos(\theta_0+\phiti)$ with $\nuti_L=i\eta_L \in i\mathbb{R}$, we then have :
 \begin{equation}
