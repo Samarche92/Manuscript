@@ -970,10 +970,12 @@ where $\phiti$ is defined in the second chapter of this manuscript, by \eqref{ph
 \draw[thick] (2,3) circle (0.5);
 \node at (2,3) {$\mathbf{\Omega_*^+}$};
 
-\draw[ thick, ->] (0.8,0.3) arc (0:45:1); %ici c'est les fleches 
-%\node at (1.2,0.8) {$\mathbf{\mathcal{F}_2}$}; 
+\draw[ thick, ->] (0.8,0.3) arc (0:45:1); 
+
+\draw[ thick, ->] (-2.6,-0.5) arc (0:45:-1); 
+
 \end{tikzpicture}
-\caption{Contour $\partial \Omega_*$ and domain $\Omega_*^+$ in the case $\noncr$. The curved arrow shows deformation of contour $\Gamma_0$ onto $\partial \Omega_*$.}
+\caption{Contour $\partial \Omega_*$ and domain $\Omega_*^+$ in the case $\noncr$. The curved arrows show deformation of contour $\Gamma_0$ onto $\partial \Omega_*$.}
 \label{C4:domegaT}     
 \end{subfigure}
 \hfill
@@ -1053,7 +1055,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{C4:gamma1noncr}
 \end{figure}
 
-In the case $\crit$, contour $\Gamma_1$ is visible in Fig.~\ref{C4:gamma1cr}. Fig.~\ref{gamma1crinter} shows an intermediate step in the contour deformation from $\Gamma_0$ to $\Gamma_1$ : the arrow shows the direction of deformation of the quarter-cycle which links both pieces of $\Gamma_1$ in Fig.~\ref{gamma1crinter}. The radius of this quarter-cycle tends to infinity during the deformation, resulting in the final contour, which is the reunion of contours $\Gamma_1^a$ and $\Gamma_1^b$, represented in Fig.~\ref{gamma1crfinal}. Cauchy's residue theorem can then be applied for $z\geq 0$, Im$\xi <0 $ and $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \cup \{\pm \nuti_L,\pm \nuti_T \} \,)$. In both cases ($\noncr$ and $\crit$), application of the residue theorem yields :
+In the case $\crit$, contour $\Gamma_1$ is visible in Fig.~\ref{C4:gamma1cr}. Fig.~\ref{gamma1crinter} shows an intermediate step in the contour deformation from $\Gamma_0$ to $\Gamma_1$. The arrow shows the direction of deformation of the quarter-cycle which links the two parts of $\Gamma_1$ (one which circumvents $\lbrack-\infty,-\nuti_T\lbrack$ and one which circumvents $\rbrack \nuti_L, +i\infty\rbrack $) in Fig.~\ref{gamma1crinter}. The radius of this quarter-cycle tends to infinity during the deformation, resulting in the final contour, which is the reunion of contours $\Gamma_1^a$ and $\Gamma_1^b$, represented in Fig.~\ref{gamma1crfinal}. Cauchy's residue theorem can then be applied for $z\geq 0$, Im$\xi <0 $ and $ z\in \mathbb{C} \backslash ( \, \rbrack - \infty, -\nuti_T \rbrack \cup \lbrack \nuti_L,+i\infty \lbrack \, \cup \, \{\pm \nuti_L,\pm \nuti_T \} \,)$. In both cases ($\noncr$ and $\crit$), application of the residue theorem yields :
 \begin{equation}
 \int_{\Gamma_0} \textbf{DM}(\xi,\zeta).\frac{1}{\zeta-z}\,d\zeta = \frac{\textbf{dm}(z)}{\xi-z}+\mathbf{D_p}(z,\xi),
 \label{C4:GaussDM}
