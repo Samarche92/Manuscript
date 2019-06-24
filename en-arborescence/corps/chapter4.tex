@@ -982,7 +982,7 @@ where $\phiti$ is defined in the second chapter of this manuscript, by \eqref{ph
 \begin{subfigure}[b]{0.45\textwidth}
    \begin{tikzpicture}[scale=0.9]
 \fill [color=gray!20]
-(-3.6269,3.65) -- plot [domain=-2:2] ({sinh(\x)},{-cosh(\x)}) -- (3.6269,3.65) ;
+(-3.6269,3.55) -- plot [domain=-2:2] ({sinh(\x)},{-cosh(\x)}) -- (3.6269,3.55) ;
 \fill[color=white] (3,2) circle (0.5);
 \node at (2,0) {$\times$}; 
 \node at (0,-1) {$\times$};
@@ -997,7 +997,7 @@ where $\phiti$ is defined in the second chapter of this manuscript, by \eqref{ph
       (-3.6269,0) -- (-2.25,0)  arc (-180:0:0.25)  -- (1.75,0)arc (180:0:0.25) -- (3.6269,0); % ca c'est l'axe
 \draw[dashed,decoration={ markings,
       mark=at position 1.0 with {\arrow{>}}},
-      postaction={decorate}] (0,-4) -- (0,3.65);
+      postaction={decorate}] (0,-4) -- (0,3.55);
 % Hyperbole (contour  partial_Omega_0 )
 \draw[black, very thick,decoration={ markings,
       mark=at position 0.1 with {\arrow{latex}},
@@ -1178,16 +1178,22 @@ where $\textbf{1}_{\Omega_*}(z)=1$ if $z\in \Omega_*$ and $\textbf{1}_{\Omega_*}
 \label{C4:defTp}
 \end{equation}
 
-In the case where $\crit$, $\partial \Omega_L$ is visible in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$, which verifies Im$z\geq 0$ is not crossed by the contour deformation, which only crosses part of the lower half of the complex plane, and therefore does not contribute to the integral. However, if there exists $\zeta_0 \in \Omega_L^+$ such that $T_L(\zeta_0)=\xi$ and Im$\zeta_0<0$, then pole $\zeta_0$ is crossed during this deformation. Suppose that $\zeta_0=\nuti_L\cos\theta_0=\nuti_L\cos(\theta_0'+i\theta_0'')$ and $\xi=T_L(\zeta_0)=\nuti_L\cos(\theta_0+\phiti)$ with $\nuti_L=i\eta_L \in i\mathbb{R}$, we then have :
+In the case where $\crit$, $\partial \Omega_L$ is visible in Fig.~\ref{C4:domegaL}. During the deformation of contour $\Gamma_0$ into contour $\partial\Omega_L$, the pole $z$, Im$z\geq 0$, is not crossed by the contour deformation which only spans a part of the lower half of the complex plane. Therefore, the pole $z$ does not contribute to the integral. However, a pole that may be crossed during this contour deformation (if such a pole exists) is $\zeta_0 \in \Omega_L^+$ such that $T_L(\zeta_0)=\xi$ and Im$\zeta_0<0$. We will now determine in which cases such a pole $\zeta_0$ may appear. This will be done by supposing that $\zeta_0$ exists and deriving some necessary conditions for the existence of $\zeta_0$ to be possible. 
+
+Let us therefore suppose that there exists $\theta_0=\theta_0'+i\theta''_0 \in \mathbb{C}$ such that $\zeta_0=\nuti_L\cos\theta_0$ and $\xi=T_L(\zeta_0)=\nuti_L\cos(\theta_0+\phiti)$ with $\nuti_L=i\eta_L \in i\mathbb{R}$, we then have :
 \begin{equation}
 \rm Im \zeta_0=\eta_L\cos\theta_0'\cosh\theta_0''  
 \end{equation}
-Combining the facts that Im$\zeta_0<0$ and $\zeta_0 \in \Omega_L^+$ gives
+Pole $\zeta_0$ is crossed by the deformation of contour $\Gamma_0$ into $\partial \Omega_L^+$ (visible on Fig.~\ref{C4:domegaL}) if and only if Im$\zeta_0<0$ and $\zeta_0 \in \Omega_L^+$, with $\Omega_L^+$ defined by \eqref{C4:defOmega0}. These conditions lead to the following condition on $\theta'_0$ :
 \begin{equation}
 \dfrac{\pi}{2}<\theta_0'<\pi-\phiti
 \label{C4:condcr}
 \end{equation}
-Condition \eqref{C4:condcr} makes sense if and only if $\phiti<\dfrac{\pi}{2}$. From hereon after, we will suppose that this is not the case (this restriction is only made when $\crit$). In practice, this is not too restrictive since, as explained in \ref{Chapter5:sing_part}, the spectral functions method is less accurate for small values of $\phiti$. Therefore, when $\crit$, Cauchy's residue theorem yields, for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash ( \rbrack - \infty, -\nuti_L \rbrack\cup \lbrack \nuti_L,+i\infty\lbrack \d, \cup \, \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \})$ :
+Condition \eqref{C4:condcr} makes sense if and only if
+\begin{equation}
+\dfrac{\pi}{2}<\pi-\phiti \Leftrightarrow \phiti<\dfrac{\pi}{2}
+\end{equation}
+From hereon after, we will suppose that this is not the case (this restriction is only made when $\crit$). In practice, this is not too restrictive since, as explained in \ref{Chapter5:sing_part}, the spectral functions method is less accurate for small values of $\phiti$. Therefore, when $\crit$, Cauchy's residue theorem yields, for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash ( \rbrack - \infty, -\nuti_L \rbrack\cup \lbrack \nuti_L,+i\infty\lbrack \d, \cup \, \{\pm\tilde{\nu}_L,\pm\tilde{\nu}_T \})$ :
 \begin{equation}
 \int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{1}{\zeta-z}\,d\zeta = \frac{\textbf{tm}_T(z)}{\xi-T_T(z)}\textbf{1}_{\Omega_T}(z)+\mathbf{T_p}(z,\xi)
 \label{C4:GaussTMcr}
