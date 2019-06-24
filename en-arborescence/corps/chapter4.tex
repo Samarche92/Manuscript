@@ -143,7 +143,28 @@ Bv=\begin{pmatrix}
 \end{pmatrix}
 \label{C4:Badim}
 \end{equation}
-where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator and $\lambda,\mu$ are the dimensionless Lamé parameters, defined by \eqref{LameAdim}. The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
+where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator and $\lambda,\mu$ are the dimensionless Lamé parameters, defined by \eqref{LameAdim}. The dimensionless incident field is
+\begin{multline}
+\rm v_L^{inc}(r,\theta)=\begin{pmatrix}
+\cos \theta_{inc}\cos\delta_{inc} \\
+\sin \theta_{inc}\cos\delta_{inc} \\
+\sin\delta_{inc}
+\end{pmatrix} e^{ir\nu_L \cos(\theta-\theta_{inc})}
+\hspace{2em}
+\rm v_{TH}^{inc}(r,\theta)=\begin{pmatrix}
+-\sin \theta_{inc} \\
+\cos \theta_{inc} \\
+0
+\end{pmatrix} e^{ir\nu_T \cos(\theta-\theta_{inc})} 
+\\
+\rm v_{TV}^{inc}(r,\theta)=\begin{pmatrix}
+-\cos\theta_{inc}\sin\delta_{inc} \\
+-\sin\theta_{inc}\sin\delta_{inc} \\
+\cos\delta_{inc}
+\end{pmatrix} e^{ir\nu_T \cos(\theta-\theta_{inc})} 
+\label{C4:vinc}
+\end{multline}
+ The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
 
 \section{Integral formulation of the solution}
 As for the previous cases, the first step in solving problem $(\mathcal{P}^{\alpha})$ is to formulate the solution as an integral. 
@@ -740,7 +761,7 @@ where
 B_1(v)=
 \begin{pmatrix}
 \mu \left( \frac{\partial v_1}{\partial y_1}+\frac{\partial v_2}{\partial x_1} \right) \\
-\frac{\partial v_2}{\partial y_1}+\lambda \left( \frac{\partial v_1}{\partial x_1}+i\tau v_3 \right)\\
+\frac{\partial v_2}{\partial y_1}+\lambda \left( \frac{\partial v_1}{\partial x_1}+\frac{\partial v_3}{\partial z_1} \right)\\
 \mu \left( \frac{\partial v_2}{\partial z_1}+ \frac{\partial v_3}{\partial y_1}\right)
 \end{pmatrix}
 \label{C4:B1v1expl}
@@ -757,7 +778,7 @@ B_2(v)=
 \end{equation}
 Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained in a similar manner, by reversing the roles of $v_1$ and $v_2$.
 
-The functional equations system solved by the spectral functions is obtained by substituting the integral formulation \eqref{C4:vj0} of $v_1$ and $v_2$ into \eqref{C4:b1v1+b2v2}, evaluating the first equation at $x_1\geq 0, y_1=0$ and the second at $x_2\geq 0, y_2=0$ and applying the Fourier transform to the result. This yields :
+The functional equations system solved by the spectral functions is obtained by substituting the integral formulation \eqref{C4:vj0} of $v_1$ and $v_2$ into \eqref{C4:b1v1+b2v2}, evaluating the first equation at $x_1\geq 0, y_1=0$ and the second at $x_2\geq 0, y_2=0$ and applying the Fourier transform, defined by \eqref{defFouriersimple} to the result. This yields :
 \begin{equation}
 \begin{split}
 \int_0^{+\infty} e^{-ix\xi}B_1(v_1)(x)\,dx&=\frac{1}{2}\textbf{DM}(\Sigma_1)(\xi) \\
@@ -773,11 +794,11 @@ where
 -1 & \frac{\zeta}{\zeta_T}(1-2\mu Q(\zeta)) & 0\\
 -\frac{\zeta}{\zeta_L}(1-2\mu Q(\zeta))  & -1&-\frac{\tau}{\zeta_L}(1-2\mu Q(\zeta)) \\
 0&\frac{\tau}{\zeta_T}(1-2\mu Q(\zeta)) &-1
-\end{pmatrix}
+\end{pmatrix},
  \end{split}
 \label{C4:defDM}
 \end{equation}
-and
+$\zeta_*, *=L,T$ are defined by taking $\varepsilon=0$ in \eqref{C4:defzeta} and
 \begin{equation}
 Q(\zeta) =\zeta_L\zeta_T+\zeta^2+\tau^2
 \end{equation}
@@ -794,20 +815,19 @@ where
 \textbf{TM}(\xi,\zeta)=\frac{1}{2i\pi}\sum_{*=L,TH,TV}D_*(\xi,\zeta)\textbf{tm}_*(\zeta,\mbox{sgn } \sin \varphi),
 \label{C4:defTM}
 \end{equation}
-$t=$sgn sin $\varphi$,
 \begin{equation}
 D_*(\xi,\zeta)=\frac{1}{\xi-(\zeta \cos \varphi + \zeta_*(\zeta) |\sin \varphi|)},
 \end{equation}
-and the following matrices of rank 1 are defined :
+$\epsilon=$sgn sin $\varphi$, and the following matrices of rank 1 are defined :
 \begin{equation}
 \left\{
 \begin{matrix}
-\textbf{tm}_L(\zeta)=\left[ \frac{\zeta}{\zeta_L} f_L\,; \, tf_L\,;  \, \frac{\tau}{\zeta_L}f_L
+\textbf{tm}_L(\zeta)=\left[ \frac{\zeta}{\zeta_L} f_L\,; \, \epsilon f_L\,;  \, \frac{\tau}{\zeta_L}f_L
 \right] \\
 f_L = \begin{pmatrix}
-\mu \lbrack \cos(2\varphi)(2t\zeta\zeta_L)-\sin(2\varphi)(\zeta^2-\zeta_L^2) \rbrack\\
--\lambda+2\mu \lbrack \sin(2\varphi)(t\zeta\zeta_L)-\zeta^2\sin^2\varphi-\zeta^2_L\cos^2\varphi\rbrack\\
--2\mu\tau\lbrack \zeta\sin\varphi -t\zeta_L\cos\varphi\rbrack
+\mu \lbrack \cos(2\varphi)(2\epsilon\zeta\zeta_L)-\sin(2\varphi)(\zeta^2-\zeta_L^2) \rbrack\\
+-\lambda+2\mu \lbrack \sin(2\varphi)(\epsilon\zeta\zeta_L)-\zeta^2\sin^2\varphi-\zeta^2_L\cos^2\varphi\rbrack\\
+-2\mu\tau\lbrack \zeta\sin\varphi -\epsilon\zeta_L\cos\varphi\rbrack
 \end{pmatrix}
 \end{matrix}
 \right. ,
@@ -818,9 +838,9 @@ f_L = \begin{pmatrix}
 \begin{matrix}
 \textbf{tm}_{TH}(\zeta)=\lbrack -tf_{TH}\,;\, \frac{\zeta}{\zeta_T}f_{TH}\,;\, 0 \rbrack\\
 f_{TH}=\mu\left(1+\frac{\tau^2}{\zeta^2+\zeta_T^2}\right) \begin{pmatrix}
-\sin(2\varphi)(2t\zeta\zeta_T)+\cos(2\varphi)(\zeta^2-\zeta_T^2)\\
-\sin(2\varphi)(\zeta^2-\zeta_T^2)-\cos(2\varphi)(2t\zeta\zeta_T)\\
-\tau\lbrack t\zeta_T\sin\varphi+\zeta\cos\varphi\rbrack 
+\sin(2\varphi)(2\epsilon\zeta\zeta_T)+\cos(2\varphi)(\zeta^2-\zeta_T^2)\\
+\sin(2\varphi)(\zeta^2-\zeta_T^2)-\cos(2\varphi)(2\epsilon\zeta\zeta_T)\\
+\tau\lbrack \epsilon\zeta_T\sin\varphi+\zeta\cos\varphi\rbrack 
 \end{pmatrix}
 \end{matrix}
 \right.
@@ -830,11 +850,11 @@ and
 \begin{equation}
 \left\{
 \begin{matrix}
-\textbf{tm}_{TV}(\zeta)=\lbrack \frac{\zeta\tau}{\zeta_T(\zeta^2+\zeta_T^2)}f_{TV}\,;\, \frac{t\tau}{\zeta^2+\zeta_T^2}f_{TV}\,;\, -\frac{1}{\zeta_T}f_{TV} \rbrack\\
+\textbf{tm}_{TV}(\zeta)=\lbrack \frac{\zeta\tau}{\zeta_T(\zeta^2+\zeta_T^2)}f_{TV}\,;\, \frac{\epsilon\tau}{\zeta^2+\zeta_T^2}f_{TV}\,;\, -\frac{1}{\zeta_T}f_{TV} \rbrack\\
 f_{TV}=\mu\begin{pmatrix}
-\tau\cos(2\varphi)(2t\zeta\zeta_T)-\tau\sin(2\varphi)(\zeta^2-\zeta_T^2)\\
-2\tau\lbrack \sin(2\varphi)(t\zeta\zeta_T)-\zeta^2\sin^2\varphi-\zeta_T^2\cos^2\varphi\rbrack\\
-\left(\tau^2-\zeta^2+\zeta_T^2\right)\lbrack t\zeta_T\cos\varphi-\zeta\sin\varphi \rbrack
+\tau\cos(2\varphi)(2\epsilon\zeta\zeta_T)-\tau\sin(2\varphi)(\zeta^2-\zeta_T^2)\\
+2\tau\lbrack \sin(2\varphi)(\epsilon\zeta\zeta_T)-\zeta^2\sin^2\varphi-\zeta_T^2\cos^2\varphi\rbrack\\
+\left(\tau^2-\zeta^2+\zeta_T^2\right)\lbrack \epsilon\zeta_T\cos\varphi-\zeta\sin\varphi \rbrack
 \end{pmatrix}
 \end{matrix}
 \right.
@@ -859,7 +879,7 @@ Finally, the Fourier transform of the boundary conditions on the wedge faces is 
 \right.
 \label{C4:equationsintegrales}
 \end{equation}
-where
+where the right-hand side is obtained by applying operator $B$ defined by \eqref{C4:Badim} to the incident wave given by 
 \begin{eqnarray}
 \begin{array}{lr}
 W_1^L=-2\begin{pmatrix}
