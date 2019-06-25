@@ -1751,7 +1751,7 @@ and
 \mathbb{NT}(a,b)=\frac{1}{2i\pi}\mathbb{T}(a,b)-\sum_{*=L,T}\frac{\mathbf{M}_*(b)}{T^{-1}_*(b)+a} .
 \end{equation}
 
-In system \eqref{C4:recur}, the value of the regular part of the spectral function in domain $\Omega_*^-$, visible Fig.~\ref{C4:dOmegamoins}, is expressed using its value in the domain $\xi \notin \Omega_*^-$, where the numerical approximation \eqref{C4:Xj} is valid. To do so, functions $g_j,\, j=1,2$ are evaluated using \eqref{C4:gjfinal}. The accuracy of the numerical evaluation in domain $\xi \notin \Omega_*^-$ is therefore propagated to domain $\Omega_*^-$. 
+In system \eqref{C4:recur}, the value of the regular part of the spectral function in domain $\Omega_*^-$, visible Fig.~\ref{C4:dOmegamoins}, is expressed using its value in the domain $\xi \notin \Omega_*^-$, where the numerical approximation \eqref{C4:Xj} is valid. To do so, functions $g_j,\, j=1,2$ are evaluated numerically using \eqref{C4:gjfinal}. The accuracy of the numerical evaluation in domain $\xi \notin \Omega_*^-$ is therefore propagated to domain $\Omega_*^-$. 
 
 This concludes the semi-analytical computation of the spectral functions. The L, TH and TV diffraction coefficients can now be computed using \eqref{C4:Dbeta}. Numerical testing is presented in the following. 
 
@@ -1775,9 +1775,11 @@ Following these steps, the diffraction coefficients have been computed using \eq
 \subsection{Comparison to the 2D code}
 The first test on the 3D code is to check that when $\delta_{\alpha}=0$, the results obtained using the 3D code are the same as those obtained using the 2D code presented and validated numerically (see section \ref{C3:numval}) and experimentally (see section \ref{C3:expval}) in the previous chapter. This has been checked for the theoretical computations and must also be verified numerically.
 
-The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-6}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid) every $0,5^o$ for $0\leq\theta\leq \varphi$ and at $\delta_{\alpha} =0^o$,  using the 3D code. The L and TH diffraction coefficients are computed using \eqref{C4:Dbeta}, for an elastic wave propagating in a steel wedge ($c_L=5700m.s^{-1}, \, \, c_T=3200m.s^{-1}$). For the 3D problem, TH waves defined by \eqref{C4:ivec} correspond to the T waves of the 2D problem. The results are compared to the diffraction coefficients obtained using the 2D elastic code presented in the previous chapter.
+The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-6}$ (a small negative imaginary part is added to ensure that the recursive equations \eqref{C4:recur} are valid) every $0,5^o$ for $0\leq\theta\leq \varphi$ and at $\delta_{\alpha} =0^o$,  using the 3D code. The L and TH diffraction coefficients are computed using \eqref{C4:Dbeta}, for an elastic wave propagating in a steel wedge ($c_L=5700m.s^{-1}, \, \, c_T=3200m.s^{-1}$). For the 3D problem, TH waves defined by \eqref{C4:ivec} correspond to the T waves of the 2D problem. The results are compared to the diffraction coefficients, given by \eqref{DL} and \eqref{DT}, obtained using the 2D elastic code presented in the previous chapter.
 
-\begin{figure}
+Figs.~\ref{C4:14070} and \ref{C4:25065} show the absolute value of the diffraction coefficients obtained using the 2D and 3D \acrshort{sf} codes for a wedge of angle $\varphi=140^o$ illuminated by a wave incident with an angle $\theta_{inc}=70^o$ and for a wedge of angle $\varphi=250^o$ illuminated by a wave incident with an angle $\theta_{inc}=65^o$.
+
+\begin{figure}[h]
 \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter4/XpropL_140_70_0_L.png}
@@ -1803,9 +1805,9 @@ The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-6}$ (a sma
      \label{C4:14070}
 \end{figure}
 
-Fig.~\ref{C4:14070} shows the absolute value of the diffraction coefficients obtained using the 2D and 3D \acrshort{sf} codes for a wedge of angle $\varphi=140^o$ illuminated by a wave incident with an angle $\theta_{inc}=70^o$. In Figs.~\ref{C4:DLL_14070} and \ref{C4:DTL_14070}, representing L diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed red line represents the results obtained using the 3D code. In Figs.~\ref{C4:DLT_14070} and \ref{C4:DTT_14070}, representing T diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed green line represents results obtained using the 3D code.
+In Figs.~\ref{C4:DLL_14070}-\ref{C4:DTL_14070}-\ref{C4:DLL_25065}-\ref{C4:DTL_25065} and Figs.~\ref{C4:DLT_14070}-\ref{C4:DTT_14070}-\ref{C4:DLT_25065}-\ref{C4:DTT_25065}, representing the L and T diffraction coefficients respectively, the thick blue line represents the results obtained using the 2D code and the dashed lines (red and green respectively) represent the results obtained using the 3D code. 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \includegraphics[width=\textwidth]{images/chapter4/XpropL_250_65_0_L.png}
@@ -1831,20 +1833,18 @@ Fig.~\ref{C4:14070} shows the absolute value of the diffraction coefficients obt
      \label{C4:25065}
 \end{figure}
 
-Fig.~\ref{C4:25065} shows the absolute value of the diffraction coefficients obtained using the 2D and 3D \acrshort{sf} codes for a wedge of angle $\varphi=250^o$ illuminated by a wave incident with an angle $\theta_{inc}=65^o$. In Figs.~\ref{C4:DLL_25065} and \ref{C4:DTL_25065}, representing L diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed red line represents the results obtained using the 3D code. In Figs.~\ref{C4:DLT_25065} and \ref{C4:DTT_25065}, representing T diffraction coefficients, the thick blue line represents the results obtained using the 2D code and the dashed green line represents results obtained using the 3D code.
-
-In all of these figures, the 2D and 3D plots are perfectly overlapping. When $\delta_{\alpha}=0^o$, the 3D code yields exactly the same results as the 2D code, which is in accord with the theoretical computations. This validates the computation of the "2D terms" (meaning the terms that are not canceled by setting $\delta_{\alpha}=0^o$) of the 3D code. The following numerical test, comparison of the 3D elastic code to Sommerfeld's analytical expression for an acoustic wave, validates a different set of terms computed by the spectral functions method.
+In all of these figures, and in all other tested configurations, the 2D and 3D plots are perfectly overlapping. When $\delta_{\alpha}=0^o$, the 3D code yields exactly the same results as the 2D code, which is in accord with the theoretical computations. This validates the computation of the "2D terms" (meaning the terms that are not canceled by setting $\delta_{\alpha}=0^o$) of the 3D code. The following numerical test, comparison of the 3D elastic code to Sommerfeld's analytical expression for an acoustic wave, validates a different set of terms (the ones that are purely 3D and longitudinal) computed by the spectral functions method.
 
 \subsection{Acoustic limit}
 In the second chapter of this manuscript, we have seen that Sommerfeld \cite{Sommerfeld} provides an analytical expression for the \acrshort{gtd} diffraction coefficient in the case of an acoustic wave incident on a wedge with Dirichlet or Neumann boundaries. This expression is still valid for 3D incidences, and the expression is provided by Keller \cite{GTD}. In the case of a wedge with Dirichlet boundaries, we have :
 \begin{equation}
 \begin{split}
-v^{ac,diff}(r,\theta)=D^{Dir}(\theta)\dfrac{e^{-ir}}{\sqrt{r\cos\delta_{\alpha}}}
+v^{ac,diff}(r,\theta)=D^{Dir}(\theta)\dfrac{e^{-ik_0r}}{\sqrt{k_0r\cos\delta_{\alpha}}}
 \end{split}
 \end{equation}
-where $v^{ac,diff}$ is the acoustic diffracted field and $D^{Dir}$, is given by \eqref{GTDCoeff_Dir}. For an acoustic wave, the diffraction coefficient does not depend on the incident skew angle $\delta_{\alpha}$. The dependency of the diffracted field with respect to this parameter is fully contained in the term $(r\cos\delta_{\alpha})^{-1/2}$.
+where $v^{ac,diff}$ is the acoustic diffracted field, $k_0$ is the acoustic wave number and $D^{Dir}$, is given by \eqref{GTDCoeff_Dir}. For an acoustic wave, the diffraction coefficient does not depend on the incident skew angle $\delta_{\alpha}$. The dependency of the diffracted field with respect to this parameter is fully contained in the term $(k_0r\cos\delta_{\alpha})^{-1/2}$.
 
-The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient behaves like the diffraction coefficient of an acoustic wave. 
+The case of an acoustic wave incident on a wedge with Dirichlet boundary conditions can be mimicked using the elastic code. By setting $c_L=1$ and $c_T \rightarrow 0$ and considering incident L waves, the L diffraction coefficient should behave like the diffraction coefficient of an acoustic wave. 
 
 In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T=10^{-7} m.s^{-1}$ and the incident wave is longitudinal. The spectral functions are evaluated at $\xi=\nuti_L\cos\theta -i10^{-6}$ every $0,5^o$ for $0\leq\theta\leq \varphi$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$ and the L diffraction coefficient is deduced using \eqref{C4:Dbeta}. The results are compared to the analytical expression of the Sommerfeld diffraction coefficients for a wedge with Dirichlet boundary conditions.
 
@@ -1864,7 +1864,9 @@ In the 3D elastic code, the wave velocities are set to $c_L=1 m.s^{-1}$ and $c_T
 \label{C4:ac16040}
 \end{figure}
 
-Fig.~\ref{C4:ac16040} shows the absolute value of the diffraction coefficient obtained using the \acrshort{sf} code (Fig.~\ref{C4:acSF16040}) and with Sommerfeld's analytical expression (Fig.~\ref{C4:Som16040}) for a wave incident with an angle $\theta_{inc}=40^o$ on a wedge of angle $\varphi=160^o$. Fig.~\ref{C4:ac280240} shows the absolute value of the diffraction coefficient obtained using the \acrshort{sf} code (Fig.~\ref{C4:acSF280240}) and with Sommerfeld's analytical expression (Fig.~\ref{C4:Som280240}) for a wave incident with an angle $\theta_{inc}=240^o$ on a wedge of angle $\varphi=280^o$. In both cases, the diffraction coefficients are computed for various incident skew angles $\delta_{\alpha}$ to check that the \acrshort{sf} diffraction coefficient is independent of this parameter, as it should be in the acoustic case. The horizontal axis corresponds to the observation angle $\theta$, the vertical axis corresponds to the incident skew angle $\delta_{\alpha}$ and the magnitude of the diffraction coefficients is represented in color in the $(\theta,\delta_{\alpha})$ plane. For both wedges, the figures representing the \acrshort{sf} diffraction coefficients and those representing the Sommerfeld diffraction coefficients appear to be identical and are invariant by vertical translation (meaning that the coefficients do not depend on the angle $\delta_{\alpha}$). The diffraction coefficients can therefore be plotted for a single skew angle, without loss of generality. 
+Figs.~\ref{C4:ac16040} and \ref{C4:ac280240} show the absolute value of the diffraction coefficient obtained using the \acrshort{sf} code (Figs.~\ref{C4:acSF16040} and \ref{C4:acSF280240}) and with Sommerfeld's analytical expression (Figs.~\ref{C4:Som16040} and \ref{C4:Som280240}) for a wave incident with an angle $\theta_{inc}=40^o$ on a wedge of angle $\varphi=160^o$ and for a wave incident with an angle $\theta_{inc}=240^o$ on a wedge of angle $\varphi=280^o$, respectively. 
+
+In both cases, the diffraction coefficients are computed for various incident skew angles $\delta_{\alpha}$ to check that the \acrshort{sf} diffraction coefficient is independent of this parameter, as it should be in the acoustic case. The horizontal axis corresponds to the observation angle $\theta$, the vertical axis corresponds to the incident skew angle $\delta_{\alpha}$ and the magnitude of the diffraction coefficients is represented in color in the $(\theta,\delta_{\alpha})$ plane. For both wedges, the figures representing the \acrshort{sf} diffraction coefficients and those representing the Sommerfeld diffraction coefficients appear to be identical and are invariant by vertical translation (meaning that the coefficients do not depend on the angle $\delta_{\alpha}$). The diffraction coefficients can therefore be plotted for a single skew angle, without loss of generality. 
 
 \begin{figure}
 \centering
