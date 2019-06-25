@@ -1429,7 +1429,7 @@ Using these results, the linear system \eqref{C4:systmat} is implemented and sol
 \label{C4:propag}
 The method called propagation of the solution is used to propagate the accuracy of the numerical approximation of the regular functions $X_1$ and $X_2$ from parts of the complex plane where they are evaluated accurately to parts of the complex plane where they are not. The validity domains in the complex plane will be detailed hereafter.
 
-The first step of this procedure is to deform contour $\Gamma_0$ (visible in Fig.~\ref{C4:Gamma0}) in operator $\mathbf{DM}$ into contour $\Gamma_2$ in functional system \eqref{C4:regparteqn}. Contour $\Gamma_2$ is visible on Fig.~\ref{C4:contour2} for the case $\noncr$ and in Fig.~\ref{C4:contour2crit} for the case $\crit$. During this deformation, the half-plane Im$\xi<0$ is crossed (with the exception of branch $\lbrack -\nuti_L,-\infty \lbrack$ in the case $\crit$). The contribution of poles $\zeta=\xi$, Im$\xi<0$ crossed during this contour deformation is given by Cauchy's residue formula :
+The first step of this procedure is to deform contour $\Gamma_0$ (visible in Fig.~\ref{C4:Gamma0}) in operator $\mathbf{DM}$ into contour $\Gamma_2$ in functional system \eqref{C4:regparteqn}. Contour $\Gamma_2$ is visible on Fig.~\ref{C4:contour2} for the case $\noncr$ and in Fig.~\ref{C4:contour2crit} for the case $\crit$. Fig.9~\ref{gamma2crinter} shows an intermediate step in the contour deformation from $\Gamma_0$ to $\Gamma_2$. The straight arrow shows the direction of deformation of the quarter-cycle linking the two parts of $\Gamma_2$ (the one which circumvents $\lbrack -\nuti_L,-i\infty \lbrack $ and the one which circumvents $\lbrack \nuti_T, +\infty \lbrack$) in fig.~\ref{gamma2crinter}. The radius of this quarter-cycle tends to infinity during the deformation, resulting in the final contour, which is the reunion of contours $\Gamma_2^a$ and $\Gamma_2^b$, represented in Fig.~\ref{gamma2crfinal}. During this deformation, the half-plane Im$\xi<0$ is crossed (with the exception of branch $\lbrack -\nuti_L,-\infty \lbrack$ in the case $\crit$). The contribution of pole $\zeta$ whose value is $\zeta=\xi$, Im$\xi<0$ crossed during this contour deformation is given by Cauchy's residue formula :
 \begin{equation}
 \int_{\Gamma_0} \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \int_{\Gamma_2}  \textbf{DM}(\xi,\zeta)X_j(\zeta)\, d\zeta + \textbf{dm}(\xi).X_j(\xi)
 \label{C4:DM2}
@@ -1525,6 +1525,7 @@ The first step of this procedure is to deform contour $\Gamma_0$ (visible in Fig
 	
 	\end{tikzpicture}
 	\caption{Intermediate contour $\Gamma_2$. The arrows show the direction of the deformation.}
+	\label{gamma2crinter}
 \end{subfigure}
 ~
 \begin{subfigure}[b]{0.45\textwidth}
@@ -1572,6 +1573,7 @@ The first step of this procedure is to deform contour $\Gamma_0$ (visible in Fig
 	
 	\end{tikzpicture}
 	\caption{Final contour $\Gamma_2=\Gamma_2^a\cup\Gamma_2^b$}
+	\label{gamma2crfinal}
 \end{subfigure}
 \caption{Deformation of contour $\Gamma_0$ onto contour $\Gamma_2=\Gamma_2^a\cup\Gamma_2^b$ in the case $\crit$.}
 \label{C4:contour2crit}
