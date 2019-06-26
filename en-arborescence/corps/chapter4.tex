@@ -1416,6 +1416,7 @@ u_j(b_1)\\
 \vdots \\
 u_j(b_{2N})
 \end{pmatrix}
+\label{C4:vecXUj}
 \end{equation}
 where $u_j(\xi)$ is given by \eqref{C4:scndmembre}. The same considerations as those made in \ref{C3:regpart}, equations \eqref{Dpscm} to \eqref{uDT}, lead to an expression of $u_j$ with respect to operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$ :
 \begin{equation}
@@ -1907,11 +1908,11 @@ Fig.~\ref{C4:compac} shows the absolute value of the diffraction coefficient, pl
 The "acoustic limit" of the 3D elastic code is thus validated for wedge angles lower and higher than $\pi$. This shows that the terms appearing in the evaluation of the spectral functions that depend on $\nuti_T$ tend to $0$ when transversal wave velocity tends to $0$ and that the terms that depend on $\nuti_L$ are computed correctly. 
 
 \subsection{Verification of the regular part for an infinite plane}
-In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane and there is no edge diffracted wave. The regular part of the spectral functions, which is the part of the solution corresponding to the diffraction phenomena, vanishes and we should have, for $j=1,2$ :
+In the case where $\varphi=\pi$, the wedge degenerates into an infinite plane and there is no edge diffracted wave. The regular part of the spectral functions, which is determined by system \eqref{C4:systmat} and is the part of the solution corresponding to the diffraction phenomena, vanishes and we should have, for $j=1,2$ :
 \begin{equation}
-||\mathbb{U}_j||=0 \hspace{1em} %\rm and \hspace{1em} ||\mathbb{X}_j||=0
+||\mathbb{U}_j||=0 \hspace{1em} %\rm and \hspace{1em} ||\mathbb{X}_j||=0,
 \end{equation}
-Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$. Since the value of $||\mathbb{U}_j||$ does not depend on the observation angle $\theta$, only the skew incidence angle $\delta_{\alpha}$ varies.
+where $\mathbb{U}_j$ is the right-hand side of system \eqref{C4:systmat} and is given by \eqref{C4:vecXUj}. Verifying that this is the case provides a check on the lengthy computations of the explicit expressions of operators $\mathbb{D}(\cdot,\cdot)$ and $\mathbb{T}(\cdot,\cdot)$. According to \eqref{C4:vecXUj}, the value of $||\mathbb{U}_j||$ does not depend on the observation angle $\theta$, therefore in our tests, only the skew incidence angle $\delta_{\alpha}$ varies.
 
 \begin{figure}
 \centering
@@ -1934,9 +1935,36 @@ Verifying that this is the case provides a check on the lengthy computations of 
 \label{Resultat_3D:U1}
 \end{figure}
 
-Fig.~\ref{Resultat_3D:U1} shows $||\mathbb{U}_j||, \, \, j=1,2$ for incident L (see Fig.~\ref{Resultat_3D:U1L}), TH (see Fig.~\ref{Resultat_3D:U1TH}) and TV (see Fig.~\ref{Resultat_3D:U1TV}) waves with an angle $\theta_{inc}=50^o$ on an infinite plane. The thick blue line represents $||\mathbb{U}_1||$ and the dashed red line represents $||\mathbb{U}_2||$. In the case of an incident L wave, as expected, $||\mathbb{U}_1||$ and $||\mathbb{U}_2||$ are very small (of the order of the numerical computation error). For incident T waves, however, when the incident skew angle is higher than the critical angle, $||\mathbb{U}_1||$ and $||\mathbb{U}_2||$ are suddenly very large. Because this is only the case when $\crit$, we believe that this might be an error in the numerical evaluation, rather than a miscalculation of operators $\mathbb{D}(\cdot,\cdot)$ or $\mathbb{T}(\cdot,\cdot)$, which would have produced errors visible in cases where $\noncr$. 
+Fig.~\ref{Resultat_3D:U1} shows $||\mathbb{U}_j||, \, \, j=1,2$ for incident L (see Fig.~\ref{Resultat_3D:U1L}), TH (see Fig.~\ref{Resultat_3D:U1TH}) and TV (see Fig.~\ref{Resultat_3D:U1TV}) waves with an angle $\theta_{inc}=50^o$ on an infinite plane. The thick blue line represents $||\mathbb{U}_1||$ and the dashed red line represents $||\mathbb{U}_2||$. In the case of an incident L wave, as expected, $||\mathbb{U}_1||$ and $||\mathbb{U}_2||$ are very small (of the order of the numerical computation error). For incident T waves, however, when the incident skew angle is higher than the critical angle, $||\mathbb{U}_1||$ and $||\mathbb{U}_2||$ are suddenly very large, rather than quasi null. Because this is only the case when $\crit$, we believe that this is not due to a miscalculation of operators $\mathbb{D}(\cdot,\cdot)$ or $\mathbb{T}(\cdot,\cdot)$ (the corresponding computations are detailed in appendices \ref{matD} and \ref{matT}), which would have produced errors visible in cases where $\noncr$. 
 
-Nonetheless, when $\crit$, the code developed according to the theory described in this chapter produces diverging results (see for example Fig.~\ref{Resultat_3D:D}). We are not sure what the cause of this error is, and additional work is necessary in order to solve this problem.
+Nonetheless, when $\crit$, the code developed according to the theory described in this chapter produces diverging results (see for example Fig.~\ref{Resultat_3D:D} showing diffraction coefficients computed with the standard theory of the current chapter). We are not sure what the cause of this error is, and additional work is necessary in order to solve this problem.
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropL_140_70_TH.png}
+        \caption{Diffracted L wave}
+        \label{Resultat_3D:DL}
+    \end{subfigure}
+\begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropTH_140_70_TH.png}
+        \caption{Diffracted TH wave}
+        \label{Resultat_3D:DTH}
+    \end{subfigure}
+   \begin{subfigure}[b]{0.32\textwidth}
+        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropTV_140_70_TH.png}
+        \caption{Diffracted TV wave}
+        \label{Resultat_3D:DTV}
+    \end{subfigure} 
+\caption{Absolute value of the diffraction coefficient computed without approximation \eqref{const_reg_approx} for an incident TH wave on a wedge of angle $\varphi=140^o$ with $\theta_{inc}=70^o$}
+\label{Resultat_3D:D}
+\end{figure}
+
+Fig.~\ref{Resultat_3D:D} shows the absolute value of the diffraction coefficients obtained using the SF code without approximation \eqref{const_reg_approx}. The horizontal axis corresponds to the observation angle $\theta$, the vertical axis corresponds to the incident skew angle $\delta_{\alpha}$ and the magnitude of the diffraction coefficient is represented in color in the $(\theta,\delta_{\alpha})$ plane. Fig.~\ref{Resultat_3D:DL} shows the L diffraction coefficient, Fig.~\ref{Resultat_3D:DTH} shows the TH diffraction coefficient and Fig.~\ref{Resultat_3D:DTV} shows the TV diffraction coefficient. It is clear from these last two figures that the diffraction coefficient abruptly diverges when $\crit$.
+
+In the previous subsection, it has been made apparent that the regular part of the spectral functions is miscalculated in the case of an incident T wave with a skew angle higher than the critical angle. The cause for this has not yet been found and in the meantime, approximation \eqref{const_reg_approx} has been proposed in order to obtain a non-diverging diffraction coefficient in these cases.
+
+\subsection{Numerical approximation in the case $\crit$}
 
 In the meantime, in order to obtain physically coherent results, the following approximation is applied (only for incident T waves) :
 \begin{subequations}
@@ -1969,32 +1997,7 @@ Fig.~\ref{const_reg:U1} shows $||\mathbb{U}_j||, \, \, j=1,2$ obtained with appr
 
 In order to illustrate the effect of approximation \eqref{const_reg_approx} in the case where $\crit$, an example is given in the following
 
-\subsection{Numerical approximation in the case $\crit$}
-
-In the previous subsection, it has been made apparent that the regular part of the spectral functions is miscalculated in the case of an incident T wave with a skew angle higher than the critical angle. The cause for this has not yet been found and in the meantime, approximation \eqref{const_reg_approx} has been proposed in order to obtain a non-diverging diffraction coefficient in these cases. In this subsection, we provide an example of the effect of approximation \eqref{const_reg_approx} on the resulting diffraction coefficient. To do so, the L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta} for a steel wedge ($c_L=5700m.s^{-1}$ and $c_T=3200m.s^{-1}$) of angle $\varphi=140^o$ illuminated by a TH wave with and angle $\theta_{inc}=70^o$. The spectral functions are evaluated at $\xi=\nuti_{\beta}\cos\theta -i10^{-6}$ every $0,5^o$ for $0\leq\theta\leq \varphi$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$.
-
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropL_140_70_TH.png}
-        \caption{Diffracted L wave}
-        \label{Resultat_3D:DL}
-    \end{subfigure}
-\begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropTH_140_70_TH.png}
-        \caption{Diffracted TH wave}
-        \label{Resultat_3D:DTH}
-    \end{subfigure}
-   \begin{subfigure}[b]{0.32\textwidth}
-        \includegraphics[width=\textwidth]{images/chapter4/Resultats_3D/XpropTV_140_70_TH.png}
-        \caption{Diffracted TV wave}
-        \label{Resultat_3D:DTV}
-    \end{subfigure} 
-\caption{Absolute value of the diffraction coefficient computed without approximation \eqref{const_reg_approx} for an incident TH wave on a wedge of angle $\varphi=140^o$ with $\theta_{inc}=70^o$}
-\label{Resultat_3D:D}
-\end{figure}
-
-Fig.~\ref{Resultat_3D:D} shows the absolute value of the diffraction coefficients obtained using the SF code without approximation \eqref{const_reg_approx}. The horizontal axis corresponds to the observation angle $\theta$, the vertical axis corresponds to the incident skew angle $\delta_{\alpha}$ and the magnitude of the diffraction coefficient is represented in color in the $(\theta,\delta_{\alpha})$ plane. Fig.~\ref{Resultat_3D:DL} shows the L diffraction coefficient, Fig.~\ref{Resultat_3D:DTH} shows the TH diffraction coefficient and Fig.~\ref{Resultat_3D:DTV} shows the TV diffraction coefficient. It is clear from these last two figures that the diffraction coefficient abruptly diverges when $\crit$.
+ In this subsection, we provide an example of the effect of approximation \eqref{const_reg_approx} on the resulting diffraction coefficient. To do so, the L, TH and TV diffraction coefficients are computed using \eqref{C4:Dbeta} for a steel wedge ($c_L=5700m.s^{-1}$ and $c_T=3200m.s^{-1}$) of angle $\varphi=140^o$ illuminated by a TH wave with and angle $\theta_{inc}=70^o$. The spectral functions are evaluated at $\xi=\nuti_{\beta}\cos\theta -i10^{-6}$ every $0,5^o$ for $0\leq\theta\leq \varphi$ and for $-90^o\leq \delta_{\alpha} \leq 90^o$.
 
 \begin{figure}
 \centering
