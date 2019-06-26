@@ -451,63 +451,7 @@ contour $C_0$ is represented in Fig. \ref{steepestcontour} and
 \end{gather}
 Note that $\mathbf{P_*}(\lambda,-1)=\mathbf{P_*}(-\lambda,1)$. In the following, we will use the notation $\mathbf{P_*}(\lambda)=\mathbf{P_*}(\lambda,1)$.
 
-An asymptotic evaluation of \eqref{v1pol} is determined using the steepest descent method. This consists of deforming integration contour $C_0$ into $\gamma_{\bar{\theta}}$ represented in Fig. \ref{steepestcontour}. The approximation is then the sum of two contributions:
-\begin{equation}
-v_1=v_1^{sing}+v_1^{diff},
-\end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral function $\Sigma_1$ crossed by the contour deformation and $v_1^{diff}$ is the contribution of the phase function's saddle point $\lambda_s=\pi-\bar{\theta}$, corresponding to the field diffracted by the wedge edge. We will see that the singularities crossed are either simple poles (corresponding to the reflected waves on the wedge faces or to the Rayleigh surface waves) or branch points (corresponding to head waves). In this paper, we are only concerned with the determination of the edge-diffracted field, which corresponds to the contribution of the saddle-point and is given by:
-\begin{equation}
-v_1^{diff}(r\cos\theta,r\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\nu_*^2\frac{e^{-i\nu_*r}}{\sqrt{\nu_*r}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\nu_*\cos\theta)
-\label{v1diff}
-\end{equation}
-Note that asymptotic evaluation \eqref{v1diff} is only valid when the saddle point $\lambda_s$ does not coincide with a singular point (pole or branch point) of the spectral function $\Sigma_1$. The poles of the spectral functions will be determined analytically in section \ref{C3:singpart}. The branch points of the spectral functions are located at $\xi=\pm \nu_L$ and $\xi = \pm \nu_T$. Applying \eqref{changevar2}, this means that :
-\begin{subequations}
-\begin{equation}
-\nu_*\cos\lambda_s=-\nu_*\cos\theta=\pm \nu_L=\pm 1
-\label{eqbranch1}
-\end{equation}
-\begin{equation}
-\rm or \hspace{1em} \nu_*\cos\lambda_s=-\nu_*\cos\theta=\pm \nu_T
-\label{eqbranch2}
-\end{equation}
-\label{eqbranch}
-\end{subequations}
-For $*=L$, \eqref{eqbranch1} yields $\theta=0$ or $\theta=\pi$, meaning that the direction of observation is along the wedge's horizontal face $\mathcal{S}_1$. \eqref{eqbranch2} does not have a solution for $*=L$. For $*=T$, \eqref{eqbranch1} yields $\theta=\theta_c=\rm acos(1/\nu_T)$ or $\theta=\pi- \theta_c$, $\theta_c$ is called the critical angle, and \eqref{eqbranch2} yields $\theta=0$ or $\theta=\pi$. Borovikov \cite{Borovikov} gives some clues as to how to treat the case where the stationary phase point coincides with another singularity of the integrand but no high-frequency asymptotics prove satisfactory in some situations of practical interest \cite{Gridin} and are neither available when the critical transition zones overlap penumbras, that is when all three critical points (stationary, critical and pole) coalesce \cite{KamotskiCrit}. In this chapter, it is assumed that $\lambda_s$ does not coalesce with a singularity of the integrand.
-
-Similar considerations yield:
-\begin{equation}
-v_2^{diff}(x_2,y_2)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\nu_*^2\frac{e^{-i\nu_*r}}{\sqrt{\nu_*r}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_2(-\nu_*\cos(\varphi-\theta))
-\label{v2diff}
-\end{equation}
-The branch points are now located at $\bar{\theta}=\varphi$, $\bar{\theta}=\pi-\varphi$, $\bar{\theta}=\varphi-\theta_c$ and $\bar{\theta}=\pi-(\varphi-\theta_c)$.
-The total diffracted field is the sum of the saddle-point contributions from each face
-\begin{equation}
-v^{diff}=v_1^{diff}+v_2^{diff}
-\label{vdiff12}
-\end{equation}
-This can be identified with the total diffracted field written in terms of longitudinal and transversal contributions, 
-\begin{equation}
-v^{diff}=v^{diff}_L \hat{i}_L+v^{diff}_T \hat{i}_T,
-\label{vdiffLT}
-\end{equation}
-with $\hat{i}_*$ defined by \eqref{ivec}, leading to the following definition of the diffraction coefficient $D_{\beta}^{\alpha}$ : 
-\begin{equation}
-v_{\beta}^{diff}(r\cos\theta,r\sin\theta)=D_{\beta}^{\alpha}(\theta)\frac{e^{-i\nu_{\beta}r}}{\sqrt{\nu_{\beta}r}} \rm v^{\alpha}_{inc}(r\cos\theta,r\sin\theta),
-\label{defcoeffdiff}
-\end{equation}
-where $\beta=L,T$ is the type of the diffracted wave. The diffracted field is thus represented by a cylindrical wave, proportional to the incident wave and weighted by the diffraction coefficient. By substituting \eqref{v1diff}-\eqref{v2diff} into \eqref{vdiff12} and \eqref{defcoeffdiff} into \eqref{vdiffLT} and identifying the results, we finally obtain the expression of the diffraction coefficients in terms of the components $(\hat{\alpha}_j,\hat{\beta}_j), \, \, j=1,2$ of the spectral functions $\Sigma_j, \, \, j=1,2$, see \eqref{C3:Sigmacomponents}
-\begin{gather}
-\begin{split}
- D^{\alpha}_L(\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}&\big(\hat{\alpha}_1(-\cos\theta)\cos\theta+\hat{\beta}_1(-\cos\theta)\sin\theta\\
-&+\hat{\alpha}_2(-\cos(\varphi-\theta))\cos(\varphi-\theta)+\hat{\beta}_2(-\cos(\varphi-\theta))\sin(\varphi-\theta)\big)
-\end{split} \label{DL}\\
-\begin{split}
- D^{\alpha}_T(\theta)=\nu_T^2\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}&\big(-\hat{\alpha}_1(-\nu_T\cos\theta)\sin\theta+\hat{\beta}_1(-\nu_T\cos\theta)\cos\theta\\
-&+\hat{\alpha}_2(-\nu_T\cos(\varphi-\theta))\sin(\varphi-\theta)-\hat{\beta}_2(-\nu_T\cos(\varphi-\theta))\cos(\varphi-\theta)\big) 
-\end{split} \label{DT}
-\end{gather}
-
-\begin{figure}
+\begin{figure}[h]
 \centering
 %\resizebox{!}{0.2\textheight}{
 \begin{tikzpicture}
@@ -557,6 +501,62 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \caption{Integration contours $C_0$ and $\gamma_{\bar{\theta}}$ in the complex plane $\lambda=\lambda_1+i\lambda_2$. $\lambda_s$ is the stationary phase point.}
 \label{steepestcontour}
 \end{figure}
+
+An asymptotic evaluation of \eqref{v1pol} is determined using the steepest descent method. This consists of deforming integration contour $C_0$ into $\gamma_{\bar{\theta}}$ represented in Fig. \ref{steepestcontour}. The approximation is then the sum of two contributions:
+\begin{equation}
+v_1=v_1^{sing}+v_1^{diff},
+\end{equation}
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral function $\Sigma_1$ crossed by the contour deformation and $v_1^{diff}$ is the contribution of the phase function's saddle point $\lambda_s=\pi-\bar{\theta}$, corresponding to the field diffracted by the wedge edge. We will see that the singularities crossed are either simple poles (corresponding to the reflected waves on the wedge faces or to the Rayleigh surface waves) or branch points (corresponding to head waves). In this paper, we are only concerned with the determination of the edge-diffracted field, which corresponds to the contribution of the saddle-point and is given by:
+\begin{equation}
+v_1^{diff}(r\cos\theta,r\sin\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\nu_*^2\frac{e^{-i\nu_*r}}{\sqrt{\nu_*r}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\nu_*\cos\theta)
+\label{v1diff}
+\end{equation}
+Note that asymptotic evaluation \eqref{v1diff} is only valid when the saddle point $\lambda_s$ does not coincide with a singular point (pole or branch point) of the spectral function $\Sigma_1$. The poles of the spectral functions will be determined analytically in section \ref{C3:singpart}. The branch points of functions $v_j, \, j=1,2$ are located at $\xi=\pm \nu_L$ and $\xi = \pm \nu_T$. Applying \eqref{changevar2}, this means that :
+\begin{subequations}
+\begin{equation}
+\nu_*\cos\lambda_s=-\nu_*\cos\theta=\pm \nu_L=\pm 1
+\label{eqbranch1}
+\end{equation}
+\begin{equation}
+\rm or \hspace{1em} \nu_*\cos\lambda_s=-\nu_*\cos\theta=\pm \nu_T
+\label{eqbranch2}
+\end{equation}
+\label{eqbranch}
+\end{subequations}
+For $*=L$, \eqref{eqbranch1} yields $\theta=0$ or $\theta=\pi$, meaning that the direction of observation is grazing along the wedge's horizontal face $\mathcal{S}_1$. \eqref{eqbranch2} does not have a solution for $*=L$. For $*=T$, \eqref{eqbranch1} yields $\theta=\theta_c=\rm acos(1/\nu_T)$ or $\theta=\pi- \theta_c$, $\theta_c$ is called the critical angle, and \eqref{eqbranch2} yields $\theta=0$ or $\theta=\pi$. Borovikov \cite{Borovikov} gives some clues as to how to treat the case where the stationary phase point coincides with another singularity of the integrand but no high-frequency asymptotics prove satisfactory in some situations of practical interest \cite{Gridin} and are neither available when the critical transition zones overlap penumbras, that is when all three critical points (stationary, critical and pole) coalesce \cite{KamotskiCrit}. In this chapter, it is assumed that $\lambda_s$ does not coalesce with a singularity of the integrand.
+
+Similar considerations yield:
+\begin{equation}
+v_2^{diff}(x_2,y_2)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\nu_*^2\frac{e^{-i\nu_*r}}{\sqrt{\nu_*r}}\mathbf{P_*}(\pi-(\varphi-\theta))\Sigma_2(-\nu_*\cos(\varphi-\theta))
+\label{v2diff}
+\end{equation}
+The branch points are now located at $\bar{\theta}=\varphi$, $\bar{\theta}=\pi-\varphi$, $\bar{\theta}=\varphi-\theta_c$ and $\bar{\theta}=\pi-(\varphi-\theta_c)$.
+The total diffracted field is the sum of the saddle-point contributions from each face
+\begin{equation}
+v^{diff}=v_1^{diff}+v_2^{diff}
+\label{vdiff12}
+\end{equation}
+This can be identified with the total diffracted field written in terms of longitudinal and transversal contributions, 
+\begin{equation}
+v^{diff}=v^{diff}_L \hat{i}_L+v^{diff}_T \hat{i}_T,
+\label{vdiffLT}
+\end{equation}
+with $\hat{i}_*$ defined by \eqref{ivec}, leading to the following definition of the diffraction coefficient $D_{\beta}^{\alpha}$ : 
+\begin{equation}
+v_{\beta}^{diff}(r\cos\theta,r\sin\theta)=D_{\beta}^{\alpha}(\theta)\frac{e^{-i\nu_{\beta}r}}{\sqrt{\nu_{\beta}r}} \rm v^{\alpha}_{inc}(r\cos\theta,r\sin\theta),
+\label{defcoeffdiff}
+\end{equation}
+where $\beta=L,T$ is the type of the diffracted wave. The diffracted field is thus represented by a cylindrical wave, proportional to the incident wave and weighted by the diffraction coefficient. By substituting \eqref{v1diff}-\eqref{v2diff} into \eqref{vdiff12} and \eqref{defcoeffdiff} into \eqref{vdiffLT} and identifying the results, we finally obtain the expression of the diffraction coefficients in terms of the components $(\hat{\alpha}_j,\hat{\beta}_j), \, \, j=1,2$ of the spectral functions $\Sigma_j, \, \, j=1,2$, see \eqref{C3:Sigmacomponents}
+\begin{gather}
+\begin{split}
+ D^{\alpha}_L(\theta)=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}&\big(\hat{\alpha}_1(-\cos\theta)\cos\theta+\hat{\beta}_1(-\cos\theta)\sin\theta\\
+&+\hat{\alpha}_2(-\cos(\varphi-\theta))\cos(\varphi-\theta)+\hat{\beta}_2(-\cos(\varphi-\theta))\sin(\varphi-\theta)\big)
+\end{split} \label{DL}\\
+\begin{split}
+ D^{\alpha}_T(\theta)=\nu_T^2\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}&\big(-\hat{\alpha}_1(-\nu_T\cos\theta)\sin\theta+\hat{\beta}_1(-\nu_T\cos\theta)\cos\theta\\
+&+\hat{\alpha}_2(-\nu_T\cos(\varphi-\theta))\sin(\varphi-\theta)-\hat{\beta}_2(-\nu_T\cos(\varphi-\theta))\cos(\varphi-\theta)\big) 
+\end{split} \label{DT}
+\end{gather}
 
 In order to determine the field diffracted by a wedge illuminated by an incident plane wave, it is sufficient to compute the diffraction coefficient. This coefficient has been expressed in terms of two unknown functions called the spectral functions. The semi-analytical computation of these functions is presented in the following section
 
@@ -635,7 +635,6 @@ Q(\zeta)=\zeta_L(\zeta) \zeta_T(\zeta)+\zeta^2,
 \end{equation}
 \end{subequations}
 where $\zeta_*,\, *=L,T$ is given by \eqref{C3:defzeta}.
-
 
 The Fourier transform of operator $B_2$ is obtained  through a similar process. The partial derivatives of $v_2$ are evaluated in $x_2=x\cos\varphi,y_2=x\sin\varphi,x\geq0$ and then substituted into \eqref{B2v2expl} before applying the Fourier transform, , defined by \eqref{defFouriersimple}, to the results. Finally, by using the following formula
 \begin{equation}
@@ -731,7 +730,7 @@ where $\phiti$ is defined in the previous chapter by \eqref{phitilde}.
 %\label{phitilde}
 %\end{equation}
 %This variable is useful for synthetically describing the spectral functions method for wedge angles lower and higher than $\pi$, using only one angular variable which is defined differently for each case. 
-In order for the cosine in the translation operator to also be well defined, it is necessary to impose
+This function is a translation operator in the sense that it translates the angle $\theta$ to $\theta+\phiti$. The cosine function is well defined for $\theta, \, 0\leq \rm Re \theta \leq \pi$. In order for the cosine in the translation operator to also be well defined, it is necessary to impose
 \begin{equation}
 \xi \in \Omega_*^+= \{ \xi=\nu_* \cos \theta, \; 0 \leq \mbox{Re} \theta < \pi-\tilde{\varphi}, \; \mbox{Im}\xi\geq0 \},
 \label{defOmega0}
@@ -1222,15 +1221,15 @@ By deforming $\Gamma_0$ into $\Gamma_2$, represented in Fig. \ref{contour2}, the
 	\label{contour2}
 \end{figure}
 
-It is now necessary to define the inverse transformation operator $T_*^{-1}, *=L,T$ :
+It is now necessary to define the inverse transformation operator $T_*^{-1}:\Omega_*^-\rightarrow \mathbb{C}, *=L,T$ :
 \begin{equation}
 T_*^{-1}(\xi=\nu_*\cos\theta)=\xi \cos \phiti-\zeta_*(\xi)\sin\phiti=\nu_*\cos(\theta-\tilde{\varphi}).
 \end{equation}
-In order for the cosine in this translation operator to be well defined, it is necessary to impose
+This function is a translation operator in the sense that it translates the angle $\theta$ to $\theta-\phiti$. The cosine function is well defined for $\theta, \, 0\leq \rm Re \theta \leq \pi$. In order for the cosine in the translation operator to also be well defined, it is necessary to impose
 \begin{equation}
 \xi \in \Omega_*^-=\{\xi=\nu_*\cos\theta, \, \, \, \tilde{\varphi}\leq \mbox{Re}\theta\leq\pi, \, \, \, \mbox{Im}\xi< 0\},
 \end{equation}
-where $\Omega_*^-$ is represented in Fig.~\ref{dOmegamoins}. By deforming contour $\Gamma_0$ into contour $\partial \Omega_*^-$ (also represented in Fig.~\ref{dOmegamoins}), domain $\Omega_*^-$ is crossed. The contribution of poles $\zeta=T_*^{-1}(\xi)$, when $\xi\in\Omega_*^-$  is taken into account using Cauchy's integral formula :
+where $\Omega_*^-$ is represented in Fig.~\ref{dOmegamoins}. By deforming contour $\Gamma_0$ into contour $\partial \Omega_*^-$ (also represented in Fig.~\ref{dOmegamoins}), domain $\Omega_*^-$ is crossed. Note that the branch points $\pm \nu_*, *=L,T$ are not crossed during this deformation. The poles of the integrand are located at $\zeta=T_*^{-1}(\xi)$ and, since the contour deformation spans subspace $\Omega_*^-$, these poles are crossed by the deformation if and only if they are located in this subspace. Their contribution is taken into account using Cauchy's integral formula :
 \begin{equation}
 \int_{\Gamma_0} \textbf{TM}(\xi,\zeta)X_j(\zeta)\, d\zeta = \sum_{*=L,T}\int_{\partial \Omega_*^-}  \dfrac{\textbf{tm}_*(\zeta)}{\xi-T_*(\zeta)}.X_j(\zeta)\, d\zeta+ \mathbf{M}_*(\xi).X_j(T^{-1}_*(\xi))\textbf{1}_{\Omega_*^-}(\xi),
 \label{TM2}
