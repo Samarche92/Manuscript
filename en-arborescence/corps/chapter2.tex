@@ -39,15 +39,15 @@ and the boundary condition on the wedges faces
 \label{Chapter5:CL}
 Bg\mid_{\mathcal{S}_j} = 0, \quad j=1,2,
 \end{equation}
-where the expression of operator B is given by \eqref{Chapter5:CLDir} for Dirichlet boundary conditions and by \eqref{Chapter5:CLNeu} for Neumann boundary conditoins :
+where the expression of operator B is given by \eqref{Chapter5:CLDir} for Dirichlet boundary conditions and by \eqref{Chapter5:CLNeu} for Neumann boundary conditions :
 \begin{subequations}
 \begin{equation}
 \label{Chapter5:CLDir}
-Bg = g \quad \mbox{for Dirichlet boundary conditons (soft wedge)}
+Bg = g \quad \mbox{for Dirichlet boundary conditions (soft wedge)}
 \end{equation}
 \begin{equation}
 \label{Chapter5:CLNeu}
-Bg = \frac{\partial g}{\partial n} \quad \mbox{for Neumann boundary conditons (rigid wedge)}
+Bg = \frac{\partial g}{\partial n} \quad \mbox{for Neumann boundary conditions (rigid wedge)}
 \end{equation}
 \end{subequations}
 
@@ -597,7 +597,7 @@ It is shown in \cite{CroisilleLebeau} that the actions of $DM$ and $TM$ integral
 \label{Chapter5:arbitrary_function}
 \phi(\xi) = \dfrac{1}{\xi - z},  \quad z \in \mathbb{C}\setminus ]-\infty,-1] \text{ with } {\rm Im} \, z \geqslant 0,
 \end{equation}
-contour $\Gamma_0$ is deformed into contour $\Gamma_1$ (thus crossing the wole upper half of the complex plane, as illustrated in Fig.~\ref{chapter5:figure5}) in integral operator $DM$ defined by \eqref{DM_operator}, and into contour $\partial \Omega_0^+$ (thus crossing sub-domain $\Omega_0$, as illustrated in Fig.~\ref{chapter5:figure4}) in integral operator $TM$ defined by \eqref{TM_operator}. Using the residue theorem, the result can be decomposed as
+contour $\Gamma_0$ is deformed into contour $\Gamma_1$ (thus crossing the whole upper half of the complex plane, as illustrated in Fig.~\ref{chapter5:figure5}) in integral operator $DM$ defined by \eqref{DM_operator}, and into contour $\partial \Omega_0^+$ (thus crossing sub-domains $\Omega_0$ and $Im\xi<0, \xi \notin \Omega_0$ as illustrated in Fig.~\ref{chapter5:figure4}) in integral operator $TM$ defined by \eqref{TM_operator}. Using the residue theorem, the result can be decomposed as
 \begin{subequations}
 \label{Int_op_decomp}
 \begin{align}
@@ -843,7 +843,7 @@ where $\widetilde{DM}(x,iy) = DM(ix,iy)$ and $\widetilde{TM}(x,iy) = TM(ix,iy)$.
 e_{b_k}(y)=\frac{d_k}{y-ib_k}, \quad  \rm Re (b_k) \in [1,\infty[  \quad \text{and}  \quad {\rm Im} (b_k) = 0^-.
 \end{equation}
 
-Points $b_k$ are called collocation points.  The system \eqref{sys_regular_gal_def} is projected in this subspace using the following relation, for an arbitrary regular function $f$ :
+Points $b_k$ are called collocation points.  The system \eqref{sys_regular_gal_def} is projected in this subspace using the following relation, for an arbitrary regular function $f$ (recall that $\tilde{f}(iy)=f(iy)$) :
 \begin{equation}
 \label{dot_product}
 \langle \tilde f\vert e_{b_k}\rangle_{L^2(\mathbb R)}= (-2i\pi) \, d_k \,  f (b_k)
@@ -975,7 +975,7 @@ Once all matrix terms have been calculated, system \eqref{Syst_lineaire} is reso
 
 \subsection{Propagation of the solution}
 \label{propag_sol}
-The regular part approximation described previously is not accurate in the entire complex plane. There exists a procedure, called "propagation of the solution", which allows to propagate the accuracy of the regular part $X_j(\xi)$ of the spectral functions from $\xi \notin \Omega_0^-$, ${\rm Im} (\xi) <0$, near the Galerkin collocation points $a_k, 1\leq k \leq N \in \lbrack 1, +\infty \lbrack$ (domain $\Omega_0^-$ is defined hereafter in \eqref{defomegamoins}) where the numerical approximation is valid, to the domain $\Omega_0^-$ where it is not. The sub-space $\Omega_0^-$ is defined by
+The regular part approximation described previously is not accurate in the entire complex plane. There exists a procedure, called "propagation of the solution", which allows to propagate the accuracy of the regular part $X_j(\xi)$ of the spectral functions from $\xi \notin \Omega_0^-$, ${\rm Im} (\xi) <0$, near the Galerkin collocation points $a_k, 1\leq k \leq N \in \lbrack 1, +\infty \lbrack$ (domain $\Omega_0^-$ is defined hereafter in \eqref{defomegamoins}) where the numerical approximation \eqref{regular_part_decomp} is valid, to the domain $\Omega_0^-$ where it is not. The sub-space $\Omega_0^-$ is defined by
 \begin{equation}
 \label{defomegamoins}
 \Omega_0^- = \{\xi \in \mathbb C, \ {\rm Im}(\xi) <0, \  \xi=\cos(\theta), \ \phiti < {\rm Re}(\theta)<\pi\}
@@ -1032,11 +1032,11 @@ To begin, the contour $\Gamma_0$ in the $DM$ integral operator is deformed into 
 \label{chapter5:figure11}
 \end{figure}
 
-During this contour deformation, only the poles
+During this contour deformation, only the poles of the $DM$ function \eqref{DM_operator} which are
 \begin{equation}
 \lambda = \xi, \quad \text{with } {\rm Im}(\xi) <0 
 \end{equation}
-of the $DM$ function \eqref{DM_operator} are crossed and therefore, applying the residue theorem, we have for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$, 
+are crossed and therefore, applying the residue theorem, we have for $\xi \in \mathbb{C}$, ${\rm Im}(\xi) <0$, $j=1,2$, 
 \begin{equation}
 \label{DM_propag_sol}
 DM(X_j)(\xi) = \int_{\Gamma_0} DM(\xi,\lambda) X_j(\lambda) \, d \lambda  = \int_{\Gamma_2} DM(\xi,\lambda) X_j(\lambda) \, d \lambda + dm(\xi) X_j(\xi).
@@ -1170,10 +1170,14 @@ Formula \eqref{regular_part_decomp} finally leads to, for $\xi \in \Omega_0^-$ a
 \begin{eqnarray}
 dm(\xi)\, g_j(\xi) -  u_j(\xi)=
 -\Big( \sum_k \tilde X_j^{k}\, d_k \, N\mathcal D(a_k,\xi)+\sum_k \tilde X_{3-j}^{k} \, d_k \,
-N\mathcal T(a_k,\xi) \Big) \nonumber
+N\mathcal T(a_k,\xi) \Big)
 \end{eqnarray}
 
-The \acrfull{sf} method can be summarized in the following manner : first, following Croisille and Lebeau \cite{CroisilleLebeau}, the solution of the acoustic scattering problem is expressed as a complex integral \eqref{champ}, using a version of the limiting absorption principle which guarantees the physical correctness of the solution (see section \ref{integral_representation}). This integral expression is given with respect to two unknown functions (one for each wedge face) called the spectral functions. The integral formulation is then used in section \ref{CoeffDiffAc} to determine a far-field approximation of the wedge's edge diffracted field, which is fully determined by the value of a coefficient called the diffraction coefficient \eqref{GTDCoeff_SF}, which is also expressed with respect to the spectral functions. The rest of the method is therefore devoted to the semi-analytic computation of these spectral functions. To this aim, a system of functional equations solved by the spectral function is determined in section \ref{C2:functional_system} using the Fourier transform of the wedge scattering problem's boundary conditions. This system is used to decompose the spectral functions as the sum of two parts: a singular part $y_j$, determined analytically thanks to a recursive algorithm in section \ref{Chapter5:sing_part}, and a regular part $X_j$ approximated numerically using a Galerkin collocation method in section \ref{Chapter5:regular_part}. Finally, in section \ref{propag_sol}, a recursive method called the "propagation of the solution" is used to improve the accuracy of the evaluation of the regular part in the entire complex plane. Some numerical results are presented in the sequel.
+This concludes the description of the semi-analytical evaluation of the spectral functions. For the sake of clarity, a summary of the method is presented in the following section.
+
+\section{Summary of the spectral functions method}
+\label{C2:summary}
+\hspace*{1em}The \acrfull{sf} method can be summarized in the following manner : first, following Croisille and Lebeau \cite{CroisilleLebeau}, the solution of the acoustic scattering problem is expressed as a complex integral \eqref{champ}, using a version of the limiting absorption principle which guarantees the physical correctness of the solution (see section \ref{integral_representation}). This integral expression is given with respect to two unknown functions (one for each wedge face) called the spectral functions. The integral formulation is then used in section \ref{CoeffDiffAc} to determine a far-field approximation of the wedge's edge diffracted field, which is fully determined by the value of a coefficient called the diffraction coefficient \eqref{GTDCoeff_SF}, which is also expressed with respect to the spectral functions. The rest of the method is therefore devoted to the semi-analytic computation of these spectral functions. To this aim, a system of functional equations solved by the spectral function is determined in section \ref{C2:functional_system} using the Fourier transform of the wedge scattering problem's boundary conditions. This system is used to decompose the spectral functions as the sum of two parts: a singular part $y_j$, determined analytically thanks to a recursive algorithm in section \ref{Chapter5:sing_part}, and a regular part $X_j$ approximated numerically using a Galerkin collocation method in section \ref{Chapter5:regular_part}. Finally, in section \ref{propag_sol}, a recursive method called the "propagation of the solution" is used to improve the accuracy of the evaluation of the regular part in the entire complex plane. Some numerical results are presented in the sequel.
 
 \section{Numerical results}
 \label{Chapter5:results}
@@ -1281,4 +1285,4 @@ The results are presented on Fig ~\ref{chapter5:figure13}.
 On Figs.~\ref{chapter5:figure12a},~\ref{chapter5:figure12b},~\ref{chapter5:figure13a} and ~\ref{chapter5:figure13b} the wedge angles are lower than $\pi$ and on figs.~\ref{chapter5:figure12c},~\ref{chapter5:figure12d},~\ref{chapter5:figure13c} and ~\ref{chapter5:figure13d} the wedge angles are greater than $\pi$. In all cases, it appears clearly that both the regular part of the solution and the recursive method are necessary to obtain optimal results. When both of these are included, diffraction coefficients obtained with Spectral functions are close to those of the Sommerfeld method. In addition, the run time to evaluate the diffraction coefficients in 250 different observation points, in each of the presented configurations, using an Intel(R) Xeon(R) CPU E3-1240 v3 is under 0.1 seconds for both methods. 
 
 \section*{Conclusion}
-The spectral functions method is devloped here to model diffraction of an acoustic wave by stress-free (soft or hard) wedges. The main steps of the method have been summarized at the end of section \ref{propag_sol}. The diffraction coefficient obtained using the spectral functions method has been compared to the analytic one obtained from the asymptotic evaluation of the Sommerfeld integral. The numerical results obtained thanks to the spectral functions method are very close to those given by the analytical solution and the result is obtained at a very low computational cost. The acoustic wave diffraction by a wedge with Neumann boundary conditions has also been modeled and successfully validated. This proves the applicability and feasibility of the spectral functions method, as well as its efficiency and its precision. It may therefore be extended to more complex wedge diffraction cases such as 2D and 3D elastic wave diffraction, as will be shown in the following chapters. 
+The spectral functions method is developed here to model diffraction of an acoustic wave by stress-free (soft or hard) wedges. The main steps of the method have been summarized in section \ref{C2:summary}. The diffraction coefficient obtained using the spectral functions method has been compared to the analytic one obtained from the asymptotic evaluation of the Sommerfeld integral. The numerical results obtained thanks to the spectral functions method are very close to those given by the analytical solution and the result is obtained at a very low computational cost. This proves the applicability and feasibility of the spectral functions method, as well as its efficiency and its precision. It may therefore be extended to more complex wedge diffraction cases such as 2D and 3D elastic wave diffraction, as will be shown in the following chapters. 
