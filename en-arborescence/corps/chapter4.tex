@@ -7,7 +7,7 @@ In the previous chapters of this manuscript, the spectral functions method has b
 
 The problem of 3D wedge diffraction has been studied over the past century in acoustics, electromagnetics and in to a lesser degree in elastodynamics. The problem was introduced notably by Sommerfeld \cite{Sommerfeld}, who gave an exact expression of the solution to the scattering problem of a scalar plane wave by a wedge with Dirichlet or Neumann boundaries in the form of a contour integral. This integral can be used to obtain an analytical expression of the \acrfull{gtd} diffraction coefficient both in electromagnetics and in acoustics \cite{Bouche,Bo}. Independently, Macdonald \cite{Macdo} has expressed the solution to the same problem as an infinite series. Proof that the Sommerfeld and the Macdonald approaches are equivalent was developed by Carslaw \cite{Carslaw}.
 
-In the case of an incident acoustic wave, Rawlins \cite{Rawlins} determined an expression of the solution as a real integral for a spherical acoustic wave diffracted by a wedge with Dirichlet or Neumann boundaries when the aperture angle is an integer multiple of $\frac{\pi}{n}$, where $n$ is also an integer. In the case of an electromagnetic wave, Rojas \cite{Rojas} derived a uniform asymptotic solution for a plane wave incident on an impedant wedge when the wedge angle is a multiple of $\frac{\pi}{2}$. By generalizing the Malyuzhinets technique \cite{SMtechnique}, Bernard \cite{Bernard} reduced the 3D problem of a plane electromagnetic wave diffracted by an impedant wedge of arbitrary angle to a scalar functional equation with only one unknown and provides examples of numerical resolution of this equation in the case where the relative impedance of the wedge faces is $1$ and in the case of a half or full plane with arbitrary impedance.. Finally, an application of the Wiener-Hopf technique to the case of electromagnetic plane wave diffraction by impenetrable wedges of arbitrary angles was developed by Daniele in 2D \cite{Daniele} and extended to 3D cases by Daniele and Lombardi \cite{DanieleLombardi}.
+In the case of an incident acoustic wave, Rawlins \cite{Rawlins} determined an expression of the solution as a real integral for a spherical acoustic wave diffracted by a wedge with Dirichlet or Neumann boundaries when the aperture angle is an integer multiple of $\frac{\pi}{n}$, where $n$ is also an integer. In the case of an electromagnetic wave, Rojas \cite{Rojas} derived a uniform asymptotic solution for a plane wave incident on an impedant wedge when the wedge angle is a multiple of $\frac{\pi}{2}$. By generalizing the Malyuzhinets technique \cite{SMtechnique}, Bernard \cite{Bernard} reduced the 3D problem of a plane electromagnetic wave diffracted by an impedant wedge of arbitrary angle to a scalar functional equation with only one unknown and provides examples of numerical resolution of this equation in the case where the relative impedance of the wedge faces is $1$ and in the case of a half or full plane with arbitrary impedance. Finally, an application of the Wiener-Hopf technique to the case of electromagnetic plane wave diffraction by impenetrable wedges of arbitrary angles was developed by Daniele in 2D \cite{Daniele} and extended to 3D cases by Daniele and Lombardi \cite{DanieleLombardi}.
 
 In elastodynamics, a \acrshort{gtd} solution to the 3D problem of plane wave diffraction by a stress-free half plane was developed by Achenbach and Gautesen \cite{Achenbach,AchenbachGautesen,GautesenNote} and Gautesen \cite{GautesenRayleigh4,GautesenRayleigh3} proposed a semi-analytical scheme of resolution of the far-field scattering problem of a skew incident Rayleigh wave diffracted by a quarter-space (i.e. a wedge of angle $\frac{\pi}{2}$ or $\frac{3\pi}{2}$). To our knowledge, no resolution scheme has been developed for a skew incident longitudinal or transversal plane elastic wave diffracted by an arbitrary-angled wedge. Therefore, it is the aim of this chapter.
 
@@ -280,7 +280,7 @@ If the incident wave is longitudinal, then, according to \eqref{deftau}, $\tau=\
 \nuti_T^0=\sqrt{\nu_T^2-\sin^2\delta_{inc}} \quad \in \mathbb{R},
 \end{equation}
 \end{subequations}
-since $\nu_L=1$ and $\nu_T=\frac{c_L}{c_T}>1$. However, if the incident wave is transverse, then we have
+since $\nu_L=1$ and $\nu_T=\frac{c_L}{c_T}>1$. However, if the incident wave is transverse, then $\tau=\nu_T\sin\delta_{inc}$ and we have
 \begin{equation}
 \nuti_T^0=\sqrt{\nu_T^2-\nu_T^2\sin^2\delta_{inc}}=\nu_T\cos\delta_{inc} \quad \in \mathbb{R},
 \end{equation}
@@ -322,7 +322,7 @@ t\xi & \zeta_L^{\varepsilon} & t\tau \\
 \label{C4:M*eps}
 \end{subequations}
 
-These matrices can be computed in two different manners, providing a way to test this result. The first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ at poles $\pm \zeta^{\varepsilon}_*(\xi), *=L,T$. The second option for computing these matrices starts by computing the eigen vectors and eigen values of $\mathbf{M}$. The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
+These matrices can be computed in two different manners, providing a way to test this result. The first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$, where matrix $\mathbf{M}$ is given by \eqref{C4:matM}, at poles $\pm \zeta^{\varepsilon}_*(\xi), *=L,T$ when applying the Cauchy theorem to compute the inner integral of \eqref{C4:invdouble} to obtain \eqref{C4:vjeps}. The second option for computing these matrices starts by computing the eigen vectors and eigen values of $\mathbf{M}$. The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
 \begin{subequations}
 \begin{equation}
     \mathbf{M}\begin{pmatrix}
@@ -559,7 +559,7 @@ t\cos\lambda\sin\lambda & \cos^2\lambda+\frac{\tau^2}{\tilde{\nu}_T^2}&t\frac{\t
 -\frac{\tau}{\tilde{\nu}_T}\cos\lambda&t\frac{\tau}{\tilde{\nu}_T}\sin\lambda&1
 \end{pmatrix}
 \end{equation}
-$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}. Note that contour $C_0$ does not fit exactly on the $\frac{\pi}{2}$-spaced grid in represented in the complex plane. This corresponds to adding an infinitely small imaginary part to the axis $\Gamma_0$ represented in Fig.~\ref{C4:Gamma0}, in order to avoid the branch points $\pm \nuti_*$ located at $\lambda=0$ and $\lambda=\pi$.
+$t=\mbox{sgn} \sin\theta$ and contour $C_0$ is visible on Fig.~\ref{C4:steepestcontour}. Note that contour $C_0$ does not fit exactly on the $\frac{\pi}{2}$-spaced grid in represented in the complex plane. This corresponds to adding an infinitely small imaginary part to the axis $\Gamma_0$ represented in Fig.~\ref{C4:Gamma0}, in order to avoid the branch points $\xi=\pm \nuti_*$ located at $\lambda=0$ and $\lambda=\pi$, where $\lambda$ is given by \eqref{C4:changevar2}.
 
 In the case defined by \eqref{crit}, let us define $\eta_L$ in the following manner :
 \begin{equation}
@@ -574,12 +574,16 @@ Variable change \eqref{C4:changevar2} then yields :
 \end{split}
 \label{changevar2L}
 \end{equation}
-The new contour integration contour $C_0^L$ on $\lambda$, thus verifies :
+The integration contour on $\xi$, $\Gamma_0$ follows the real axis, except near the branch point $\pm \nu_*$. The new contour integration contour $C_0^L$ on $\lambda$ (determined by variable change \eqref{changevar2L}), thus verifies :
 \begin{equation}
 \rm Im(\xi)=0 \iff \cos\lambda_1=0 \iff \lambda_1=\pm \frac{\pi}{2}
 \label{pisur2}
 \end{equation}
-When $\xi$ travels along $\Gamma_0$, going from $-\infty$ to $+\infty$, then, according to \eqref{changevar2L} and \eqref{pisur2}, $\lambda_2$ goes from $-\infty$ to $+\infty$ or vice-versa, depending on the sign of $\lambda_1$. The final step to determining contour $C_0^L$ is therefore to determine the sign of $\lambda_1$. Suppose that $\lambda_1=-\frac{\pi}{2}$, then applying variable change \eqref{C4:changevar2} in integral formulation \eqref{C4:vjeps} produces an evanescent term :
+When $\xi$ travels along $\Gamma_0$, going from $-\infty$ to $+\infty$, then, according to \eqref{changevar2L} and \eqref{pisur2}, $\lambda_2$ goes from $-\infty$ to $+\infty$ or vice-versa, depending on the sign of $\lambda_1$. For example, if $\lambda_1=-\frac{\pi}{2}$, then 
+\begin{equation}
+\xi \to -\infty \iff \sin\lambda_1\sinh\lambda_2+i\cos\lambda_1\cosh\lambda_2 = -\sinh\lambda_2 \rightarrow -\infty \iff \lambda_2 \rightarrow +\infty
+\end{equation}
+ The final step to determining contour $C_0^L$ is therefore to determine the sign of $\lambda_1$. Suppose that $\lambda_1=-\frac{\pi}{2}$, then applying variable change \eqref{C4:changevar2} in integral formulation \eqref{C4:vjeps} produces an evanescent term :
 \begin{equation}
 \begin{split}
 v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
@@ -587,7 +591,7 @@ v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\
 \end{split}
 \label{C4:v1C0evan}
 \end{equation}
-where contour $C_0^L$ is visible on Fig.~\ref{C4:steepestcontour}. The exponential term in the first integral of \eqref{C4:v1C0evan} is $e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}$, where $\eta_L>0$, $R>0$ and $\cos\delta>0$. Furthermore, for $\lambda \in C_0^L$, we have :
+where contour $C_0^L$ is visible on Fig.~\ref{C4:steepestcontour}. The exponential term in the first integral of \eqref{C4:v1C0evan} is $e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}$. In order to determine the behaviour of this term when $R\rightarrow +\infty$, the sign of the other terms in the exponential must be determined. Kowing $\eta_L>0$ and $\cos\delta>0$, it remains to determine the sign of $\cos(\lambda+\bar{\theta})$. For $\lambda \in C_0^L$, we have :
 \begin{equation}
 \lambda=-\dfrac{\pi}{2}+i\lambda_2
 \end{equation}
