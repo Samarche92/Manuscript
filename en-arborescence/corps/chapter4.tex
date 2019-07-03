@@ -675,7 +675,19 @@ The far-field evaluation of the integral is obtained by applying the steepest de
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected waves (for the poles of the spectral functions) and head waves (for the branch points $\lambda_c$ of the spectral functions), and $v_1^{diff}$ is the contribution of the stationary phase point $\lambda_s=\pi-\overline{\theta}$, corresponding to the edge-diffracted wave and computed using \eqref{steepformula}. In the following, it is assumed that the saddle point $\lambda_s$ does not coalesce with a branch point. Borovikov \cite{Borovikov} gives some clues as to how to treat the case where the stationary phase point coincides with another singularity of the integrand but no high-frequency asymptotics prove satisfactory in some situations of practical interest \cite{Gridin} and are neither available when the critical transition zones overlap penumbras, that is when all three critical points (stationary, critical and pole) coalesce \cite{KamotskiCrit}. In the present work, only the contribution of the edge-diffracted waves will be computed. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$, using the fact that $t=\pm 1$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$, corresponding to the reflected waves (for the poles of the spectral functions) and head waves (for the branch points $\lambda_c$ of the function $v_1$), and $v_1^{diff}$ is the contribution of the stationary phase point $\lambda_s=\pi-\overline{\theta}$, corresponding to the edge-diffracted wave and computed using \eqref{steepformula}. In the following, it is assumed that the saddle point $\lambda_s$ does not coalesce with a branch point. The branch points of functions $v_j, \, j=1,2$ are located at $\xi=\pm \nuti_L$ and $\xi = \pm \nuti_T$. Applying \eqref{C4:changevar2}, this means that :
+\begin{subequations}
+\begin{equation}
+\nuti_*\cos\lambda_s=-\nuti_*\cos\theta=\pm \nuti_L
+\label{C4:eqbranch1}
+\end{equation}
+\begin{equation}
+\rm or \hspace{1em} \nuti_*\cos\lambda_s=-\nuti_*\cos\theta=\pm \nuti_T
+\label{C4:eqbranch2}
+\end{equation}
+\label{C4:eqbranch}
+\end{subequations}
+For $*=L$, \eqref{C4:eqbranch1} yields $\theta=0$ or $\theta=\pi$, meaning that the direction of observation is grazing along the wedge's horizontal face $\mathcal{S}_1$. \eqref{C4:eqbranch2} does not have a real solution for $*=L$. For $*=T$, \eqref{C4:eqbranch1} yields $\theta=\theta_c=\rm acos(\nuti_L/\nuti_T)$ or $\theta=\pi- \theta_c$, $\theta_c$ is called the critical angle for reflection, and \eqref{C4:eqbranch2} yields $\theta=0$ or $\theta=\pi$. Borovikov \cite{Borovikov} gives some clues as to how to treat the case where the stationary phase point coincides with another singularity of the integrand but no high-frequency asymptotics prove satisfactory in some situations of practical interest \cite{Gridin} and are neither available when the critical transition zones overlap penumbras, that is when all three critical points (stationary, critical and pole) coalesce \cite{KamotskiCrit}. In the present work, only the contribution of the edge-diffracted waves will be computed. In order to simplify notations, we will note $\mathbf{P}_*(\lambda,1)=\mathbf{P}_*(\lambda)$, using the fact that $t=\pm 1$ and $\mathbf{P}_*(\lambda,-1)=\mathbf{P}_*(-\lambda)$). The contribution of diffracted waves is 
 \begin{equation}
 v_1^{diff}(r,\theta,\delta_{\beta})=\frac{e^{-i\pi/4}}{2\sqrt{2\pi}}\sum_{*=L,T}\tilde{\nu}_*^2\frac{e^{-i\tilde{\nu}_*R\cos\delta_{\beta}}}{\sqrt{\nuti_*R\cos\delta_{\beta}}}\mathbf{P_*}(\pi-\theta)\Sigma_1(-\tilde{\nu}_*\cos\theta)
 \end{equation}
@@ -688,7 +700,7 @@ In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}+v_1^{evan}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ corresponding to the reflected waves (for the poles of the spectral functions) and head waves (for the branch points $\lambda_c$ of the spectral functions), $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the integral on $C_0^L$, which decays exponentially as the far-field parameter $R$ grows, making it an evanescent longitudinal creeping wave component of the head wave \cite{Zernovcrit}. Only the contribution of the transversal diffracted waves will be computed here. Contribution $v_1^{diff}$ is computed using \eqref{steepformula} :
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ corresponding to the reflected waves (for the poles of $v_1$) and head waves (for the branch points $\lambda_c$ of the spectral functions, which are determined in the same manner as for the case $\noncr$ detailed above), $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the integral on $C_0^L$, which decays exponentially as the far-field parameter $R$ grows, making it an evanescent longitudinal wave. Only the contribution of the transversal diffracted waves will be computed here. Contribution $v_1^{diff}$ is computed using \eqref{steepformula} :
 %. The contribution of evanescent waves is 
 %\begin{equation}
 %v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
@@ -1027,7 +1039,7 @@ where $\phiti$ is defined in the second chapter of this manuscript, by \eqref{ph
 \label{C4:domega0}
 \end{figure}
 
-In order to determine the action of operator $\mathbf{DM}$ on a simple pole (as it has been done in previous chapters in equations \eqref{Int_op_decomp_DM} and \eqref{GaussDM}) contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$. Contour $\Gamma_1$ is visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and Cauchy's residue theorem can then be applied for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_L \rbrack \cup \{\pm \nuti_L,\pm \nuti_T \})$.
+In order to determine the action of operator $\mathbf{DM}$ on a simple pole $z, \, \rm Im z\geq 0$ (as it has been done in previous chapters in equations \eqref{Int_op_decomp_DM} and \eqref{GaussDM}) contour $\Gamma_0$ in \eqref{C4:B1DM} is deformed into contour $\Gamma_1$. Contour $\Gamma_1$ is visible in Fig.~\ref{C4:gamma1noncr} for the case $\nuti_L \in \mathbb{R}$ and Cauchy's residue theorem can then be applied for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_L \rbrack \cup \{\pm \nuti_L,\pm \nuti_T \})$.
 
 \begin{figure}
 \centering
@@ -1171,7 +1183,7 @@ decoration={ markings,  % This schema allows for fine-tuning the positions of ar
 \label{C4:gamma1cr}
 \end{figure}
 
-Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole noted $z$ in the following, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of which are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$. Cauchy's residue theorem is applied in that case, yielding, for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_L \rbrack \cup \{\pm \nuti_L,\pm \nuti_T \})$ :
+Similarly, in order to determine the action of operator $\mathbf{TM}$ on a simple pole $z, \, \rm Im z\geq 0$, contour $\Gamma_0$ in \eqref{C4:B2TM} is deformed into contour $\partial \Omega_L$ for the L terms and $\partial \Omega_T$ for the T terms, both of which are visible in Fig.~\ref{C4:domegaT} for the case $\noncr$. Cauchy's residue theorem is applied in that case, yielding, for Im$z\geq 0$, Im$\xi <0 $ with $z\in \mathbb{C} \backslash  (\rbrack - \infty, -\nuti_L \rbrack \cup \{\pm \nuti_L,\pm \nuti_T \})$ :
 \begin{equation}
 \int_{\Gamma_0} \textbf{TM}(\xi,\zeta).\frac{1}{\zeta-z}\,d\zeta = \sum_{*=L,T} \frac{\textbf{tm}_*(z)}{\xi-T_*(z)}\textbf{1}_{\Omega_*}(z)+\mathbf{T_p}(z,\xi)
 \label{C4:GaussTM}
