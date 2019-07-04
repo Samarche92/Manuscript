@@ -5,7 +5,7 @@ The coefficients of matrices $\mathbb{D}$ and $\mathbb{T}$ depend on the values 
 
 \section{Definition of rog and sog complex functions}
 \label{rogsog}
-Let us introduce ${\rm rog}(a)$ and ${\rm sog}(a)$ complex functions defined as
+Let us introduce ${\rm rog}(a)$ and ${\rm sog}(a)$ complex functions defined for $a > 1$ as
 \begin{equation}
 \label{defrog}
 {\rm rog}(a) =\int_{-1}^1 {1 \over a(1-x^2)+2ix} \, dx,
@@ -14,7 +14,7 @@ Let us introduce ${\rm rog}(a)$ and ${\rm sog}(a)$ complex functions defined as
 \label{defsog}
 {\rm sog}(a) = \dfrac{1}{a}\left( \dfrac{\pi}{2} - {\rm rog}(a)\right)
 \end{equation}
-These functions are used in the sequel to express $\mathcal{T}(a,b)$ [see Eq.~\eqref{T_function_bis2}] and $\mathcal{D}(a,b)$ [see Eq.~\eqref{ldbis}] functions. Their analytic properties are given hereafter.
+These functions are used in the sequel to give an exact expression of the coefficients of matrices $\mathbb{D}(a,b)$ and $\mathbb{T}(a,b)$. Their analytic properties are given hereafter.
 
 \begin{lemma}
 \label{lemma_rog}
@@ -33,7 +33,7 @@ For $x\neq \pm 1$,
 
 
 {\bf Proof}
-The roots of the polynomial $a(1-x^2)+2ix, a\in \mathbb C^* $ are $x_\pm={1\over a}(i\pm \sqrt {a^2-1})$. When $a \notin \{ -1,0,1\} $, these roots are distinct and  formula \eqref{rog_function} results from a classical integral computation. When $a=0$, both formulations \eqref{defrog} and \eqref{rog_function} give rog$(0)=\frac{\pi}{2}$ and no singularity arises. However, when $a=1$, \eqref{defrog} yields rog$(1)=1$ whereas \eqref{rog_function} presents a singularity. The indetermination is lifted by defining $z=\sqrt{1-1/a^2}$ in \eqref{rog_function}. We then have :
+The roots of the polynomial $a(1-x^2)+2ix, a\in \mathbb C^* $ are $x_\pm={1\over a}(i\pm \sqrt {a^2-1})$. When $a \notin \{ -1,1\} $, these roots are distinct and  formula \eqref{rog_function} results from a classical integral computation. However, when $a=1$, \eqref{defrog} yields rog$(1)=1$ whereas \eqref{rog_function} presents a singularity. The indetermination is lifted by defining $z=\sqrt{1-1/a^2}$ in \eqref{rog_function}. We then have $a=\frac{1}{\sqrt{1-z^2}}$ (note that the variable change is therefore valid for $a=1$ and not for $a=-1$) and :
 \begin{equation}
 \rm rog(a)=\frac{1}{2az}\ln \left(\frac{1+z}{1-z}\right)
 \end{equation}
@@ -58,6 +58,7 @@ Knowing the analytic properties of functions $\rm rog$ and ${\rm sog}$, we can n
 The first elementary integral to compute is the following:
 \begin{equation}
 \int_{-1}^1 \frac{\lambda t+ \rho}{Q(t)}\, dt=\int_{-1}^1 \frac{\lambda t}{iat^2+2\nu t-ia}\,dt+\int_{-1}^1\frac{\rho}{ia(t-q_+)(t-q_-)}\,dt,
+\label{B:defQ}
 \end{equation}
 where $q_+,q_-$ are the roots of the polynomial function Q. They are given by:
 \begin{equation}
@@ -91,9 +92,9 @@ where the expressions of the complex functions rog and sog are defined by \eqref
 \label{intQ_postcritical}
 In the particular case where $a \in \rbrack -i\infty,-i\rbrack, \nu \in i\mathbb{R}_+$, then $\frac{a}{\nu} \in \rbrack -\infty,-1\rbrack$ and expression \eqref{intQ} can not be used, since functions rog and sog are not defined on $\rbrack -\infty,-1\rbrack$. This issue can simply be avoided by defining $a=-ia'$ and $\nu=i\eta$ and noting that :
 \begin{equation}
-    \int_{-1}^{1} \frac{\lambda t +\rho}{2\nu-ia(1-t^2)}\, dt=\int_{-1}^{1} \frac{\lambda t +\rho}{2i\eta-a'(1-t^2)}\, dt=-i\overline{\int_{-1}^{1} \frac{\bar{\lambda} t +\bar{\rho}}{2\eta-ia'(1-t^2)}}
+    \int_{-1}^{1} \frac{\lambda t +\rho}{2\nu-ia(1-t^2)}\, dt=\int_{-1}^{1} \frac{\lambda t +\rho}{2i\eta-a'(1-t^2)}\, dt=-i\overline{\int_{-1}^{1} \frac{\bar{\lambda} t +\bar{\rho}}{2\eta-ia'(1-t^2)}},
 \end{equation}
-Equation \eqref{intQ} can now be applied :
+where the overline here denotes the complex conjugate. Equation \eqref{intQ} can now be applied (using the definition of $Q(t)$ given in \eqref{B:defQ}) :
 \begin{equation}
     \int_{-1}^{1} \frac{\lambda t +\rho}{2\nuti-ia(1-t^2)}\, dt=-i\frac{\lambda}{\eta}\overline{\sog{a'/\eta}}-\frac{\rho}{\eta}\overline{\rog{a'/\eta}}
 \label{exprQ_postcr}
@@ -112,7 +113,7 @@ The second elementary integral is the following :
 \end{equation}
 where $p_+,p_-$ are the roots of the polynomial $P$. Their expression is :
 \begin{equation}
-p_\pm=\frac{\nu i \cos\tilde{\varphi}\pm \sqrt{b^2-\nu^2}}{\nu\sin\varphi-b}
+p_\pm=\frac{\nu i \cos\tilde{\varphi}\pm \sqrt{b^2-\nu^2}}{\nu\sin\phiti-b}
 \label{p1p2}
 \end{equation}
 We have 
