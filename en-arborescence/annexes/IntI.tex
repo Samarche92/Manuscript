@@ -1,6 +1,6 @@
 \chapter{Computation details for the coefficients of matrix $\mathbb{D}(a,b)$}
 \label{matD}
-In each chapter of this manuscript, a matrix $\mathbb{D}$ appears, the coefficients of which must be determined analytically. These coefficients are linear combinations of integrals noted $I_1^*$ to $I_5^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{D}$ in the acoustic case and 2D and 3D elastic cases are given, with respect to integrals $I_1^*$ to $I_5^*$. In all the following, $\nuti \in \{ 1,\nu_T,\nuti_L,\nuti_T \}$.
+In each chapter of this manuscript, a matrix $\mathbb{D}$ appears, the coefficients of which must be determined analytically. These coefficients are linear combinations of integrals noted $I_1^*$ to $I_5^*,\,*=L,T$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{D}$ in the acoustic case and 2D and 3D elastic cases are given, with respect to integrals $I_1^*$ to $I_5^*$. In all the following, $\nuti \in \{ 1,\nu_T,\nuti_L,\nuti_T \}$ depending on whether we are considering the acoustic, 2D or 3D elastic case and whether we are computing the integral for $*=L$ or $T$ (for example, when computing $I_1^L$ for the 2D elastic case, $\nuti=1$ in the computations detailed in section \ref{calcI1}).
 
 \section{Integral $I_1^*$}
 \label{calcI1}
@@ -95,13 +95,14 @@ The remaining terms are
 ~\\
 &=\frac{t^2}{(1-t^2)^2(2\nuti t -ia(1-t^2))}-\frac{1}{8\nuti(1-t)^2}+\frac{1}{8\nuti(1+t)^2}  \\
 ~\\
-&=\frac{8\nuti t^2-(1+t)^2(2\nuti t-ia(1-t^2))+(1-t)^2(2\nuti t-ia(1-t^2))}{8\nuti(1-t^2)^2(2\nuti_*-ia(1-t^2))}\\
+&=\frac{8\nuti t^2-(1+t)^2(2\nuti t-ia(1-t^2))+(1-t)^2(2\nuti t-ia(1-t^2))}{8\nuti(1-t^2)^2(2\nuti-ia(1-t^2))}\\
 ~\\
 &=\frac{iat}{2\nuti(1-t^2)(2\nuti t-ia(1-t^2))}
 \end{split}
+\label{C:I3etap2}
 \end{equation}
 
-To determine $\alpha$, \eqref{elemsimpl3} is multiplied by $(1-t)$ and the result is evaluated at $t=1$. Similarly, $\beta$ is determined by multiplying \eqref{elemsimpl3} by $(1+t)$ and evaluating the result at $t=-1$ :
+To determine $\alpha$, \eqref{C:I3etap2} is multiplied by $(1-t)$ and the result is evaluated at $t=1$. Similarly, $\beta$ is determined by multiplying \eqref{C:I3etap2} by $(1+t)$ and evaluating the result at $t=-1$ :
 \begin{subequations}
 \begin{equation}
 \alpha=\frac{ia}{8\nuti^2}
@@ -118,8 +119,9 @@ The remaining term is
 &= \frac{2\nuti iat-ia(2\nuti t-ia(1-t^2))}{4\nuti^2(1-t^2)(2\nuti t-ia(1-t^2))} \\
 &=\frac{-a^2}{4\nuti ^2(2\nuti t-ia(1-t^2))}
 \end{split}
+\label{C:I3etap3}
 \end{equation}
-The final coefficients can now be determined by a simple identification :
+The final coefficients can now be determined by a simple identification of the terms on the left and on the right of the last line of \eqref{C:I3etap3} :
 \begin{subequations}
 \begin{equation}
 \lambda=0
@@ -129,12 +131,12 @@ The final coefficients can now be determined by a simple identification :
 \end{equation}
 \end{subequations}
 
-Finally, equation \eqref{intQ} can be applied :
+Finally, equation \eqref{intQ} can be applied to the remaining term $\dfrac{-2a^2}{2\nuti t-ia(1-t^2)}$ :
 \begin{equation}
 \int_{-\infty}^{+\infty} \frac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \, dy =2ia\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)-2i\frac{a^2}{\nuti}\rog{\frac{a}{\nuti}}
 \label{y2_D}
 \end{equation}
-The value of $\int_{-\infty}^{+\infty} \dfrac{y^2}{(y+ib)\sqrt{\nuti^2+y^2}} \, dy $ can be obtained by taking the complex conjugate of  $\int_{-\infty}^{+\infty} \dfrac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \, dy $ replacing $a$ with $b$ in the result. The final result can then be obtained using \eqref{decompI3} :
+The value of $\int_{-\infty}^{+\infty} \dfrac{y^2}{(y+ib)\sqrt{\nuti^2+y^2}} \, dy $ can be obtained by taking the complex conjugate of  $\int_{-\infty}^{+\infty} \dfrac{y^2}{(y-ia)\sqrt{\nuti^2+y^2}} \, dy $ replacing $a$ with $b$ in the result. The final result can then be obtained using \eqref{decompI3} an \eqref{elemsimpl3} :
 \begin{equation}
 \begin{split}
 I_3^*&=i(a-b)\int_{-1}^1 \left( \frac{1}{1-t}+\frac{1}{1+t} \right) \, dt+ 2\nuti \int_{-1}^1 \left( \frac{1}{(1-t)^2}-\frac{1}{(1+t)^2} \right) \, dt \\
@@ -144,7 +146,7 @@ I_3^*&=i(a-b)\int_{-1}^1 \left( \frac{1}{1-t}+\frac{1}{1+t} \right) \, dt+ 2\nut
 \end{split}
 \label{valI3}
 \end{equation}
-Note the appearance of the diverging term $\log\left(\dfrac{1+t_{\nuti}}{1-t_{\nuti}}\right)$. This term will be compensated by another in the final expression of the coefficients of matrix $\mathbb{D}$. In fact, \eqref{changevar} leads to :
+Note the appearance of the term $\log\left(\dfrac{1+t_{\nuti}}{1-t_{\nuti}}\right)$ which diverges when $t_{\nuti} \to \pm 1$. This term will be compensated by another in the final expressions (Eqs.~\eqref{D2}-\eqref{D3} and \eqref{D2L}-\eqref{D3T}) of the coefficients of matrix $\mathbb{D}$. In fact, \eqref{changevar} leads to :
 \begin{equation}
 \frac{2t_{\nuti}}{1-t_{\nuti}^2}=\frac{A}{\nuti} \mbox{ and } A\rightarrow + \infty \mbox{ when } t_{\nuti} \rightarrow 1
 \end{equation}
@@ -152,7 +154,7 @@ and
 \begin{equation}
 1-t_{\nuti} =\frac{(1-t_{\nuti})(1+t_{\nuti})}{1+t_{\nuti}} \sim \frac{\nuti}{A}
 \end{equation}
-so that
+so that, when computing $I_3^L-I_3^T$ (for instance), the following term appears
 \begin{equation}
 \ln\left(\frac{1+t_{\nuti_L}}{1-t_{\nuti_L}}\right)- \ln\left(\frac{1+t_{\nuti_T}}{1-t_{\nuti_T}}\right)\sim \ln\left(\frac{\nuti_T}{\nuti_L}\right) 
 \label{compensation}
@@ -240,7 +242,7 @@ According to \eqref{zeta_function}, the above expression can be simplified using
 \end{equation}
 By setting $\nuti=1$ in \eqref{defI4}, we find :
 \begin{equation}
-\mathcal{T}(a,b)=-I_4^1
+\mathcal{T}(a,b)=-I_4^L
 \end{equation}
 This integral is computed in section \ref{calcI4} and its value is given by \eqref{valI4}.
 \subsubsection{Neumann boundary conditions}
@@ -257,7 +259,7 @@ The result can be computed directly, by using Cauchy's residue theorem, yielding
 \subsection{2D elastic case}
 In the third chapter of this manuscript, which deals with the 2D diffraction of an elastic wave, the coefficients of matrix $\mathbb{D}(a,b)$ are linear combinations of integrals $I_1^*$ to $I_3^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=1$ when $*=L$ and $\nuti=\nu_T$ when $*=T$.
 \label{finalD2D}
-The first coefficient can be computed using Gauss' integral formula :
+The first coefficient can be computed using Cauchy's integral formula :
 \begin{equation}
 \mathcal{D}_1(a,b)=\int_{-\infty}^{+\infty} \frac{dy}{(y+ib)(y-ia)}=\frac{2\pi}{a+b}
 \end{equation}
@@ -277,7 +279,7 @@ This concludes computation of matrix coefficients $\mathbb{D}_{lk}$ for the 2D e
 \label{finalD3D}
 In the fourth chapter of this manuscript, which deals with the 3D diffraction of an elastic wave, the coefficients of matrix $\mathbb{D}(a,b)$ are linear combinations of integrals $I_1^*$ and $I_6^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=\nuti_L$ when $*=L$ and $\nuti=\nuti_T$ when $*=T$.
 
-The first coefficient can be computed using Gauss' integral formula :
+The first coefficient can be computed using Cauchy's integral formula :
 \begin{equation}
 \mathcal{D}_1(a,b)=\int_{-\infty}^{+\infty} \frac{dy}{(y+ib)(y-ia)}=\frac{2\pi}{a+b}
 \end{equation}
@@ -287,23 +289,27 @@ The other coefficients are linear combinations of $I_1^*$ to $I_6^*$ :
 \mathcal{D}_2^L(a,b)&=\int_{-\infty}^{+\infty} \frac{iy\lbrack 1-2\mu (\zeta_L(iy) \zeta_T(iy)- y^2+\tau^2)\rbrack}{(y+ib)(y-ia)\zeta_L(iy)} \,dy \\
 &=-i(1-2\mu\tau^2)I_1^L+2i\mu(I_2^T-I_3^L)
 \end{split}
+\label{D2L}
 \end{equation}
 \begin{equation}
 \begin{split}
 \mathcal{D}_2^T(a,b)&=\int_{-\infty}^{+\infty} \frac{iy\lbrack 1-2\mu (\zeta_L(iy) \zeta_T(iy)- y^2+\tau^2)\rbrack}{(y+ib)(y-ia)\zeta_T(iy)} \,dy \\
 &=-i(1-2\mu\tau^2)I_1^T+2i\mu(I_2^L-I_3^T)
 \end{split}
+\label{D2T}
 \end{equation}
 \begin{equation}
 \begin{split}
 \mathcal{D}_3^L(a,b)&=\tau\int_{-\infty}^{+\infty} \frac{1-2\mu(\zeta_L(iy)\zeta_T(iy)-y^2+\tau^2)}{(y+ib)(y-ia)\zeta_L(iy)}\,dy \\
 &=-\tau(1-2\mu\tau^2)I_4^L-2\mu\tau I_5^L+2\mu\tau I_6^T
 \end{split}
+\label{D3L}
 \end{equation}
 \begin{equation}
 \begin{split}
 \mathcal{D}_3^T(a,b)&=\tau\int_{-\infty}^{+\infty} \frac{1-2\mu(\zeta_L(iy)\zeta_T(iy)-y^2+\tau^2)}{(y+ib)(y-ia)\zeta_T(iy)}\,dy \\
 &=-\tau(1-2\mu\tau^2)I_4^T-2\mu\tau I_5^T+2\mu\tau I_6^L
 \end{split}
+\label{D3T}
 \end{equation}
 This concludes computation of matrix coefficients $\mathbb{D}_{lk}$ for the 3D elastic case.
