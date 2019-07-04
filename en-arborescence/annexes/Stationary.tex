@@ -5,13 +5,13 @@ The steepest descent method is an integral approximation technique where the int
 \paragraph{}
 The integral to be estimated is of the form :
 \begin{equation}
-I(\lambda)=\int_{\gamma} f(z)e^{\lambda S(z)}\,dz
+I(\lambda)=\int_C f(z)e^{\lambda S(z)}\,dz
 \end{equation}
-where $\gamma$ is the steepest descent contour, $S$ and $f$ are analytical on all $\mathbb{C}^n$, except for eventually at a finite number of points, and $\lambda>0$. The steepest descent contour $\gamma$ must verify :
+where $C$ is the integration contour, $S$ and $f$ are analytical on all $\mathbb{C}^n$, except for eventually at a finite number of points, and $\lambda>0$. The steepest descent contour $\gamma$ must verify :
 \begin{itemize}
 \item $C$ and $\gamma$ must have the same endpoints,
 \item $\gamma$ passes through at least one saddle point of $S$,
-\item Im$(S)$ is constant on $\gamma$.
+\item Im$(S(z))$ is constant on $\gamma$.
 \end{itemize}
 
 \paragraph{}
