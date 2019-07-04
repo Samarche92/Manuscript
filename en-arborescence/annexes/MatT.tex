@@ -1,6 +1,6 @@
 \chapter{Computation details for the coefficients of matrix $\mathbb{T}(a,b)$}
 \label{matT}
-In each chapter of this manuscript, a matrix $\mathbb{T}(a,b)$ appears, the coefficients of which can be determined analytically. These coefficients are linear combinations of integrals $J_1^*$ to $J_8^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{T}(a,b)$ in the acoustic case and 2D and 3D elastic cases are given with respect to integrals $J_1^*$ to $J_8^*$. In all the following, $\nuti \in \{1,\nu_T, \nuti_L,\nuti_T\}$.
+In each chapter of this manuscript, a matrix $\mathbb{T}(a,b)$ appears, the coefficients of which can be determined analytically. These coefficients are linear combinations of integrals $J_1^*$ to $J_8^*$. In this appendix, these integrals are defined and the details of their computation is given. Finally, expressions of the coefficients of matrix $\mathbb{T}(a,b)$ in the acoustic case and 2D and 3D elastic cases are given with respect to integrals $J_1^*$ to $J_8^*$. In all the following, $\nuti \in \{ 1,\nu_T,\nuti_L,\nuti_T \}$ depending on whether we are considering the acoustic, 2D or 3D elastic case and whether we are computing the integral for $*=L$ or $T$ (for example, when computing $J_1^L$ for the 2D elastic case, $\nuti=1$ in the computations detailed in section \ref{calcJ1}).
 
 \section{Integral $J_1^*$}
 \label{calcJ1}
@@ -12,7 +12,7 @@ J_1^*&= \int_{-\infty}^{+\infty} \frac{y (\nuti^2+y^2)}{(y-ia)\lbrack b-iy\cos \
 \end{split}
 \label{defJ1}
 \end{equation}
-where integral $J_4^*$ and $J_5^*$ are defined by equations \eqref{defJ4} and \eqref{defJ5} and their expressions are given \eqref{valJ4} nad \eqref{valJ5} respectively.
+where integral $J_4^*$ and $J_5^*$ are defined by equations \eqref{defJ4} and \eqref{defJ5} and their expressions are given \eqref{valJ4} and \eqref{valJ5} respectively.
 
 \section{Integral $J_2^*$}
 \label{calcJ2}
@@ -25,12 +25,12 @@ Once again, variable change \eqref{changevar} is applied
 \begin{equation}
 J_2=8\nuti^3 \int_{-1}^1 \frac{t^2(t^2+1)}{(1-t^2)^2\lbrack b(1-t^2)-2\nuti it\cos\tilde{\varphi}+ \sin \tilde{\varphi} \nuti(1+t^2)\rbrack(2\nuti t-ia(1-t^2))}\, dt
 \end{equation}
-We have the following simple elements decomposition :
+We have the following simple elements decomposition of the integrand:
 \begin{equation}
 \frac{t^2(1+t^2)}{(1-t)^2(1+t)^2P(t)Q(t)}=\frac{\alpha_2}{1-t}+\frac{\beta_2}{1+t}+\frac{\gamma_2}{(1-t)^2}+\frac{\delta_2}{(1+t)^2}+\frac{\eta_2 t+\psi_2}{P(t)}+\frac{\lambda_2 t +\rho_2}{Q(t)}
 \label{decompJ2}
 \end{equation}
-where the coefficients of the decomposition are determined in the sequel.
+where $P(t)=b(1-t^2)-2\nuti it\cos\tilde{\varphi}+ \sin \tilde{\varphi} \nuti(1+t^2)$ and $Q(t)=2\nuti t-ia(1-t^2)$ and the coefficients of the decomposition are determined in the sequel.
 
 The first step is to determine $\gamma_2$ by multiplying the above decomposition by $(1-t)^2$ and evaluating the result at $t=1$. Similarly, $\delta_2$ is determined by multiplying \eqref{decompJ2} by $(1+t)^2$ and evaluating the result at $t=-1$ :
 \begin{subequations}
@@ -83,7 +83,7 @@ Let us note $N(t)$ a third degree polynomial and assume we have:
 \frac{\eta t+\psi}{P(t)}+\frac{\lambda t+\rho}{Q(t)}=\frac{N(t)}{P(t)Q(t)}
 \label{nsurpq}
 \end{equation}
-The roots of polynomial $P$ are $p_\pm$ and have been defined by equation (\ref{p1p2}). The roots of polynomial $Q$ are $q_\pm$ and are defined by equation (\ref{q1q2}). Multiplying \eqref{nsurpq} by $P(t)$ and evaluating the result at $t=p_+$ and $t=p_-$ leas to the following system
+The roots of polynomial $P$ are $p_\pm$ and have been defined by equation (\ref{p1p2}). The roots of polynomial $Q$ are $q_\pm$ and are defined by equation (\ref{q1q2}). Multiplying \eqref{nsurpq} by $P(t)$ and evaluating the result at $t=p_+$ and $t=p_-$ leads to the following system
 \begin{eqnarray}
 \left\{
 \begin{array}{l}
@@ -140,7 +140,7 @@ We have the following simple elements decomposition
 \begin{equation}
 \frac{1+t^2}{P(t)Q(t)}=\frac{\eta_3 t+\psi_3}{P(t)}+\frac{\lambda_3 t +\rho_3}{Q(t)}
 \end{equation}
-The coefficients of the decomposition are obtained using \eqref{etapsi} and \eqref{lambdarho}. Finally :
+The coefficients of the decomposition are obtained using \eqref{nsurpq}, \eqref{etapsi} and \eqref{lambdarho}. Finally :
 \begin{equation}
 \begin{split}
 J_3=&\frac{2i\eta_3}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+2\psi_3 \mbox{rog}(\frac{b}{\nuti} )\\
@@ -162,8 +162,9 @@ J_4=16\nuti^3 \int_{-1}^1 \frac{t^3}{(2\nuti t-ia(1-t^2))(1-t^2)^2(b(1-t^2)-2i\n
 We have the following simple elements decomposition
 \begin{equation}
 \frac{t^3}{(1-t^2)^2P(t)Q(t)}=\frac{\alpha_4}{1-t}+\frac{\beta_4}{1+t}+\frac{\gamma_4}{(1-t)^2}+\frac{\delta_4}{(1+t)^2}+\frac{\eta_4 t+\psi_4}{P(t)}+\frac{\lambda_4 t +\rho_4}{Q(t)}
+\label{decompJ4}
 \end{equation}
-The first step is to determine $\gamma_4$ by multiplying the above decomposition by $(1-t)^2$ and evaluating the result at $t=1$. Similarly, $\delta_4$ is determined by multiplying \eqref{decompJ2} by $(1+t)^2$ and evaluating the result at $t=-1$ :
+The first step is to determine $\gamma_4$ by multiplying the above decomposition by $(1-t)^2$ and evaluating the result at $t=1$. Similarly, $\delta_4$ is determined by multiplying \eqref{decompJ4} by $(1+t)^2$ and evaluating the result at $t=-1$ :
 \begin{subequations}
 \begin{equation}
 \gamma_4=\frac{e^{i(\pi/2-\tilde{\varphi})}}{16\nuti^2}
@@ -211,7 +212,7 @@ The remaining terms are
 &+\frac{ai\sin^2\tilde{\varphi} t^2+a\cos\tilde{\varphi} \sin\tilde{\varphi} t-b\sin(2\tilde{\varphi})\cos\tilde{\varphi} t-ib\sin\tilde{\varphi}\sin(2\tilde{\varphi})t^2}{4\nuti P(t)Q(t)} 
 \end{split}
 \end{equation}
-The final coefficients are deduced using (\ref{etapsi}) and (\ref{lambdarho}). Finally
+The final coefficients are deduced using \eqref{nsurpq}, (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
 J_4= &2A\sin\tilde{\varphi} +2(b\cos(2\tilde{\varphi})-a\cos\tilde{\varphi})\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
@@ -236,7 +237,7 @@ We have the following simple elements decomposition
 \begin{equation}
 \frac{t}{P(t)Q(t)}=\frac{\eta_5 t+\psi_5}{P(t)}+\frac{\lambda_5 t +\rho_5}{Q(t)}
 \end{equation}
-Coefficients $\eta_5,\psi_5,\lambda_5,\rho_5$ are determined using \eqref{etapsi} and \eqref{lambdarho}. Finally
+Coefficients $\eta_5,\psi_5,\lambda_5,\rho_5$ are determined using \eqref{nsurpq}, \eqref{etapsi} and \eqref{lambdarho}. Finally
 \begin{equation}
 \begin{split}
 J_5=&\frac{4i\eta_5}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+4\psi_5 \mbox{rog}(\frac{b}{\nuti} )\\
@@ -278,10 +279,10 @@ The remaining terms are
 &+\frac{\cos^2\phiti.t+i\sin\phiti\cos\phiti.t^2}{P(t)Q(t)}
 \end{split}
 \end{equation}
-The final coefficients are determined using (\ref{etapsi}) and (\ref{lambdarho}). Finally
+The final coefficients are determined using \eqref{nsurpq}, (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
-J_6\sim & 2\sin\phiti\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
+J_6= & 2\sin\phiti\ln\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right)\\
 &+\frac{4i\eta_6\nuti}{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+4\nuti\psi_6 \mbox{rog}(\frac{b}{\nuti} )\\
 &+4\nuti\left(\lambda_6 \mbox{sog}(a/\nuti)+i\rho_6 \mbox{rog}(a/\nuti) \right)
 \end{split}
@@ -319,10 +320,10 @@ The remaining terms are
 &+\frac{\sin^2\phiti t^2-i\cos\phiti\sin\phiti t}{2P(t)Q(t)}
 \end{split}
 \end{equation}
-The final coefficients are determined using (\ref{etapsi}) and (\ref{lambdarho}). Finally
+The final coefficients are determined using \eqref{nsurpq}, (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
-J_7&\sim 2i\cos\phiti\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right) \\
+J_7&= 2i\cos\phiti\log\left(\frac{1+t_{\nuti}}{1-t_{\nuti}}\right) \\
 &\frac{8i\eta_7\nuti }{b/\nuti-\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+8\nuti \psi_7 \mbox{rog}(\frac{b}{\nuti} )\\
 &+8\nuti \left(\lambda_7 \mbox{sog}(a/\nuti)+i\rho_7 \mbox{rog}(a/\nuti) \right)
 \end{split}
@@ -344,7 +345,7 @@ We have the following simple elements decomposition
 \begin{equation}
 \frac{1-t^2}{P(t)Q(t)}=\frac{\eta_8 t+\psi_8}{P(t)}+\frac{\lambda_8 t +\rho_8}{Q(t)}
 \end{equation}
-The final coefficients are determined using (\ref{etapsi}) and (\ref{lambdarho}). Finally
+The final coefficients are determined using \eqref{nsurpq}, (\ref{etapsi}) and (\ref{lambdarho}). Finally
 \begin{equation}
 \begin{split}
 J_8=&\frac{2i\eta_8 }{b-\nuti\sin\tilde{\varphi}}\left(\frac{\pi}{2}-\tilde{\varphi}-\cos\tilde{\varphi} \,\mbox{rog}(\frac{b}{\nuti}) \right)+2 \frac{\psi_8}{\nuti} \mbox{rog}(\frac{b}{\nuti} )\\
@@ -392,7 +393,7 @@ Integrals $J_3^1$ and $J_5^1$ are computed in sections \ref{calculJ3} and \ref{c
 \label{finalT2D}
 In the third chapter of this manuscript, which deals with the 2D diffraction of an elastic wave, the coefficients of matrix $\mathbb{T}(a,b)$ are linear combinations of integrals $J_1^*$ to $J_5^*$. These linear combinations are given in the sequel. In all that follows, $\nuti=1$ when $*=L$ and $\nuti=\nu_T$ when $*=T$.
 \subsubsection{L terms}
-We begin by computing terms derived from $\mathbf{tm}_L$, defined by \eqref{C3:tmL}.
+We begin by computing terms derived from $\mathbf{tm}_L$, defined by \eqref{tmL}.
 \begin{multline}
 \hfill\mathcal{T}_1^L(a,b)=\int_{-\infty}^{+\infty} \frac{iy\lbrack 2i\epsilon \cos(2\varphi).y\zeta_L(iy)+\sin (2\varphi)(y^2+\zeta_L^2(iy))\rbrack}{(y-ia)\zeta_L(iy)\lbrack b-(iy\cos \phiti+  \zeta_L(iy) \sin \phiti) \rbrack} \, dy \hfill\\
 \hfill=-2\epsilon\cos(2\varphi)J_2^L-i\sin(2\varphi)J_1^L-i\sin(2\varphi)J_4^L\hfill
@@ -410,7 +411,7 @@ We begin by computing terms derived from $\mathbf{tm}_L$, defined by \eqref{C3:t
 \hfill =\epsilon(2\sin^2\phiti-\nu_T^2) J_3^L-2i\sin(2\varphi)J_1^L-2\epsilon\cos(2\varphi)J_2^L \hfill
 \end{multline}
 \subsubsection{T terms}
-Let us now compute terms derived from $\mathbf{tm}_T$, defined by \eqref{C3:tmT}.
+Let us now compute terms derived from $\mathbf{tm}_T$, defined by \eqref{tmT}.
 \begin{multline}
 \hfill\mathcal{T}_1^T(a,b)=\int_{-\infty}^{+\infty} \frac{-2i\sin(2\varphi).y\zeta_T(iy)+\epsilon \cos (2\varphi)(y^2+\zeta_T^2(iy))}{(y-ia)\lbrack b-(iy\cos \varphi+ \zeta_T(iy)\sin\phiti) \rbrack} \, dy\hfill\\
 \hfill=2i\sin(2\varphi)J_1^T+2\epsilon\cos(2\varphi)J_2^T+\epsilon\nu_T^2\cos(2\varphi)J_3^T\hfill
@@ -428,7 +429,7 @@ Let us now compute terms derived from $\mathbf{tm}_T$, defined by \eqref{C3:tmT}
 \hfill=2\epsilon\cos(2\varphi)J_2^T+i\sin(2\varphi)J_1^T+i\sin(2\varphi)J_4^T \hfill
 \end{multline}
 
-This concludes computation of coefficients of matrix $\mathbb{T}_{kl}$ in the 2D elastic case. It has been verified that all diverging terms that appear in integrals $J_1^*$ to $J_5^*$ compensate each other when the L and T terms are summed.
+This concludes computation of coefficients of matrix $\mathbb{T}_{kl}$ in the 2D elastic case. It has been verified that all diverging terms $\log\left(\dfrac{1+t_{\nuti}}{1-t_{\nuti}}\right)$ that appear in integrals $J_1^*$ to $J_5^*$ compensate each other when the L and T terms are summed, as explained in \ref{calcI3}.
 
 
 \subsection{3D elastic case}
