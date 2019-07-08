@@ -32,7 +32,7 @@ The incident wave is a plane wave of the form
 \begin{equation}
 \mathbf{u}^{inc}(\mathbf{x},t)=\mathbf{A}_{\alpha}e^{i(\mathbf{k}_{\alpha}^{inc}\cdot \mathbf{x}-\omega t)}
 \end{equation}
-where $\mathbf{A}_{\alpha}$ is the amplitude vector of the incident wave and $\mathbf{k}_{\alpha}^{inc}$ is the incident wave vector. The type of the incident wave is denoted $\mathbf{k}_{\alpha}^{inc}$ (L for a longitudinal wave, TH for transverse horizontal and TV for transverse vertical). $(O; \mathbf{e}_{x_1}, \mathbf{e}_{y_1}, \mathbf{e}_{z_1})$ is a Cartesian coordinate system associated to face $\mathcal{S}_1$ and $(O; \mathbf{e}_{x_2}, \mathbf{e}_{y_2}, \mathbf{e}_{z_2})$ is a Cartesian coordinate system associated to face $\mathcal{S}_2$. In the following, all vectors are expressed in the coordinate system $\mathbf{x}=(x'_1,y'_1,z'_1)_{(\mathbf{e}_{x_1}, \mathbf{e}_{y_1}, \mathbf{e}_{z_1})}$, unless explicitly mentioned otherwise. In this system, the incident wave vector is given by :
+where $\mathbf{A}_{\alpha}$ is the amplitude vector of the incident wave and $\mathbf{k}_{\alpha}^{inc}$ is the incident wave vector. The type of the incident wave is denoted $\alpha$ ($\alpha=$L for a longitudinal wave, TH for transverse horizontal and TV for transverse vertical). $(O; \mathbf{e}_{x_1}, \mathbf{e}_{y_1}, \mathbf{e}_{z_1})$ is a Cartesian coordinate system associated to face $\mathcal{S}_1$ and $(O; \mathbf{e}_{x_2}, \mathbf{e}_{y_2}, \mathbf{e}_{z_2})$ is a Cartesian coordinate system associated to face $\mathcal{S}_2$. In all the following, vectors are expressed in the coordinate system $\mathbf{x}=(x'_1,y'_1,z'_1)_{(\mathbf{e}_{x_1}, \mathbf{e}_{y_1}, \mathbf{e}_{z_1})}$, unless explicitly mentioned otherwise. In this system, the incident wave vector is given by :
 \begin{equation}
 \mathbf{k}_{\alpha}^{inc}=\frac{\omega}{c_{\alpha}} \begin{pmatrix}
 \cos\theta_{inc} \cos \delta_{inc} \\ \sin\theta_{inc} \cos \delta_{inc} \\
@@ -41,7 +41,7 @@ where $\mathbf{A}_{\alpha}$ is the amplitude vector of the incident wave and $\m
 \end{equation}
 As always, $c_L$ is the velocity of longitudinal waves and $c_T$ is the velocity of transverse waves.
 
-The amplitude vector can be directed by three different and two-by-two orthogonal vectors, depending on the incident wave's polarization. These unit polarization vectors are noted $\hat{i}_*$, where $*=L, TH, TV$ and are given by Achenbach \cite{Achenbach} :
+The amplitude vector can be directed by three different two-by-two orthogonal vectors, depending on the incident wave's polarization. These unit polarization vectors are noted $\hat{i}_*$, where $*=L, TH, TV$ and are given by Achenbach \cite{Achenbach} :
 \begin{equation}
 \hat{i}_L = \begin{pmatrix}
 \cos\theta_{inc} \cos \delta_{inc} \\ \sin\theta_{inc} \cos \delta_{inc} \\
@@ -107,9 +107,9 @@ where $\delta_{\beta}$ is the angle of Snell's cone of diffraction (determined b
 \nu_{\alpha}\sin\delta_{inc}=-\nu_{\beta}\sin\delta_{\beta}
 \label{C4:Snelldiff}
 \end{equation}
-To simplify notations, the following parameter $\tau$ is defined by :
+where $\beta$ denotes the type of the diffracted wave. To simplify notations, the following parameter $\tau$ is defined by :
 \begin{equation}
-\tau=\nu_{\alpha}\sin\delta_{\alpha}
+\tau=\nu_{\alpha}\sin\delta_{inc}
 \label{deftau}
 \end{equation}
 Note that we therefore always have $\tau \in \lbrack -\nu_{\alpha}, \nu_{\alpha} \rbrack$. $u_0$'s $z$-dependency is entirely contained in the factor $e^{i\tau z}$ which will be implied but omitted in all the following.
@@ -143,7 +143,7 @@ Bv=\begin{pmatrix}
 \end{pmatrix}
 \label{C4:Badim}
 \end{equation}
-where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator and $\lambda,\mu$ are the dimensionless Lamé parameters, defined by \eqref{LameAdim}. The dimensionless incident field is
+where $E$ and $B$ are respectively the dimensionless linear elasticity operator and normal stress operator and $\lambda,\mu$ are the dimensionless Lamé parameters, defined by \eqref{LameAdim}. The dimensionless incident field is given by
 \begin{multline}
 \rm v_L^{inc}(r,\theta)=\begin{pmatrix}
 \cos \theta_{inc}\cos\delta_{inc} \\
@@ -167,7 +167,7 @@ where $E$ and $B$ are respectively the dimensionless linear elasticity operator 
  The first equation of system \eqref{C4:Padim} is the dimensionless version of the linear elasticity equation and the second equation is the dimensionless version of the stress-free boundary conditions.
 
 \section{Integral formulation of the solution}
-As for the previous cases, the first step in solving problem $(\mathcal{P}^{\alpha})$ is to formulate the solution as an integral. 
+As in the previous chapters, the first step in solving problem $(\mathcal{P}^{\alpha})$ is to formulate the solution as an integral. 
 \subsection{Limiting absorption principle}
 The limiting absorption principle is applied to $(\mathcal{P}^{\alpha})$. This means that it is considered as a special case $(\varepsilon=0)$ of the problem
 \begin{eqnarray}
@@ -196,7 +196,7 @@ v_j^{\varepsilon}=-(E+e^{-2i\varepsilon})^{-1} \begin{bmatrix}
 \end{bmatrix}
 \label{C4:vjdef}
 \end{equation}
-Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and are belong to the special class $\mathcal{A}$ defined in chapter 2 of this thesis, Def.~\ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
+Distributions $\alpha_j,\beta_j, \gamma_j $ are unknown and belong to the special class $\mathcal{A}$ defined in chapter 2 of this thesis, Def.~\ref{defClassA}. We can now define the outgoing solution of $(\mathcal{P}^{\alpha})$ analogously to the 2D case :
 \begin{definition}
 	 v is called an outgoing solution of equation \eqref{C4:Padim} if v is a solution of the form
 	\begin{equation}
@@ -262,7 +262,7 @@ v_j^{\varepsilon}(x_j,y_j)=\frac{1}{4\pi^2}\int_{\mathbb{R}^2} e^{i x_j\xi}\left
  \label{C4:invdouble}
 \end{equation}
 
-The poles of $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ (which are the poles of the integrand of the inner integral on $\eta$ in \eqref{C4:invdouble}) are located in $\eta=\pm \zeta_*^{\varepsilon}(\xi)$, where $*=L,T$ and
+The poles of $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ (which are the poles of the integrand of the inner integral on $\eta$ in \eqref{C4:invdouble}) are located at $\eta=\pm \zeta_*^{\varepsilon}(\xi)$, where $*=L,T$ and
 \begin{equation}
 \zeta_*^{\epsilon}(\xi)=\sqrt{e^{-2i\varepsilon}\nu^2_*-(\xi^2+\tau^2)}
 \end{equation}
@@ -293,10 +293,8 @@ As we will see, in the case described by \eqref{noncr}, the computations made in
 \begin{equation}
 \zeta_*^{\varepsilon}(\xi)=\sqrt{\tilde{\nu}_*^{\varepsilon^2}-\xi^2}
 \label{C4:defzeta}
-\end{equation}
-%La racine carrée complexe étant définie au signe près, $\sqrt{z}$ peut prendre deux valeurs distinctes pour $z$ fixé. C'est ce qu'on appelle les branches de coupure de la fonction. Les points de branchement sont les valeurs pour lesquelles ces branches se croisent (ici il s'agit de $\xi=\pm \tilde{\nu}_*^{\epsilon}$). Afin de bien définir $\zeta_*^{\epsilon}(\xi)$, on choisit la branche dont la partie imaginaire est positive. 
-
-The inner integral of \eqref{C4:invdouble} is computed using Cauchy's residue theorem :
+\end{equation} \\
+\hspace*{2em} The inner integral of \eqref{C4:invdouble} is computed using Cauchy's residue theorem :
 \begin{equation}
 v_j^{\varepsilon}(x_j,y_j)=\frac{i}{4\pi}e^{2i\varepsilon}\int_{\mathbb{R}} e^{ix_j\xi}\sum_{*=L,T}e^{i|y_j|\zeta_*^{\varepsilon}(\xi)}\mathbf{M_*^{\varepsilon}}(\xi,\mbox{sgn }y_j)\Sigma_j(\xi)\,d\xi
 \label{C4:vjeps}
@@ -322,7 +320,7 @@ t\xi & \zeta_L^{\varepsilon} & t\tau \\
 \label{C4:M*eps}
 \end{subequations}
 
-These matrices can be computed in two different manners, providing a way to test this result. The first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$, where matrix $\mathbf{M}$ is given by \eqref{C4:matM}, at poles $\pm \zeta^{\varepsilon}_*(\xi), *=L,T$ when applying the Cauchy theorem to compute the inner integral of \eqref{C4:invdouble} to obtain \eqref{C4:vjeps}. The second option for computing these matrices starts by computing the eigen vectors and eigen values of $\mathbf{M}$. The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
+These matrices can be computed in two different manners, providing a way to test this result. The first way to compute these matrices is by direct computation of the residues of matrix $(\mathbf{M}-e^{-2i\varepsilon}\mathbf{\mathbb{I}_3})^{-1}$ when applying the Cauchy theorem to compute the inner integral of \eqref{C4:invdouble} to obtain \eqref{C4:vjeps}, where matrix $\mathbf{M}$ is given by \eqref{C4:matM}, at poles $\pm \zeta^{\varepsilon}_*(\xi), *=L,T$. The second option for computing these matrices starts by computing the eigen vectors and eigen values of $\mathbf{M}$. The three eigen vectors of $\mathbf{M}$ and the corresponding eigen values are :
 \begin{subequations}
 \begin{equation}
     \mathbf{M}\begin{pmatrix}
@@ -414,7 +412,7 @@ i \sqrt{\xi^2-\nuti_*^{\epsilon 2}} & \rm if & |\xi|\geq |\nuti_*^{\epsilon}|
 \right.
 \label{C4:zetabranchcut}
 \end{equation}
-For all values of $\varepsilon \in \rbrack 0, \pi \lbrack $, the integration contour never crosses the branch points of $\zeta_*^{\varepsilon}$, which are located at $\pm \tilde{\nu}_*^{\varepsilon}$ ($\nuti_*^{\varepsilon}$ is given by \eqref{defnutieps}), outside of the real axis.
+For values of $\varepsilon \in \rbrack 0, \pi \lbrack $, the integration contour never crosses the branch points of $\zeta_*^{\varepsilon}$, which are located at $\pm \tilde{\nu}_*^{\varepsilon}$ ($\nuti_*^{\varepsilon}$ is given by \eqref{defnutieps}), outside of the real axis.
 
 According to Croisille et Lebeau \cite{CroisilleLebeau}, convergence in the 2D case is verified for $\varepsilon \rightarrow 0$. We will suppose that this is still the case in 3D. The integration contour $\mathbb{R}$ is deformed into contour $\Gamma_{0}$, visible on Fig.~\ref{C4:Gamma0_noncr} in the case where $\nuti_L^0\in\mathbb{R}$, described in \eqref{noncr} and on Fig.~\ref{C4:Gamma0_cr} in the other case, described in \eqref{crit}. Physically, if we define a critical angle for diffraction $\delta_c$ by $\sin\delta_c=\frac{\nu_L}{\nu_T}$, then the case described in \eqref{noncr} corresponds to the case where the incident skew angle (the angle between the incident wave vector and the plane normal to the wedge edge) is lower than the critical angle. On the contrary, the case described by \eqref{crit} corresponds to the case where the incident skew angle is higher than this critical angle and, according to Snell's law of diffraction \eqref{C4:Snelldiff}, there is no diffracted longitudinal wave. In both cases, the branch points of the integrand are avoided.
 
@@ -524,7 +522,7 @@ $x=(x'_1,y'_1,z'_1)=(r\cos\theta\cos\delta_{\beta},r\sin\theta\cos\delta_{\beta}
         \label{C4:Kellercone}
 \end{figure}
 
-According to \eqref{C4:adiming},the scattered field at point $P$ is :
+According to \eqref{C4:adiming}, the scattered field at point $P$ is :
 \begin{equation}
 u_0(x'_1,y'_1,z'_1)=v(\frac{\omega}{c_L}r\cos\theta\cos\delta_{\beta},\frac{\omega}{c_L}r\sin\theta\cos\delta_{\beta})e^{-ik_{\beta}\sin\delta_{\beta}z'_1}
 \end{equation}
@@ -574,7 +572,7 @@ Variable change \eqref{C4:changevar2} then yields :
 \end{split}
 \label{changevar2L}
 \end{equation}
-The integration contour on $\xi$, $\Gamma_0$ follows the real axis, except near the branch point $\pm \nu_*$. The new contour integration contour $C_0^L$ on $\lambda$ (determined by variable change \eqref{changevar2L}), thus verifies :
+The integration contour on $\xi$, $\Gamma_0$, follows the real axis, except near the branch point $\pm \nu_*$. The new contour integration contour $C_0^L$ on $\lambda$ (determined by variable change \eqref{changevar2L}), thus verifies :
 \begin{equation}
 \rm Im(\xi)=0 \iff \cos\lambda_1=0 \iff \lambda_1=\pm \frac{\pi}{2}
 \label{pisur2}
@@ -583,7 +581,7 @@ When $\xi$ travels along $\Gamma_0$, going from $-\infty$ to $+\infty$, then, ac
 \begin{equation}
 \xi \to -\infty \iff \sin\lambda_1\sinh\lambda_2+i\cos\lambda_1\cosh\lambda_2 = -\sinh\lambda_2 \rightarrow -\infty \iff \lambda_2 \rightarrow +\infty
 \end{equation}
- The final step to determining contour $C_0^L$ is therefore to determine the sign of $\lambda_1$. Suppose that $\lambda_1=-\frac{\pi}{2}$, then applying variable change \eqref{C4:changevar2} in integral formulation \eqref{C4:vjeps} produces an evanescent term :
+The final step to determining contour $C_0^L$ is therefore to determine the sign of $\lambda_1$. Suppose that $\lambda_1=-\frac{\pi}{2}$, then applying variable change \eqref{C4:changevar2} in integral formulation \eqref{C4:vjeps} produces an evanescent term :
 \begin{equation}
 \begin{split}
 v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}\mathbf{ P_L}(\lambda,t)\Sigma_1(i\eta_L\cos\lambda) \, d\lambda\\
@@ -591,11 +589,10 @@ v_1(r,\theta,\delta_{\beta})&=-\frac{i}{4\pi} \int_{C_0^L}\eta_L^2 e^{-\eta_L R\
 \end{split}
 \label{C4:v1C0evan}
 \end{equation}
-where contour $C_0^L$ is visible on Fig.~\ref{C4:steepestcontour}. The exponential term in the first integral of \eqref{C4:v1C0evan} is $e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}$. In order to determine the behaviour of this term when $R\rightarrow +\infty$, the sign of the other terms in the exponential must be determined. Kowing $\eta_L>0$ and $\cos\delta>0$, it remains to determine the sign of $\cos(\lambda+\bar{\theta})$. For $\lambda \in C_0^L$, we have :
+where contour $C_0^L$ is visible on Fig.~\ref{C4:steepestcontour}. The exponential term in the first integral of \eqref{C4:v1C0evan} is $e^{-\eta_L R\cos\delta\cos(\lambda+\bar{\theta})}$. In order to determine the behavior of this term when $R\rightarrow +\infty$, the sign of the other terms in the exponential must be determined. Knowing $\eta_L>0$ and $\cos\delta>0$, it remains to determine the sign of $\cos(\lambda+\bar{\theta})$. For $\lambda \in C_0^L$, we have :
 \begin{equation}
 \lambda=-\dfrac{\pi}{2}+i\lambda_2
 \end{equation}
-%where the notation $\dfrac{\pi}{2}^+$ refers to a real number which tends to $\frac{\pi}{2}$ with superior values and $\lambda_2=\rm Im(\lambda)$. 
 This yields
 \begin{equation}
 \cos(\lambda+\bar{\theta})=\cos(\bar{\theta}-\dfrac{\pi}{2})\cosh\lambda_2-i\sin(\bar{\theta}-\dfrac{\pi}{2})\sinh\lambda_2
@@ -700,7 +697,7 @@ In the case where $\nuti_L=i\eta_L \in i\mathbb{R}$, the far-field evaluation is
 \begin{equation}
 v_1=v_1^{sing}+v_1^{diff}+v_1^{evan}
 \end{equation}
-where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ corresponding to the reflected waves (for the poles of $v_1$) and head waves (for the branch points $\lambda_c$ of the spectral functions, which are determined in the same manner as for the case $\noncr$ detailed above), $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the integral on $C_0^L$, which decays exponentially as the far-field parameter $R$ grows, making it an evanescent longitudinal wave. Only the contribution of the transversal diffracted waves will be computed here. Contribution $v_1^{diff}$ is computed using \eqref{steepformula} :
+where $v_1^{sing}$ is the contribution of all the singularities of the spectral functions crossed during the deformation from $C_0$ to $\gamma_{\theta}$ corresponding to the reflected waves (for the poles of $v_1$) and head waves (for the branch points $\lambda_c$ of the spectral functions, which are determined in the same manner as for the case $\noncr$ detailed above, except that now  \eqref{C4:eqbranch1} does not have a real solution for *=T), $v_1^{diff}$ is the contribution of the stationary phase point to the integral on $C_0$, corresponding to the diffracted wave, and $v_1^{evan}$ is the contribution of the integral on $C_0^L$, which decays exponentially as the far-field parameter $R$ grows, making it an evanescent longitudinal wave. Only the contribution of the transversal diffracted waves will be computed here. Contribution $v_1^{diff}$ is computed using \eqref{steepformula} :
 %. The contribution of evanescent waves is 
 %\begin{equation}
 %v^{evan}_1(R\cos\theta,R\sin\theta)= \sqrt{\frac{2\pi}{R\eta_L\cos\delta_{\beta}}} e^{-R\eta_L\cos\delta}\mathbf{P_L}(-\theta)\Sigma_1(i\eta_L\cos\theta)
@@ -792,7 +789,7 @@ B_2(v)=
 \end{pmatrix}
 \label{C4:B2v2expl}
 \end{equation}
-Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained in a similar manner, by reversing the roles of $v_1$ and $v_2$.
+Operator $B_1$ is obtained by projecting $B(v_1)$ onto $\mathcal{S}_1$. This is immediate because $v_1$ is defined on $\mathcal{S}_1$ and its components $(v_1^1,v_1^2,v_1^3)$ are expressed in the associated Cartesian coordinate system $(x_1,y_1,z_1)$. Operator $B_2$ is obtained by projecting $B(v_2)$ onto $\mathcal{S}_1$. This is done by projecting its components $(v_2^1,v_2^2,v_2^3)$ onto $\mathcal{S}_1$ and by expressing $(x_1,y_1,z_1)$ as functions of $(x_2,y_2,z_2)$, as $v_2$ is only defined on $\mathcal{S}_2$. This is done using \eqref{C4:changerep}. The second equation of system \eqref{C4:b1v1+b2v2} is obtained in a similar manner, where the roles of $v_1$ and $v_2$ are reversed.
 
 The functional equations system solved by the spectral functions is obtained by substituting the integral formulation \eqref{C4:vj0} of $v_1$ and $v_2$ into \eqref{C4:b1v1+b2v2}, evaluating the first equation at $x_1\geq 0, y_1=0$ and the second at $x_2\geq 0, y_2=0$ and applying the Fourier transform, defined by \eqref{defFouriersimple} to the result. This yields :
 \begin{equation}
@@ -832,10 +829,10 @@ where
 \label{C4:defTM}
 \end{equation}
 \begin{equation}
-D_*(\xi,\zeta)=\frac{1}{\xi-(\zeta \cos \varphi + \zeta_*(\zeta) |\sin \varphi|)},
+D_*(\xi,\zeta)=\frac{1}{\xi-(\zeta \cos \varphi + \zeta_*(\zeta) |\sin \varphi|)}
 \label{C4:defDstar}
 \end{equation}
-$\epsilon=$sgn sin $\varphi$, and the following matrices of rank 1 are defined :
+We note $\epsilon=$sgn sin $\varphi$, and the following matrices of rank 1 are defined :
 \begin{equation}
 \left\{
 \begin{matrix}
@@ -945,7 +942,7 @@ Thanks to these functional equations, the spectral functions can be decomposed i
 
 \subsection{Singular part}
 \label{C4:singpart}
-The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done using a recursive procedure, using the following translation function which appears in \eqref{C4:defDstar} (for $*=L,T$) :
+The first step in evaluating the spectral functions is to determine their poles and corresponding residues. As in the previous chapters, this is done by a recursive procedure, using the following translation function which appears in \eqref{C4:defDstar} (for $*=L,T$) :
 \begin{equation}
 T_*(\xi=\nuti_*\cos\theta)=\xi \cos \varphi+\zeta_*(\xi)\sin \phiti=\tilde{\nu}_*\cos(\theta+\tilde{\varphi})
 \end{equation}
