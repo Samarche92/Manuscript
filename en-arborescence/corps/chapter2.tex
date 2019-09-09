@@ -694,7 +694,12 @@ where $Z_1,Z_2$ are the initial poles, given in \eqref{functional_eq} with unkno
 \label{Chapter5:pole_propag_DM_1}
 DM(\hat{\alpha}_j)(\xi) = \dfrac{dm(Z_j) \cdot V_j}{\xi - Z_j} + D_p(\xi,Z_j)\cdot V_j + DM( X_j')(\xi).
 \end{equation}
-By choosing $V_j =  dm^{-1}(Z_j).W_j$, the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. A new version of the system can be written on a single line with new unknown functions $X'_j, \, j=1,2$ :
+Substituting \eqref{Chapter5:pole_propag_DM_1} in \eqref{functional_eq} yields, for $j=1,2$ :
+\begin{equation}
+D_p(\xi,Z_j).V_j+DM(X_j')(\xi)+TM(\hat{\alpha}_{3-j})(\xi)=\dfrac{W_j-dm(Z_j).V_j}{\xi-Z_j}
+\label{C2:residue_propag}
+\end{equation}
+In the above equation, the term $D_p(\xi,Z_j)$ is regular and $Z_j$ is not a pole of $DM(X_j')$ or $TM(\hat{\alpha}_{3-j})$ (in decomposition \eqref{Chapter5:ini_pol_propag} it is assumed that all the information regarding the initial pole is contained in the term $\frac{V_j}{\xi-Z_j}$). Therefore, the right-hand side of \eqref{C2:residue_propag} can not admit $Z_j$ as a pole. This implies that $V_j =  dm^{-1}(Z_j).W_j$, so that the right hand side of the system \eqref{functional_eq} is suppressed by the first term in the right hand side of \eqref{Chapter5:pole_propag_DM_1}. A new version of the system can be written on a single line with new unknown functions $X'_j, \, j=1,2$ :
 \begin{equation}
 DM  (X_j' )(\xi)+ TM (X_{3-j}' )(\xi) = - TM  \left(  \dfrac{V_{3-j}}{\xi - Z_{3-j}} \right) (\xi)  - D_p(V_j,Z_j)(\xi) \qquad j=1,2
 \end{equation}
