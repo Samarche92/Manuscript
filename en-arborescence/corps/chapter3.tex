@@ -916,26 +916,16 @@ where $V_j^{(0)}$ is unknown and $Z_1^{(0)}=\nu_{\alpha} \cos \theta_{inc}$  and
 \begin{equation}
 \left\{
 \begin{matrix}
-\textbf{DM}(X'_1)+\textbf{TM}(X'_2)+\textbf{TM}(\frac{V_2^{(0)}}{\xi-Z_2^{(0)}})=\frac{W^1}{\xi-Z_1^{(1)}}-\frac{\textbf{dm}(Z_1^{(0)}).V_1^{(0)}}{\xi-Z_1^{(0)}}-D_p(Z_1^{(0)},\xi).V_1^{(1)}\\
-\textbf{TM}(X'_1)+\textbf{DM}(X'_2)+\textbf{TM}(\frac{V_1^{(0)}}{\xi-Z_1^{(0)}})=\frac{W^2}{\xi-Z_2^{(0)}}-\frac{\textbf{dm}(Z_2^{(0)}).V_2^{(0)}}{\xi-Z_2^{(0)}}-D_p(Z_2^{(0)},\xi).V_2^{(0)}
+\textbf{DM}(X'_1)+\textbf{TM}(X'_2)+\textbf{TM}(\frac{V_2^{(0)}}{\xi-Z_2^{(0)}})=\frac{W_1^{\alpha}}{\xi-Z_1^{(1)}}-\frac{\textbf{dm}(Z_1^{(0)}).V_1^{(0)}}{\xi-Z_1^{(0)}}-D_p(Z_1^{(0)},\xi).V_1^{(1)}\\
+\textbf{TM}(X'_1)+\textbf{DM}(X'_2)+\textbf{TM}(\frac{V_1^{(0)}}{\xi-Z_1^{(0)}})=\frac{W_2^{\alpha}}{\xi-Z_2^{(0)}}-\frac{\textbf{dm}(Z_2^{(0)}).V_2^{(0)}}{\xi-Z_2^{(0)}}-D_p(Z_2^{(0)},\xi).V_2^{(0)}
 \end{matrix}
 \right.
 \end{equation}
-In order to only have regular terms on the right-hand side of this system, we chose:
+In the above equations, the terms $D_p(Z_j^{(0)},\xi)$ are regular and $Z_j^{(0)}$ is not a pole of $DM(X'_j)$ or $TM(\Sigma_{3-j})$ (in decomposition \eqref{firstep} it is assumed that all the information regarding the initial pole is contained in the term $\frac{V_j}{\xi-Z_j^{(0)}}$). Therefore, the right-hand side of this system does not admit $Z_j^{(0)}$ as a pole. This implies that the singular terms in the right-hand side of the system must compensate each other, yielding :
 \begin{equation}
-V_j^{(0)}=\textbf{dm}^{-1}(Z_j^{(0)}).W^j
+V_j^{(0)}=\textbf{dm}^{-1}(Z_j^{(0)}).W_j^{\alpha}
 \end{equation}
 We have $\mbox{det}(\textbf{dm}(z) )\neq 0$ as long as $z\neq \nu_R$. In the following, we will suppose that this is the case. Physically, this means that the incident wave is not a Rayleigh wave and neither are any of the waves reflected by the wedge faces. Furthermore, we suppose that the hypothesis $z \notin \{ \nu_L, \nu_T\}$ that has been made in \eqref{GaussDM} and \eqref{GaussTM} remains true for all the poles. This means that neither the incident, nor any of the reflected waves is an incoming grazing one. Kamotski \cite{KamotskiCrit} proves existence and uniqueness of the solution in the case where this is not true.
-%We now have :
-%\begin{equation}
-%\left\{
-%\begin{matrix}
-%\textbf{DM}(X'_1)+\textbf{TM}(X'_2)+\textbf{TM}(\frac{V_2^{(0)}}{\xi-Z_2^{(0)}})=-D_p(Z_1^{(0)},\xi).V_1^{(1)}\\
-%\textbf{TM}(X'_1)+\textbf{DM}(X'_2)+\textbf{TM}(\frac{V_1^{(0)}}{\xi-Z_1^{(0)}})=-D_p(Z_2^{(0)},\xi).V_2^{(0)}
-%\end{matrix}
-%\right.
-%\label{mille}
-%\end{equation}
 
 Applying \eqref{GaussTM}, two new poles appear :
 \begin{equation}
@@ -945,9 +935,7 @@ This leads to the definition of $X''_j$:
 \begin{equation}
 X'_j=X''_j+\frac{V_{j,L}^{(1)}}{\xi-Z_{j,L}^{(1)}}+\frac{V_{j,T}^{(1)}}{\xi-Z_{j,T}^{(1)}},
 \end{equation}
-where $V_{j,L}^{(1)}$ and $V_{j,T}^{(1)}$ are unknown vectors. Once again, we substitute this into the system and apply (\ref{GaussDM}). 
-% Once again, we substitute this into (\ref{mille}) and apply (\ref{GaussDM}). 
-Residues $V_{j,*}^{(1)}$ are chosen so as to only have regular terms on the left-hand side of the system:
+where $V_{j,L}^{(1)}$ and $V_{j,T}^{(1)}$ are unknown vectors. Once again, we substitute this into the system and apply (\ref{GaussDM}). Residues $V_{j,*}^{(1)}$ are determined by the fact that they should compensate the other singular terms on the right-hand side of the system:
 \begin{equation}
 V_{j,*}^{(1)}=-\textbf{dm}^{-1}(T_*(Z_{3-j}^{(0)})).\textbf{tm}_*(Z_{3-j}^{(0)}).V_{3-j}^{(0)}\mathbf{1}_{\Omega_*}(Z_{3-j}^{(0)})
 \end{equation}
