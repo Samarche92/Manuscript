@@ -94,7 +94,14 @@ u_p(\mathbf{x})=\int_{S^+}\lbrack u_i(\mathbf{x'})\rbrack G_{ij}^{(p)}(\mathbf{x
 \end{equation}
 where $u_p$ is the $p$-th coordinate of the displacement scattered field, $S^+$ is the lit side of the scattering surface, $n$ is the outward normal to $S^+$ and $G_{ij}^{(p)}(\mathbf{x},\mathbf{x'})$ is the $(ij)$ component of Green's stress tensor $G^{(p)}(\mathbf{x},\mathbf{x'})$, which is the stress produced at $\mathbf{x}$ by a unit traction acting along the $p$-axis at point $\mathbf{x'}$ on $S^+$ and its expression is given in \cite{POChapman}. In this integral, Green's tensor is used to propagate the local solution $\lbrack \mathbf{u}(\mathbf{x'}) \rbrack$ to the whole propagation domain.
 
-The \acrshort{ka} scattered field models diffraction and reflection and is continuous in the whole space. Comparisons between \acrshort{ka}, \acrshort{gtd} and the exact solution have been made for a strip-like crack illuminated by a transversal wave \cite{POChapman,systmodel}. \acrshort{ka} gives good results for observation directions close to the geometrical reflections, as can be expected since the model is based on the \acrshort{ge} field. However, further away from these regions, it is inaccurate, as opposed to the \acrshort{gtd} which models diffraction correctly.
+The \acrshort{ka} scattered field models diffraction and reflection and is continuous in the whole space. Comparisons between \acrshort{ka}, \acrshort{gtd} and the exact solution have been made for a strip-like crack illuminated by a transversal wave \cite{POChapman,systmodel}. The results of \cite{POChapman} are reproduced in Fig.~\ref{KAGTD}. \acrshort{ka} gives good results for observation directions close to the geometrical reflections, as can be expected since the model is based on the \acrshort{ge} field. However, further away from these regions, it is inaccurate, as opposed to the \acrshort{gtd} which models diffraction correctly.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{images/chapter1/KAGTDcrack.png}
+        \caption{(Reproduced from \cite{POChapman}) Scattering of a transversal (also called shear) plane wave in steel by a smooth strip-like crack of width $2a$. The far-field of the backscattered TV (noted SV here) waves according to Kirchhoff theory and \acrshort{gtd}, compared with the exact solution, for $Ka=15$ ($K=k_T=$ transverse wavenumber).}
+        \label{KAGTD}
+\end{figure}
 
 The \acrshort{gtd} solution, which models diffraction well, is non-uniform in the sense that it diverges at shadow boundaries. The \acrshort{ka} on the other hand, is uniform but doesn't model diffraction correctly. Furthermore, it requires meshing of the scattering surface. To overcome inaccuracies of the \acrshort{gtd} and \acrshort{ka} models, an other model has been developed, called the \acrfull{ptd}.
 
